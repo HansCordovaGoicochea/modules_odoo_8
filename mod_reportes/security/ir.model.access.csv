@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mod_reportes_purchase_reports,mod_reportes.purchase_reports,model_purchase_reports,,1,0,0,0
+access_mod_reportes_products_stock_reports,mod_reportes.products_stock_reports,model_products_stock_reports,,1,0,0,0
+access_mod_reportes_products_mmvendidos_reports,mod_reportes.products_mmvendidos_reports,model_products_mmvendidos_reports,,1,0,0,0

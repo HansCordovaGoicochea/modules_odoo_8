@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+          <record id="view_valorizacion_tareo_vcon" model="ir.ui.view" >
+            <field name="name">tareo.vcon.view</field>
+            <field name="model">m.valorizacion.tareo.wizard</field>
+            <field name="arch" type="xml">
+                 <form string="Vehiculo Contrato">
+                     <newline/>
+                     <newline/>
+                     <newline/>
+                      <sheet>
+                         <group colspan="1">
+                             <group>
+                                     <field name="contrato"/>
+                                     <!--<field name="fecha_tareo" widget="mask" placeholder="dd/mm/yyyy" mask="dd/mm/yyyy"/>-->
+                                     <field name="fecha_tareo" placeholder="dd/mm/yyyy"/>
+                            </group>
+                            <group>
+
+                                    <div class="oe_left oe_button_box" name="import_buttons">
+                                        <button class="oe_inline oe_stat_button" name="%(action_view_vehiculos_lines)d" string="Agregar Vehiculos" type="action" widget="statinfo" icon="fa-pencil-square-o"/>
+                                    </div>
+                                   <field name="fijo" invisible="1"/>
+                                   <field name="variable" invisible="1"/>
+                                   <field name="adicional" invisible="1"/>
+                                   <field name="unificado_varios_clientes" invisible="1"/>
+                             </group>
+                         </group>
+                         <group col="2">
+                             <notebook>
+                                 <page string="Costo Fijo" attrs ="{'invisible':[('fijo','=', False)]}">
+                                   <field name="contrato_ids">
+                                        <tree string="Fijo" editable="false" create="false">
+                                            <field name="unificado_varios_clientes" invisible="1"/>
+                                            <field name="cliente" string="Cliente" attrs ="{'invisible':[('unificado_varios_clientes','=', False)], 'required':[('unificado_varios_clientes', '=', True)]}"/>
+                                            <field name="vehiculo_id" string="Vehículo"/>
+                                            <field name="ruta_id" string="Ruta"/>
+                                            <field name="valor" string="valor"/>
+                                            <field name="descripcion" string="Nota"/>
+                                            <field name="descripcion_detalle_tareo"/>
+                                        </tree>
+                                   </field>
+                                 </page>
+                                 <page string="Costo Variable" attrs ="{'invisible':[('variable','=', False)]}">
+                                   <field name="contrato_ids_var">
+                                        <tree string="Variable" editable="false" create="false">
+                                          <field name="unificado_varios_clientes" invisible="1"/>
+                                            <field name="cliente" string="Cliente" attrs ="{'invisible':[('unificado_varios_clientes','=', False)], 'required':[('unificado_varios_clientes', '=', True)]}"/>
+                                            <field name="vehiculo_id" string="Vehículo"/>
+                                            <field name="ruta_id" string="Ruta"/>
+                                            <field name="valor" string="valor"/>
+                                            <field name="descripcion" string="Nota"/>
+                                            <field name="descripcion_detalle_tareo"/>
+                                        </tree>
+                                   </field>
+                                 </page>
+                                 <page string="Costo Adicional"  attrs ="{'invisible':[('adicional','=', False)]}">
+                                   <field name="contrato_ids_adi">
+                                        <tree string="Adicional" editable="false" create="false">
+                                            <field name="unificado_varios_clientes" invisible="1"/>
+                                             <field name="cliente" string="Cliente" attrs ="{'invisible':[('unificado_varios_clientes','=', False)], 'required':[('unificado_varios_clientes', '=', True)]}"/>
+                                            <field name="vehiculo_id" string="Vehículo"/>
+                                            <field name="ruta_id" string="Ruta"/>
+                                            <field name="valor" string="valor"/>
+                                            <field name="descripcion" string="Nota"/>
+                                            <field name="descripcion_detalle_tareo"/>
+                                        </tree>
+                                   </field>
+                                 </page>
+                             </notebook>
+                         </group>
+                          <footer>
+                            <button class="oe_highlight" name="generate_file_data1" type="object" default_focus="1" string="Guardar"/>
+                          <!--<button class="oe_highlight" name="generate_file_data1" type="object" default_focus="1" string="Guardar" attrs ="{'invisible':['|','|',('fijo','=', False),('variable','=', False),('adicional','=', False)]}"/>-->
+                            <!--or-->
+                            <!--<button string="Cancel" class="oe_link" special="cancel" />-->
+                         <!--<button class="oe_highlight pull-right" name="room_reservation" type="object" default_focus="1" string="Historial Tareos" context="{'contrato': contrato, 'fecha': fecha_tareo}"/>-->
+                        </footer>
+                     </sheet>
+                          <group string="Tareo de Vehiculos">
+                            <!--<newline/>-->
+                            <!--<separator  colspan="4" />-->
+                            <!--<newline/>-->
+                            <notebook>
+                                <page string="Costos Fijos" attrs ="{'invisible':[('fijo','=', False)]}">
+                                    <field name="summary_header" colspan="4" invisible="1" />
+                                    <field name="room_summary" colspan="4" invisible="1" />
+                                    <widget type="Room_Reservation"></widget>
+                                </page>
+                                <page string="Costos Variables" attrs ="{'invisible':[('variable','=', False)]}">
+                                    <field name="summary_header_var" colspan="4" invisible="1" />
+                                    <field name="room_summary_var" colspan="4" invisible="1" />
+                                    <widget type="Room_Reservation_var"></widget>
+                                </page>
+                                <page string="Costos Adicionales" attrs ="{'invisible':[('adicional','=', False)]}">
+                                    <field name="summary_header_adi" colspan="4" invisible="1" />
+                                    <field name="room_summary_adi" colspan="4" invisible="1" />
+                                    <widget type="Room_Reservation_adi"></widget>
+                                </page>
+                            </notebook>
+                          </group>
+
+
+                 </form>
+            </field>
+        </record>
+
+
+          <record id='valorizacion_tareo_vcon_act' model='ir.actions.act_window'>
+                <field name="name">Tareo Vehiculos Contrato</field>
+                <field name="res_model">m.valorizacion.tareo.wizard</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">form</field>
+                <field name="target">inline</field>
+                <field name="view_id" ref="view_valorizacion_tareo_vcon"/>
+            </record>
+
+
+
+           <menuitem action="valorizacion_tareo_vcon_act" id="menu_valorizacion_tareo_vcon" parent="valorizacion_mensual_left_menu" sequence="100"/>
+
+
+         <record id="view_vehiculos_lines" model="ir.ui.view">
+            <field name="name">Vehiculos line</field>
+            <field name="model">m.valorizacion.many2many.vd</field>
+            <field name="arch" type="xml">
+                <form string="Import Entries">
+                    <separator string="Vehículos"/>
+                    <field height="300" width="700" name="vehiculo_ids" domain="[('activo', '=', False)]"/>
+                    <footer>
+                        <button string="Ok" name="pasar_datos" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_vehiculos_lines" model="ir.actions.act_window">
+            <field name="name">Import Vehiculos</field>
+            <field name="res_model">m.valorizacion.many2many.vd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_vehiculos_lines"/>
+            <field name="target">new</field>
+            <field name="context">{'vehiculo_id': active_id}</field>
+        </record>
+
+    </data>
+</openerp>

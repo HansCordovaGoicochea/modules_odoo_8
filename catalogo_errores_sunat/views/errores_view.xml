@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>	
+
+    <!-- Codigo de Tipo de documento -->	
+	    <record id="view_catalogo_errores_tree" model="ir.ui.view">
+            <field name="name">Codigo de Tipo de errores</field>
+            <field name="model">catalogo.errores.sunat</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Tipo de errores">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>        
+	    <record id="view_catalogo_errores_form" model="ir.ui.view">
+            <field name="name">Codigo de Tipo de errores</field>
+            <field name="model">catalogo.errores.sunat</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Tipo de errores">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>                    
+                </form>	
+            </field>
+	    </record>        
+	    <record model="ir.actions.act_window" id="catalogo_errores_action">
+		    <field name="name">Codigo de Tipo de errores Sunat</field>
+		    <field name="res_model">catalogo.errores.sunat</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- Menu -->
+
+    <menuitem name="Errores Sunat" id="errores_configuration_menu" parent="account.menu_finance_configuration" sequence="23"/>
+    <menuitem name="Catalogo Errores Sunat" id="errores_sunat_menu" parent="errores_configuration_menu" action="catalogo_errores_action" sequence="1"/>
+
+	</data>
+</openerp>

@@ -1,0 +1,74 @@
+.pos .product .qty-tag {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+	font-weight: bold;
+}
+.pos .product .qty-defualt_code {
+    position: absolute;
+    top: 25px;
+    left: 2px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+	font-weight: bold;
+}
+.pos .product .qty-tag.not-available {
+    background: #d8010d;
+}
+
+.pos .order .orderline .qty-info{
+	color: #777;
+	font-weight: bold;
+	font-style: normal;
+}
+.pos .order .orderline .qty-info.not-available{
+	color:red;
+}
+
+
+.pos .product .product-name {
+
+    bottom:20px !important;
+
+}
+
+.pos .product .loc_rack_yo {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+    bottom:0;
+    top:auto;
+    line-height: 14px;
+    width:100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: -webkit-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    background:    -moz-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    background:     -ms-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    /* troublesome in latest webkit
+    background:         linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    */
+    /*background:#FFF;*/
+    padding: 3px;
+    padding-top:15px;
+}
+
+
+.pos .product .nuevo_yo {
+    margin-left: 30px;
+    color: #888;
+    font-size: 12px;
+}
+

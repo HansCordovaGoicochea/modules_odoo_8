@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><CreditNote xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ext:UBLExtensions>
+<ext:UBLExtension>
+  <ext:ExtensionContent>
+    <sac:AdditionalInformation>
+      <sac:AdditionalMonetaryTotal>
+        <cbc:ID>1001</cbc:ID>
+        <cbc:PayableAmount currencyID="PEN">359.22</cbc:PayableAmount>
+      </sac:AdditionalMonetaryTotal>
+    </sac:AdditionalInformation>
+  </ext:ExtensionContent>
+</ext:UBLExtension>
+<ext:UBLExtension><ext:ExtensionContent><ds:Signature Id="SignSUNAT" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>zihR2uqFJ4HpGQ1Yfmcfweua1RY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>jea/3m/+oGlq4YGVfPRTS90ZsMfqLLIL9SWgv3KKgv2tabzHV/wgyiQbQg4X4bfwdPu+jXGSAmMx
+0S2q7FRoMYPWFhtN6fOVO1G7B70nn2jK5n8M2iA6eepQCMnQAMSCtMa591KIRgNcvUtNe7YYGKRu
+QhW4+HuCCsLEB5CZHDvZYOczl/ZqKNPcS601HQMFdyEz17LyHU0tLfdLolGZzU+05aDVtTcyQNaK
+y9plni8cGg/beI0QbT4qNfqVJoRVHHwzpXxlRdZrRaOYQf26/uQTaEG47oGjGj9X7IPF8rk7F+j2
+EOmZMQisVsFPhqHAcMjErqx/6n9OuEDcFFs8RA==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIFyTCCBLGgAwIBAgIKOL02SgAAAABA7jANBgkqhkiG9w0BAQUFADCBjjELMAkG
+A1UEBhMCQ0gxEDAOBgNVBAoTB1dJU2VLZXkxIjAgBgNVBAsTGUNvcHlyaWdodCAy
+MDExIFdJU2VLZXkgU0ExFjAUBgNVBAsTDUludGVybmF0aW9uYWwxMTAvBgNVBAMT
+KFdJU2VLZXkgQ2VydGlmeUlEIEFkdmFuY2VkIFNlcnZpY2VzIENBIDIwHhcNMTYx
+MjI4MjEwMTM4WhcNMTcxMjI4MjEwMTM4WjCCAQkxCzAJBgNVBAYTAlBFMRIwEAYD
+VQQHEwlDQUpBTUFSQ0ExOzA5BgNVBAoTMlRVUklTTU8gWSBTRVJWSUNJT1MgR0VO
+RVJBTEVTIFNBTiBGUkFOQ0lTQ08gUy5SLkwuMS8wLQYDVQQLDCZWYWxpZGF0ZWQg
+YnkgWnlUcnVzdCBTb2NpZWRhZCBBbsOzbmltYTEUMBIGA1UECxMLMjA0OTU5MzI3
+OTcxETAPBgNVBAsTCDQwMTg1NjY4MSAwHgYDVQQDExdZSU1ZIE9NQVIgQ1VFVkEg
+UEVSQUxUQTEtMCsGCSqGSIb3DQEJARYec2FuZnJhbmNpc2NvdHJhbnNwb3J0QHlh
+aG9vLmVzMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtmN89/PhGywB
+4VQ//PdW04TTydQV+CRCd+gZPqlyWA+MSNH5LVcUrwkRVPDmaZFwH/lWUXqtOKM3
+oUw8im2lEzo5GYGWx3qcUx4qNEXIvHN+/NrHhogPQ9rT+gr6HLK3eCsIHyvKdlNB
+OWMZboMhE5QysQvXmvo46/ma0+vZX35Va9EDJwjo0W2A8y9u8Yerq37S06HiqEWp
+i1RNJL/gj7UWCE02UW0MJg7FV+5r2MifbanRbnuMpyJQxKPMHz2gOG/cb8WItFPY
+xGBcZvLapSYgmqiIv9gstqlk4RRNlTx5X4gPg9cQ4NpF8MyFBuWjlD/HjUZJ5rNu
+agHy80DeVwIDAQABo4IBqTCCAaUwHQYDVR0OBBYEFDsgpzlR/uFB7yED3QdUDlCC
+D8ljMA4GA1UdDwEB/wQEAwIEsDAfBgNVHSMEGDAWgBTXLy/zCfFWIVMd50wuSERK
+2ob9mDA8BgNVHR8ENTAzMDGgL6AthitodHRwOi8vcHVibGljLndpc2VrZXkuY29t
+L2NybC93Y2lkYXNjYTIuY3JsMG0GCCsGAQUFBwEBBGEwXzA3BggrBgEFBQcwAoYr
+aHR0cDovL3B1YmxpYy53aXNla2V5LmNvbS9jcnQvd2NpZGFzY2EyLmNydDAkBggr
+BgEFBQcwAYYYaHR0cDovL29jc3Aud2lzZWtleS5jb20vMCkGA1UdJQQiMCAGCCsG
+AQUFBwMCBgorBgEEAYI3CgMMBggrBgEFBQcDBDA1BgkrBgEEAYI3FQoEKDAmMAoG
+CCsGAQUFBwMCMAwGCisGAQQBgjcKAwwwCgYIKwYBBQUHAwQwRAYJKoZIhvcNAQkP
+BDcwNTAOBggqhkiG9w0DAgICAIAwDgYIKoZIhvcNAwQCAgCAMAcGBSsOAwIHMAoG
+CCqGSIb3DQMHMA0GCSqGSIb3DQEBBQUAA4IBAQCCDzefQCiEu6jG+r4zxbESCBvW
+EbPUFNi4//tUbS+nEO7UaJF4oG9Ljh1bn531NqHxa9VyaF5EptIWXv8xp69jOYSg
+/dp1CNdKuCoh6gEHcjRTXHA2tJzJk1ktnhYKQtaRmL/CYlp/3Gx256X3sWX90k6Q
+vxDEkstP7BVvGYqRNNcQkmke7nwY59Q+ON9CPcB7HNMJq7fUbXRB6EMmss34MPUV
++ieicub90y0eFTmO8sAs9XJwY4PloJJ8bjQJtfQMyFkW87AMk4GsP7O2o+DRUnpV
+unhpsx9eEf/iBSYDm+FVNXKNfsbrii5GjJlQpoxm0d5A1U96RRXx79fTmkRt
+</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></ext:ExtensionContent></ext:UBLExtension></ext:UBLExtensions>
+<cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+<cbc:CustomizationID>1.0</cbc:CustomizationID>
+<cbc:ID>F001-00000095</cbc:ID>
+<cbc:IssueDate>2017-10-18</cbc:IssueDate>
+<cbc:DocumentCurrencyCode>PEN</cbc:DocumentCurrencyCode>
+<cac:DiscrepancyResponse>
+  <cbc:ReferenceID>F001-00000126</cbc:ReferenceID>
+  <cbc:ResponseCode>01</cbc:ResponseCode>
+  <cbc:Description>ffffffffffffffffffff</cbc:Description>
+</cac:DiscrepancyResponse>
+<cac:BillingReference>
+  <cac:InvoiceDocumentReference>
+    <cbc:ID>F001-00000126</cbc:ID>
+    <cbc:DocumentTypeCode>01</cbc:DocumentTypeCode>
+  </cac:InvoiceDocumentReference>
+</cac:BillingReference>
+<cac:Signature>
+  <cbc:ID>SignSUNAT</cbc:ID>
+  <cac:SignatoryParty>
+    <cac:PartyIdentification>
+      <cbc:ID>20495932797</cbc:ID>
+    </cac:PartyIdentification>
+    <cac:PartyName>
+      <cbc:Name>TURISMO Y SERVICIOS GENERALES SAN FRANCISCO S.R.L.</cbc:Name>
+    </cac:PartyName>
+  </cac:SignatoryParty>
+  <cac:DigitalSignatureAttachment>
+    <cac:ExternalReference>
+      <cbc:URI>#SignSUNAT</cbc:URI>
+    </cac:ExternalReference>
+  </cac:DigitalSignatureAttachment>
+</cac:Signature>
+<cac:AccountingSupplierParty>
+  <cbc:CustomerAssignedAccountID>20495932797</cbc:CustomerAssignedAccountID>
+  <cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+  <cac:Party>
+    <cac:PartyName>
+      <cbc:Name>TURISMO Y SERVICIOS GENERALES SAN FRANCISCO S.R.L.</cbc:Name>
+    </cac:PartyName>
+    <cac:PostalAddress>
+      <cbc:ID>060101</cbc:ID>
+      <cbc:StreetName>Mza A Lote 10 CAS. San Francisco de Asis</cbc:StreetName>
+      <cbc:CitySubdivisionName>Mza A Lote 10 CAS. San Francisco de Asis</cbc:CitySubdivisionName>
+      <cbc:CityName>CAJAMARCA</cbc:CityName>
+      <cbc:CountrySubentity>CAJAMARCA</cbc:CountrySubentity>
+      <cbc:District>CAJAMARCA</cbc:District>
+      <cac:Country>
+        <cbc:IdentificationCode>PE</cbc:IdentificationCode>
+      </cac:Country>
+    </cac:PostalAddress>
+    <cac:PartyLegalEntity>
+      <cbc:RegistrationName>TURISMO Y SERVICIOS GENERALES SAN FRANCISCO S.R.L.</cbc:RegistrationName>
+    </cac:PartyLegalEntity>
+  </cac:Party>
+</cac:AccountingSupplierParty>
+<cac:AccountingCustomerParty>
+  <cbc:CustomerAssignedAccountID>20311243285</cbc:CustomerAssignedAccountID>
+  <cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+  <cac:Party>
+    <cac:PartyLegalEntity>
+      <cbc:RegistrationName>EMPRESA DE TRANSPORTES DE SERVICIOS MULTIPLES 3M S.A.</cbc:RegistrationName>
+    </cac:PartyLegalEntity>
+  </cac:Party>
+</cac:AccountingCustomerParty>
+<cac:TaxTotal>
+  <cbc:TaxAmount currencyID="PEN">64.66</cbc:TaxAmount>
+  <cac:TaxSubtotal>
+    <cbc:TaxAmount currencyID="PEN">64.66</cbc:TaxAmount>
+    <cac:TaxCategory>
+      <cac:TaxScheme>
+        <cbc:ID>1000</cbc:ID>
+        <cbc:Name>IGV</cbc:Name>
+      </cac:TaxScheme>
+    </cac:TaxCategory>
+  </cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:LegalMonetaryTotal>
+  <cbc:PayableAmount currencyID="PEN">423.88</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
+<cac:CreditNoteLine>
+  <cbc:ID>1</cbc:ID>
+  <cbc:CreditedQuantity unitCode="NIU">1</cbc:CreditedQuantity>
+  <cbc:LineExtensionAmount currencyID="PEN">359.22</cbc:LineExtensionAmount>
+  <cac:PricingReference>
+    <cac:AlternativeConditionPrice>
+      <cbc:PriceAmount currencyID="PEN">359.22</cbc:PriceAmount>
+      <cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+    </cac:AlternativeConditionPrice>
+  </cac:PricingReference>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="PEN">64.66</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxAmount currencyID="PEN">64.66</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+        <cac:TaxScheme>
+          <cbc:ID>1000</cbc:ID>
+          <cbc:Name>IGV</cbc:Name>
+          <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>
+  <cac:Item>
+    <cbc:Description>001</cbc:Description>
+    <cac:SellersItemIdentification>
+      <cbc:ID>Servicio</cbc:ID>
+    </cac:SellersItemIdentification>
+  </cac:Item>
+  <cac:Price>
+    <cbc:PriceAmount currencyID="PEN">359.22</cbc:PriceAmount>
+  </cac:Price>
+</cac:CreditNoteLine>
+</CreditNote>

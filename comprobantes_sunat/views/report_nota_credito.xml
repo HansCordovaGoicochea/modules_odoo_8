@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<template id="report_nota_credito_document">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                 <div class="page">
+                     <style>
+                            .table-curved {
+                                border-collapse: separate;
+                                border: 1px solid #000;
+                            }
+                            .table-curved {
+                                border-radius: 35px !important;
+                                border: 1px solid #000;
+                            }
+                            .table-curved td, .table-curved th {
+                                border: 1px solid #000;
+                            }
+                     </style>
+                    <div class="container" style="border: 1px solid #ddd;padding: 30px">
+                    <div class="row">
+
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <img t-if="res_company.logo_web" t-a-src="'data:image/png;base64,%s' % res_company.logo_web" style="max-height: 45px;"/><br/>
+                                <h3>
+                                    <span t-field="res_company.name"/>
+                                   <br></br>
+                                </h3>
+                                <h4>
+                                    <span t-field="res_company.partner_id.street"/>
+                                    <br></br>
+                                    <span t-field="res_company.city"/><span> - </span><span t-field="res_company.state_id"/><span> - </span><span t-field="res_company.state_id"/>
+                                    <br></br>
+                                    <!--<span> Telefax: </span><span t-field="o.company_id.fax"/>-->
+                                    <!--<br></br>-->
+                                    <span> Celulares: </span><span t-field="res_company.phone"/>
+                                    <br></br>
+                                    <span> Email: </span><span t-field="res_company.email"/>
+                                </h4>
+                            </div>
+                            <div class="col-xs-5 text-center">
+                                <div class="panel panel-default" style="border: 3px solid #ddd; ">
+                                    <!--<div class="panel-heading">-->
+                                    <div class="panel-body">
+                                       <h3 ><a href="#">RUC:  <span t-field="res_company.x_ruc"/></a></h3>
+                                        <h3><a href="#">NOTA DE CREDITO ELECTRONICA</a></h3>
+                                        <h4>N° <span t-field="o.numeracion"/></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="border-bottom: 0px solid #ddd; margin-right: -5px; margin-left: -5px;">
+                            <!--<span style="padding: 5px;">Documento que modifica:</span>-->
+                        </div>
+                        <br/>
+                        <div class="row mt32 mb32">
+                            <div class="col-xs-3" t-if="o.referencia.partner_id.name">
+                                <strong>SEÑOR(ES): </strong>
+                            </div>
+                            <div class="col-xs-9" t-if="o.referencia.partner_id.name">
+                                <strong t-field="o.referencia.partner_id.name"/>
+                            </div>
+                            <div class="col-xs-3" t-if="o.referencia.partner_id.doc_number">
+                                <strong>RUC:</strong>
+                            </div>
+                            <div class="col-xs-9" t-if="o.referencia.partner_id.doc_number">
+                                <strong t-field="o.referencia.partner_id.doc_number"/>
+                            </div>
+                            <div class="col-xs-3" t-if="o.referencia.partner_id.street">
+                                <strong>DIRECCION:</strong>
+                            </div>
+                            <div class="col-xs-9" t-if="o.referencia.partner_id.street">
+                                <strong t-field="o.referencia.partner_id.street"/>
+                            </div>
+                            <div class="col-xs-3" t-if="o.fecha_emision">
+                                <strong>FECHA:</strong>
+                            </div>
+                            <div class="col-xs-9" t-if="o.fecha_emision">
+                                <strong t-field="o.fecha_emision"/>
+                            </div>
+                            <div class="col-xs-3" t-if="o.referencia.currency_id.name">
+                                <strong>Tipo de Moneda:</strong>
+                            </div>
+                            <div class="col-xs-9" t-if="o.referencia.currency_id.name">
+                                <strong t-if="o.referencia.currency_id.name=='PEN'">Soles</strong>
+                                <strong t-if="o.referencia.currency_id.name=='USD'">Dólares Americanos</strong>
+                            </div>
+                        </div>
+                        <table class="table table-condensed">
+                             <thead>
+                                <tr>
+                                    <th style="width:15%;">CANT.</th>
+                                    <th style="width:20%;">UNIDAD MEDIDA.</th>
+                                    <th style="width:35%;">DESCRIPCION</th>
+                                    <th class="text-right" style="width:15%;">PRECIO UNITARIO</th>
+                                    <th class="text-right" style="width:15%;">IMPORTE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="width:15%;">1</td>
+                                <td style="width:20%;">Unidad</td>
+                                <td style="width:25%;"><span t-field="o.descripcion_servicio"/></td>
+                                <td class="text-right" style="width:15%;"><span t-if="o.currency_id.name=='PEN'">S/.</span>
+                <span t-if="o.currency_id.name=='USD'">$</span><span t-field="o.subtotal"/></td>
+                                <td class="text-right" style="width:15%;"><span t-if="o.currency_id.name=='PEN'">S/.</span>
+                <span t-if="o.currency_id.name=='USD'">$</span><span t-field="o.subtotal"/></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td><strong>Son: </strong>
+                                           <span t-if="o.referencia.amount_untaxed_global_discount==0">
+                                                <span t-esc="o.numero_to_letras(o.referencia.amount_total)"/>
+                                                <span t-if="o.currency_id.name=='PEN'"> Soles</span>
+                                                <span t-if="o.currency_id.name=='USD'"> Dólares Americanos</span>
+                                            </span>
+                                           <span t-if="o.referencia.amount_untaxed_global_discount!=0">
+                                                <span t-esc="o.numero_to_letras(o.referencia.monto_condescuento)"/>
+                                                <span t-if="o.currency_id.name=='PEN'"> Soles</span>
+                                                <span t-if="o.currency_id.name=='USD'"> Dólares Americanos</span>
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <br/>
+                                <div class="panel panel-default pull-left">
+                                   <table class="table table-curved">
+                                       <thead>
+                                          <tr>
+                                            <th>DOC. REFERENCIA</th>
+                                            <th>TIPO</th>
+                                            <th>SERIE</th>
+                                            <th>NUMERO</th>
+                                            <th>F. EMISION</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th>DOCUMENTO</th>
+                                            <td><strong><span t-if="int(o.referencia.journal_id.code)==1">Factura</span><span t-if="int(o.referencia.journal_id.code)==3">Boleta</span></strong></td>
+                                            <td><span t-esc="o._get_serie(o.referencia.internal_number)"/></td>
+                                            <td><span t-esc="o._get_numeracion(o.referencia.internal_number)"/></td>
+                                            <td><span t-field="o.referencia.date_invoice"/></td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Tipo</strong></td>
+                                            <td colspan="4"><span t-field="o.tipo.name"/></td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Motivo o Sustento</strong></td>
+                                            <td colspan="4"><span t-field="o.descripcion"/></td>
+                                          </tr>
+                                        </tbody>
+                                   </table>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 pull-right">
+                                <table class="table table-condensed">
+                                    <tr class="border-black">
+                                        <td><strong>Sub Total</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="o.subtotal" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td><strong>Anticipos</strong></td>
+                                        <td class="text-right">
+                                            <span t-if="o.currency_id.name=='PEN'">S/.</span>
+                                            <span t-if="o.currency_id.name=='USD'">$ </span>0,00
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td><strong>I.G.V. (18%)</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="o.impuesto" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td><strong>ISC</strong> </td>
+
+                                        <td class="text-right">
+                                            <span t-if="o.currency_id.name=='PEN'">S/.</span>
+                                            <span t-if="o.currency_id.name=='USD'">$ </span>0,00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Valor Venta</strong></td>
+
+                                        <td class="text-right">
+                                             <span t-field="o.importe_total" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><strong>Otros Cargos</strong> </td>
+                                        <td class="text-right">
+                                                <span t-if="o.currency_id.name=='PEN'">S/.</span>
+                                                <span t-if="o.currency_id.name=='USD'">$ </span>0,00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Otros Tributos</strong> </td>
+                                        <td class="text-right">
+                                            <span t-if="o.currency_id.name=='PEN'">S/.</span>
+                                            <span t-if="o.currency_id.name=='USD'">$ </span>0,00
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Descuentos</strong> </td>
+
+                                        <td class="text-right">
+                                            <span t-field="o.referencia.amount_untaxed_global_discount" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-black">
+                                        <td><strong>IMPORTE TOTAL</strong></td>
+                                        <td class="text-right">
+                                            <span t-if="o.referencia.amount_untaxed_global_discount==0">
+                                                 <span t-field="o.importe_total" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                            </span>
+                                            <span t-if="o.referencia.amount_untaxed_global_discount!=0">
+                                                 <span t-field="o.referencia.monto_condescuento" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2 text-left">
+                                    <img t-if="o.image_bar" t-att-src="'data:image/png;base64,%s' % o.image_bar" />
+                                </div>
+                                <div class="col-xs-9 text-left" style="line-height:25px;">
+                                    <strong><span t-field="o.digest_value"/></strong>
+                                    <br/>
+                                    <span>Representación impresa de la Nota de credito Electrónica</span>
+                                    <br/>
+                                     <span>Autorizado a ser emisor electrónico mediante R.I. SUNAT N° 1620050000065</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-center">
+                                <br></br>
+                                <span>¡GRACIAS POR SU PREFERENCIA!</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+</template>
+<template id="trans_report_nota_credito">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'comprobantes_sunat.report_nota_credito_document')"/>
+        </t>
+    </t>
+</template>
+    </data>
+</openerp>

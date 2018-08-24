@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="account_invoice.report_facturas_diario_ventas_pdf">
+    <t t-call="report.html_container">
+        <!--<t t-foreach="docs" t-as="o">-->
+            <!--<t t-call="report.internal_layout">-->
+                <div class="page">
+                    <div class="row mt32">
+                        <div class="col-xs-3">
+                          <div t-field="res_company.partner_id"
+                        t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                            <span>RUC: <field t-field="res_company.x_ruc"/></span>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <br/><br/>
+                             <strong><t t-esc="data['mes']"></t></strong>
+                        </div>
+                        <div class="col-xs-3 text-right">
+                            <br/><br/>
+                             <p t-raw="datetime.date.today().strftime('%d-%m-%Y')"/>
+                        </div>
+                    </div>
+                     <style type="text/css">
+                        .tg  {border-collapse:collapse;border-spacing:0;}
+                        .tg td{font-family:Arial, sans-serif;font-size:18px;padding:10px 5px;border-style:solid;border-width:2px;overflow:hidden;word-break:normal;}
+                        .tg th{font-family:Arial, sans-serif;font-size:18px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:2px;overflow:hidden;word-break:normal;}
+                        .tg .tg-gznu{font-weight:bold;font-size:xx-small;font-family:Verdana, Geneva, sans-serif !important;;color:#000000;text-align:center}
+                        .tg .tg-gznu2{
+                         font-size:xx-small;font-family:Verdana, Geneva, sans-serif !important;;text-align:center;border:none;
+                         }
+                         table tr [rowspan="2"] {
+                                 vertical-align:middle;
+                            }
+                         table tr [rowspan="3"] {
+                                 vertical-align:middle;
+                            }
+                    </style>
+                    <table class="tg" style="undefined;table-layout: fixed; width: 1800px">
+                        <colgroup>
+                        <col style="width: 52px"/>
+                        <col style="width: 75px"/>
+                        <col style="width: 75px"/>
+                        <col style="width: 31px"/>
+                        <col style="width: 42px"/>
+                        <col style="width: 76px"/>
+                        <col style="width: 35px"/>
+                        <col style="width: 90px"/>
+                        <col style="width: 180px"/>
+                        <col style="width: 69px"/>
+                        <col style="width: 90px"/>
+                        <col style="width: 66px"/>
+                        <col style="width: 56px"/>
+                        <col style="width: 67px"/>
+                        <col style="width: 70px"/>
+                        <col style="width: 80px"/>
+                        <col style="width: 110px"/>
+                        <col style="width: 47px"/>
+                        <col style="width: 80px"/>
+                        <col style="width: 74px"/>
+                        <col style="width: 59px"/>
+                        <col style="width: 75px"/>
+                        <col style="width: 43px"/>
+                        <col style="width: 48px"/>
+                        <col style="width: 32px"/>
+                        <col style="width: 51px"/>
+                        <col style="width: 103px"/>
+                        </colgroup>
+                        <thead>
+                          <tr>
+                            <th class="tg-gznu" rowspan="3">N°<br/> Vou.</th>
+                            <th class="tg-gznu" rowspan="3">F. Emisión</th>
+                            <th class="tg-gznu" rowspan="3">F. Venc.</th>
+                            <th class="tg-gznu" colspan="3">Comprobante de pago</th>
+                            <!--<th class="tg-gznu" rowspan="3">N° <br/>Comprobante<br/>Pago</th>-->
+                            <th class="tg-gznu" colspan="3">Informacion del Cliente</th>
+                            <th class="tg-gznu" rowspan="3">Valor Factura de la Exportación</th>
+                            <th class="tg-gznu" rowspan="3">Base Imp.<br/> de la Ope.<br/>Gravada</th>
+                            <th class="tg-gznu" colspan="2" rowspan="2">Imp. Total de la Operación</th>
+                            <th class="tg-gznu" rowspan="3">I.S.C</th>
+                            <th class="tg-gznu" rowspan="3">I.G.V<br/>y/o<br/>IPM</th>
+                            <th class="tg-gznu" rowspan="3">Otros Tributos<br/>y cargos que no<br/> forman parte de<br/> la base<br/> imponible</th>
+                            <th class="tg-gznu" rowspan="3">Importe Total</th>
+                            <th class="tg-gznu" rowspan="3">T.C.</th>
+                            <th class="tg-gznu" colspan="4">Referencia de Documento</th>
+                          </tr>
+                          <tr>
+                            <td class="tg-gznu" rowspan="2">T/D</td>
+                            <td class="tg-gznu" rowspan="2">Serie</td>
+                            <td class="tg-gznu" rowspan="2">Número</td>
+                            <td class="tg-gznu" colspan="2">Doc. de Identidad</td>
+                            <td class="tg-gznu" rowspan="2">Apellidos y nombre o<br/>Razón Social</td>
+                            <td class="tg-gznu" rowspan="2">Fecha</td>
+                            <td class="tg-gznu" rowspan="2">T/D</td>
+                            <td class="tg-gznu" rowspan="2">Serie</td>
+                            <td class="tg-gznu" rowspan="2">Número <br/>Comprobante <br/>de Pago</td>
+                          </tr>
+                          <tr>
+                            <td class="tg-gznu">Doc.</td>
+                            <td class="tg-gznu">Número</td>
+                            <!--<td class="tg-gznu">Base Imp.</td>-->
+                            <!--<td class="tg-gznu">I.G.V</td>-->
+                            <!--<td class="tg-gznu">Base Imp.</td>-->
+                            <!--<td class="tg-gznu">I.G.V</td>-->
+                            <td class="tg-gznu">Exonerada</td>
+                            <td class="tg-gznu">Inafecta</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--<t t-set="i" t-value="1" />-->
+                            <t t-set="totalgeneral_subtotal" t-value="0"/>
+                            <t t-set="totalgeneral_impuesto" t-value="0"/>
+                            <t t-set="totalgeneral_total" t-value="0"/>
+                            <t t-foreach="data['tiposc']" t-as="tipos">
+                                  <t t-if="int(tipos) in (1,3,7)">
+                             <t t-if="len(get_data_fac(tipos,data['fi'],data['ff'])) > 0">
+                                <tr style="font-weight: bold; border:none;">
+                                    <td colspan="7" style="font-weight: bold; border:none;">
+                                        <!--<t t-esc="'Tipo Doc.: 01 Factura' if int(tipos) == 1 else 'Tipo Doc.: 02 Boleta de Ventas'"/>-->
+                                        <span t-if="int(tipos) == 1">Tipo Doc.: 01 Factura</span>
+                                        <span t-if="int(tipos) == 3">Tipo Doc.: 03 Boleta de Ventas</span>
+                                        <span t-if="int(tipos) == 7">Tipo Doc.: 07 Notas de Credito</span>
+
+                                    </td>
+                                </tr>
+                                      <t t-set="i" t-value="1" />
+                                      <t t-set="subtotal" t-value="0"/>
+                                      <t t-set="impuesto" t-value="0"/>
+                                      <t t-set="total" t-value="0"/>
+
+                                <tr t-foreach="get_data_fac(tipos,data['fi'],data['ff'])" t-as="f">
+                                        <tr t-foreach="currency_rate(f['idcurrency'])" t-as="rate">
+                                            <t t-set="fecha" t-value="f['date_invoice'] if int(f['code']!=7) else f['r_fecha']"/>
+                                            <t t-if="rate['name'] == fecha">
+                                                <t t-if="f['state'] != 'cancel'">
+                                                    <t t-set="subtotal" t-value="subtotal+((f['amount_untaxed'] * rate['tc_venta_rate']))"/>
+                                                    <t t-set="impuesto" t-value="impuesto+((f['amount_tax'] * rate['tc_venta_rate']))"/>
+                                                    <t t-set="total" t-value="total+((f['amount_total'] * rate['tc_venta_rate']))"/>
+                                                </t>
+                                    <td class="tg-gznu2">
+                                        <!--<span t-esc="'02 - '+str(f['id']) if data['tipo'] == 'sale' else '01 - '+str(f['id'])"/>-->
+                                        <span t-esc="'02 - '+str(i) if data['tipo'] == 'sale' else '01 - '+str(i)"/>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </td>
+                                    <!--<td><t t-esc="f['id']"></t></td>-->
+
+                                 <td class="tg-gznu2" ><t t-esc="try_parsing_date(f['date_invoice']) if f['date_invoice'] else ''"/></td>
+                                    <!--<td class="tg-gznu2" ><t t-esc="f['date_invoice']"/></td>-->
+                                    <td class="tg-gznu2"><t t-esc="try_parsing_date(f['date_due']) if f['date_due'] else ''"/></td>
+                                    <td class="tg-gznu2"><t t-esc="str(tipos).zfill(2)"/></td>
+                                    <td class="tg-gznu2"><t t-esc="_get_serie(str(f['internal_number']))"/></td>
+                                    <!--<td class="tg-gznu2"><span/></td>-->
+                                    <td class="tg-gznu2"><t t-esc="_get_numeracion(str(f['internal_number']))"/></td>
+                                    <td class="tg-gznu2">
+                                         <t t-if="f['state'] != 'cancel'"><t t-esc="'6' if f['doc_type'] == 'ruc' else '1'"/></t>
+                                         <t t-if="f['state'] == 'cancel'">0</t>
+                                    </td>
+                                    <td class="tg-gznu2">
+                                         <t t-if="f['state'] != 'cancel'"><t t-esc="f['doc_number']"/></t>
+                                         <t t-if="f['state'] == 'cancel'">00000000000</t>
+                                    </td>
+                                    <td class="tg-gznu2">
+                                        <t t-if="f['state'] != 'cancel'"><t t-esc="f['nombre_proveedor']"/></t>
+                                        <t t-if="f['state'] == 'cancel'">COMPROBANTE ANULADO</t>
+                                    </td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">
+                                        <t t-if="f['state'] != 'cancel'"><t t-esc="'%.2f' % (f['amount_untaxed'] * rate['tc_venta_rate'])"/></t>
+                                        <t t-if="f['state'] == 'cancel'">0.00</t>
+                                    </td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">
+                                        <t t-if="f['state'] != 'cancel'"><t t-esc="'%.2f' % (f['amount_tax'] * rate['tc_venta_rate'])"/></t>
+                                        <t t-if="f['state'] == 'cancel'">0.00</t>
+                                    </td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <!--<td class="tg-gznu2">0.00</td>-->
+                                    <!--<td class="tg-gznu2">0.00</td>-->
+                                    <td class="tg-gznu2">
+                                        <t t-if="f['state'] != 'cancel'"><t t-esc="'%.2f' % (f['amount_total'] * rate['tc_venta_rate'])"/></t>
+                                        <t t-if="f['state'] == 'cancel'">0.00</t>
+                                    </td>
+                                    <!--<td class="tg-gznu2"><span/></td>-->
+                                    <!--<td class="tg-gznu2"><span/></td>-->
+                                    <!--<td class="tg-gznu2"><span/></td>-->
+                                    <td class="tg-gznu2">
+                                        <t t-if="f['state'] != 'cancel'"><t t-esc="rate['tc_venta_rate'] if f['codecambio'] == 'USD' else ''"/></t>
+                                        <t t-if="f['state'] == 'cancel'"><![CDATA[&nbsp;]]></t>
+                                    </td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                            </t>
+                                        </tr>
+                                </tr>
+                                <tr style="font-weight: bold; border-top:1px solid black; border-bottom:1px solid black">
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2">TOTALES:</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % subtotal"/></td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % impuesto"/></td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % total"/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <t t-set="totalgeneral_subtotal" t-value="totalgeneral_subtotal+(subtotal)"/>
+                                    <t t-set="totalgeneral_impuesto" t-value="totalgeneral_impuesto+(impuesto)"/>
+                                    <t t-set="totalgeneral_total" t-value="totalgeneral_total+(total)"/>
+                                </tr>
+                            </t>
+                                </t>
+                            </t>
+                            <tr style="font-weight: bold; border-top:1px solid black; border-bottom:1px solid black">
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2">TOTAL GENERAL:</td>
+                                      <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % totalgeneral_subtotal"/></td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % totalgeneral_impuesto"/></td>
+                                    <td class="tg-gznu2">0.00</td>
+                                    <td class="tg-gznu2"><t t-esc="'%.2f' % totalgeneral_total"/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                    <td class="tg-gznu2"><span/></td>
+                                </tr>
+                            <!--<t t-esc="i" />-->
+
+                        </tbody>
+                    </table>
+                </div>
+
+        <!--<t t-call="account_invoice.external_layout_footer"/>-->
+
+
+            <!--</t>-->
+        <!--</t>-->
+    </t>
+</template>
+
+<template id="external_layout_footer">
+    <div class="footer">
+        <div class="text-center" style="border-top: 1px solid black;">
+            <ul class="list-inline">
+                <li>Page:</li>
+                <li><span class="page"/></li>
+                <li>/</li>
+                <li><span class="topage"/></li>
+            </ul>
+        </div>
+    </div>
+</template>
+</data>
+</openerp>

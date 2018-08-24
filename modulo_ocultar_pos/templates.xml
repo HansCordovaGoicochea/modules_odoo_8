@@ -1,0 +1,507 @@
+<openerp>
+    <data>
+        <!--<record id="group_hide_menu_pos"  model="res.groups">-->
+            <!--<field name="name">Ocultar Varias Menus</field>-->
+            <!--<field name="category_id" ref="base.module_category_hidden"/>-->
+            <!--&lt;!&ndash;<field name="users" eval="[(4, ref('base.user_root'))]"/>&ndash;&gt;-->
+        <!--</record>-->
+
+        <!--&lt;!&ndash;peticion de asignacion &ndash;&gt;-->
+        <!--<record id="stock.menu_quants" model="ir.ui.menu">-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('group_hide_menu_pos')])]"/>-->
+        <!--</record>-->
+
+        <record id="stock_move_form_view_yo_ihn" model="ir.ui.view">
+          <field name="name">stock.move.yo.ihn</field>
+          <field name="model">stock.move</field>
+          <field name="inherit_id" ref="stock.view_move_form"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+                 <button string="Scrap" position="replace">
+                      <button name="290" string="Scrap" type="action" icon="terp-gtk-jump-to-ltr" context="{'scrap': True}" states="draft,waiting,confirmed,assigned" colspan="1" invisible="1"/>
+                 </button>
+
+          </field>
+        </record>
+
+        <record id="stock_move_form_tree_yo_ihn" model="ir.ui.view">
+          <field name="name">stock.move.tree.yo.ihn</field>
+          <field name="model">stock.move</field>
+          <field name="inherit_id" ref="stock.view_move_tree"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+              <field name="picking_id" string="Reference" position="replace">
+                  <field name="picking_id" string="Reference" invisible="1"/>
+              </field>
+              <field name="origin"/>
+               <field name="origin" position="replace">
+                  <field name="origin" invisible="1"/>
+              </field>
+
+          </field>
+        </record>
+
+
+        <record id="crm_lead_form_view_yo_ihn" model="ir.ui.view">
+          <field name="name">crm.lead.view.yo.ihn</field>
+          <field name="model">crm.lead</field>
+          <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+                <page string="Lead" position="replace">
+                    <page string="Cliente y Contacto">
+                        <group>
+                                <group>
+                                    <field name="partner_name"/>
+                                    <label for="street" string="Address"/>
+                                    <div>
+                                        <field name="street" placeholder="Street..."/>
+                                        <field name="street2"/>
+                                        <div class="address_format">
+                                            <field name="city" placeholder="City" style="width: 40%"/>
+                                            <field name="state_id" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" placeholder="State" style="width: 24%"/>
+                                            <field name="zip" placeholder="ZIP" style="width: 34%"/>
+                                        </div>
+                                        <field name="country_id" placeholder="Country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                                    </div>
+                                </group>
+
+                                <group>
+                                    <label for="contact_name"/>
+                                    <div>
+                                        <field name="contact_name" class="oe_inline"/>
+                                        <field name="title" placeholder="Title" domain="[('domain', '=', 'contact')]" options="{&quot;no_open&quot;: True}" class="oe_inline"/>
+                                    </div>
+                                    <field name="function"/>
+                                    <field name="mobile"/>
+                                    <field name="fax"/>
+                                </group>
+                                <group string="Mailings" name="mailings">
+                                    <field name="opt_out"/>
+                                </group>
+                                <group string="Misc">
+                                    <field name="active"/>
+                                    <field name="day_open" groups="base.group_no_one"/>
+                                    <field name="day_close" groups="base.group_no_one"/>
+                                    <field name="referred"/>
+                                    <field name="type" invisible="1"/>
+                                </group>
+                                <group string="References">
+                                    <field name="ref"/>
+                                    <field name="ref2"/>
+                                </group>
+                            </group>
+                    </page>
+                </page>
+
+          </field>
+        </record>
+
+
+       <record id="product_template_form_tree_yo_ihn" model="ir.ui.view">
+          <field name="name">product.template.tree.yo.ihn</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="point_of_sale.product_template_form_view_inherit_ean"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+             <button string="Set a Custom EAN" position="replace">
+                  <button colspan="2" type="action" string="Set a Custom EAN"
+                            attrs="{'invisible': [('product_variant_count', '>', 1)]}" class="oe_link oe_edit_only" invisible="1"/>
+             </button>
+
+          </field>
+        </record>
+
+        <record id="product_normal_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">product.form.inherit.ean.yo.in</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="point_of_sale.product_normal_form_view_inherit_ean"/>
+            <field name="arch" type="xml">
+              <button string="Set a Custom EAN" position="replace">
+                <button colspan="2" type="action" string="Set a Custom EAN" class="oe_link oe_edit_only" invisible="1"/>
+             </button>
+
+            </field>
+        </record>
+
+        <record id="roduct_template_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">roduct.template.inherit.ean.yo.in</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <page string="Inventory" position="replace">
+                    <page string="Inventory" invisible="1">
+                                    <group name="inventory">
+                                         <group name="status" string="Status">
+                                            <field name="state"/>
+                                            <field name="product_manager"/>
+                                        </group>
+                                        <group name="weight" string="Weights" attrs="{'invisible':[('type','=','service')]}">
+                                            <field digits="(14, 3)" name="volume"/>
+                                            <field digits="(14, 3)" name="weight"/>
+                                            <field digits="(14, 3)" name="weight_net"/>
+                                        </group>
+                                    </group>
+                                    <group name="packaging" string="Packaging" attrs="{'invisible':[('type','=','service')]}" groups="product.group_stock_packaging" colspan="4">
+                                        <field name="packaging_ids" string="Configurations" context="{'tree_view_ref':'product.product_packaging_tree_view_product', 'form_view_ref': 'product.product_packaging_form_view_without_product'}"/>
+                                    </group>
+                    </page>
+                </page>
+
+                 <page string="Accounting" groups="account.group_account_invoice" position="attributes">
+                       <attribute name='string'>Categorias</attribute>
+                 </page>
+
+                            <group name="properties" position="replace">
+                                <group name="properties" invisible="1">
+                                    <group>
+                                        <field name="property_account_income" domain="[('type','=','other')]" groups="account.group_account_user"/>
+                                        <field name="taxes_id" colspan="2" widget="many2many_tags"/>
+                                    </group>
+                                    <group>
+                                        <field name="property_account_expense" domain="[('type','=','other')]" groups="account.group_account_user"/>
+                                        <field name="supplier_taxes_id" colspan="2" widget="many2many_tags"/>
+                                    </group>
+                                </group>
+                            </group>
+            </field>
+        </record>
+
+        <record id="roduct_temsdsdsplate_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">rodusdsct.template.inherit.ean.yo.in</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
+            <field name="arch" type="xml">
+
+               <group name="store" string="Storage Location" position="replace">
+                     <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}">
+                     </group>
+                </group>
+
+                  <xpath expr="//page[@string='Information']/group" position="after">
+                    <group colspan="4">
+                        <group name="store" string="Storage Location" attrs="{'invisible':[('type','=','service')]}">
+                            <field name="loc_rack"/>
+                            <field name="loc_row"/>
+                            <field name="loc_case"/>
+                        </group>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="product_category_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">product.category.inherit.ean.yo.in</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="stock.product_category_form_view_inherit"/>
+            <field name="arch" type="xml">
+
+               <field name="removal_strategy_id" position="replace">
+                   <field name="removal_strategy_id" options="{'no_create': True}" invisible="1"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="product_category_account_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">product.account.category.inherit.ean.yo.in</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+
+               <group name="account_property" string="Account Properties" colspan="2" position="replace">
+                    <group name="account_property" string="Account Properties" colspan="2" invisible="1"/>
+               </group>
+
+            </field>
+        </record>
+
+        <!--ocultar las propiedades de cuenta para el stock-->
+        <record id="product_category_stock_account_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">product.stock.account.category.inherit.ean.yo.in</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="stock_account.view_category_property_form"/>
+            <field name="arch" type="xml">
+
+               <group name="account_stock_property" string="Account Stock Properties" colspan="2" position="replace">
+                    <group name="account_stock_property" string="Account Stock Properties" colspan="2" invisible="1"/>
+               </group>
+
+            </field>
+        </record>
+
+        <!--ocultar el tab de preferencias en usuarios-->
+        <record id="res_users_form_view_inherit_ean_yo_in" model="ir.ui.view">
+            <field name="name">res.users.inherit.ean.yo.in</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+
+                    <page string="Preferences" position="replace">
+                        <page string="Preferences" invisible="1">
+                                    <group>
+                                        <group string="Localization" name="preferences">
+                                            <field name="lang"/>
+                                            <field name="tz"/>
+                                        </group>
+                                        <group string="Menus Customization" groups="base.group_no_one">
+                                            <field name="action_id"/>
+                                        </group>
+                                    </group>
+                                    <group string="Messaging and Social" name="messaging">
+                                        <field name="signature"/>
+                                    </group>
+                        </page>
+                    </page>
+            </field>
+        </record>
+
+        <!--ocultar ventas y compras, contabilidad, punto de venta del menu clientes en ventas-->
+       <record model="ir.ui.view" id="view_partner_form_hans1">
+            <field name="name">res.partner.form.hans1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <page string="Sales &amp; Purchases" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </page>
+
+            </field>
+        </record>
+
+       <record model="ir.ui.view" id="view_partner_account_form_hans1">
+            <field name="name">res.partner.account.form.hans1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form" />
+            <field name="arch" type="xml">
+                <page string="Accounting" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </page>
+            </field>
+        </record>
+       <record model="ir.ui.view" id="view_partner_point_of_sale_form_hans1">
+            <field name="name">res.partner.point.of.sale.form.hans1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="point_of_sale.view_partner_property_form" />
+            <field name="arch" type="xml">
+                <page string="Point of Sale" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </page>
+            </field>
+        </record>
+        <!--//ocultar botones-->
+       <record model="ir.ui.view" id="view_product_template_form_hans2">
+            <field name="name">product.template.point.of.sale.form.hans1</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.product_template_form_view_procurement_button" />
+            <field name="arch" type="xml">
+                <button string="Moves" name="action_view_stock_moves" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </button>
+                <button string="Routes" name="action_view_routes" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </button>
+            </field>
+        </record>
+
+       <record model="ir.ui.view" id="view_res_partner_form_hans2">
+            <field name="name">res.partner.point.of.sale.form.hans1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="purchase.res_partner_view_purchase_buttons" />
+            <field name="arch" type="xml">
+               <button class="oe_inline oe_stat_button" name="%(purchase.act_res_partner_2_purchase_order)d" type="action" attrs="{'invisible': [('supplier', '=', False)]}" icon="fa-shopping-cart" position="attributes">
+                   <attribute name='invisible'>1</attribute>
+               </button>
+            </field>
+        </record>
+
+        <!--ocultar campos de pedidos de compra-->
+
+       <record model="ir.ui.view" id="view_purchase_order_form_hans3">
+            <field name="name">purchase.order.point.of.sale.form.hans1</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form" />
+            <field name="arch" type="xml">
+
+                  <field name="picking_type_id" position="attributes">
+                      <attribute name='invisible'>1</attribute>
+                  </field>
+
+                 <button name="wkf_send_rfq" string="Send RFQ by Email" position="attributes">
+                      <attribute name='invisible'>1</attribute>
+                 </button>
+
+                <button name="print_quotation" string="Print RFQ" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </button>
+                <button name="purchase_confirm" string="Confirm Order" id="draft_confirm" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </button>
+
+                <button name="wkf_send_rfq" string="Send PO by Email" position="attributes">
+                      <attribute name='invisible'>1</attribute>
+                </button>
+
+                <button name="view_picking" string="Receive Products" position="attributes">
+                     <attribute name='invisible'>1</attribute>
+                </button>
+
+                 <page string="RFQ &amp; Bid" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </page>
+
+                 <page string="Deliveries &amp; Invoices" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </page>
+            </field>
+        </record>
+
+
+        <!--cambiar nombre de menus-->
+        <menuitem id="base.menu_aftersale" name="Libro de reclamaciones" sequence="2" parent="base.menu_base_partner" />
+
+         <menuitem name="Reclamaciones Virtuales" id="crm_claim.menu_crm_case_claims" parent="base.menu_aftersale" action="crm_claim.crm_case_categ_claim0" sequence="1"/>
+
+        <menuitem name="Compras"
+            id="base.menu_purchase_root"
+            groups="purchase.group_purchase_manager,purchase.group_purchase_user"
+            sequence="60"/>
+
+        <record model="ir.ui.menu" id="purchase.menu_purchase_rfq">
+          <field name="name">Solicitud de compra</field>
+        </record>
+        <record model="ir.ui.menu" id="purchase.menu_purchase_form_action">
+          <field name="name">Compras Totales</field>
+        </record>
+
+        <record model="ir.ui.menu" id="mod_reportes.purchase_reports_yo_menu">
+          <field name="name">Compras por Categoría</field>
+        </record>
+
+        <record model="ir.ui.menu" id="base.next_id_73">
+          <field name="name">Compras</field>
+        </record>
+        <!--<menuitem name="Solicitud de compra" action="purchase.purchase_rfq" id="purchase.menu_purchase_rfq"-->
+            <!--parent="purchase.menu_procurement_management"-->
+            <!--sequence="0"/>-->
+
+         <!--Supplier menu-->
+    <menuitem id="base.menu_procurement_management_supplier_name" name="Proveedores"
+        parent="purchase.menu_procurement_management"
+        action="base.action_partner_supplier_form" sequence="15"/>
+
+        <!--ocultar menus-->
+
+         <record id="group_hide_menu_varios_yo"  model="res.groups">
+            <field name="name">Ocultar Varias Menus</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <!--<field name="users" eval="[(4, ref('base.user_root'))]"/>-->
+        </record>
+
+        <!-- ocultar ventas/inicitativas -->
+        <record id="crm.menu_crm_leads" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!-- ocultar ventas/presupuestos -->
+        <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!-- ocultar ventas/perdidos de ventas -->
+        <record id="sale.menu_sale_order" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <!-- ocultar ventas/herramientas -->
+        <record id="crm.root_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!-- ocultar ventas/duplicar contactos -->
+        <record id="crm.partner_merge_automatic_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <!-- ocultar ventas/config/segmentacion contactos -->
+        <record id="crm.menu_crm_segmentation-act" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!-- ocultar ventas/config/Categorías y atributos -->
+        <record id="product.prod_config_main" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--&lt;!&ndash; ocultar ventas/config/ Leads & Opportunities-->
+        <record id="base.menu_crm_config_lead" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <record id="account.menu_finance" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <record id="purchase.menu_procurement_management_inventory" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <record id="purchase.menu_procurement_management_inventory" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <record id="purchase.menu_procurement_management_invoice" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--ocultar ajuste de inventario-->
+        <record id="stock.menu_action_inventory_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <!--ocultar traceability-->
+        <record id="stock.menu_traceability" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--ocultar Planificadores-->
+        <record id="stock.menu_stock_sched" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--ocultar informes / ./Análisis de iniciativas-->
+        <record id="crm.menu_report_crm_leads_tree" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--ocultar informes / ./Análisis de ventas-->
+        <record id="sale.menu_report_product_all" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <!--ocultar informes /Almacen-->
+        <record id="stock.next_id_61" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+        <!--ocultar informes /contabilidad-->
+        <record id="account.menu_finance_reporting" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu_varios_yo')])]"/>
+        </record>
+
+        <!--crear grupo usuarios y grupos-->
+        <menuitem name="Usuarios y Grupos" id="grupos_usuarios" sequence="0"/>
+          <menuitem name="Usuarios" id="sub_grupos_usuarios" parent="grupos_usuarios" sequence="10"/>
+            <menuitem name="Grupos" action="base.action_res_groups" id="yo_menu_res_groups" parent="sub_grupos_usuarios" groups="base.group_no_one"/>
+            <menuitem name="Usuarios" action="base.action_res_users" id="yop_menu_res_users" parent="sub_grupos_usuarios"/>
+        <!--<menuitem name="Your Sub Menu Name" id="your_sub_menu_id" parent="your_sub_menu_category_id" sequence="5"/>-->
+
+            <record id="field_invisible_from_others_hans_pos" model="res.groups">
+            <field name="name">Only Admin can see H</field>
+            <!--<field name="users" eval="[(4, ref('base.group_no_one'))]"/>-->
+            </record>
+
+        <menuitem name="Configuración" id="menu_configuracion" sequence="600" groups="base.group_no_one"/>
+             <menuitem name="Configuración"
+                    id="base.menu_administration"
+                       parent="menu_configuracion"
+                        sequence="10"/>
+
+    </data>
+</openerp>

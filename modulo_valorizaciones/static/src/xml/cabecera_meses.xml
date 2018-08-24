@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CabeceraMesesQuickAdd">
+        <div class="oe_modulo_valorizaciones_quickadd ui-toolbar" style="margin-bottom:0px;">
+            <div class="oe_form_dropdown_section">
+                <h3>Año <span class="oe_modulo_valorizaciones_select_period"></span></h3>
+
+            </div>
+            <div class="oe_form_dropdown_section">
+                <div >
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox1" value="1"/>Ene.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox2" value="2"/>Feb.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox3" value="3"/>Mar.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox4" value="4"/>Abr.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox5" value="5"/>May.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox6" value="6"/>Jun.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox7" value="7"/>Jul.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox8" value="8"/>Ago.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox9" value="9"/>Sep.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox10" value="10"/>Oct.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox11" value="11"/>Nov.</label>
+                    <label><input type="checkbox" name="oe_modulo_valorizaciones_check" class="oe_modulo_valorizaciones_select_journal"  id="cbox12" value="12"/>Dic.</label>
+                </div>
+            </div>
+        </div>
+    </t>
+
+
+</templates>

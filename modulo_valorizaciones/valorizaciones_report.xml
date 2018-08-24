@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="action_report_linea_credito"
+            model="fleet.vehicle.log.fuel"
+            string="Linea Crédito"
+            report_type="qweb-pdf"
+            name="modulo_valorizaciones.report_linea_credito"
+            attachment_use="False"
+            file="modulo_valorizaciones.report_linea_credito"
+        />
+        <report
+            id="action_report_check_list"
+            model="modulo_valorizaciones.revision_vehiculo"
+            string="Check List"
+            report_type="qweb-pdf"
+            name="modulo_valorizaciones.report_check_list"
+            attachment_use="False"
+            file="modulo_valorizaciones.report_check_list"
+        />
+
+
+        <report
+            id="action_report_proforma"
+            model="modulo_valorizaciones.sam"
+            string="Reporte Proforma"
+            report_type="qweb-pdf"
+            name="modulo_valorizaciones.report_proforma"
+            file="modulo_valorizaciones.report_proforma"
+            attachment_use="False"
+            menu="False"
+        />
+
+     <record id="report_proforma_h_lands" model="report.paperformat">
+            <field name="name">Reporte Proforma Servicios Valorizacion</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">30</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="action_report_proforma" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="modulo_valorizaciones.report_proforma_h_lands"/>
+        </record>
+
+
+    </data>
+</openerp>

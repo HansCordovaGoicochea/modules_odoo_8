@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="email_proforma_valorizacion_h" model="email.template">
+          <field name="name">Email proforma servicios</field>
+          <field name="email_from">${(object.cliente_id.email or 't.sanfrancisco2016@gmail.com')|safe}</field>
+          <field name="subject">Proforma ${object.cliente_id.name|safe}</field>
+          <!--<field name="email_to">${object.partner_id.email|safe}</field>-->
+          <field name="partner_to">${object.cliente_id.id}</field>
+          <field name="lang">${object.cliente_id.lang}</field>
+          <field name="model_id" ref="modulo_valorizaciones.model_modulo_valorizaciones_sam"/>
+          <field name="report_template" ref="modulo_valorizaciones.action_report_proforma"/>
+          <field name="report_name">Proforma ${(object.cliente_id.name|safe or '').replace('-',' ')}</field>
+          <!--<field name="model_id" ref="account.model_account_bank_statement_line"/>-->
+          <field name="auto_delete" eval="True"/>
+	        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Estimado, ${object.cliente_id.name},</p>
+
+
+    <br/>
+    <p>Tiene una nueva Proforma disponible:</p>
+
+    <p>Si tiene cualquier pregunta, no dude en contactarnos.<br>Gracias por elegirnos!</p>
+    <br/>
+    <br/>
+
+</div>
+            ]]></field>
+       </record>
+
+
+    </data>
+</openerp>

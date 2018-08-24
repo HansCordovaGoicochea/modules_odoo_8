@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+       <!--accion para el boton contrato-->
+    <record id="act_res_partner_contrato_request" model="ir.actions.act_window">
+        <field name="name">Contrato</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.cliente.contrato</field>
+        <field name="src_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_partner_id': [active_id], 'default_partner_id': active_id}</field>
+        <!--<field name="domain">[('partner_id', '=', active_id)]</field>-->
+        <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+    </record>
+
+        		<record model="ir.ui.view" id="view_partner_form_yo">
+			<field name="name">res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+					<button string="Contrato" type="action" class="oe_stat_button" name="%(act_res_partner_contrato_request)d" icon="fa-edit" />
+                </xpath>
+			</field>
+		</record>
+        <!--contratos-->
+           <record id="res_partner_contrato_form" model="ir.ui.view">
+              <field name="name">res_partner_contrato.form</field>
+              <field name="model">res.cliente.contrato</field>
+              <field name="arch" type="xml">
+                  <form string="Contrato">
+                          <group>
+                              <group>
+                                  <field name="fecha_inicio" widget="date" attrs="{'required': [('tipo_pago', '!=', 'trabajo')]}"/>
+                                  <field name="monto_pagar"/>
+                              </group>
+                              <group>
+                                 <field name="partner_id"/>
+                                 <field name="tipo_pago"/>
+                                 <field name="fecha_pago" widget="date" attrs="{'invisible': [('tipo_pago','!=', 'trabajo')]}"/>
+                              </group>
+                          </group>
+                  </form>
+              </field>
+          </record>
+
+
+         <record model='ir.ui.view' id='res_partner_contrato_tree'>
+            <field name="name">res_partner_contrato.tree</field>
+            <field name="model">res.cliente.contrato</field>
+            <field name="arch" type="xml">
+                <tree string="Contrato">
+                    <field name="partner_id" string="Empleado"/>
+                    <field name="monto_pagar"/>
+                    <field name="fecha_inicio" />
+                    <field name="tipo_pago"/>
+                </tree>
+            </field>
+        </record>
+
+  <record model='ir.actions.act_window' id='res_contratos_act'>
+            <field name="name">Contratos</field>
+            <field name="res_model">res.cliente.contrato</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro
+              </p>
+              <p>
+                Aqui puedes agregar varios registros
+              </p>
+            </field>
+        </record>
+          <menuitem action="res_contratos_act" parent="account.menu_finance_configuration" id="res_contratos_menu" groups="vrcontadores.field_invisible_from_others"/>
+
+	</data>
+</openerp>

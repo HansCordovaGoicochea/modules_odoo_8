@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_account_statement_from_invoice_lines2" model="ir.ui.view">
+            <field name="name">account.statement.from.invoice.lines.form</field>
+            <field name="model">account.statement.from.invoice.lines2</field>
+            <field name="arch" type="xml">
+                <form string="Importar Facturas">
+                    <separator />
+                    <field height="300" width="700"
+                           name="line_ids"
+                        domain="[('account_id.type','in',['receivable','payable']), ('reconcile_id','=',False), ('state', '=', 'valid'), ('invoice.state','in',['open','paid'])]"
+                        context="{'currency':True}" />
+                    <footer>
+                        <button string="Ok" name="populate_statement2" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_account_statement_from_invoice_lines2" model="ir.actions.act_window">
+            <field name="name">Importar Facturas</field>
+            <field name="res_model">account.statement.from.invoice.lines2</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_statement_from_invoice_lines2"/>
+            <field name="target">new</field>
+            <field name="context">{'line_detail': active_id, 'id_extracto': id_extracto}</field>
+        </record>
+    </data>
+</openerp>

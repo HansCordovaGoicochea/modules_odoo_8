@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+      <record id="purchase_reports_yo" model="ir.ui.view">
+            <field name="name">purchase_reports.tree</field>
+            <field name="model">purchase.reports</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Order" create="false" delete="false">
+                    <field name="name" string="Reference"/>
+                    <field name="date_order" />
+                    <field name="partner_id"/>
+                    <field name="minimum_planned_date"/>
+                    <field name="categ_id"/>
+                    <field name="amount_untaxed" sum="Monto sin impuesto"/>
+                    <field name="amount_total" sum="Monto con impuesto"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record model='ir.ui.view' id='purchase_reports_yo_search'>
+            <field name="name">purchase_reports_yo_se</field>
+            <field name="model">purchase.reports</field>
+            <field name="arch" type="xml">
+                <search string="Cate" >
+                    <field name="categ_id" />
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_categ_id" context="{'group_by' : 'categ_id'}" string="Categoria"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+          <record model="ir.actions.act_window" id="purchase_reports_yo_se_action">
+                <field name="name">Compras por Categoría</field>
+                <field name="res_model">purchase.reports</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_categ_id" : True,}</field>
+            </record>
+          <menuitem name="Compras por Categoría" id="purchase_reports_yo_menu" parent="purchase.menu_procurement_management" action="purchase_reports_yo_se_action" sequence="2"/>
+
+        <record id="products_stock_reports_yo" model="ir.ui.view">
+            <field name="name">products_stock_reports.tree</field>
+            <field name="model">products.stock.reports</field>
+            <field name="arch" type="xml">
+                <tree string="Stock Products" create="false" delete="false" colors="red:stock;">
+                    <field name="name"/>
+                    <field name="categ_id"/>
+                    <field name="tipo"/>
+                    <field name="stock"/>
+                </tree>
+            </field>
+        </record>
+         <record model="ir.actions.act_window" id="products_stock_reports_action">
+                <field name="name">Reporte Stock Minimo</field>
+                <field name="res_model">products.stock.reports</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <!--<field name="domain">[('date','&lt;=',time.strftime('%Y-%m-%d %H:%M:%S'))]</field>-->
+         </record>
+        <menuitem name="Sales"
+            id="base.menu_base_partner"
+            groups="base.group_sale_salesman,base.group_sale_manager"/>
+        <menuitem id="base.menu_reportes_varios" name="Reportes" parent="base.menu_base_partner" sequence="11"/>
+        <menuitem id="products_stock_reports_menu" parent="base.menu_reportes_varios" action="products_stock_reports_action" sequence="1"/>
+
+        <record id="products_mmvendidos_reports_yo" model="ir.ui.view">
+            <field name="name">products_stock_reports.tree</field>
+            <field name="model">products.mmvendidos.reports</field>
+            <field name="arch" type="xml">
+                <tree string="Stock Products" create="false" delete="false">
+                    <field name="product_id" string="Producto"/>
+                    <field name="name_template" invisible="1"/>
+                    <field name="categ_id"/>
+                    <field name="loc_rack"/>
+                    <field name="loc_row"/>
+                    <field name="loc_case"/>
+                    <field name="venta"/>
+                    <field name="compra"/>
+                    <field name="cantidad"/>
+                    <field name="totalvendido"/>
+                    <field name="mes_anio" invisible="1"/>
+                    <field name="fecha" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+           <record model='ir.ui.view' id='purchase_mmvendidos_yo_search'>
+            <field name="name">purchase_mmvendidos_yo_se</field>
+            <field name="model">products.mmvendidos.reports</field>
+            <field name="arch" type="xml">
+                <search string="Cate" >
+                    <field name="categ_id" />
+                    <field name="product_id" />
+                    <field name="mes_anio" string="Periodo" filter_domain="[('mes_anio', '=', self+str('/')+str(time.strftime('%%Y')))]"/>
+                    <field name="fecha" string="Desde" filter_domain="[('fecha','&gt;=',self)]"/>
+                    <field name="fecha" string="Hasta" filter_domain="[('fecha','&lt;=',self)]"/>
+
+                    <filter string="Este Mes" domain="[('fecha','&lt;=', time.strftime('%Y-%m-%d')),('fecha','&gt;=',time.strftime('%Y-%m-01'))]" help="Mes"/>
+
+                    <group expand="1" string="Agrupar Por">
+                        <filter name="groupby_categ_id" context="{'group_by' : 'categ_id'}" string="Categoria"/>
+                        <filter name="groupby_product_id" context="{'group_by' : 'product_id'}" string="Producto"/>
+                       <separator/>
+                        <filter string="Mes" context="{'group_by':'fecha:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+         <record model="ir.actions.act_window" id="products_mmvendidos_reports_action">
+                <!--<field name="name">Reporte de Ventas por Producto</field>-->
+                <field name="res_model">products.mmvendidos.reports</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+         </record>
+        <menuitem name="Reporte de Ventas por Producto" id="products_mmvendidos_reports_menu" parent="base.menu_reportes_varios" action="products_mmvendidos_reports_action" sequence="2"/>
+
+        <record id="pos_order_form_view_yo_ihn" model="ir.ui.view">
+          <field name="name">inherit_pos_order_yo</field>
+          <field name="model">pos.order</field>
+          <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+           <field name="lines" colspan="4" nolabel="1" position="replace" >
+               <field name="lines" colspan="4" nolabel="1" >
+                    <tree string="Order lines" editable="bottom">
+                        <field name="product_id" on_change="onchange_product_id(parent.pricelist_id,product_id,qty,parent.partner_id)"/>
+                        <field name="qty" on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                        <field name="price_unit" on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                        <field name="discount"  on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                        <field name="price_subtotal"/>
+                        <field name="price_subtotal_incl"/>
+                    </tree>
+                    <form string="Order lines">
+                        <group col="4">
+                            <field name="product_id" on_change="onchange_product_id(parent.pricelist_id,product_id,qty,parent.partner_id)"/>
+                            <field name="qty" on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                            <field name="discount"  on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                            <field name="price_unit" on_change="onchange_qty(product_id, discount, qty, price_unit, context)"/>
+                            <field name="price_subtotal" invisible="1"/>
+                            <field name="price_subtotal_incl" invisible="1"/>
+                            <field name="notice"/>
+                        </group>
+                    </form>
+               </field>
+           </field>
+
+               <!--<xpath expr="//page[@string='Accounting']/group" position="replace">-->
+                   <!--<group>-->
+                   <!--</group>-->
+                <!--</xpath>-->
+
+               <!--<xpath expr="//page[@string='Inventory']" position="replace">-->
+                   <!--<page string="Inventory" invisible="1"/>-->
+                <!--</xpath>-->
+
+
+          </field>
+      </record>
+
+        <!--colocar readonly a los que tengan el grupo asignado-->
+        <record id="ids_pos_order_view_form_mgr" model="ir.ui.view">
+            <field name="name">pos.order.form.inheritmgr</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="mod_reportes.pos_order_form_view_yo_ihn" />
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_sale_salesman_all_leads')])]" />
+            <field name="arch" type="xml">
+                <field name="lines" position="attributes">
+                   <attribute name="readonly">1</attribute>
+                </field>
+                <field name="partner_id" position="attributes">
+                   <attribute name="readonly">1</attribute>
+                </field>
+            </field>
+        </record>
+
+
+
+
+        <record model="ir.actions.act_window" id="action_pos_pos_form_yo">
+            <field name="name">Reporte de Ventas POS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new order.
+              </p><p>
+                Use this menu to browse previous orders. To record new
+                orders, you may use the menu <i>Your Session</i> for
+                the touchscreen interface.
+              </p>
+            </field>
+        </record>
+        <menuitem
+            action="action_pos_pos_form_yo"
+            id="menu_pos_products_yo"
+            parent="base.menu_reportes_varios" sequence="2"/>
+
+
+
+    </data>
+</openerp>

@@ -1,0 +1,2421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Definimos las acciones -->
+
+        <!--<record model="ir.actions.act_window" id="unidad_movil_list_action">
+            <field name="name">Unidades Moviles</field>
+            <field name="res_model">modulo_valorizaciones.unidad_movil</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree la primera Unidad Movil</p>
+            </field>
+        </record>-->
+
+        <record model="ir.actions.act_window" id="unidad_list_action">
+            <field name="name">Unidades Moviles</field>
+            <field name="res_model">modulo_valorizaciones.unidad</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree la primera Unidad Movil</p>
+                <p>
+                Usted será capaz de gestionar sus unidades mediante el seguimiento de la
+                contratos, servicios, costos fijos y recurrentes, cuentakilómetros y
+                registros de combustible asociados a cada vehículo.
+                </p><p>
+                El sistema le advertirá cuando los servicios o contrato tienen que estar
+                renovado.
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="ruta_list_action">
+            <field name="name">Rutas</field>
+            <field name="res_model">modulo_valorizaciones.ruta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree la primera Ruta</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="revision_vehiculo_list_action">
+            <field name="name">Check List Vehículos</field>
+            <field name="res_model">modulo_valorizaciones.revision_vehiculo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el primer check list de vehículos</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="revision_tecnicas_list_action">
+            <field name="name">Revisiones</field>
+            <field name="res_model">modulo_valorizaciones.revision_tecnica</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('tipo_revision_tecnica','ilike','')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree la primera Revisión Técnica</p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="conductor_list_action">
+            <field name="name">Conductor</field>
+            <field name="res_model">modulo_valorizaciones.conductor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el Primer conductor</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="lugares_list_action">
+            <field name="name">Lugar</field>
+            <field name="res_model">modulo_valorizaciones.lugar</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el Primer Lugar</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="mantenimientos_list_action">
+            <field name="name">Mantenimientos</field>
+            <field name="res_model">modulo_valorizaciones.mantenimiento</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el Primer Mantenimiento</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="adicionales_list_action">
+            <field name="name">Adicionales</field>
+            <field name="res_model">modulo_valorizaciones.adicionales</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el Primer Adicional</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="tipo_valorizacion_list_action">
+            <field name="name">Tipo Valorizacion</field>
+            <field name="res_model">modulo_valorizaciones.tipo_valorizacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el Primer Tipo de Valorizacion</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="areas_list_action">
+            <field name="name">Areas</field>
+            <field name="res_model">modulo_valorizaciones.area</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear la primera área</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="especifica_list_action">
+            <field name="name">Tramo Específico</field>
+            <field name="res_model">modulo_valorizaciones.pantalla_especifica</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear la primera pantalla específica</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="general_list_action">
+            <field name="name">Tramo General</field>
+            <field name="res_model">modulo_valorizaciones.pantalla_general</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear la primera pantalla general</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="horario_list_action">
+            <field name="name">Horario</field>
+            <field name="res_model">modulo_valorizaciones.horario</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear el primer horario</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="venta_servicio_list_action">
+            <field name="name">Venta Servicio</field>
+            <field name="res_model">modulo_valorizaciones.tipo_valorizacion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree la primera venta de servicio</p>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="tipo_revision_list_action">
+            <field name="name">Tipo Revisión</field>
+            <field name="res_model">modulo_valorizaciones.tipo_revision</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Cree el primer tipo de revisión</p>
+            </field>
+        </record>
+
+        <!--<record id="valorizacion_mensual_list_view" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.vehiculo_contrato_detalle.list</field>
+            <field name="model">modulo_valorizaciones.vehiculo_contrato_detalle</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Product Categories">
+                    <field name="ruta_id"/>
+                    <field name="unidad_id"/>
+                    <field name="descripcion_rutas"/>
+                    <field name="descripcion_rutas" string="TOTAL DIAS"/>
+                    <field name="descripcion_rutas" string="TARIFA Costo Fijo"/>
+                    <field name="descripcion_rutas" string="IMPORTE"/>
+                </tree>
+            </field>
+        </record>-->
+        <record id="valorizacion_mensual_tree_view" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.vehiculo_contrato_detalle.tree</field>
+            <field name="model">modulo_valorizaciones.vehiculo_contrato_detalle</field>
+            <field name="field_parent">contrato_ids</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Product Categories">
+                    <field name="name" invisible="1"/>
+                    <field name="ruta_id"/>
+                    <field name="unidad_id"/>
+                    <field name="descripcion_rutas"/>
+                    <field name="descripcion_rutas" string="TOTAL DIAS"/>
+                    <field name="descripcion_rutas" string="TARIFA Costo Fijo"/>
+                    <field name="descripcion_rutas" string="IMPORTE"/>
+                    <!--<field name="costo_fijo"/>
+                    <field name="costo_variable"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="pantalla_especifica_tree_view" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.pantalla_especifica.tree</field>
+            <field name="model">modulo_valorizaciones.pantalla_especifica</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Tramo Específico">
+                    <field name="unidad"/>
+                    <field name="ruta_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <!--<field name="dia_inicio"/>-->
+                    <!--<field name="dia_fin"/>-->
+                    <!--<field name="vuelta_bajada"/>-->
+                    <!--<field name="vuelta_subida"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="pantalla_general_tree_view" model="ir.ui.view">
+            <field name="name">Tramo General</field>
+            <field name="model">modulo_valorizaciones.pantalla_general</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Tramo General">
+                    <field name="unidad"/>
+                    <field name="ruta_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="costo_fijo" string="Tarifa Base"/>
+                    <field name="tipo_moneda" invisible="1"/>
+
+                    <!--<field name="descripcion"/>
+                    <field name="kilometraje"/>
+                    <field name="horario"/>
+                    <field name="fecha_cambio"/>
+                    <field name="secuencia"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="horario_tree_view" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.horario.tree</field>
+            <field name="model">modulo_valorizaciones.horario</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Horario">
+                    <field name="name"/>
+                    <field name="dias_trabajo" type="char"/>
+                    <field name="dias_descanso" type="char"/>
+                    <field name="dias_total" type="char"/>
+                </tree>
+            </field>
+        </record>
+        <record id="valorizaciones_mensuales_action" model="ir.actions.act_window">
+            <field name="name">Valorizaciones mensuales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">modulo_valorizaciones.vehiculo_contrato_detalle</field>
+            <field name="domain">[('parent_id','=',False)]</field>
+            <field name="view_type">tree</field>
+            <field name="name" ref="valorizacion_mensual_tree_view"/>
+            <field name="help" type="html">
+              <p>
+                Aquí está una lista de todos los contratos de vehículos. Tú
+                puede hacer clic en un contrato para obtener la valorización mensual.
+              </p>
+            </field>
+        </record>
+
+        <!--<record id="tareos_mensuales_action" model="ir.actions.act_window">-->
+            <!--<field name="name">Valorizaciones mensuales</field>-->
+            <!--<field name="res_model">modulo_valorizaciones.tareo_mensual</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--<field name="domain">[('cliente_id','ilike','')]</field>-->
+            <!--<field name="help" type="html">-->
+                <!--&lt;!&ndash;<script type="text/javascript" src="/exportar_pdf_excel/static/src/js/iframe.js"></script>&ndash;&gt;-->
+              <!--<p>-->
+                <!--Aquí está una lista de todos los contratos de vehículos. Tú-->
+                <!--puede hacer clic en un contrato para obtener la valorización mensual.-->
+              <!--</p>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record id="valorizacion_proveedor_action" model="ir.actions.act_window">
+            <field name="name">Valorizaciones proveedores</field>
+            <field name="res_model">modulo_valorizaciones.proveedor</field>
+             <field name="domain">[('proveedor','ilike','')]</field>
+            <field name="view_mode">tree_cabecera_meses_quickadd_proveedor,form</field>
+                 <field name="context">{'search_default_groupby_anio_actual': 1}</field>
+            <field name="help" type="html">
+              <p>
+                Aquí está una lista de todos las valorizaciones a los proveedores. Tú
+                puede hacer clic en un contrato para obtener la valorización del proveedor.
+              </p>
+            </field>
+        </record>
+
+        <record id="sam_action" model="ir.actions.act_window">
+            <field name="name">Servicios Adicionales</field>
+            <field name="res_model">modulo_valorizaciones.sam</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p>
+                Aquí está una lista de todos los servicios realizados. Tú
+                puede hacer clic en un servicios para obtener su información.
+              </p>
+            </field>
+        </record>
+
+        <record id="credito_action" model="ir.actions.act_window">
+            <field name="name">Línea de Crédito Acreedores</field>
+            <field name="res_model">modulo_valorizaciones.linea_credito</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('eliminado','!=',True)]</field>
+            <field name="help" type="html">
+              <p>
+                Aquí está una lista de todos los acreedores con línea de crédito. Tú
+                puede hacer clic en un registro para obtener su información.
+              </p>
+            </field>
+        </record>
+
+        <act_window id="action_linea_credito_delete_confirm"
+            multi="True"
+            key2="client_action_multi" name="Eliminar"
+            res_model="modulo_valorizaciones.linea_credito_confirm" src_model="modulo_valorizaciones.linea_credito"
+            view_mode="form" target="new" view_type="form" />
+
+        <record id="linea_credito_confirm_view" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.linea_credito_confirm.form</field>
+            <field name="model">modulo_valorizaciones.linea_credito_confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm Draft Invoices">
+                    <p class="oe_grey">
+                        Estimado Usuario está tratando de eliminar los registros de la base de datos por lo tanto los galones consumidos sumaran a la línea de crédito del proveedor.
+                    </p>
+                    <footer>
+                        <button string="Confirmar" name="linea_credito_confirm" type="object" default_focus="1" class="oe_highlight"/>
+                        or
+                        <button string="Cancelar" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='fleet_vehicle_log_contract_act'>
+            <field name="name">Vehicles Contracts</field>
+            <field name="res_model">modulo_valorizaciones.contrato_vehiculo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un nuevo contrato.
+              </p><p>
+                Administre todos sus contratos con
+                Sus servicios relacionados, costos. El sistema avisará automáticamente
+                Cuando hay que renovar algunos contratos.
+              </p><p>
+                Cada contrato puede incluir varios servicios
+                (Reparación, seguros, mantenimiento periódico).
+              </p>
+            </field>
+        </record>
+
+        <!--Fín Definimos las acciones -->
+
+        <menuitem name="Transporte" id="fleet.menu_root" sequence="110" groups="fleet.group_fleet_user"/>
+
+        <!-- menu superior o principal: no hereda de otro menu -->
+        <menuitem id="main_valorizacion_menu" name="Transportess"/>
+        <!-- menu superior o principal: no hereda de otro menu-->
+        <menuitem id="main_valorizacion_mensual_menu" name="Valorización Mensual"/>
+        <!-- MENUS LATERAL IZQUIERDO  -->
+        <menuitem id="unidades_moviles_menu" name="Registro Vehículos" parent="main_valorizacion_menu" sequence="1"/>
+        <menuitem id="valorizacion_mensual_left_menu" name="Registro Valorizaciones" parent="fleet.menu_root" sequence="2"/>
+        <menuitem id="conductores_left_menu" name="Conductores" parent="main_valorizacion_menu"/>
+        <menuitem id="valorizaciones_left_menu" name="Valorizaciones" parent="fleet.fleet_configuration" sequence="1"/>
+        <menuitem id="conf_unidades_left_menu" name="Unidades" parent="fleet.fleet_configuration" sequence="2"/>
+        <menuitem id="venta_servicio_left_menu" name="Venta Servicio" parent="main_valorizacion_menu"/>
+
+        <menuitem name="Configuración Vehículo" parent="fleet.menu_root" id="fleet.fleet_configuration" sequence="4" groups="fleet.group_fleet_manager"/>
+
+
+
+        <record id="open_view_feriados_form" model="ir.actions.act_window">
+            <field name="name">Feriados</field>
+            <field name="res_model">modulo_valorizaciones.feriados</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="open_view_feriados_form" id="menu_view_feriados_form"
+            parent="hr.menu_hr_configuration" />
+
+        <!--MENUS LATERAL IZQUIERDO  -->
+        <!-- Definimos otros menu que tiene como menu padre a Valorización-->
+        <!--<menuitem id="lista_unidades_menu" name="Unidades Actuales" parent="unidades_moviles_menu"
+                  action="unidad_movil_list_action"/>-->
+         <!--<menuitem id="lista_unidad_menu" name="Vehículos" parent="unidades_moviles_menu"
+                  action="unidad_list_action" sequence="1"/>-->
+        <menuitem id="lista_revision_vehiculo_menu" name="Check List Vehículos" parent="fleet.fleet_vehicles"
+                  action="revision_vehiculo_list_action" sequence="2"/>
+        <!--menuitem id="lista_revision_mantenimiento" name="Revisión y Mantenimiento" parent="unidades_moviles_menu"/>-->
+       <!-- <menuitem action="fleet_vehicle_log_contract_act" parent="valorizacion_mensual_left_menu" id="fleet_vehicle_log_contract_menu" name="Contrato" sequence="1"/>-->
+
+        <menuitem action="fleet.fleet_vehicle_log_contract_act" parent="valorizacion_mensual_left_menu" id="fleet.fleet_vehicle_log_contract_menu" groups="fleet.group_fleet_user" sequence="1" name="Contratos"/>
+
+        <menuitem action="fleet.fleet_vehicle_costs_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_odometer_menu" groups="fleet.group_fleet_user" name="Kilometraje de los vehículos" sequence="1"/>
+
+        <menuitem action="fleet.fleet_vehicle_service_types_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_service_types_menu" groups="base.group_no_one" name="Tipo de Servicios"/>
+
+         <menuitem action="fleet.fleet_vehicle_odometer_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_costs_menu" groups="fleet.group_fleet_manager" sequence="2" name="Costes del vehículo"/>
+
+        <menuitem action="fleet.fleet_vehicle_model_brand_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_model_brand_menu" groups="base.group_no_one" name="Logo Modelo del vehículo" sequence="4"/>
+
+        <menuitem action="fleet.fleet_vehicle_model_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_model_menu" groups="base.group_no_one" name="Modelo del vehículo" sequence="3"/>
+
+        <menuitem action="fleet.fleet_vehicle_state_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_state_menu" groups="fleet.group_fleet_manager" name="Logo del vehículo" sequence="7"/>
+
+        <!--<menuitem action="fleet.fleet_vehicle_log_services_act" parent="conf_unidades_left_menu" id="fleet.fleet_vehicle_log_services_menu" groups="hide" name="Registro de los Servicios" sequence="7"/>-->
+
+        <!--<menuitem id="lista_tipo_revision_menu" name="Tipo de Revisión" parent="fleet.fleet_configuration" sequence="5"
+                  action="tipo_revision_list_action"/>-->
+        <menuitem id="lista_ruta_menu" name="Rutas" parent="valorizaciones_left_menu" sequence="2"
+                  action="ruta_list_action"/>
+        <menuitem id="lista_revision_menu" name="Revisión y Mantenimiento" parent="fleet.fleet_vehicles" sequence="3"
+                  action="revision_tecnicas_list_action"/>
+        <menuitem id="lista_lugar_menu" name="Lugares" parent="valorizaciones_left_menu" sequence="1"
+                  action="lugares_list_action"/>
+       <!-- <menuitem id="lista_mantenimiento_menu" name="Mantenimientos" parent="lista_revision_mantenimiento" sequence="4"
+                 action="mantenimientos_list_action"/>-->
+        <!--Valorización-->
+        Definimos otros menu que tiene como menu padre a CONDUCTORES
+        <!-- <menuitem id="lista_conductor_menu" name="Lista de Conductores" parent="conductores_left_menu"
+                  action="conductor_list_action"/> -->
+        Definimos otros menu que tiene como menu padre a VALORIZACIONES
+       <!-- <menuitem id="lista_adicionales_menu" name="Adicionales" parent="fleet.fleet_configuration" sequence="5"
+                  action="adicionales_list_action"/> -->
+        <!--<menuitem id="lista_tipo_valorizacion_menu" name="Tipo Valorizacion" parent="fleet.fleet_configuration" sequence="6"
+                  action="tipo_valorizacion_list_action"/>-->
+        <menuitem id="lista_area_menu" name="Areas" parent="valorizaciones_left_menu" sequence="3"
+                  action="areas_list_action"/>
+        <!--<menuitem id="lista_especifica_menu" name="Tramo Específico" parent="valorizaciones_left_menu" sequence="6"-->
+                  <!--action="especifica_list_action"/>-->
+        <menuitem id="lista_general_menu" name="Tramo General" parent="valorizaciones_left_menu" sequence="5"
+                  action="general_list_action"/>
+        <menuitem id="lista_horario_menu" name="Horario" parent="valorizaciones_left_menu" sequence="4"
+                  action="horario_list_action"/>
+         Definimos otros menu que tiene como menu padre a VENTA SERVICIO
+         <!-- <menuitem id="lista_conductor_menu" name="Venta Servicio" parent="fleet.fleet_configuration" sequence="7"
+                  action="venta_servicio_list_action"/> -->
+        Definimos otros menu que tiene como menu padre a VALORIZACIONES MENSUALES
+         <!-- <menuitem id="lista_valorizaciones_mensuales_menu" name="Valorización Mensual" parent="valorizacion_mensual_left_menu"
+                  action="valorizaciones_mensuales_action"/> -->
+        <!--<menuitem id="lista_tareos_mensuales_menu" name="Valorización Cliente" parent="valorizacion_mensual_left_menu"-->
+                  <!--action="tareos_mensuales_action" sequence="2"/>-->
+        <menuitem id="lista_valorizacion_proveedor_menu" name="Valorización Proveedor" parent="valorizacion_mensual_left_menu"
+                  action="valorizacion_proveedor_action" sequence="3"/>
+        <menuitem id="sam_menu" name="Servicios Adicionales" parent="valorizacion_mensual_left_menu"
+                  action="sam_action" sequence="4"/>
+       <!-- <menuitem id="credito_menu" name="Línea de Crédito Acreedores" parent="valorizacion_mensual_left_menu"
+                  action="credito_action" sequence="5"/>-->
+        <!--CONDUCTORES-->
+        <!--LISTAR-->
+         <record model='ir.ui.view' id='fleet_vehicle_tree'>
+            <field name="name">fleet.vehicle.tree</field>
+            <field name="model">modulo_valorizaciones.unidad</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle" colors="orange:contract_renewal_due_soon and not contract_renewal_overdue;red:contract_renewal_overdue">
+                    <field name="license_plate" />
+                    <field name="model_id" />
+                    <field name="driver_id" />
+                    <field name="vin_sn" />
+                    <field name="acquisition_date" />
+                    <field name="alquilado_propio" />
+                    <field name="state_id" invisible="1"/>
+                    <field name="odometer" />
+                    <field name="odometer_unit" />
+                    <field name="contract_renewal_due_soon" invisible="1"/>
+                    <field name="contract_renewal_overdue" invisible="1" />
+                    <field name="contract_renewal_total" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fleet_vehicle_search">
+            <field name="name">fleet.vehicle.search</field>
+            <field name="model">modulo_valorizaciones.unidad</field>
+            <field name="arch" type="xml">
+                <search string="All vehicles" >
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('license_plate','ilike',self)]" string="Vehicle"/>
+                    <field name="driver_id"/>
+                    <!--<field name="tag_ids"/>-->
+                    <field name="location"/>
+                    <field name="state_id" />
+                    <filter name="alert_true" domain="['|',('contract_renewal_due_soon','=',True),('contract_renewal_overdue','=',True)]" string="Has Alert(s)"/>
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_status" context="{'group_by' : 'state_id'}" string="Status"/>
+                        <filter name="groupby_model" context="{'group_by' : 'model_id'}" string="Model"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='fleet_vehicle_kanban'>
+            <field name="name">modulo_valorizaciones.unidad.kanban</field>
+            <field name="model">modulo_valorizaciones.unidad</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="license_plate" />
+                    <field name="model_id" />
+                    <field name="driver_id" />
+                    <field name="location" />
+                    <field name="state_id" />
+
+                    <field name="image" />
+                    <!--<field name="tag_ids" />-->
+                    <field name="contract_renewal_due_soon" />
+                    <field name="contract_renewal_overdue" />
+                    <field name="contract_renewal_name" />
+                    <field name="contract_renewal_total" />
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette oe_semantic_html_override">
+                                <a type="open" href="#" class="oe_kanban_action oe_kanban_action_a">
+                                    <img t-att-src="kanban_image('fleet.vehicle', 'image_small', record.id.value)"/>
+                                </a>
+                                <div class="oe_kanban_details">
+                                    <h4 class="oe_partner_heading">
+                                        <a type="open">
+                                            <field name="license_plate"/><br/>
+                                            <field name="model_id" />
+                                        </a>
+                                    </h4>
+                                    <t t-if="record.contract_renewal_due_soon.raw_value and !record.contract_renewal_overdue.raw_value">
+                                        <a data-type="object" data-name="return_action_to_open" href="#" class="oe_kanban_action oe_kanban_action_a" data-context='{"xml_id":"fleet_vehicle_log_contract_act"}'>
+                                            <span class="oe_tag oe_kanban_color_3"><field name="contract_renewal_name" />
+                                               <t t-if="record.contract_renewal_total.raw_value > 0"> and <field name="contract_renewal_total" /> other(s) </t>
+                                            </span>
+                                        </a>
+                                    </t>
+
+                                    <t t-if="record.contract_renewal_overdue.raw_value">
+                                        <a data-type="object" data-name="return_action_to_open" href="#" class="oe_kanban_action oe_kanban_action_a" data-context='{"xml_id":"fleet_vehicle_log_contract_act"}'>
+                                            <span class="oe_tag oe_kanban_color_2"><field name="contract_renewal_name" />
+                                                <t t-if="record.contract_renewal_total.raw_value > 0"> and <field name="contract_renewal_total" /> other(s) </t>
+                                            </span>
+                                        </a>
+                                    </t>
+
+                                    <ul>
+                                        <li>
+                                            <t t-if="record.driver_id.raw_value"><field name="driver_id"/></t>
+                                        </li>
+                                        <li>
+                                            <t t-if="record.location.raw_value"><field name="location"/></t>
+                                        </li>
+
+                                    </ul>
+
+                                    <!--<field name="tag_ids"/>-->
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_adicionales_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.adicionales</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                    <field name="tipo"/>
+                    <field name="precio_unitario"/>
+                    <field name="tanqueado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_linea_credito_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.linea_credito</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list" delete="false">
+                    <field name="fecha"/>
+                    <field name="create_uid" string="Encargado crear vale"/>
+                    <field name="encargado_aprobar"/>
+                    <field name="encargado_ejecutar"/>
+                    <field name="litros"/>
+                    <field name="proveedor"/>
+                    <field name="estado"/>
+                    <field name="usuario_delete" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--VISTA DE ARBOL MULTISERVICIOS-->
+        <record model="ir.ui.view" id="view_valorizacion_sam_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.sam</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="cliente_id"/>
+                    <field name="conductores" string="Conductor(es)"/>
+                    <field name="fechaInicio"/>
+                    <field name="fechaFin"/>
+                    <field name="placa"/>
+                    <field name="tipo_moneda"/>
+                    <field name="amount_untaxed" string="Total sin IGV"/>
+                    <field name="amount_total" string="Total con IGV"/>
+                    <field name="facturado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_lugar_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.lugar</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="name"/>
+                    <field name="referencia"/>
+                    <field name="country_id"/>
+                    <field name="state_id"/>
+                    <field name="province_id"/>
+                    <field name="district_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_feriados_tree">
+            <field name="name">Lista Feriados</field>
+            <field name="model">modulo_valorizaciones.feriados</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="country_id"/>
+                    <field name="state_id"/>
+                    <field name="province_id"/>
+                    <field name="district_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_lugar_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.tipo_valorizacion</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="name"/>
+                    <!--<field name="adicional_id" widget="many2many_incluye"/>-->
+                    <field name="create_date" string="Fecha de creación"/>
+                    <field name="create_uid" string="Ultimo usuario que modificó"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_valorizacion_area">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.area</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="contacto"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_valorizacion_mantenimientos_tree">
+            <field name="name">Mantenimiento</field>
+            <field name="model">modulo_valorizaciones.mantenimiento</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="unidad"/>
+                    <field name="fecha"/>
+                    <field name="precio"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_valorizacion_conductor_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.conductor</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="id"/>
+                    <field name="tipo_conductor"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_revision_tecnica_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.revision_tecnica</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="tipo_vehiculo_revision_tecnica"/>
+                    <field name="placa_revision_tecnica"/>
+                    <field name="empresa_revision_tecnica"/>
+                    <field name="tipo_revision_tecnica"/>
+                    <field name="fecha_revisada" string="Fecha Revisión"/>
+                    <field name="fecha_proxima_revision"/>
+                    <field name="costo"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_revision_vehiculo_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.revision_vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="tipo"/>
+                    <field name="placa"/>
+                    <field name="modelo" string="Vehículo"/>
+                    <field name="empresa"/>
+                    <field name="conductor"/>
+                    <field name="fecha"/>
+                    <!--<field name="tipo_revision"/>
+                    <field name="costo"/>
+                    <field name="estado"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!--<record model="ir.ui.view" id="view_valorizacion_unidad_movil_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.unidad_movil</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="name"/>
+                    <field name="modelo"/>
+                    <field name="placa"/>
+                    <field name="anio"/>
+                    <!-<field name="precio"/>-->
+                    <!--<field name="costo_asiento"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>-->
+
+        <record model="ir.ui.view" id="view_valorizacion_ruta_tree">
+            <field name="name">Listar</field>
+            <field name="model">modulo_valorizaciones.ruta</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list">
+                    <field name="p_partida"/>
+                    <field name="p_llegada"/>
+                   <!-- <field name="distancia"/>-->
+                    <!--<field name="kilometros"/>-->
+                    <field name="name"/>
+                    <!-- <field name="precio_unidad"/>-->
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--<record model="ir.ui.view" id="view_valorizacion_unidad_movil_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.unidad_movil</field>
+            <field name="arch" type="xml">
+                <form string="unidad movil form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="modelo"/>
+                            </group>
+                        </group>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="placa"/>
+                            </group>
+                            <group>
+                                <field name="anio"/>
+                            </group>
+                            <!-<group>
+                                <field name="precio"/>
+                            </group>-->
+                        <!--</group>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="capacidad"/>
+                            </group>
+                            <group>
+                                <field name="costo_asiento"/>
+                            </group>
+                            <group>
+                                <field name="estado"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Observaciones">
+                                <field name="observaciones"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>-->
+        <record model="ir.ui.view" id="view_valorizacion_ruta_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.ruta</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="p_partida"/>
+                            </group>
+                            <group>
+                                <field name="p_llegada"/>
+                            </group>
+                        </group>
+                        <group colspan="3" col="3">
+                            <!--<group>
+                                <field name="kilometros"/>
+                            </group>-->
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="estado"/>
+                            </group>
+                        </group>
+                        <!--<group colspan="2" col="2">
+                            <group>
+                                <field name="precio_unidad"/>
+                            </group>
+                            <group>
+                                <field name="estado"/>
+                            </group>
+                        </group>-->
+                        <notebook colspan="4">
+                            <page string="Observaciones">
+                                <field name="observaciones"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_pantalla_especifica_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.pantalla_especifica</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="unidad"/>
+                                <field name="parent_pant_espec_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="ruta_id"/>
+                            </group>
+                        </group>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="fecha_inicio"/>
+                            </group>
+                            <group>
+                                <field name="fecha_fin"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="cambios_especifica_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="dia_inicio"/>
+                                            <field name="dia_fin"/>
+                                            <field name="vuelta_bajada" type="char"/>
+                                            <field name="vuelta_subida" type="char"/>
+                                            <field name="dia_normal" type="char"/>
+                                            <field name="unidad" invisible="1"/>
+                                            <field name="ruta_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_horario_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.horario</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="1" col="1">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="dias_trabajo"/>
+                            </group>
+                            <group>
+                                <field name="dias_descanso"/>
+                            </group>
+                            <group>
+                                <field name="dias_total"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_pantalla_general_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.pantalla_general</field>
+            <field name="arch" type="xml">
+                <form string="general form" version="7.0">
+                    <sheet>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="unidad"/>
+                            </group>
+                            <group>
+                                <field name="ruta_id"/>
+                            </group>
+                            <group>
+                                <field name="personalizado"/>
+                                <field name="kilometraje" invisible="1"/>
+                            </group>
+                        </group>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="fecha_inicio"/>
+                            </group>
+                            <group>
+                                <field name="fecha_fin"/>
+                            </group>
+                        </group>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="costo_fijo" string="Tarifa Costo Fijo"/>
+                            </group>
+                            <group>
+                                <field name="tipo_moneda" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Horario">
+                                <group>
+                                   <field name="horario_general_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="horario"/>
+                                            <field name="fecha_cambio"/>
+                                            <field name="secuencia"/>
+                                            <field name="unidad" invisible="1"/>
+                                            <field name="ruta_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string="Kilometraje">
+                                <group>
+                                   <field name="kilometraje_general_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="kilometraje"/>
+                                            <field name="default"/>
+                                            <field name="letra"/>
+                                            <field name="n_vueltas" attrs="{'invisble':[('default','==',False)]}"/>
+                                            <field name="unidad" invisible="1"/>
+                                            <field name="ruta_id" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="formula_bajada"/>
+                            </group>
+                            <group>
+                                <field name="valor_bajada"/>
+                            </group>
+                            <group>
+                                <button name="load_pantalla_especifica" class="oe_highlight" type="object" string="Agregar Tramo Específico" invisible="1"/>
+                            </group>
+                        </group>
+                        <group colspan="3" col="3">
+                            <group>
+                                <field name="formula_subida"/>
+                            </group>
+                            <group>
+                                <field name="valor_subida"/>
+                            </group>
+                            <group>
+                                <button invisible="1"/>
+                            </group>
+                        </group>
+                        <group colspan="1" col="1">
+                            <field name="pan_espec_ids" string="Tramo Especifico"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Descripción">
+                                <field name="descripcion"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_linea_credito_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.linea_credito</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <header>
+                        <button name="imprimir" string="Imprimir" type="object" groups="base.group_user"/>
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group string="Detalles Proveedor">
+                                <field name="proveedor" domain="[('supplier', '=', True),('credito', '=', True)]"/>
+                                <field name="monto_dinero"/>
+                                <field name="monto_galones"/>
+                            </group>
+                            <group string="Detalles de reabastecimiento de combustible">
+                                <field name="fecha"/>
+                                <field name="litros"/>
+                                 <field name="total_pagar"/>
+                            </group>
+                        </group>
+                        <group colspan="2" col="2">
+                            <group string="Detalles Responsables">
+                                <field name="encargado_aprobar"/>
+                                <field name="encargado_ejecutar"/>
+                            </group>
+                            <group string="Estado">
+                                <field name="estado"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--VISTA FORMULARIO PARA MULTISERVICIOS-->
+        <record model="ir.ui.view" id="view_valorizacion_sam_form">
+            <field name="name">Formulario</field>
+            <field name="model">modulo_valorizaciones.sam</field>
+            <field name="arch" type="xml">
+                <form string="Multiservicios">
+                    <header>
+
+
+                        <button name="facturar_tasks" type="object" class="oe_highlight" string="Pre Factura"  attrs="{'invisible':[('state', 'in', ('preproforma','prefactudado'))]}"/>
+                        <!--<button name="facturar_tasks" class="oe_highlight" type="object" string="Pre Factura"  attrs="{'invisible':[('facturado','!=',False)]}"/>-->
+                        <button name="invoice_print" type="object" string="Ver Proforma"/>
+                        <button name="enviarproforma" class="oe_highlight" type="object" string="Enviar Proforma"/>
+                          <field name="state" widget="statusbar" nolabel="1" statusbar_visible="preproforma,proforma"/>
+
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group string="Detalle Cliente">
+                                <field name="cliente_id" attrs="{'readonly':[('facturado','!=',False)]}" domain="[('customer', '=', True), ('is_company', '=', True)]"/>
+                                <field name="contact_id" attrs="{'readonly':[('facturado','!=',False)]}" domain="[('customer', '=', True), ('is_company', '=', False)]"/>
+
+                                <div class="oe_horizontal_separator oe_clear">Detalle de Servicio</div>
+                                <div class="oe_horizontal_separator oe_clear"></div>
+                                <field name="tipo_moneda" attrs="{'readonly':[('facturado','!=',False)]}"/>
+                                <field name="tipo_servicio" domain="[('category', '=', 'contract')]" attrs="{'readonly':[('facturado','!=',False)]}"/>
+                                <field name="facturado" invisible="1"/>
+                                <field name="conductores" invisible="1"/>
+                                <field name="placa" invisible="1"/>
+                            </group>
+                            <group string="Detalle de Fechas">
+                                <field name="fechaInicio" attrs="{'readonly':[('facturado','!=',False)]}"/>
+                                <field name="fechaFin" attrs="{'readonly':[('facturado','!=',False)]}"/>
+                                <field name="fechaFacturacion" attrs="{'readonly':[('facturado','!=',False)]}"/>
+
+
+
+                            </group>
+                        </group>
+
+                        <notebook colspan="4">
+                            <page string="Detalle del Servicio">
+                                <group>
+                                   <field name="sam_ids" nolabel="1" attrs="{'readonly':[('facturado','!=',False)]}">
+                                        <tree editable="bottom">
+                                            <field name="fecha" />
+                                            <field name="conductor"/>
+                                            <field name="unidad"/>
+                                            <field name="descripcion"/>
+                                            <field name="hora_partida" widget="float_time"/>
+                                            <field name="hora_llegada" widget="float_time"/>
+                                            <field name="km_recorrido" attrs="{'readonly':[('tot_dias','!=',0.00)]}"/>
+                                            <field name="tot_dias" attrs="{'readonly':[('km_recorrido','!=',0.00)]}"/>
+                                            <field name="tarifa"/>
+                                            <field name="descuento"/>
+                                            <field name="total_detalle" invisible="1"/>
+                                            <field name="observaciones"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group colspan="1" col="1">
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount_untaxed" widget="monetary" />
+                                <div>
+                                    <label string="Impuesto"/>
+                                    <button name="button_act_imp" string="(Actualizar)" class="oe_link oe_edit_only"
+                                        type="object" help="Recalcular impuestos"/>
+                                </div>
+                                <field name="amount_tax" nolabel="1" widget="monetary" />
+                                <field name="amount_total" class="oe_subtotal_footer_separator" widget="monetary" string="Total"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_revisiones_vehiculo_form">
+            <field name="name">modulo_valorizaciones.revision_vehiculo.unidad</field>
+            <field name="model">modulo_valorizaciones.revision_vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <header>
+                        <button name="imprimir" string="Imprimir" type="object" groups="base.group_user"/>
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="fecha"/>
+                                <field name="placa" invisible="1"/>
+                                <field name="empresa" invisible="1"/>
+                                <field name="modelo" invisible="1"/>
+                            </group>
+                        </group>
+                        <group colspan="2" col="2">
+                            <group string="Detalle Conductor">
+                                <field name="conductor"/>
+                            </group>
+                            <group string="Detalle de Vehículo">
+                                <field name="unidad" on_change="get_emp_det(unidad)"/>
+                                <field name="tipo"/>
+                                <field name="km_inicio"/>
+                                <field name="km_fin"/>
+                                <field name="km_total"/>
+                                 <field name="tanqueo_inicio"/>
+                                <field name="tanqueo_fin"/>
+                                <field name="tanqueo_fin_total" attrs="{'invisible':[('tanqueo_fin', '=', False)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="revision_tecnica_detalle_ids" nolabel="1" context="{'unidad': unidad}">
+                                        <tree editable="bottom">
+                                            <field name="hora_inicio" widget="float_time"/>
+                                            <field name="hora_fin" widget="float_time"/>
+                                            <field name="descripcion" string="Descripción"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string="Registro de Mantenimiento">
+                                <group>
+                                   <field name="proximo_mantenimiento_ids" nolabel="1" context="{'unidad': unidad, 'conductor': conductor}">
+                                        <tree editable="bottom">
+                                            <field name="fecha" string="Fecha Revisión"/>
+                                            <field name="hora" widget="float_time"/>
+                                            <field name="tipo_revision" string="Tipo de Revision"/>
+                                            <field name="descripcion" string="Descripción" />
+                                            <field name="fecha_revisada" invisible="1"/>
+                                            <field name="observaciones" invisible="1"/>
+                                            <field name="tipo_revision_tecnica" invisible="1"/>
+                                            <field name="conductor" invisible="1"/>
+                                            <field name="unidad" invisible="1"/>
+                                            <field name="km_fin_revision_tecnica" invisible="1"/>
+                                            <field name="tipo_vehiculo_revision_tecnica" invisible="1"/>
+                                            <field name="placa_revision_tecnica" invisible="1"/>
+                                            <field name="empresa_revision_tecnica" invisible="1"/>
+                                            <field name="anio" invisible="1"/>
+                                            <field name="capacidad" invisible="1"/>
+                                            <field name="motor" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook colspan="4">
+                            <page string="Observaciones">
+                                <field name="observaciones"/>
+                            </page>
+                        </notebook>
+                       <!--<group colspan="3" col="3">
+                            <group>
+                                <field name="tipo_revision"/>
+                            </group>
+                            <group>
+                                <field name="costo"/>
+                            </group>
+                            <group>
+                                <field name="estado"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Observaciones">
+                                <field name="observaciones"/>
+                            </page>
+                            <page string="Tare">
+                                <widget type="weekly_timesheet">
+                                <widget type="weekly_timesheet" attrs="{'readonly': [['state', 'not in', ['new', 'draft']]]}">
+                                </widget>
+                            </page>
+                        </notebook>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_revisiones_form">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.revision_tecnica</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <header>
+                        <!--<button class="oe_highlight" name="act_renew_contract" type="object" string="Importar XML" help="Importar XML enviado a SUNAT" groups="fleet.group_fleet_manager"/>
+                        <button class="oe_highlight" name="act_renew_contract" type="object" string="Crear Factura" help="Crear Factura" groups="fleet.group_fleet_manager"/>-->
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group string="Detalle de Servicio">
+                                <field name="unidad"/>
+                                <field name="anio"/>
+                                <field name="capacidad"/>
+                                <field name="motor"/>
+                                <field name="conductor"/>
+                                <field name="tipo_revision_tecnica" domain="[('category', '=', 'service')]"/>
+                                <div class="oe_horizontal_separator oe_clear">Detalles Kilometraje</div>
+                                <div class="oe_horizontal_separator oe_clear"></div>
+                                <field name="km_fin_revision_tecnica"/>
+                            </group>
+                            <group string="Detalle de Fechas">
+                                <field name="fecha_revisada" string="Fecha Revisión"/>
+                                <field name="fecha_proxima_revision"/>
+                                <div class="oe_horizontal_separator oe_clear">Detalles Proveedor</div>
+                                <div class="oe_horizontal_separator oe_clear"></div>
+                                <field name="proveedor" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}"
+                              domain="[('supplier', '=', True)]"/>
+                                <field name="n_factura" domain="[('type', '=', 'in_invoice')]"/>
+                                <field name="costo"/>
+                                <field name="estado"/>
+                                <field name="tipo_vehiculo_revision_tecnica" invisible="1"/>
+                                <field name="placa_revision_tecnica" invisible="1"/>
+                                <field name="empresa_revision_tecnica" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Observaciones">
+                                <field name="observaciones"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_conductor">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.lugar</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="4">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="referencia"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="country_id" placeholder="Pais" string="Pais" style="width: 48%" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" />
+                            </group>
+                            <group>
+                                <field name="state_id" string="Departamento" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('country_id','=',False)]}"  domain="[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="province_id" string="Provincia" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('state_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+                            </group>
+                            <group>
+                                <field name="district_id" string="Distrito" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_district(district_id)" attrs="{'readonly': ['|',('province_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_valorizacion_feriados">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.feriados</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="4">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="fecha"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="country_id" placeholder="Pais" string="Pais" style="width: 48%" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" />
+                            </group>
+                            <group>
+                                <field name="state_id" string="Departamento" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('country_id','=',False)]}"  domain="[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="province_id" string="Provincia" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('state_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+                            </group>
+                            <group>
+                                <field name="district_id" string="Distrito" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_district(district_id)" attrs="{'readonly': ['|',('province_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Descripción">
+                                <field name="descripcion"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_valorizacion_mantenimiento">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.mantenimiento</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="unidad"/>
+                            </group>
+                            <group>
+                                <field name="fecha"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="precio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_valorizacion_adicionales">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.mantenimiento</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="unidad"/>
+                            </group>
+                            <group>
+                                <field name="fecha"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="precio"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_tipo_valorizacion">
+            <field name='name'>Formulario</field>
+            <field name="model">modulo_valorizaciones.tipo_valorizacion</field>
+            <field name="arch" type="xml">
+                <form string="ruta form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                        <!--<group colspan="2" col="2">
+                            <group>
+                                <field name="adicional_id" widget="many2many_incluye" />
+                            </group>
+                        </group>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='fleet_vehicle_form'>
+            <field name="name">Formulario</field>
+            <field name="model">modulo_valorizaciones.unidad</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle">
+                    <header>
+                        <field name="state_id"  widget="statusbar" clickable="True" />
+                    </header>
+                    <sheet>
+                        <field name="image_medium" widget='image' class="oe_left oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="model_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="model_id" class="oe_inline" on_change="on_change_model(model_id)"/>
+                            </h1>
+                            <label for="license_plate" class="oe_edit_only"/>
+                            <h2>
+                                <field name="license_plate" class="oe_inline"/>
+                            </h2>
+                           <!-- <label for="tag_ids" class="oe_edit_only"/>
+                            <field name="tag_ids" widget="many2many_tags" />-->
+                        </div>
+                        <div class="oe_right oe_button_box">
+                            <button name="return_action_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-book"
+                                context="{'xml_id':'unidad_movil_contrato_act'}"
+                                help="Mostrar el contrato para este vehículo">
+                                <field name="contract_count" widget="statinfo" string="Contratos"/>
+                            </button>
+                            <button name="act_show_log_cost"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-usd"
+                                help="Mostrar todos los costos para este vehículo"
+                                groups="fleet.group_fleet_manager">
+                                <field name="cost_count" widget="statinfo" string="Costos"/>
+                            </button>
+                            <button name="return_action_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-wrench"
+                                context="{'xml_id':'fleet_vehicle_log_services_act'}"
+                                help="Mostrar los registros de revisiones para este vehículo" >
+                                <field name="service_count" widget="statinfo" string="Servicios"/>
+                            </button>
+                            <button name="return_action_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-flask"
+                                context="{'xml_id':'fleet_vehicle_log_fuel_act'}"
+                                help="Mostrar los registros de combustible para este vehículo" >
+                                <field name="fuel_logs_count" widget="statinfo" string="Combustible"/>
+                            </button>
+                            <button name="return_action_to_open"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-tachometer"
+                                context="{'xml_id':'vehicle_odometer_act'}"
+                                help="Mostrar los registros de kilometrage para este vehículo" >
+                                <field name="odometer_count" widget="statinfo" string="Kilometraje"/>
+                            </button>
+                        </div>
+                        <group col="2" string="Propiedades generales">
+                            <group >
+                                <field name="driver_id" />
+                                <field name="location" />
+                                <field name="vin_sn" />
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="costo_asiento" />
+                                <field name="activo" />
+                            </group>
+                            <group >
+                                <label for="odometer" />
+                                <div>
+                                    <field name="odometer" class="oe_inline"/>
+                                    <field name="odometer_unit" class="oe_inline"/>
+                                </div>
+                                <field name="acquisition_date" />
+                                <field name="car_value" />
+                                <field name="alquilado_propio" />
+                                <field name="proveedor" attrs="{'invisible':[('alquilado_propio', '=', False)]}" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}" domain="[('supplier', '=', True)]"/>
+                                <!--field name="precio" />-->
+                            </group>
+                        </group>
+                        <group col="2">
+                            <group string="Propiedades adicionales">
+                                <field name="seats" string="Capacidad" />
+                                <field name="doors" invisible="1" />
+                                <field name="color" />
+                                <field name="tipo_unidad" />
+                                <field name="anio" />
+                            </group>
+                            <group string="Opciones del motor">
+                                <field name="transmission" />
+                                <field name="fuel_type" />
+                                <!--<label for="co2"/>
+                                <div>
+                                    <field name="co2" class="oe_inline"/> g/km
+                                </div>-->
+                                <field name="horsepower" string="Motor" />
+                                <!--<field name="horsepower_tax" />-->
+                                <label for="power"/>
+                                <div>
+                                    <field name="power" class="oe_inline"/> kW
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='fleet_vehicle_log_contract_form'>
+            <field name="name">fleet.vehicle.log_contract.form</field>
+            <field name="model">modulo_valorizaciones.contrato_vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Contract logs">
+                    <header>
+                        <button modifiers="{'invisible': [['state', '=', 'closed']]}" name="contract_close" states="open" type="object" class="oe_highlight" string="Finalizar contrato" groups="fleet.group_fleet_manager"/>
+                        <button modifiers="{'invisible': [['state', '=', 'closed']]}" name="contract_close" states="toclose" type="object" class="oe_highlight" string="Finalizar contrato" groups="fleet.group_fleet_manager"/>
+                        <button modifiers="{'invisible': [['state', 'not in', ['closed']]]}" name="contract_open" states="closed" type="object" class="oe_highlight" string="Establece el contrato en proceso" groups="fleet.group_fleet_manager"/>
+                        <button class="oe_highlight" name="act_renew_contract" type="object" string="Renovar contrato" help="Crear un nuevo contrato de forma automática con las mismas informaciones a excepción de la fecha que se iniciará a finales de contrato vigente" groups="fleet.group_fleet_manager"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group col="2">
+                            <group>
+                                <field name="insurer_id" domain="[('customer', '=', True)]"/>
+                            </group>
+                        </group>
+                        <group col="2">
+                            <group string="Detalles del contrato">
+                                <field name="vehicle_id" invisible="1" required="False"/>
+                            </group>
+                            <group>
+                                <field name="name" />
+                            </group>
+                        </group>
+                        <group col="3">
+                            <group>
+                                <field name="fechaInicio"/>
+                            </group>
+                            <group>
+                                <field name="fechaFin"/>
+                            </group>
+                            <group>
+                                <field name="fechaFacturacion"/>
+                            </group>
+                        </group>
+                        <group col="1">
+                            <group>
+                                <field name="tipo_valorizacion_id" string="Tipo Valorizacion"/>
+                            </group>
+                        </group>
+                        <group col="3">
+                            <group>
+                                <field name="costo_fijo"/>
+                            </group>
+                            <group>
+                                <field name="costo_variable"/>
+                            </group>
+                            <group>
+                                <field name="costo_adicional"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Detalles">
+                                <group>
+                                   <field name="contrato_ids" context="{'vehicle_id': vehicle_id}" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field invisible="1" name="name" domain="[('name', '=', parent.name)]" context="{'name':name} "/>
+                                            <field name="area_id" string="Area"/>
+                                            <field name="ruta_id" string="Ruta"/>
+                                            <field name="unidad_id" string="Vehículo"/>
+                                            <field name="descripcion_rutas" string="Descripción Ruta" />
+
+
+                                            <!--<field name="fecha_inicio" string="Fecha Inicio" />
+                                            <field name="fecha_fin" string="Fecha Fin" />-->
+                                            <field name="horario_id" string="Días x Semana" />
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group string="Terminos y condiciones">
+                            <field name="notes" nolabel="1" placeholder="Escribe aquí toda otra información relativa a este contrato" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+
+            id="act_renew_contract"
+            name="Renovar contrato"
+            res_model="modulo_valorizaciones.contrato_vehiculo"
+            src_model="modulo_valorizaciones.contrato_vehiculo"
+            view_mode="form"
+            view_type="form"
+            />
+
+
+        <record model='ir.ui.view' id='fleet_vehicle_log_contract_tree'>
+            <field name="name">modulo_valorizaciones.contrato_vehiculo.tree</field>
+            <field name="model">modulo_valorizaciones.contrato_vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Contract logs" colors="orange:days_left>0 and days_left&lt;15;red:days_left==0;grey:state=='closed'">
+                    <field name="name" string="Nro. Contrato" />
+                    <field name="fechaInicio" />
+                    <field name="fechaFin" />
+                    <field name="days_left" invisible="1"/>
+                    <field name="vehicle_id" invisible="1"/>
+                    <field name="cost_subtype_id" invisible="1"/>
+                    <field name="insurer_id" />
+                    <field name="amount" string="Activation Cost" invisible="1"/>
+                    <field name="cost_generated" invisible="1"/>
+                    <field name="cost_frequency" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="fleet_vehicle_log_contract_graph">
+           <field name="name">modulo_valorizaciones.contrato_vehiculo.graph</field>
+           <field name="model">modulo_valorizaciones.contrato_vehiculo</field>
+           <field name="arch" type="xml">
+                <graph string="Contract Costs Per Month" type="bar" stacked="True">
+                    <field name="date" type="row"/>
+                    <field name="vehicle_id" type="row"/>
+                    <field name="cost_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='fleet.unidad_movil_contrato_act'>
+            <field name="name">Vehicles Contracts</field>
+            <field name="res_model">modulo_valorizaciones.contrato_vehiculo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new contract.
+              </p><p>
+                Manage all your contracts (leasing, insurances, etc.) with
+                their related services, costs. Odoo will automatically warn
+                you when some contracts have to be renewed.
+              </p><p>
+                Each contract (e.g.: leasing) may include several services
+                (reparation, insurances, periodic maintenance).
+              </p>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='modulo_valorizaciones_tareo_mensual_tree'>
+            <field name="name">modulo_valorizaciones.tareo_mensual.tree</field>
+            <field name="model">modulo_valorizaciones.tareo_mensual</field>
+            <field name="arch" type="xml">
+                <tree colors="blue:estado == 'Pendiente'" string="Tareos Mensuales" >
+                    <field name="cliente_id"/>
+                    <field name="contrato"/>
+                    <field name="fechaInicio" />
+                    <field name="fechaFin" />
+                    <field name="fechaFacturacion"/>
+                    <field name="tipo_moneda"/>
+                    <field name="costo_fijo"/>
+                    <field name="costo_variable" />
+                    <field name="costo_adicional"/>
+                    <field name="costo_total"/>
+                    <field name="costo_total_igv"/>
+                    <field name="estado"/>
+                    <field name="n_factura"/>
+                    <button name="go_invoice" type="object" string="Ir Factura" class="oe_highlight" attrs="{'invisible':[('n_factura', '==', False)]}" groups="base.group_user"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="view_filter_tareo_mensual_yo" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.tareo_mensual.Filter</field>
+            <field name="model">modulo_valorizaciones.tareo_mensual</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!--<group expand="1" string="Mes">-->
+                         <!--<filter string="Mes Actual" name="groupby_mes_actual" domain="[('fechaFacturacion','&lt;=',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('fechaFacturacion','&gt;=',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]" context="{'search_default_groupby_mes_actual' : 1}" />-->
+                    <!--</group>-->
+
+                     <filter string="Año Actual" name="groupby_anio_actual" domain="[('fechaFacturacion','&lt;=', time.strftime('%%Y-12-31')),('fechaFacturacion','&gt;=',time.strftime('%%Y-01-01'))]" context="{'search_default_groupby_anio_actual' : 1}" />
+
+
+
+                </search>
+            </field>
+        </record>
+
+        <record id="tareos_mensuales_action" model="ir.actions.act_window">
+            <field name="name">Valorizaciones mensuales</field>
+            <field name="res_model">modulo_valorizaciones.tareo_mensual</field>
+            <field name="view_mode">tree_cabecera_meses_quickadd,form</field>
+            <field name="domain">[('cliente_id','ilike','')]</field>
+            <field name="search_view_id" ref="view_filter_tareo_mensual_yo"/>
+             <field name="context">{'search_default_groupby_anio_actual': 1}</field>
+            <field name="help" type="html">
+                <!--<script type="text/javascript" src="/exportar_pdf_excel/static/src/js/iframe.js"></script>-->
+              <p>
+                Aquí está una lista de todos los contratos de vehículos. Tú
+                puede hacer clic en un contrato para obtener la valorización mensual.
+              </p>
+            </field>
+        </record>
+
+
+        <!--<record id="tareos_mensuales_action" model="ir.actions.act_window">-->
+            <!--<field name="name">Valorizaciones mensuales</field>-->
+            <!--<field name="res_model">modulo_valorizaciones.tareo_mensual</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--<field name="domain">[('cliente_id','ilike','')]</field>-->
+            <!--<field name="search_view_id" ref="view_filter_tareo_mensual_yo"/>-->
+             <!--<field name="context">{'search_default_groupby_mes_actual': 1}</field>-->
+            <!--<field name="help" type="html">-->
+                <!--&lt;!&ndash;<script type="text/javascript" src="/exportar_pdf_excel/static/src/js/iframe.js"></script>&ndash;&gt;-->
+              <!--<p>-->
+                <!--Aquí está una lista de todos los contratos de vehículos. Tú-->
+                <!--puede hacer clic en un contrato para obtener la valorización mensual.-->
+              <!--</p>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+ <menuitem id="lista_tareos_mensuales_menu" name="Valorización Cliente" parent="valorizacion_mensual_left_menu"
+                  action="tareos_mensuales_action" sequence="2"/>
+
+        <record model='ir.ui.view' id='modulo_valorizaciones_proveedor_tree'>
+            <field name="name">modulo_valorizaciones.proveedor.tree</field>
+            <field name="model">modulo_valorizaciones.proveedor</field>
+            <field name="arch" type="xml">
+                <tree string="Valorizacion Proveedor" >
+                    <field name="proveedor"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin" />
+                    <field name="fechaFacturacion" />
+                    <field name="tipo_moneda" />
+                    <field name="monto_sin_igv"/>
+                    <field name="monto_con_igv"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="view_filter_proveedor_yo" model="ir.ui.view">
+            <field name="name">modulo_valorizaciones.proveedor.Filter</field>
+            <field name="model">modulo_valorizaciones.proveedor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!--<group expand="1" string="Mes">-->
+                         <!--<filter string="Mes Actual" name="groupby_mes_actual" domain="[('fechaFacturacion','&lt;=',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('fechaFacturacion','&gt;=',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]" context="{'search_default_groupby_mes_actual' : 1}" />-->
+                    <!--</group>-->
+
+                     <filter string="Año Actual" name="groupby_anio_actual" domain="[('fechaFacturacion','&lt;=', time.strftime('%%Y-12-31')),('fechaFacturacion','&gt;=',time.strftime('%%Y-01-01'))]" context="{'search_default_groupby_anio_actual' : 1}" />
+
+
+
+                </search>
+            </field>
+        </record>
+
+        <record id="modulo_valorizaciones_proveedor_form" model="ir.ui.view">
+            <field name="name">Valorización Proveedor</field>
+            <field name="model">modulo_valorizaciones.proveedor</field>
+            <field name="arch" type="xml">
+                <form string="Valorización Proveedor" version="7.0" edit="false">
+                    <!--<iframe marginheight="0" id="frameValorizacionesP" marginwidth="0" frameborder = "0" src="http://localhost:81/valorizaciones/home/index/p" width="100%" height="1000"/>-->
+                    <script>
+                        $(window).on('hashchange', function(e){
+                            if(document.getElementById('frameValorizacionesP')){
+                                var frameP = document.getElementById('frameValorizacionesP');
+                                if(frameP.contentWindow){
+                                    frameP.contentWindow.postMessage(window.location.href, '*');
+                                }
+                            }
+                        });
+
+                    </script>
+                    <field name="creado" invisible="1"/>
+                    <field name="iframe" widget="html"/>
+                    <field name="iframe_create" widget="html" attrs="{'invisible':[('creado', '=', True)]}"/>
+                </form>
+            </field>
+        </record>
+
+        <template id='framed_page'>
+             <iframe t-att-src="url"
+             marginheight="0" marginwidth="0" frameborder="0"
+             width="100%" height="1000"></iframe>
+        </template>
+
+        <record id="modulo_valorizaciones_tareo_mensual_form" model="ir.ui.view">
+            <field name="name">Tareos Mensuales</field>
+            <field name="model">modulo_valorizaciones.tareo_mensual</field>
+            <field name="arch" type="xml">
+                <form string="Tareos Mensuales" version="7.0" create="false" edit="false">
+                    <script>
+                        $(window).on('hashchange', function(e){
+                            if(document.getElementById('frameValorizaciones')){
+                                var frame = document.getElementById('frameValorizaciones');
+                                if(frame.contentWindow){
+                                    frame.contentWindow.postMessage(window.location.href, '*');
+                                }
+                            }
+                        });
+                    </script>
+                    <field name="creado" invisible="1"/>
+                    <field name="iframe_create" widget="html" attrs="{'invisible':[('creado', '=', True)]}"/>
+                    <!--<form string="Embedded Webpage" version="7.0" edit="false">-->
+                    <field name="iframe" widget="html"/>
+                        <!--<field name="framed_page_rendered" widget="html"/>-->
+                    <!--</form>-->
+                    <!--<iframe marginheight="0" id="frameValorizaciones" marginwidth="0" frameborder = "0" src="http://localhost:81/valorizaciones/home/index/c" width="100%" height="1000"/>-->
+                </form>
+            </field>
+        </record>
+
+         <record id="fleet_vehicle_model_form_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.model.form.my</field>
+            <field name="model">fleet.vehicle.model</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_model_form"/>
+            <field name="arch" type="xml">
+                <label for="brand_id" position="before" >
+                    <label for="tipo_unidad" class="oe_edit_only"/>
+                    <h2>
+                        <field name="tipo_unidad" />
+                    </h2>
+                </label>
+                <label for="brand_id" position="replace" >
+                    <label for="brand_id" class="oe_edit_only" string="Marca"/>
+                </label>
+            </field>
+         </record>
+
+        <record id="fleet_vehiche_form_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.form.my</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_form"/>
+            <field name="arch" type="xml">
+                <field name="vin_sn" position="after" >
+                    <field name="costo_asiento" invisible="1" />
+                </field>
+                <field name="costo_asiento" position="after" >
+                    <field name="activo" />
+                </field>
+                <field name="car_value" position="after" >
+                    <field name="alquilado_propio" />
+                </field>
+                <field name="alquilado_propio" position="after" >
+                    <field name="proveedor" attrs="{'invisible':[('alquilado_propio', '=', False)]}" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}" domain="[('supplier', '=', True)]"/>
+                </field>
+               <!-- <field name="color" position="after" >
+                    <field name="tipo_unidad" />
+                </field>-->
+                <field name="color" position="after" >
+                    <field name="anio" />
+                </field>
+                <field name="tag_ids" position="replace" >
+                    <field name="tag_ids" invisible="1" />
+                </field>
+                <field name="co2" position="replace" >
+                    <field name="co2" invisible="1" />
+                </field>
+                <field name="horsepower" position="replace" >
+                    <field name="horsepower" string="Motor" />
+                </field>
+                <field name="horsepower_tax" position="replace" >
+                    <field name="horsepower_tax" invisible="1" />
+                </field>
+                <field name="location" position="replace" >
+                     <field name="location" string="Ubicación" />
+                </field>
+                <field name="cost_count" position="replace" >
+                    <field name="cost_count" widget="statinfo" string="Costos"/>
+                </field>
+                <field name="vin_sn" position="replace" >
+                    <field name="vin_sn" string="Número de chasis" />
+                </field>
+                <field name="seats" position="replace" >
+                    <field name="seats" string="Capacidad" />
+                </field>
+                <field name="doors" position="replace" >
+                    <field name="doors" invisible="1" />
+                </field>
+                <field name="car_value" position="replace" >
+                    <field name="car_value" string="Precio del vehículo" />
+                </field>
+                <field name="odometer_count" position="replace" >
+                    <field name="odometer_count" widget="statinfo" string="Odómetro "/>
+                </field>
+                <label for="tag_ids" position="replace" >
+                    <label for="tag_ids" invisible="1" />
+                </label>
+                <label for="license_plate" position="replace" >
+                    <label for="license_plate" class="oe_edit_only" string="Placa"/>
+                </label>
+                <label for="odometer" position="replace" >
+                    <label for="odometer" string="Último odómetro"/>
+                </label>
+                <label for="co2" position="replace" >
+                    <label for="co2" invisible="1"/>
+                </label>
+                <group string="Engine Options" position="replace">
+                    <group string="Opciones del motor">
+                        <field name="transmission" />
+                        <field name="fuel_type" />
+                        <field name="horsepower" string="Nùmero de Motor"/>
+                        <label for="power"/>
+                        <div>
+                            <field name="power" class="oe_inline"/> kW
+                        </div>
+                    </group>
+                </group>
+  <group string="Opciones del motor" position="after">
+      <group col="2" colspan="2">
+      <notebook>
+                <page string="Documentos">
+                    <field name="parent_documento_ids"/>
+                </page>
+       </notebook>
+      </group>
+  </group>
+            </field>
+         </record>
+
+        <!--VISTA DE ARBOL HEREDADA DEL MODULO CONTRATO PARA MODIFICIAR CAMPOS NECESARIOS-->
+        <!--<record id="fleet_vehicle_tree_my" model="ir.ui.view">-->
+            <!--<field name="name">fleet.vehicle.tree.my</field>-->
+            <!--<field name="model">fleet.vehicle</field>-->
+            <!--<field name="inherit_id" ref="fleet.fleet_vehicle_tree"/>-->
+            <!--<field name="arch" type="xml">-->
+              <!---->
+            <!--</field>-->
+        <!--</record>-->
+
+        <!--VISTA DE ARBOL HEREDADA DEL MODULO CONTRATO PARA MODIFICIAR CAMPOS NECESARIOS-->
+        <record id="fleet_vehicle_log_contract_tree_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.log.contract.tree.my</field>
+            <field name="model">fleet.vehicle.log.contract</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_contract_tree"/>
+            <field name="arch" type="xml">
+                <field name="vehicle_id" position="replace" >
+                    <field name="vehicle_id" invisible="1" />
+                </field>
+                <field name="cost_subtype_id" position="replace" >
+                    <field name="cost_subtype_id" invisible="1" />
+                </field>
+                <field name="amount" position="replace" >
+                    <field name="amount" invisible="1" />
+                </field>
+                <field name="cost_generated" position="replace" >
+                    <field name="cost_generated" invisible="1" />
+                </field>
+                <field name="cost_frequency" position="replace" >
+                    <field name="cost_frequency" invisible="1" />
+                </field>
+                <field name="start_date" position="replace" >
+                    <field name="start_date" invisible="1" />
+                </field>
+                <field name="expiration_date" position="replace" >
+                    <field name="expiration_date" invisible="1" />
+                </field>
+                <field name="insurer_id" position="replace" >
+                    <field name="insurer_id" invisible="1" />
+                </field>
+                <field name="vehicle_id" position="before" >
+                    <field name="name" string="Contrato"/>
+                    <field name="cliente" />
+                    <field name="fechaInicio" />
+                    <field name="fechaFin" />
+                </field>
+            </field>
+        </record>
+
+        <record id="fleet_vehicle_log_fuel_form_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.log.fuel.form.my</field>
+            <field name="model">fleet.vehicle.log.fuel</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_fuel_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/*" position="before">
+                    <header>
+                        <button name="imprimir" string="Imprimir" type="object" groups="base.group_user"/>
+                    </header>
+                </xpath>
+               <field name="vehicle_id" position="after">
+                   <field name="proveedor" domain="[('supplier', '=', True),('credito', '=', True)]"/>
+                    <field name="monto_dinero"/>
+                    <field name="monto_galones" string="Galón(es) disponibles"/>
+               </field>
+               <field name="proveedor" position="before">
+                    <div class="oe_horizontal_separator oe_clear">Detalles Proveedor</div>
+                    <div class="oe_horizontal_separator oe_clear"></div>
+                </field>
+                <group string="Odometer Details" position="replace">
+                    <group string="Detalles del Odómetro">
+                        <label for="ultimo_odometro_vehiculo" string="Último odómetro"/>
+                        <div>
+                            <field name="ultimo_odometro_vehiculo" class="oe_inline"/>
+                            <field name="odometer_unit" class="oe_inline"/>
+                        </div>
+                        <label for="odometer" string="Lectura del odómetro"/>
+                        <div>
+                            <field name="odometer" class="oe_inline"/>
+                            <label string="Kilómetros" attrs="{'invisible':[('vehicle_id','=',False)]}"/>
+                            <!--<field name="odometer_unit" class="oe_inline"/>-->
+                        </div>
+                         <label for="kilometro_recorrido"/>
+                        <div>
+                            <field name="kilometro_recorrido" class="oe_inline"/>
+                            <label string="Kilómetros" attrs="{'invisible':[('vehicle_id','=',False)]}"/>
+                        </div>
+                         <label for="rendimiento"/>
+                        <div>
+                             <field name="rendimiento" class="oe_inline"/>
+                        </div>
+                    </group>
+                </group>
+                <group string="Additional Details" position="after">
+                    <group string="Detalles Responsables">
+                        <field name="encargado_aprobar"/>
+                        <field name="encargado_ejecutar"/>
+                    </group>
+                    <group string="Estado">
+                        <field name="estado"/>
+                    </group>
+                </group>
+                <field name="purchaser_id" position="replace" >
+                    <field name="purchaser_id" invisible="1" />
+                </field>
+                <field name="vendor_id" position="replace" >
+                    <field name="vendor_id" invisible="1" />
+                </field>
+                <field name="liter" position="replace" >
+                    <field name="liter" string="Galón(es)" on_change="on_change_liter(liter,price_per_liter,amount,monto_galones,monto_dinero)"/>
+                </field>
+
+                <field name="price_per_liter" position="replace" >
+                    <field name="price_per_liter" string="Precio por Galón(es)" />
+                </field>
+                <field name="inv_ref" position="replace" >
+                    <field name="inv_ref" string="Número Vale"/>
+                </field>
+
+                <field name="date" position="replace" >
+                    <field name="date"/>
+                    <field name="hora" widget="float_time"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='fleet_vehicle_log_fuel_tree_yo'>
+            <field name="name">fleet.vehicle.log.fuel.tree.yo</field>
+            <field name="model">fleet.vehicle.log.fuel</field>
+             <field name="inherit_id" ref="fleet.fleet_vehicle_log_fuel_tree"/>
+            <field name="arch" type="xml">
+                <field name="vehicle_id" position="replace" >
+                    <field name="encargado_ejecutar" string="Conductor"/>
+                </field>
+
+                <field name="purchaser_id" position="replace" >
+                    <field name="proveedor" string="Proveedor"/>
+                </field>
+
+                <field name="liter" position="replace" >
+                    <field name="liter" string="Galón(es)"/>
+                </field>
+
+            </field>
+        </record>
+
+        <!--<record model="ir.ui.view" id="fleet_vehicle_log_fuel_graph_yo">-->
+           <!--<field name="name">fleet.vehicle.log.fuel.graph.yo</field>-->
+           <!--<field name="model">fleet.vehicle.log.fuel</field>-->
+              <!--<field name="inherit_id" ref="fleet.fleet_vehicle_log_fuel_graph"/>-->
+           <!--<field name="arch" type="xml">-->
+                <!--<field name="liter" position="replace" >-->
+                      <!--<field name="liter" string="Galón(es)"/>-->
+                <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+
+         <!--VISTA DE ARBOL HEREDADA DEL MODULO UNIDADES PARA MODIFICIAR CAMPOS NECESARIOS-->
+        <record id="fleet_vehicle_tree_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.tree.my</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_tree"/>
+            <field name="arch" type="xml">
+                  <field name="state_id" position="replace" >
+                    <field name="state_id" invisible="1" />
+                    <field name="activo"/>
+                </field>
+                <field name="acquisition_date" position="after" >
+                    <field name="alquilado_propio"/>
+                </field>
+                <field name="vin_sn" position="replace" >
+                     <field name="vin_sn" string="Número de Chasis" />
+                </field>
+            </field>
+        </record>
+
+        <!--VISTA HEREDADA DEL MODULO FLOTA PARA MODIFICIAR CAMPOS NECESARIOS-->
+        <record id="fleet_vehicle_log_contract_form_my" model="ir.ui.view">
+            <field name="name">fleet.vehicle.log_contract.form.my</field>
+            <field name="model">fleet.vehicle.log.contract</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_contract_form"/>
+            <field name="arch" type="xml">
+                <field name="amount" position="replace" >
+                    <field name="amount" invisible="1" />
+                </field>
+                <field name="cost_generated" position="replace" >
+                    <field name="cost_generated" invisible="1" />
+                </field>
+                <field name="vehicle_id" position="replace" >
+                    <field name="vehicle_id" invisible="1" />
+                </field>
+                <label for="cost_generated" position="replace" >
+                    <label for="cost_generated" string="Frecuencia de Pago" />
+                </label>
+                <field name="ins_ref" position="replace" >
+                    <field name="ins_ref" invisible="1" />
+                </field>
+                <field name="start_date" position="replace" >
+                    <field name="start_date" invisible="1" />
+                </field>
+                <field name="expiration_date" position="replace" >
+                    <field name="expiration_date" invisible="1" />
+                </field>
+                <field name="sum_cost" position="replace" >
+                    <field name="sum_cost" invisible="1" />
+                </field>
+                <field name="purchaser_id" position="replace" >
+                    <field name="purchaser_id" invisible="1" />
+                </field>
+                <field name="insurer_id" position="replace" >
+                    <field name="insurer_id" invisible="1" />
+                </field>
+                <field name="date" position="replace" >
+                    <field name="date" invisible="1"/>
+                </field>
+                <field name="cost_subtype_id" position="before" >
+                    <field name="costo_varios_clientes"/>
+                    <field name="cliente" domain="[('customer', '=', True)]" attrs="{'invisible':[('costo_varios_clientes', '=', True)]}"/>
+                </field>
+                <field name="cost_subtype_id" position="replace" >
+                    <field name="cost_subtype_id" string="Tipo Valorización" domain="['|',('category','=','contract'),('category','=','both')]"/>
+                </field>
+                <field name="cost_ids" position="replace" >
+                    <field name="contrato_ids" context="{'cliente': cliente}" nolabel="1">
+                        <tree editable="bottom">
+                            <field invisible="1" name="name" domain="[('name', '=', parent.name)]" context="{'name':name} "/>
+                            <field name="cliente" domain="[('customer', '=', True)]" attrs="{'invisible':[('costo_varios_clientes', '=', False)]}" />
+                            <field name="costo_varios_clientes" invisible="1"/>
+                            <field name="area_id" string="Area"/>
+                            <field name="ruta_id" string="Ruta"/>
+                            <field name="unidad_id" string="Vehículo"/>
+                            <field name="descripcion_rutas" string="Descripción Ruta" />
+                            <field name="horario_id" string="Días x Semana" />
+                            <field name="estado_detalle" invisible="1" />
+                        </tree>
+                    </field>
+                </field>
+                <field name="cliente" position="after" >
+                    <field name="name" string="N° Contrato" />
+                </field>
+                <field name="name" position="after" >
+                    <field name="contratista"  />
+                </field>
+
+                 <!--<group string="Contract details" position="after">-->
+                <!--<field name="cost_frequency" position="after" >-->
+                    <!--<div position="after" >-->
+                        <!--<field name="tipo_moneda"  />-->
+                    <!--</div>-->
+                <!--</field>-->
+                <xpath expr="//label[@for='cost_generated']" position="before">
+                    <!--<label for="tipo_moneda" string="Tipo de moneda"/>-->
+                    <field  name="tipo_moneda"/>
+                </xpath>
+
+                <group string="Odometer details" position="replace">
+                    <group string="Detalle de Fechas">
+                        <field name="fechaInicio" />
+                        <field name="fechaFin" />
+                        <field name="fechaFacturacion" />
+                        <field name="modelo_valorizacion"/>
+                        <field name="cambio_estatico"/>
+                    </group>
+                </group>
+                <!--<field name="odometer" position="after" >
+                    <field name="purchaser_id" string="N° Contrato" />
+                </field>
+                <field name="purchaser_id" position="after" >
+                    <field name="name" string="N° Contrato" />
+                </field>
+                <label for="odometer" position="replace" >
+                     <label for="odometer" string="Kilometraje"/>
+                </label>-->
+                <group string="Detalle de Fechas" position="after">
+                    <group string="Costos del Contrato">
+                        <field name="costo_fijo" attrs="{'readonly':[('costo_varios_clientes','==', True)]}"/>
+                        <field name="costo_variable"/>
+                        <field name="costo_adicional" attrs="{'readonly':[('costo_varios_clientes','==', True)]}"/>
+
+                    </group>
+                </group>
+
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='val_fleet_vehicle_service_types_tree'>
+            <field name="name">fleet.service.type.tree</field>
+            <field name="model">fleet.service.type</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_service_types_tree"/>
+            <field name="arch" type="xml">
+                <field name="category" position="replace" >
+                    <field name="category"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_fleet_documento_vehiculo_form">
+            <field name="name">fleet.documento.vehiculo.form</field>
+            <field name="model">fleet.documento.vehiculo</field>
+            <field name="arch" type="xml">
+                 <form string="Documentos Vehiculo">
+                     <sheet>
+
+                         <group>
+                            <field name="tipo_documento" domain="[('category', '=', 'documento')]"/>
+                            <field name="fecha_vencimiento"/>
+                              <field name="nro_dias_antes_alerta"/>
+                        </group>
+                        <group>
+                            <field name="documentos" widget="many2many_binary"/>
+                            <field name="check_date" invisible="1"/>
+                            <!--<button name="enviar_not_doc_vehiculos" type="object" string="ObjectButton"/>-->
+                        </group>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='val_fleet_documento_vehiculo_tree'>
+            <field name="name">fleet.documento.vehiculo.tree</field>
+            <field name="model">fleet.documento.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Documentos Vehiculo" colors="red:check_date==True">
+                    <field name="documento_id" string="Vehiculo"/>
+                    <field name="tipo_documento" domain="[('category', '=', 'documento')]"/>
+                    <field name="fecha_vencimiento"/>
+                    <field name="documentos" widget="many2many_binary"/>
+                    <field name="check_date" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+          <record model='ir.actions.act_window' id='fleet_documento_vehiculo_act'>
+                <field name="name">Alerta Vencimiento Vehículo</field>
+                <field name="res_model">fleet.documento.vehiculo</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree_sin_botones_quickadd,form</field>
+            </record>
+
+
+           <menuitem action="fleet_documento_vehiculo_act" id="menu_hr_judiciales" parent="fleet.fleet_vehicles" groups="fleet.group_fleet_manager" sequence="5"/>
+
+
+        <record model="ir.ui.view" id="view_fleet_enviar_mails_vehicu_form">
+            <field name="name">enviar.mails.documentos.form</field>
+            <field name="model">enviar.mails.documentos</field>
+            <field name="arch" type="xml">
+
+                 <form string="Alerta Documentos Vehiculo">
+
+                     <sheet>
+                         <group string="Envio de alertas de documentos a E-mails">
+                            <field name="name" invisible="1"/>
+                            <field name="employee_ids" widget="many2many_tags" placeholder="Agregar Empleados a notificar..."/>
+
+                        </group>
+                         <group>
+                             <p align="justify">
+                                 Aquí se seleccionará a los empleados que deseas enviar las alertas de documentos de vehículos a vencer. <br/>
+                                 Estos e-mails se enviarán automáticamente todos los días dependiendo si hay documentos pronto a vencer.
+                             </p>
+                         </group>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='val_fleet_enviar_mails_vehicu_tree'>
+            <field name="name">enviar.mails.documentos.tree</field>
+            <field name="model">enviar.mails.documentos</field>
+            <field name="arch" type="xml">
+                <tree string="Alerta Documentos Vehiculo">
+                    <field name="name"/>
+                    <field name="employee_ids"/>
+                </tree>
+            </field>
+        </record>
+
+          <record model='ir.actions.act_window' id='fleet_enviar_mails_vehicu_act'>
+                <field name="name">Enviar Alerta de Documentos a vencer</field>
+                <field name="res_model">enviar.mails.documentos</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+
+           <menuitem action="fleet_enviar_mails_vehicu_act" id="menu_fleet_enviar_mails" parent="fleet.fleet_configuration" sequence="100"/>
+
+
+
+        <record id="view_res_partner_inherited" model="ir.ui.view">
+          <field name="name">view.res.partner.inherited</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form" />
+          <field name="arch" type="xml">
+                <!--<xpath  expr="//sheet/notebook/page/field/form[@string='Contact']" position="after">-->
+                    <!--<field name="contacto_pdf" string="Contacto para PDF"/>-->
+                <!--</xpath>-->
+              <xpath expr="//field[@name='child_ids']//group/field[@name='mobile']" position="after">
+                    <field name="contacto_pdf" string="Contacto para PDF"/>
+               </xpath>
+            <!--<field name="mobile" position="after">-->
+                <!--<field name="contacto_pdf" string="Contacto para PDF"/>-->
+            <!--</field>-->
+          </field>
+        </record>
+
+
+
+        <!-- Form view of vehiculo contrato summary -->
+        <record model="ir.ui.view" id="vehiculo_contrato_summary_form_view">
+            <field name="name">vehiculo.contrato.summary.form</field>
+            <field name="model">vehiculo.contrato.summary</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <separator string="Tareo de Vehiculos" colspan="4" />
+                    </header>
+                    <!--<sheet>-->
+
+                        <group colspan="4" col="4">
+                            <field name="contrato" string="Contratos"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <label for="date_from" string="Periodo" />
+                            <div>
+                                <field name="date_from" class="oe_inline" />
+                                al
+                                <field name="date_to" class="oe_inline" />
+                            </div>
+                        </group>
+                            <field name="fijo" invisible="1"/>
+                            <field name="variable" invisible="1"/>
+                            <field name="adicional" invisible="1"/>
+                        <notebook>
+                            <page string="Costos Fijos" attrs ="{'invisible':[('fijo','=', False)]}">
+                                <field name="summary_header" colspan="4" invisible="1" />
+                                <field name="room_summary" colspan="4" invisible="1" />
+                                <widget type="Room_Reservation"></widget>
+                            </page>
+                            <page string="Costos Variables" attrs ="{'invisible':[('variable','=', False)]}">
+                                <field name="summary_header_var" colspan="4" invisible="1" />
+                                <field name="room_summary_var" colspan="4" invisible="1" />
+                                <widget type="Room_Reservation_var"></widget>
+                            </page>
+                            <page string="Costos Adicionales" attrs ="{'invisible':[('adicional','=', False)]}">
+                                <field name="summary_header_adi" colspan="4" invisible="1" />
+                                <field name="room_summary_adi" colspan="4" invisible="1" />
+                                <widget type="Room_Reservation_adi"></widget>
+                            </page>
+                        </notebook>
+                    <!--</sheet>-->
+                </form>
+            </field>
+
+        </record>
+
+        <!-- Action for room reservation summary -->
+        <record model="ir.actions.act_window" id="action_vehiculos_tareo_summary">
+            <field name="name">Resumen Tareos de vehiculos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehiculo.contrato.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+        <!--<menuitem id="menu_action_vehiculo_tareo_resumen"-->
+            <!--action="action_vehiculos_tareo_summary" parent="valorizacion_mensual_left_menu"-->
+            <!--sequence="3" />-->
+
+    </data>
+</openerp>

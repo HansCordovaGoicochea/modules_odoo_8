@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="adv_no" model="ir.sequence.type">
+            <field name="name">Adelanto de Sueldo</field>
+            <field name="code">adv</field>
+        </record>
+        <record id="adv_no1" model="ir.sequence">
+            <field name="name">Advance_Num</field>
+            <field name="code">adv</field>
+            <field name="prefix">Adv</field>
+            <field name="padding">3</field>
+        </record>
+
+        <!--Adelanto Holidays-->
+            <record id="action_salary_advance_holidays" model="ir.actions.act_window">
+            <field name="name">Adelanto de Sueldo Vacaciones</field>
+            <field name="res_model">advance.holidays</field>
+            <field name="view_type">form</field>
+        </record>
+        <record id="view_salary_advance_holidays_form" model="ir.ui.view">
+            <field name="name">advance.holidays.form</field>
+            <field name="model">advance.holidays</field>
+            <field name="arch" type="xml">
+                <form string="Adelanto de Sueldo Vacaciones">
+                    <header>
+                        <button name="approved" string="Aprobar" type="object" states="draft" class="oe_highlight" groups="base.group_hr_manager"/>
+                        <button name="cancel" string="Cancelar" type="object" states="draft" class="oe_highlight" groups="base.group_hr_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                    </header>
+                	<sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                		<group col="4">
+                            <label for="date_start" string="Periodo"/>
+                             <div>
+                                    <field name="date_start" class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/> - <field name="date_end" class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                             </div>
+                            <field name="journal_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group col="2">
+                            <field name="reason" invisible="1"/>
+                            <button icon="gtk-execute" class="oe_highlight" default_focus="1" name="compute_holidays" string="Calcular Vacaciones" type="object"  context="{'journal_id':'journal_id'}" attrs="{'invisible':[('state','!=','draft')]}"/>
+                        </group>
+                        <separator string="Detalle"/>
+                        <field name="advance_holidays_ids" attrs="{'readonly':[('state','!=','draft')]}"/>
+		            </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_salary_advance_holidays_tree">
+            <field name="name">advance.holidays.tree</field>
+            <field name="model">advance.holidays</field>
+            <field name="arch" type="xml">
+                <tree string="Adelanto de Sueldo Vacaciones">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!--<menuitem id="parent_menu_salary_advance" name="Adelanto" parent="hr.menu_hr_root" sequence="7"/>-->
+        <!--<menuitem id="menu_salary_advance" action="action_salary_advance" parent="parent_menu_salary_advance" name="Adelanto de Sueldo" sequence="1" />-->
+        <menuitem
+            name="Adelanto de Sueldo Vacaciones"
+            parent="hr_payroll.menu_hr_root_payroll"
+            action="action_salary_advance_holidays"
+            id="menu_salary_advance_holidays"/>
+
+
+        <!--Adelanto de sueldo unico-->
+        <record id="action_salary_advance" model="ir.actions.act_window">
+            <field name="name">Adelanto de Sueldo</field>
+            <field name="res_model">salary.advance</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record id="view_salary_advance_form" model="ir.ui.view">
+            <field name="name">salary.advance.form</field>
+            <field name="model">salary.advance</field>
+            <field name="arch" type="xml">
+                <form string="Adelanto de Sueldo">
+                    <header>
+                        <button name="approve" string="Aprobar" type="object" states="draft" class="oe_highlight" groups="base.group_hr_manager"/>
+                        <button name="cancel" string="Cancelar" type="object" states="draft" class="oe_highlight" groups="base.group_hr_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                    </header>
+                	<sheet>
+                        <div class="oe_title oe_left">
+                            <h2>
+                            <field name="name" class="oe_inline" readonly="1" attrs="{'readonly': [('state','=','approved')]}"/>
+                            </h2>
+                        </div>
+                		<group>
+	                		<group>
+	                        	<field name="employee_id" on_change="onchange_employee_id(employee_id)" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <field name="department" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <field name="reason" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <label for="" string=""/>
+                                <div>
+                                     <button name="button_vacaciones" string="Verificar vacaciones" class="oe_inline oe_highlight" type="object" icon="gtk-go-up" attrs="{'invisible': ['|',('reason_code_check', '=', False),('state', '=','approved')]}"/>
+                                </div>
+                                <field name="reason_code" invisible="1" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <field name="reason_code_check" invisible="1" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <label for="date_start" string="Fecha" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <div>
+                                    <field name="date" class="oe_inline" attrs="{'readonly': ['|',('state','=','approved'),('reason_code_check','=',True)]}"/> - <field name="date_end" class="oe_inline" attrs="{'required':[('reason_code_check', '=', True)], 'invisible': [('reason_code_check', '=', False)], 'readonly': ['|',('state','=','approved'),('reason_code_check','=',True)]}" />
+                                </div>
+                                <field name="number_days" attrs="{'required':[('reason_code_check', '=', True)],  'invisible': [('reason_code_check', '=', False)], 'readonly': [('state','=','approved')]}"/>
+                                <field name="number_days_temp" id="cliked_1"/>
+                                <field name="exceed_condition" attrs="{'readonly': [('state','=','approved')]}"/>
+		                    </group>
+		                    <group>
+                    			<field name="advance" attrs="{'readonly': [('state','=','approved')]}"/>
+                    			<field name="advance_holidays" attrs="{'required':[('reason_code_check', '=', True)],  'invisible': [('reason_code_check', '=', False)], 'readonly': [('state', '=','approved')]}"/>
+                                <field name="payment_method" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <field name="currency_id" groups="base.group_multi_currency" attrs="{'readonly': [('state', '=','approved')]}"/>
+                                <field name="company_id" groups="base.group_multi_company" attrs="{'readonly': [('state', '=','approved')]}"/>
+	                    	</group>
+                    	</group>
+		            </sheet>
+                </form>
+            </field>
+        </record>
+
+       <record model="ir.ui.view" id="view_salary_advance_tree2">
+            <field name="name">salary.advance.tree</field>
+            <field name="model">salary.advance</field>
+            <field name="arch" type="xml">
+                <tree string="Adelanto de Sueldo">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="advance"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--opcion para color diferentes vistas de arbol-->
+        <record model="ir.actions.act_window.view" id="act_hr_employee_tree_view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_salary_advance_tree2"/>
+            <field name="act_window_id" ref="action_salary_advance"/>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_salary_advance_tree">
+            <field name="name">salary.advance.tree</field>
+            <field name="model">salary.advance</field>
+            <field name="arch" type="xml">
+                <tree string="Adelanto de Sueldo Vacaciones" create="false" edit="false">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="date_end"/>
+                    <field name="number_days"/>
+                    <field name="advance"/>
+                    <!--<field name="advance_holidays" invisible="1"/>-->
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--<menuitem id="parent_menu_salary_advance" name="Adelanto" parent="hr.menu_hr_root" sequence="7"/>-->
+        <!--<menuitem id="menu_salary_advance" action="action_salary_advance" parent="parent_menu_salary_advance" name="Adelanto de Sueldo" sequence="1" />-->
+        <menuitem
+            name="Adelanto de Sueldo"
+            parent="hr_payroll.menu_hr_root_payroll"
+            action="action_salary_advance"
+            id="menu_salary_advance"/>
+
+        <!--Reason advance salary-->
+
+        <record id="action_reason_advance" model="ir.actions.act_window">
+            <field name="name">Razones de adelanto</field>
+            <field name="res_model">advance.razon</field>
+            <field name="view_type">form</field>
+        </record>
+        <record id="view_reason_advance_form" model="ir.ui.view">
+            <field name="name">advance.razon.form</field>
+            <field name="model">advance.razon</field>
+            <field name="arch" type="xml">
+                <form string="Razones de adelanto">
+                	<sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="discount"/>
+                        </group>
+		            </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_reason_advance_tree">
+            <field name="name">advance.razon.tree</field>
+            <field name="model">advance.razon</field>
+            <field name="arch" type="xml">
+                <tree string="Razones de adelanto">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="discount"/>
+                </tree>
+            </field>
+        </record>
+        <!--<menuitem id="parent_menu_salary_advance" name="Adelanto" parent="hr.menu_hr_root" sequence="7"/>-->
+        <!--<menuitem id="menu_salary_advance" action="action_salary_advance" parent="parent_menu_salary_advance" name="Adelanto de Sueldo" sequence="1" />-->
+        <menuitem
+            name="Conceptos de Adelanto de Sueldo"
+            parent="hr.menu_hr_configuration"
+            action="action_reason_advance"
+            id="menu_reason_advance"/>
+
+        <record id="view_holidays_form_yo" model="ir.ui.view">
+            <field name="name">hr.holidays.tree.inherit</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.view_holiday_allocation_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

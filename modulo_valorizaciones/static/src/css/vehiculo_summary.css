@@ -1,0 +1,42 @@
+.tablita_h th{
+	border: 1px solid black;
+}
+.tablita_h td{
+	border: 1px solid black;
+}
+
+.table_header
+{
+	text-align: center !important;
+	min-width:52px !important;
+	vertical-align: middle !important;
+	background-color: #d9edf7;
+	border: 1px solid black;
+}
+
+.table_reserved
+{
+	background-color: red;
+	color: white;
+	text-align: center;
+	min-width:52px;
+	vertical-align: middle !important;
+	cursor:pointer;
+}
+.table_free
+{
+	background-color: green;
+	color: white;
+	text-align: center;
+	min-width:52px;
+	vertical-align: middle  !important;
+	cursor:pointer;
+}
+
+.td_libre
+{
+	text-align: center;
+	min-width:52px;
+	vertical-align: middle  !important;
+}
+

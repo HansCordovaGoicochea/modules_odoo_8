@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+        <t t-extend = "ListView.buttons">
+           <t t-jquery = "button.oe_list_add" t-operation = "after">
+               <t if = "widget.model == 'purchase.order'">
+
+                   <!--<div class="oe_account_quickadd ui-toolbar" style="margin-bottom:0px;">-->
+                        <!--<div class="oe_form_dropdown_section">-->
+                            <!--<h4>desde :</h4>-->
+                               <!--<input class="oe_form_field oe_datepicker_root oe_form_field_datetime desde" type="date"/>-->
+                        <!--</div>-->
+                        <!--<div class="oe_form_dropdown_section">-->
+                            <!--<h4>hasta :</h4>-->
+                           <!--<input class="oe_form_field oe_datepicker_root oe_form_field_datetime hasta" type="date"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+               </t>
+           </t>
+
+        </t>
+</templates>

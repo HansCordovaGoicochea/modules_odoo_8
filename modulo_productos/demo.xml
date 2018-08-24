@@ -1,0 +1,96 @@
+<openerp>
+    <data>
+        <record id="view_purchase_order_yo" model="ir.ui.view">
+          <field name="name">purchase.order.yo</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.purchase_order_form"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+          <button name="purchase_confirm" position="after">
+              <button name="transeferir_directo" type="object" string="ir a Transferir" class="oe_highlight" groups="base.group_user" states="draft"/>
+          </button>
+
+
+          </field>
+      </record>
+
+        <!--<field name="date" string="Date From" filter_domain="[('date','&gt;=',self)]"/>-->
+<!--<field name="date" string="Date To" filter_domain="[('date','&lt;=',self)]"/>-->
+
+
+      <record id="view_filter_fechas_order_compra" model="ir.ui.view">
+        <field name="name">purchase.order.Filter</field>
+        <field name="model">purchase.order</field>
+       <field name="inherit_id" ref="purchase.view_purchase_order_filter" />
+        <field name="arch" type="xml">
+        <!--<search>-->
+             <xpath expr="//search" position="inside">
+                 <field name="date_order" string="Desde" filter_domain="[('date_order','&gt;=',self)]"/>
+                <field name="date_order" string="Hasta" filter_domain="[('date_order','&lt;=',self)]"/>
+            </xpath>
+        <!--</search>-->
+        </field>
+      </record>
+
+        <!--<record id="action_fechas_order_compra" model="ir.actions.act_window">-->
+            <!--<field name="name">Fechas</field>-->
+            <!--<field name="res_model">purchase.order</field>-->
+            <!--<field name="view_type">form</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--<field name="view_id" ref="purchase.purchase_order_tree"/>-->
+            <!--<field name="search_view_id" ref="view_filter_fechas_order_compra"/>-->
+        <!--</record>-->
+
+        <record id="inherit_product_template_yo" model="ir.ui.view">
+          <field name="name">inherit_product_template_yo</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_only_form_view"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+            <page name="variants" string="Variants" position="replace">
+                <page name="variants" string="Variants" invisible="1"/>
+            </page>
+
+                <xpath expr="//field[@name='loc_rack']" position="replace">
+                   <field name="loc_rack" string="Almacen"/>
+                </xpath>
+                <xpath expr="//field[@name='loc_row']" position="replace">
+                   <field name="loc_row"  string="Pasadizo"/>
+                </xpath>
+
+                <xpath expr="//field[@name='loc_case']" position="replace">
+                   <field name="loc_case"  string="Fila"/>
+                </xpath>
+
+
+          </field>
+      </record>
+        <record id="product_template_form_view_yo_ihn" model="ir.ui.view">
+          <field name="name">inherit_product_template_yo</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_form_view"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+
+            <page string="Sales" attrs="{'invisible':[('sale_ok','=',False)]}" name="sales" position="replace">
+                <page string="Sales" attrs="{'invisible':[('sale_ok','=',False)]}" name="sales" invisible="1"/>
+            </page>
+
+               <!--<xpath expr="//page[@string='Accounting']/group" position="replace">-->
+                   <!--<group>-->
+                   <!--</group>-->
+                <!--</xpath>-->
+
+               <!--<xpath expr="//page[@string='Inventory']" position="replace">-->
+                   <!--<page string="Inventory" invisible="1"/>-->
+                <!--</xpath>-->
+
+
+          </field>
+      </record>
+
+
+    </data>
+</openerp>

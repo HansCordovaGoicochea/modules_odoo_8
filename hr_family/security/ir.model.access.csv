@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_employee_children_employee","hr.employee.children_employee","model_hr_employee_children","base.group_user",1,0,0,0
+"access_hr_employee_children_user","hr.employee.children_user","model_hr_employee_children","base.group_hr_user",1,1,1,1
+access_hr_direccion,hr.direccion,model_hr_direccion,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_direccion_detalle,hr.direccion.detalle,model_hr_direccion_detalle,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1

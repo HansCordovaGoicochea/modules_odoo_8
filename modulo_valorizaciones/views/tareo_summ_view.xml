@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="modulo_valorizaciones assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/modulo_valorizaciones/static/src/js/tareo_vehiculo_summary.js"></script>
+
+               <!--  <script type="text/javascript" src="/point_of_sale/static/src/js/db.js"></script> -->
+                <link rel="stylesheet" href="/modulo_valorizaciones/static/src/css/vehiculo_summary.css"/>
+
+
+
+                <link rel="stylesheet" href="/modulo_valorizaciones/static/src/css/cabecera_meses.css"/>
+                 <script type="text/javascript" src="/modulo_valorizaciones/static/src/js/cabecera_meses.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

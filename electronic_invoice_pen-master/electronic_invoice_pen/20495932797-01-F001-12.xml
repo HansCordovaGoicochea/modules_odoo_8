@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 ..\xsd\maindoc\UBLPE-Invoice-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ext:UBLExtensions>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+<ds:Signature Id="#SF764-1347-160114110442"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>ckxOzSwzeXaZ9jvUOjHliiCSAT8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>A7UqSffjw0ra/1gVISfGCdj+yLrieFDpj4kb5Q3cbWYHQl1d+gMf6aPFKVo4x6rcjU8QtG1GxhK1
+SOVn+z9adI9ktZvpvgD31f7keo2FlfPrlaUJaLqFl0RRstI1EWqCB6dPBAv85qmrIyqeif8xujao
++OA0Jw2Wc2+kvCgv4/yx6J8celTr3GMv6VOgsHaNTAUwsM2oq5rHloM3nVTiodA3muRi8dgSV3bN
+q/SVwaKyvVjgSO8iXUoGfoffwIqsn5tfgpu92heF+d7FyWez0MYIrn72DrtTgAFMwFGqGBWHcx+Z
++uVGLoa2sy9ox7RuuGHPk2OO5nfwnFQece4pGg==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIGfzCCBWegAwIBAgIQAjwliU2Gltn6SgorLFDLOzANBgkqhkiG9w0BAQUFADCBkzELMAkGA1UE
+BhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UEBxMHU2FsZm9yZDEaMBgG
+A1UEChMRQ09NT0RPIENBIExpbWl0ZWQxOTA3BgNVBAMTMENPTU9ETyBDbGllbnQgQXV0aGVudGlj
+YXRpb24gYW5kIFNlY3VyZSBFbWFpbCBDQTAeFw0xNDA1MjYwMDAwMDBaFw0xNzA1MjUyMzU5NTla
+MIIBgzELMAkGA1UEBhMCUEUxEDAOBgNVBBETB0xJTUEgMzMxDTALBgNVBAgTBExJTUExGjAYBgNV
+BAcTEVNBTlRJQUdPIERFIFNVUkNPMUIwQAYDVQQJEzlKUi4gQ1JJU1RPQkFMIERFIFBFUkFMVEEg
+Tk9SVCBOUk8uIDgyMCBVUkIuIFNBTiBJREVMRk9OU08xJDAiBgNVBAoMG0ZFUlJFWVJPUyBTT0NJ
+RURBRCBBTsOTTklNQTEUMBIGA1UECxMLMjAxMDAwMjg2OTgxQTA/BgNVBAsMOElzc3VlZCB0aHJv
+dWdoIEZFUlJFWVJPUyBTT0NJRURBRCBBTsOTTklNQSBFLVBLSSBNYW5hZ2VyMR8wHQYDVQQLExZD
+b3Jwb3JhdGUgU2VjdXJlIEVtYWlsMSIwIAYDVQQDExlBbmRyZWEgU2FuZG92YWwgU2FiZXJiZWlu
+MS8wLQYJKoZIhvcNAQkBFiBhbmRyZWEuc2FuZG92YWxAZmVycmV5cm9zLmNvbS5wZTCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAL/BvzNjPvR65rEHT+UTyY51YRGEdn/icnP9tdInztMG
+Xi8L/L4BGMPAeSk61V7nXL6vyArAoGBKaFQ84Ut8hUENR30vjJ+u6GOLGem+0nefRrBONmMW3Qu8
+YGSeBfzRAh05LtgKjhlETkuZndMNHYGnFkhoTur36Nd7Y7pWtL132mSO5Q7IgOIJKQZuIPWoK5hm
+gofkexoB/Naq8KhGkf3XzkaMZsQoTXHrQu7dJybiS3fX/njtK3Itv9cnDOaEMlphYmmkHwKasRFi
+MNxEBBCqGL5ZuIPEsmdsnAUP3sGHDTlAFNfkVgS90pmJrFjieXX6oW0TAW6DZ/C9eenJBfcCAwEA
+AaOCAdowggHWMB8GA1UdIwQYMBaAFHoTTgB0W8Z4Y2QnwS/ioFu8ecV7MB0GA1UdDgQWBBTQ5RA7
+7HfjkSbF5TFqKxz4U+3esTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+BggrBgEFBQcDBAYIKwYBBQUHAwIwRgYDVR0gBD8wPTA7BgwrBgEEAbIxAQIBAwUwKzApBggrBgEF
+BQcCARYdaHR0cHM6Ly9zZWN1cmUuY29tb2RvLm5ldC9DUFMwVwYDVR0fBFAwTjBMoEqgSIZGaHR0
+cDovL2NybC5jb21vZG9jYS5jb20vQ09NT0RPQ2xpZW50QXV0aGVudGljYXRpb25hbmRTZWN1cmVF
+bWFpbENBLmNybDCBiAYIKwYBBQUHAQEEfDB6MFIGCCsGAQUFBzAChkZodHRwOi8vY3J0LmNvbW9k
+b2NhLmNvbS9DT01PRE9DbGllbnRBdXRoZW50aWNhdGlvbmFuZFNlY3VyZUVtYWlsQ0EuY3J0MCQG
+CCsGAQUFBzABhhhodHRwOi8vb2NzcC5jb21vZG9jYS5jb20wKwYDVR0RBCQwIoEgYW5kcmVhLnNh
+bmRvdmFsQGZlcnJleXJvcy5jb20ucGUwDQYJKoZIhvcNAQEFBQADggEBAC0z4KSOWFMqnRvu+oeW
+s/fUibAaugvARHaKZrGzUSdLEoyUKMeAokEUc4/ZcPyVunCaXkVRK8+1neS34jITv0fPyc4wYaaB
+lLMmM+5nvTZaNaBTlmv33SRNcK8F+DLEjgFiusp0vORnRQYSBFrJAgjrX94jY5K47O0q+gkuFW3I
+GXpDQMC4lrqkCm6V1KV0UP9qsY9sfjA2E1goIhwMqlc0fD9bsPEly7+wRizBp3EZgg7nrhxAiuiM
+Y073uj6MYTPR1DHSwgCncz/NOVyRMmvDO5GZWg0QS620m6F51COtrKtzB1cl/0j39sRRj8n0Tjk/
+toFn7MaWaSjIjC0/o+o=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></ext:ExtensionContent>
+</ext:UBLExtension>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+
+<CustomText xmlns="">
+    <Text name="CorreoCliente"><![CDATA[jose.valera@newmont.com]]></Text>
+    <Text name="NroInterno"><![CDATA[OT  1726744-1]]></Text>
+    <Text name="OficinaEmisorSede"><![CDATA[76]]></Text>
+    <Text name="TipoVenta"><![CDATA[CR]]></Text>
+    <Text name="Pedido"><![CDATA[PY62183]]></Text>
+    <Text name="DatosOfic"><![CDATA[Pampa Larg Mine Yanacocha Nro S/N ENCAÐADA - CAJAMARCA - CAJAMARCA]]></Text>
+    <Text name="TelefEmisor"><![CDATA[626-4000]]></Text>
+    <Text name="FaxEmisor"><![CDATA[626-4507]]></Text>
+    <Text name="FecEmiLetras"><![CDATA[14 DE ENERO DEL 2016]]></Text>
+    <Text name="DisProDepCliente"><![CDATA[MIRAFLORES - LIMA - LIMA]]></Text>
+    <Text name="CodCliente"><![CDATA[0002075]]></Text>
+    <Text name="TextoAntDet1"><![CDATA[REPARACION DE 01 DIFERENCIAL / EQUIPO HT115 / OP 3000978730 / GR 760-0005365]]></Text>
+    <Text name="TotalLetras"><![CDATA[SON:TRECE MIL DOSCIENTOS VEINTIDOS Y 41/100 DOLARES AMERICANOS]]></Text>
+    <Text name="PaginaWeb"><![CDATA[www.ferreyros.com.pe/facturacion/]]></Text>
+    <Text name="CampoIzq1"><![CDATA[SOLICITUD]]></Text>
+    <Text name="DatoIzq1"><![CDATA[07602038]]></Text>
+    <Text name="CampoIzq2"><![CDATA[NRO.PPTO.]]></Text>
+    <Text name="DatoIzq2"><![CDATA[1676000738]]></Text>
+    <Text name="CampoDer1"><![CDATA[ORDEN DE TRABAJO]]></Text>
+    <Text name="DatoDer1"><![CDATA[PY62183]]></Text>
+    <Text name="CampoDer2"><![CDATA[MARCA]]></Text>
+    <Text name="DatoDer2"><![CDATA[]]></Text>
+    <Text name="CampoDer3"><![CDATA[MODELO]]></Text>
+    <Text name="DatoDer3"><![CDATA[793C]]></Text>
+    <Text name="CampoDer4"><![CDATA[SERIE]]></Text>
+    <Text name="DatoDer4"><![CDATA[0ATY00686]]></Text>
+    <Text name="CampoDer5"><![CDATA[NRO INTERNO]]></Text>
+    <Text name="DatoDer5"><![CDATA[OT  1726744-01]]></Text>
+    <Text name="CampoDer6"><![CDATA[F/VENCIMIENTO]]></Text>
+    <Text name="DatoDer6"><![CDATA[13/02/2016]]></Text>
+    <Section name="MensajesAt">
+        <Detail>
+            <Value><![CDATA[1]]></Value>
+            <Value><![CDATA[- SE HAN PROMULGADO NORMAS QUE PROHIBEN Y SANCIONAN LA MINERIA ILEGAL. LOS]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[2]]></Value>
+            <Value><![CDATA[BIENES Y/O SERVICIOS DETALLADOS EN ESTE COMPROBANTE NO PODRAN SER DESTINADOS]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[3]]></Value>
+            <Value><![CDATA[NI DIRECTA NI INDIRECTAMENTE A UNA ACTIVIDAD CONSIDERADA DE MINERIA ILEGAL.]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[4]]></Value>
+            <Value><![CDATA[- EL PAGO DE ESTA  FACTURA DESPUES DE LA FECHA DE VENCIMIENTO PODRIA GENERAR]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[5]]></Value>
+            <Value><![CDATA[INTERESES COMPENSATORIOS Y MORATORIOS A LAS TASAS MAXIMAS PERMITIDAS POR LEY.]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[6]]></Value>
+            <Value><![CDATA[- EL PAGO DE ESTA FACTURA NO ESTA SUJETA A  RETENCION DEL IGV. DE  ACUERDO AL]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[7]]></Value>
+            <Value><![CDATA[INC. B) ART. 5 DE LA R.S NO. 037-2002/SUNAT]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[8]]></Value>
+            <Value><![CDATA[- OPERACION SUJETA AL SISTEMA  DE PAGO  DE OBLIGACIONES  TRIBUTARIAS  CON]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[9]]></Value>
+            <Value><![CDATA[EL GOBIERNO CENTRAL.]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[10]]></Value>
+            <Value><![CDATA[LA DETRACCION SOBRE EL PRECIO DE VENTA DEL SERVICIO ES $   1,322.24 (10.00%)]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[11]]></Value>
+            <Value><![CDATA[DE   $   13,222.41) DICHO IMPORTE DEBE SER DEPOSITADO EN LA CUENTA ABIERTA EN]]></Value>
+        </Detail>
+        <Detail>
+            <Value><![CDATA[12]]></Value>
+            <Value><![CDATA[EL BANCO DE LA NACION NUMERO 00-000-332240.]]></Value>
+        </Detail>
+    </Section>
+</CustomText>
+</ext:ExtensionContent>
+</ext:UBLExtension>
+<ext:UBLExtension>
+<ext:ExtensionContent>
+<sac:AdditionalInformation>
+<sac:AdditionalMonetaryTotal>
+<cbc:ID>1001</cbc:ID>
+<cbc:PayableAmount currencyID="USD">11205.43</cbc:PayableAmount>
+</sac:AdditionalMonetaryTotal>
+<sac:AdditionalMonetaryTotal>
+<cbc:ID>2003</cbc:ID>
+<cbc:PayableAmount currencyID="USD">1322.24</cbc:PayableAmount>
+</sac:AdditionalMonetaryTotal>
+</sac:AdditionalInformation>
+</ext:ExtensionContent>
+</ext:UBLExtension>
+</ext:UBLExtensions>
+<cbc:UBLVersionID>2.0</cbc:UBLVersionID>
+<cbc:CustomizationID>1.0</cbc:CustomizationID>
+<cbc:ID>F764-1347</cbc:ID>
+<cbc:IssueDate>2016-01-14</cbc:IssueDate>
+<cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+<cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>
+<cbc:ExpiryDate>2015-12-15</cbc:ExpiryDate><cac:Signature>
+<cbc:ID>SF764-1347</cbc:ID>
+<cac:SignatoryParty>
+<cac:PartyIdentification>
+<cbc:ID>20100028698</cbc:ID>
+</cac:PartyIdentification>
+<cac:PartyName>
+<cbc:Name><![CDATA[SUNAT]]></cbc:Name>
+</cac:PartyName>
+</cac:SignatoryParty>
+<cac:DigitalSignatureAttachment>
+<cac:ExternalReference>
+<cbc:URI>#SF764-1347-160114110442</cbc:URI>
+</cac:ExternalReference>
+</cac:DigitalSignatureAttachment>
+</cac:Signature>
+<cac:AccountingSupplierParty>
+<cbc:CustomerAssignedAccountID>20100028698</cbc:CustomerAssignedAccountID>
+<cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+<cac:Party>
+<cac:PartyName>
+<cbc:Name><![CDATA[FERREYROS S.A.]]></cbc:Name>
+</cac:PartyName>
+<cac:PostalAddress>
+<cbc:ID>150140</cbc:ID>
+<cbc:StreetName><![CDATA[Jr. Cristobal de Peralta Norte 820 Urb. San Idelfonso]]></cbc:StreetName>
+<cbc:CitySubdivisionName><![CDATA[]]></cbc:CitySubdivisionName>
+<cbc:CityName>LIMA</cbc:CityName>
+<cbc:CountrySubentity>LIMA</cbc:CountrySubentity>
+<cbc:District>SANTIAGO DE SURCO</cbc:District>
+<cac:Country>
+<cbc:IdentificationCode>PE</cbc:IdentificationCode>
+</cac:Country>
+</cac:PostalAddress>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName><![CDATA[FERREYROS S.A.]]></cbc:RegistrationName>
+</cac:PartyLegalEntity>
+</cac:Party>
+</cac:AccountingSupplierParty>
+<cac:AccountingCustomerParty>
+<cbc:CustomerAssignedAccountID>20137291313</cbc:CustomerAssignedAccountID>
+<cbc:AdditionalAccountID>6</cbc:AdditionalAccountID>
+<cac:Party>
+<cac:PartyLegalEntity>
+<cbc:RegistrationName><![CDATA[MINERA YANACOCHA S.R.L.]]></cbc:RegistrationName>
+<cac:RegistrationAddress>
+<cbc:StreetName><![CDATA[AV  LA PAZ 1049 INT 403 PISO 4]]></cbc:StreetName>
+<cac:Country>
+<cbc:IdentificationCode>PE</cbc:IdentificationCode>
+</cac:Country>
+</cac:RegistrationAddress>
+</cac:PartyLegalEntity>
+</cac:Party>
+</cac:AccountingCustomerParty>
+<cac:TaxTotal>
+<cbc:TaxAmount currencyID="USD">2016.98</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxAmount currencyID="USD">2016.98</cbc:TaxAmount>
+<cac:TaxCategory>
+<cac:TaxScheme>
+<cbc:ID>1000</cbc:ID>
+<cbc:Name>IGV</cbc:Name>
+<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:LegalMonetaryTotal>
+<cbc:LineExtensionAmount currencyID="USD">11205.43</cbc:LineExtensionAmount>
+<cbc:TaxExclusiveAmount currencyID="USD">2016.98</cbc:TaxExclusiveAmount>
+<cbc:PayableAmount currencyID="USD">13222.41</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
+<cac:InvoiceLine>
+<cbc:ID>1</cbc:ID>
+<cbc:InvoicedQuantity unitCode="ZZ">1</cbc:InvoicedQuantity>
+<cbc:LineExtensionAmount currencyID="USD">11205.43</cbc:LineExtensionAmount>
+<cac:PricingReference>
+<cac:AlternativeConditionPrice>
+<cbc:PriceAmount currencyID="USD">13222.41</cbc:PriceAmount>
+<cbc:PriceTypeCode>01</cbc:PriceTypeCode>
+</cac:AlternativeConditionPrice>
+</cac:PricingReference>
+<cac:TaxTotal>
+<cbc:TaxAmount currencyID="USD">2016.98</cbc:TaxAmount>
+<cac:TaxSubtotal>
+<cbc:TaxableAmount currencyID="USD">11205.43</cbc:TaxableAmount>
+<cbc:TaxAmount currencyID="USD">2016.98</cbc:TaxAmount>
+<cbc:Percent>18.0</cbc:Percent>
+<cac:TaxCategory>
+<cbc:TaxExemptionReasonCode>10</cbc:TaxExemptionReasonCode>
+<cac:TaxScheme>
+<cbc:ID>1000</cbc:ID>
+<cbc:Name>IGV</cbc:Name>
+<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+</cac:TaxScheme>
+</cac:TaxCategory>
+</cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:Item>
+<cbc:Description><![CDATA[REPARACION DE 01 DIFERENCIAL]]></cbc:Description>
+</cac:Item>
+<cac:Price>
+<cbc:PriceAmount currencyID="USD">11205.43</cbc:PriceAmount>
+</cac:Price>
+</cac:InvoiceLine>
+</Invoice>

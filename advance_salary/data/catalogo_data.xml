@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="sa03_00" model="advance.razon"><field name="code">ADS</field><field name="name">Adelanto de Sueldo</field><field name="discount" eval="0"/></record>
+        <record id="sa03_01" model="advance.razon"><field name="code">ADBS</field><field name="name">Adelanto de Beneficios Sociales</field><field name="discount" eval="0"/></record>
+        <record id="sa03_02" model="advance.razon"><field name="code">ADV</field><field name="name">Adelanto de Vacaciones (Calcula los descuentos)</field><field name="discount" eval="1"/></record>
+        <record id="sa03_03" model="advance.razon"><field name="code">ADG</field><field name="name">Adelanto de Gratificaciones</field><field name="discount" eval="0"/></record>
+        <record id="sa03_04" model="advance.razon"><field name="code">ADB</field><field name="name">Adelanto de Bonos</field><field name="discount" eval="0"/></record>
+        <record id="sa03_04" model="advance.razon"><field name="code">OTROS</field><field name="name">Otros</field><field name="discount" eval="0"/></record>
+
+    </data>
+</openerp>

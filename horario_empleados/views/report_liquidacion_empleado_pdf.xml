@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="horario_empleados.report_liquidacion_empleado_pdf">
+    <t t-call="report.html_container">
+        <!--<t t-foreach="docs" t-as="o">-->
+            <!--<t t-call="report.internal_layout">-->
+        <style>
+            .font-grande{
+                font-size: 20px;
+                font-family: "Segoe UI",Arial,sans-serif;
+                overflow-wrap: break-word;
+                 text-align:justify;
+            }
+        </style>
+        <div class="page">
+                    <div class="row mt32">
+                        <div class="col-xs-4">
+                            <img t-if="res_company.logo_web" t-att-src="'data:image/png;base64,%s' % res_company.logo_web" style="max-height: 45px;"/>
+                        </div>
+                        <div class="col-xs-6 text-left">
+                            <br/>
+                            <br/>
+                             <strong>LIQUIDACION DE BENEFICIOS SOCIALES</strong>
+                        </div>
+                        <div class="col-xs-2 text-right">
+                            <br/><br/>
+                             <p t-raw="datetime.date.today().strftime('%d-%m-%Y')"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <table>
+                                <tr>
+                                    <td>APELLIDOS Y NOMBRES:</td>
+                                    <td><span t-esc="data['empleado']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>CARGO:</td>
+                                    <td><span t-esc="data['cargo']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>DEPARTAMENTO:</td>
+                                    <td><span t-esc="data['departamento']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>FECHA DE INGRESO:</td>
+                                    <td><span t-esc="try_parsing_date(data['contrato'])"/></td>
+                                </tr>
+                                <tr>
+                                    <td>TIEMPO DE SERVICIO:</td>
+                                    <td><span t-esc="tiempo_entre(int(data['contrato'][-2:]),int(data['contrato'][5:7]),int(data['contrato'][0:4]),int(data['hasta'][-2:]),int(data['hasta'][5:7]),int(data['hasta'][0:4]))"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                         <!--<div class="col-xs-2">-->
+                         <!--</div>-->
+                        <div class="col-xs-5">
+                            <table>
+                                <tr>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                </tr>
+                                <tr>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                </tr>
+                                <tr>
+                                    <td>SUELDO BASICO:</td>
+                                    <td><span t-esc="data['basico']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>FECHA DE CESE:</td>
+                                    <td><span t-esc="try_parsing_date(data['hasta'])"/></td>
+                                </tr>
+                                <tr>
+                                    <td>MOTIVO DE CESE:</td>
+                                    <td><![CDATA[&nbsp;&nbsp;]]><span t-esc="motivo_cese_empleado(data['id_emp']) if data['id_emp'] else ''"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <style type="text/css">
+                        .tg  {border-collapse:collapse;border-spacing:0;}
+                        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                        .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:7px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                        .tg .tg-lqy6{text-align:right;vertical-align:top}
+                        .tg .tg-hgcj{font-weight:bold;text-align:center}
+                        .tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+                        .tg .tg-yw4l{vertical-align:top}
+                        .tg .tg-9hbo{font-weight:bold;vertical-align:top}
+                        .tg .tg-l2oz{font-weight:bold;text-align:right;vertical-align:top}
+                        </style>
+                        <table class="tg" style="table-layout: fixed; width: 717px" align="center">
+                        <colgroup>
+                        <col style="width: 300px"/>
+                        <col style="width: 100px"/>
+                        <col style="width: 100px"/>
+                        <!--<col style="width: 115px"/>-->
+                        <!--<col style="width: 200px"/>-->
+                        </colgroup>
+                          <tr>
+                            <th class="tg-hgcj">Remuneraciones Computables</th>
+                            <th class="tg-amwm">CTS S/. Mayo</th>
+                            <th class="tg-amwm">CTS S/. Noviembre</th>
+                            <!--<th class="tg-amwm">Vacaciones S/.</th>-->
+                            <!--<th class="tg-amwm">Gratifiaciones S/.</th>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">REMUNERACION BASICA:</td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(data['basico']) if int(data['hasta'][5:7]) in (11,12,1,2,3,4) else '0.00'"/></td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(data['basico']) if int(data['hasta'][5:7]) in (5,6,7,8,9,10) else '0.00'"/></td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">ASIGNACION FAMILIAR:</td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(asignacion_empleado(data['id_emp'], data['slip'])) if int(data['hasta'][5:7]) in (11,12,1,2,3,4) else '0.00'"/></td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(asignacion_empleado(data['id_emp'], data['slip'])) if int(data['hasta'][5:7]) in (5,6,7,8,9,10) else '0.00'"/></td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">PROM. DE HH EE Y BN.</td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(extras_empleado2(data['id_emp'], data['slip'])) if int(data['hasta'][5:7]) in (11,12,1,2,3,4) else '0.00'"/></td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(extras_empleado2(data['id_emp'], data['slip'])) if int(data['hasta'][5:7]) in (5,6,7,8,9,10) else '0.00'"/></td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">PROM. INCENT. DESEMP. PERS.:</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">PROM. INCENT. DESEMP. GRUP.:</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">PROM. GRATIFICACION.:</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-yw4l">PROM. DE BON. RET. VAC. Y BON. VAR.:</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <td class="tg-lqy6">0.00</td>
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                            <!--<td class="tg-lqy6">0.00</td>-->
+                          </tr>
+                          <tr>
+                            <td class="tg-9hbo">TOTALES:</td>
+                             <td class="tg-lqy6"><span t-esc="formatLang(suma_cts_empleado(data['basico']), currency_obj = res_company.currency_id) if int(data['hasta'][5:7]) in (11,12,1,2,3,4) else '0.00'"/></td>
+                            <td class="tg-lqy6"><span t-esc="formatLang(suma_cts_empleado(data['basico']), currency_obj = res_company.currency_id) if int(data['hasta'][5:7]) in (5,6,7,8,9,10) else '0.00'"/></td>
+                            <!--<td class="tg-l2oz">0.00</td>-->
+                            <!--<td class="tg-l2oz">0.00</td>-->
+                          </tr>
+                        </table>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <style type="text/css">
+                            .tg  {border-collapse:collapse;border-spacing:0;}
+                            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:0px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:0px 3px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                            .tg .tg-s6z2{text-align:center}
+                            .tg .tg-baqh{text-align:center;vertical-align:top}
+                            .tg .tg-lqy6{text-align:right;vertical-align:top}
+                            .tg .tg-yw4l{vertical-align:top}
+                        </style>
+                        <table class="tg" style="undefined;table-layout: fixed; width: 910px">
+                            <colgroup>
+                            <col style="width: 587px"/>
+                            <col style="width: 162px"/>
+                            <col style="width: 161px"/>
+                            </colgroup>
+                              <tr>
+                                <th class="tg-s6z2">INGRESOS</th>
+                                <th class="tg-baqh">CANTIDAD</th>
+                                <th class="tg-baqh">S/.</th>
+                              </tr>
+                                <t t-foreach="get_payslip_line_incremento(data['slip'])" t-as="incremento">
+                                     <span t-if="int(incremento['total']) != 0 ">
+                                        <tr>
+                                            <td class="tg-yw4l"><t t-esc="incremento['name']"/></td>
+                                            <td class="tg-lqy6"><t t-esc="30 if incremento['code'] == 'BAS' else incremento['quantity']"/></td>
+                                            <td class="tg-lqy6"><t t-esc="incremento['total']"/></td>
+                                        </tr>
+                                     </span>
+                                </t>
+                              <tr>
+                                <td class="tg-yw4l">Vacaciones Truncas</td>
+                                <td class="tg-lqy6"><span t-esc="formatLang(vacaciones_truncas(data['id_emp']))"/></td>
+                                <td class="tg-lqy6"><span t-esc="formatLang((data['basico']/float(30))*vacaciones_truncas(data['id_emp']))"/></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Vacaciones Pendientes</td>
+                                <td class="tg-lqy6"><span t-esc="formatLang(vacaciones_pendientes(data['id_emp']))"/></td>
+                                <td class="tg-lqy6"><span t-esc="formatLang((data['basico']/float(30))*vacaciones_pendientes(data['id_emp']))"/></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Vacaciones Vencidas</td>
+                                <td class="tg-lqy6"><span t-esc="formatLang(vacaciones_vencidas(data['id_emp']))"/></td>
+                                <td class="tg-lqy6"><span t-esc="formatLang((data['basico']/float(30))*vacaciones_vencidas(data['id_emp']))"/></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Vacaciones Indenmizadas</td>
+                                <td class="tg-lqy6"><span t-esc="formatLang(vacaciones_vencidas(data['id_emp']))"/></td>
+                                <td class="tg-lqy6"><span t-esc="formatLang((data['basico']/float(30))*vacaciones_vencidas(data['id_emp']))"/></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Total Ingresos</td>
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <td class="tg-lqy6"><span t-esc="formatLang(sum_total_ingresos_vacaciones(), currency_obj = res_company.currency_id)"/></td>
+                              </tr>
+                            </table>
+                        <br/>
+                        <table class="tg" style="undefined;table-layout: fixed; width: 910px">
+                            <colgroup>
+                            <col style="width: 749px"/>
+                            <!--<col style="width: 162px"/>-->
+                            <col style="width: 161px"/>
+                            </colgroup>
+                              <tr>
+                                <th class="tg-s6z2">Descuentos</th>
+                                <!--<th class="tg-baqh">CANTIDAD</th>-->
+                                <th class="tg-baqh">S/.</th>
+                              </tr>
+                                <t t-foreach="get_payslip_line_deduccion(data['slip'])" t-as="deduccion">
+                                     <span t-if="int(abs(deduccion['total'])) != 0 ">
+                                        <tr>
+                                            <td class="tg-yw4l"><t t-esc="deduccion['name'] if deduccion['code'] != 'R5ta' else 'Impuesto Quinta Categoria'"/></td>
+                                            <!--<td class="tg-lqy6"><t t-esc="incremento['quantity']"/></td>-->
+                                            <td class="tg-lqy6"><t t-esc="deduccion['total'] if deduccion['code'] != 'R5ta' else quinta_cese_empleado(data['id_emp'],data['desde'],data['hasta'])"/></td>
+                                        </tr>
+                                      </span>
+                                </t>
+                                        <!--<tr>-->
+                                            <!--<td class="tg-yw4l">Impuesto Quinta Categoria</td>-->
+                                            <!--&lt;!&ndash;<td class="tg-lqy6"><t t-esc="incremento['quantity']"/></td>&ndash;&gt;-->
+                                            <!--<td class="tg-lqy6"><t t-esc="quinta_cese_empleado(data['id_emp'],data['desde'],data['hasta'])"/></td>-->
+                                        <!--</tr>-->
+                              <tr>
+                                <td class="tg-yw4l"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Total Descuentos</td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><span t-esc="formatLang(sum_total_descuetos_menos_quinta(), currency_obj = res_company.currency_id)"/></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                              </tr>
+                            <tr>
+                                <td class="tg-yw4l">NETO A PAGAR (S/.)</td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><span t-esc="formatLang(sum_total_liquidacion(), currency_obj = res_company.currency_id)"/></td>
+                              </tr>
+                            </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <table class="tg" style="undefined;table-layout: fixed; width: 910px">
+                            <colgroup>
+                            <col style="width: 749px"/>
+                            <!--<col style="width: 162px"/>-->
+                            <col style="width: 161px"/>
+                            </colgroup>
+                              <tr>
+                                <th class="tg-s6z2">APORTACIONES</th>
+                                <!--<th class="tg-baqh">CANTIDAD</th>-->
+                                <th class="tg-baqh">S/.</th>
+                              </tr>
+                                <t t-foreach="get_payslip_line_ce(data['slip'])" t-as="ce">
+                                     <!--<span t-if="int(abs(deduccion['total'])) != 0 ">-->
+                                        <tr>
+                                            <td class="tg-yw4l"><t t-esc="ce['name']"/></td>
+                                            <!--<td class="tg-lqy6"><t t-esc="incremento['quantity']"/></td>-->
+                                            <td class="tg-lqy6"><t t-esc="ce['total']"/></td>
+                                        </tr>
+                                      <!--</span>-->
+                                </t>
+
+                              <tr>
+                                <td class="tg-yw4l"><![CDATA[&nbsp;&nbsp;]]></td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>
+                              </tr>
+                              <tr>
+                                <td class="tg-yw4l">Total Ingresos</td>
+                                <!--<td class="tg-lqy6"><![CDATA[&nbsp;&nbsp;]]></td>-->
+                                <td class="tg-lqy6"><span t-esc="formatLang(sum_total_ce(), currency_obj = res_company.currency_id)"/></td>
+                              </tr>
+                            </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                         <div class="row">
+                        <div class="col-xs-7">
+                            <span>Recibí Conforme</span>
+                            <table>
+                                <tr>
+                                    <td>NOMBRE:</td>
+                                    <td><span t-esc="data['empleado']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>CODIGO:</td>
+                                    <td><span t-esc="data['documento']"/></td>
+                                </tr>
+                                <tr>
+                                    <td>C. COSTOS:</td>
+                                    <td><span t-esc="data['documento']"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                         <!--<div class="col-xs-2">-->
+                         <!--</div>-->
+                        <div class="col-xs-5">
+                            <table>
+                                <tr>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                </tr>
+                                <tr>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                </tr>
+                                <tr>
+                                    <td>FECHA:</td>
+                                    <td><span t-esc="data['hasta']"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                     <style>
+                            .fintable .tde{font-family:Arial, sans-serif;font-size:14px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                    </style>
+                    <table class="fintable" style="width: 910px">
+                        <tr>
+                            <td style="padding:35px 3px; width: 300px" class="tde"><![CDATA[&nbsp;&nbsp;]]></td>
+                            <td style="padding:35px 3px; width: 300px" class="tde"><![CDATA[&nbsp;&nbsp;]]></td>
+                            <td style="padding:35px 3px; 200px" class="tde"><![CDATA[&nbsp;&nbsp;]]></td>
+                            <td style="padding:35px 3px; width: 210px" class="tde"><![CDATA[&nbsp;&nbsp;]]></td>
+                        </tr>
+                        <tr >
+                            <td style="padding:0px 3px; width: 300px" class="text-center tde">Vo. Bo. Recursos Humanos</td>
+                            <td style="padding:0px 3px; width: 300px" class="text-center tde">Firma del Trabajador</td>
+                            <td style="padding:0px 3px; 200px" class="text-center tde">Huella Digital</td>
+                            <td style="padding:0px 3px; width: 210px" class="text-center tde">D.N.I.</td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+        <div class="page">
+                    <div class="row mt32">
+                        <div class="col-xs-5">
+                        </div>
+                        <div class="col-xs-4 text-left">
+                            <br/><br/><br/>
+                            <strong><h4>EJERCICIO <span t-esc="data['anio']"/></h4></strong>
+                        </div>
+                        <div class="col-xs-2 text-right">
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row col-xs-12">
+                        <p class="font-grande" align="justify">
+                            <field t-field="res_company.partner_id" t-field-options='{"fields": ["name"], "no_marker": true, "no_tag_br": true}'/> domiciliado en Mza A Lote 10 CAS. San Francisco de Asis, Cajamarca, Cajamarca, Cajamarca.
+                        </p>
+                        <br/>
+                         <span class="text-center"><strong><h4>CERTIFICA</h4></strong></span>
+                        <p class="font-grande" align="justify">Que a don(ña) <span t-esc="data['empleado']"/>, identificado(a) con DNI(CE) N° <span t-esc="data['documento']"/>, domiciliado en <span t-esc="direccion_empleado(data['documento'])"/>, Cajamarca, se a retenido el importe de <span t-esc="formatLang(quinta_empleado(data['id_emp']), currency_obj = res_company.currency_id)"/>, como pago a cuenta del Impuesto a la Renta de quinta categoría, correspondiente al ejercicio gravable <span t-esc="data['anio']"/> calculado en base a las siguientes rentas, deducciones  y créditos.</p>
+                        <br/>
+                        <div class="row">
+                            <span><strong><h4>1. RENTAS BRUTAS</h4></strong></span>
+                            <table>
+                                <tr>
+                                    <td><p class="text-left" align="justify">- Total de sueldo o salarios netos.</p></td>
+                                    <td class="text-left"><span t-esc="res_company.currency_id.symbol"/></td>
+                                    <td><p class="text-right"><span t-esc="formatLang(neto_empleado(data['id_emp']))"/></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="text-left" align="justify">- Participación en las utilidades.</p></td>
+                                   <td class="text-left"><span t-esc="res_company.currency_id.symbol"/></td>
+                                    <td><p class="text-right">0.00</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="text-left" align="justify">- Ingresos por el trabajo prestado en forma independiente en forma simultáneo al trabajo dependiente.</p></td>
+                                    <td class="text-left"><span t-esc="res_company.currency_id.symbol"/></td>
+                                    <td><p class="text-right">0.00</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="text-left" align="justify">- Ingresos por el trabajo prestado en forma independiente en el lugar y horario designado por quien  lo requiere y cuando el usuario proporciona los elementos de trabajo y asume los gastos que  la prestación del servicio demanda.</p></td>
+                                   <td class="text-left"><span t-esc="res_company.currency_id.symbol"/></td>
+                                    <td><p class="text-right">0.00</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="text-left" align="justify">- Ingresos otras compañias.</p></td>
+                                   <td class="text-left" style="border-bottom:1pt solid black;"><span t-esc="res_company.currency_id.symbol"/></td>
+                                    <td style="border-bottom:1pt solid black;"><p class="text-right">0.00</p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5>RENTA BRUTA TOTAL</h5></strong></td>
+                                    <td class="text-left" style="border-bottom:1pt solid black;"><h5><span t-esc="res_company.currency_id.symbol"/></h5></td>
+                                    <td style="border-bottom:1pt solid black;"><p class="text-right"><h5><span t-esc="formatLang(neto_empleado(data['id_emp']))"/></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5>IMPUESTO TOTAL RETENIDO</h5></strong></td>
+                                    <td class="text-left"><h5><span t-esc="res_company.currency_id.symbol"/></h5></td>
+                                    <td ><p class="text-right"><h5><span t-esc="formatLang(quinta_empleado(data['id_emp']))"/></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td ><p class="text-right"><![CDATA[&nbsp;&nbsp;]]></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-center"><strong><h4>Observaciones</h4></strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom:1pt solid black; border-top:1pt solid black;" colspan="3"><strong>Cajamarca, <span t-raw="datetime.date.today().strftime('%d-%m-%Y')"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><![CDATA[&nbsp;&nbsp;]]></td>
+                                    <td ><p class="text-right"><![CDATA[&nbsp;&nbsp;]]></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><h5><![CDATA[&nbsp;&nbsp;]]></h5></strong></td>
+                                    <td class="text-left"><h5><![CDATA[&nbsp;&nbsp;]]></h5></td>
+                                    <td ><p class="text-right"><h5><![CDATA[&nbsp;&nbsp;]]></h5></p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="row">
+                                            <div class="col-xs-5">
+                                                <table class="table table-condensed">
+                                                    <tr class="border-black">
+                                                        <td class="border-black text-center" style="width:40%;">
+                                                            <strong><![CDATA[&nbsp;&nbsp;]]></strong>
+                                                            <p>
+                                                                <![CDATA[&nbsp;&nbsp;]]>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                             <div class="col-xs-2">
+                                             </div>
+                                            <div class="col-xs-5">
+                                                <table class="table table-condensed">
+                                                    <tr class="border-black">
+                                                        <td class="border-black text-center" style="width:40%;">
+                                                            <strong>Empleado</strong>
+                                                            <p>
+                                                                <span t-esc="data['empleado']"/>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+        <!--</t>-->
+    </t>
+</template>
+</data>
+</openerp>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_einvoice_nota_credito,einvoice.nota.credito,model_einvoice_nota_credito,account.group_account_manager,1,1,1,1
+access_einvoice_nota_debito,einvoice.nota.debito,model_einvoice_nota_debito,account.group_account_manager,1,1,1,1
+access_einvoice_comunicacion_baja,einvoice.comunicacion.baja,model_einvoice_comunicacion_baja,account.group_account_manager,1,1,1,1
+access_einvoice_detalle_comunicacion_baja,einvoice.detalle.comunicacion.baja,model_einvoice_detalle_comunicacion_baja,account.group_account_manager,1,1,1,1

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_purchase_order_wizard_chart" model="ir.ui.view">
+            <field name="name">purchase.order.wizard.form</field>
+            <field name="model">purchase.order.wizard</field>
+            <field name="arch" type="xml">
+                <form string="A">
+                    <group>
+                        <label for="period_from_dp" string="Fechas"/>
+                        <div>
+                            <field name="period_from_dp" class="oe_inline"/> -
+                            <field name="period_to_dp" class="oe_inline"/>
+                        </div>
+                    </group>
+                    <footer>
+                        <button string="Abrir Reporte" name="account_chart_open_window" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_purchase_order_wizard" model="ir.actions.act_window">
+            <field name="name">Compras por Fechas</field>
+            <field name="res_model">purchase.order.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_purchase_order_wizard_chart"/>
+            <field name="target">new</field>
+        </record>
+
+         <!--<act_window name = "Filter Data"-->
+                    <!--res_model = "purchase.order.wizard"-->
+                    <!--src_model = "purchase.order"-->
+                    <!--view_mode = "tree,form"-->
+                    <!--view_type = "form"-->
+                    <!--multi="False"-->
+                    <!--target = "new"-->
+                    <!--key2 = "client_action_multi"-->
+                    <!--id = "action_filter_date_order"-->
+                    <!--view_id = "view_purchase_order_wizard_chart"/>-->
+
+        <!--<menuitem icon="STOCK_INDENT" action="action_purchase_order_wizard"-->
+            <!--id="menu_action_purchase_order_wizard"-->
+            <!--parent="purchase.menu_procurement_management" />-->
+    </data>
+</openerp>

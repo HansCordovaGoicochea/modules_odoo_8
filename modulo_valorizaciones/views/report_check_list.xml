@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report-->
+<openerp>
+<data>
+<template id="report_check_list_document">
+    <div class="page">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2>
+                    <span>Turismo y Servicios Generales</span>
+                    <br></br>
+                    <span>San Francisco S.R.L.</span>
+                </h2>
+                <table class="table table-condensed">
+                    <tr class="border-black text-center">
+                        <td></td>
+                    </tr>
+                 </table>
+                <h2>
+                    <span>REGISTRO DIARIO DE</span>
+                    <br></br>
+                    <span>HORAS DE TRABAJO Y OCUPACIONES</span>
+                </h2>
+                 <table  class="table table-condensed">
+                    <tr class="border-black">
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+            <br></br>
+            <div class="row mt32 mb32">
+                <div class="col-xs-6">
+                    <div class="col-xs-5" t-if="o.conductor">
+                        <strong>CONDUCTOR:</strong>
+                    </div>
+                    <div class="col-xs-7 text-left" t-if="o.conductor">
+                        <strong t-field="o.conductor"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.unidad">
+                        <strong>MARCA:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.unidad">
+                        <strong t-field="o.unidad.model_id.brand_id.name"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.tipo">
+                        <strong>TIPO DE VEHÍCULO:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.tipo">
+                        <strong t-field="o.tipo.name"/>
+                    </div>
+                    <div class="col-xs-5">
+                        <strong>EMPRESA:</strong>
+                    </div>
+                    <div class="col-xs-7">
+                        <strong>T. SAN FRANCISCO</strong>
+                    </div>
+                    <div class="col-xs-5" t-if="o.tanqueo_inicio">
+                        <strong>Nivel de Comb. Inicio:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.tanqueo_inicio">
+                        <strong>TANQUEADO</strong>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="col-xs-5" t-if="o.fecha">
+                        <strong>FECHA:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.fecha">
+                        <strong t-field="o.fecha"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.km_inicio">
+                        <strong>KM. INICIO:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.km_inicio">
+                        <strong t-field="o.km_inicio"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.km_fin">
+                        <strong>KM. FIN:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.km_fin">
+                        <strong t-field="o.km_fin"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.km_total">
+                        <strong>TOTAL:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.km_total">
+                        <strong t-field="o.km_total"/>
+                    </div>
+                    <div class="col-xs-5" t-if="o.tanqueo_fin_total">
+                        <strong>Final:</strong>
+                    </div>
+                    <div class="col-xs-7" t-if="o.tanqueo_fin_total">
+                        <strong t-field="o.tanqueo_fin_total"/>
+                    </div>
+                </div>
+            </div>
+            <br></br>
+        </div>
+    </div>
+
+    <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:20%;">HORARIO DE SALIDA</th>
+                    <th style="width:20%;">HORARIO DE LLEGADA</th>
+                    <th style="width:60%;" class="text-center">DESCRIPCION</th>
+                </tr>
+            </thead>
+            <tbody class="invoice_tbody">
+                <tr t-foreach="o.revision_tecnica_detalle_ids" t-as="l">
+                    <td style="width:20%;">
+                        <t t-esc="'%02d:%02d' % (int(l.hora_inicio), l.hora_inicio % 1 * 60)" />
+                    </td>
+                    <td style="width:20%;">
+                        <t t-esc="'%02d:%02d' % (int(l.hora_fin), l.hora_fin % 1 * 60)" />
+                    </td>
+                    <td style="width:60%;">
+                        <span t-field="l.descripcion"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br></br>
+        <div class="row mt32 mb32">
+            <div class="col-xs-3" t-if="o.observaciones">
+                <strong>OBSERVACIONES:</strong>
+            </div>
+            <div class="col-xs-9 text-left" t-if="o.observaciones">
+                <strong t-field="o.observaciones"/>
+            </div>
+        </div>
+
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <div class="row">
+        <div class="col-xs-5">
+            <table class="table table-condensed">
+                <tr class="border-black">
+                    <td class="border-black text-center" style="width:40%;">
+                        <strong>FIRMA DEL CONDUCTOR</strong>
+                        <p t-if="o.conductor">
+                            <span t-field="o.conductor"/>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div class="col-xs-2">
+         </div>
+        <div class="col-xs-5">
+            <table class="table table-condensed">
+                <tr class="border-black">
+                    <td class="border-black text-center" style="width:40%;">
+                        <strong>V°b° SUPERVISOR</strong>
+                        <!--<p t-if="o.encargado_ejecutar">
+                            <span t-field="o.encargado_ejecutar"/>
+                        </p>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+</template>
+
+<template id="report_check_list">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'proveedor.lang', 'modulo_valorizaciones.report_check_list_document')"/>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>

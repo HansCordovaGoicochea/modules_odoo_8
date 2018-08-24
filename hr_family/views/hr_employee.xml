@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+
+          <record id="hr_children_view_tree" model="ir.ui.view">
+            <field name="name">hr.children.view.tree</field>
+            <field name="model">hr.employee.children</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Children">
+                    <field name="name"/>
+                    <field name="apellido_paterno"/>
+                    <field name="apellido_materno"/>
+                    <field name="gender"/>
+                    <field name="date_of_birth"/>
+                </tree>
+            </field>
+        </record>
+
+          <record id="hr_children_view_form" model="ir.ui.view">
+              <field name="name">hr.employee.children.form</field>
+              <field name="model">hr.employee.children</field>
+              <field name="arch" type="xml">
+                  <form string="Registrar Hijo">
+                      <group >
+                          <group string="Información Personal">
+                                 <field name="name"/>
+                                <!--<field name="fam_spouse_employer"/>-->
+                                <field name="apellido_paterno"/>
+                                <field name="apellido_materno"/>
+                                 <field name="date_of_birth"/>
+                                 <field name="gender"/>
+                              <field name="tipo_documento"/>
+                                <field name="nro_documento"/>
+                                <field name="pais_de_emision"/>
+                          </group>
+                          <group string="Ciudadanía e información adicional">
+            <field name="country_id"/>
+                                   <field name="state_id" class="oe_no_button" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('country_id','=',False)]}"  domain="[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]"/>
+                        <field name="province_id" class="oe_no_button" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('state_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+                        <field name="district_id" class="oe_no_button" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_district(district_id)" attrs="{'readonly': ['|',('province_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]"/>
+                                <field name="lugar_nacimiento" placeholder="Ubigeo" style="width: 48%"/>
+                          </group>
+                          <group string="Otra Información">
+                                <field name="otro_titulo"/>
+                                <field name="name_prefix"/>
+                                <field name="segunda_nacionalidad"/>
+                                <field name="tercera_nacionalidad"/>
+
+                          </group>
+                          <group string="Vínculo Familiar">
+                                <field name="vinc_fam" domain="[('code', '=', (5,6))]" string="Vínculo Familiar"/>
+                                <field name="tipo_doc" string="Tipo Doc. que Acred. Vínculo"/>
+                                <field name="nro_doc"/>
+                                <field name="mes_concepcion" string="Mes estim. de Concepción (Sólo Gestantes)"/>
+                          </group>
+
+                      </group>
+                      <separator string="Centro Salud"/>
+                <table class="oe_form_analytic_account table-bordered">
+					<tr>
+						<th class="oe_timesheet_grey" width="40%" style="text-align:center" rowspan="2">
+                            <strong><label string="Indic. Centro Asist. EsSalud"/></strong><br/>
+                            <span>Direc. que se considerará para Adscripción</span>
+                        </th>
+                        <th class="oe_timesheet_grey" width="30%" colspan="2" style="text-align:center">
+							<strong><label string="Teléfono"/></strong>
+						</th>
+
+						<th class="oe_timesheet_grey" width="30%" align="center" style="text-align:center" rowspan="2">
+							<strong><label string="Correo Electrónico"/></strong>
+						</th>
+					</tr>
+                    <tr>
+                        <td class="oe_timesheet_grey"><span><strong>COD LDN</strong></span></td>
+                        <td class="oe_timesheet_grey"><span><strong>Número</strong></span></td>
+                    </tr>
+					<tr>
+						<td class="oe_timesheet_grey" >
+							<field name="centro_salud" width="100%%"/>
+						</td>
+						<td class="oe_timesheet_grey">
+							<field name="cod_ldn" />
+						</td>
+						<td class="oe_timesheet_grey">
+							<field name="numero"/>
+						</td>
+						<td class="oe_timesheet_grey" colspan="2">
+							<field name="correo_electronico"/>
+						</td>
+					</tr>
+				</table>
+                      <separator string="Direcciones"/>
+                      <field name="dire_det_ids"/>
+                  </form>
+
+
+              </field>
+          </record>
+
+        <!--direcciones-->
+         <record id="hr_direccion_form" model="ir.ui.view">
+              <field name="name">hr.direccion.form</field>
+              <field name="model">hr.direccion</field>
+              <field name="arch" type="xml">
+                  <form string="Registrar Direcciones">
+
+                          <group>
+                              <field name="direccion_id" string="Empleado"/>
+                          </group>
+                          <group>
+                              <field name="direccion_or_ids" string="Direcciones"/>
+                          </group>
+
+                  </form>
+              </field>
+          </record>
+
+        <record id="hr_direccion_tree" model="ir.ui.view">
+            <field name="name">hr.direccion.tree</field>
+            <field name="model">hr.direccion</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Children">
+                    <field name="direccion_id"/>
+                </tree>
+            </field>
+        </record>
+   <!--direcciones-->
+        <!--detalle direcciones-->
+        <record id="hr_direccion_detalle_form" model="ir.ui.view">
+              <field name="name">hr.direccion.detalle.form</field>
+              <field name="model">hr.direccion.detalle</field>
+              <field name="arch" type="xml">
+                  <form string="Registrar Direcciones">
+                      <group >
+                          <group string="Información Vía">
+                            <field name="tipo_via" string="Dirección"/>
+                            <field name="nombre_via"/>
+                            <field name="nro"/>
+                            <field name="depto_nro"/>
+                            <field name="interior"/>
+                            <field name="mza"/>
+                            <field name="nro_lote"/>
+                            <field name="nro_kilom"/>
+                            <field name="nro_block"/>
+                            <field name="nro_etapa"/>
+                            <field name="direco_estado" />
+                          </group>
+                          <group string="Información Zona">
+                              <field name="tipo_zona"/>
+                              <field name="nombre_zona"/>
+                              <field name="country_id"/>
+                                   <field name="state_id" class="oe_no_button" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('country_id','=',False)]}"  domain="[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]"/>
+                        <field name="province_id" class="oe_no_button" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('state_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+                        <field name="district_id" class="oe_no_button" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" attrs="{'readonly': ['|',('province_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]"/>
+
+                          </group>
+                          <group string="Inf. Referencia">
+                                <field name="referencia"/>
+                          </group>
+                      </group>
+                  </form>
+              </field>
+          </record>
+
+        <record id="hr_direccion_detalle_tree" model="ir.ui.view">
+            <field name="name">hr.direccion.detalle.tree</field>
+            <field name="model">hr.direccion.detalle</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Children">
+                    <field name="tipo_via" string="Dirección"/>
+                    <field name="nombre_via"/>
+                    <field name="tipo_zona"/>
+                    <field name="nombre_zona"/>
+                    <field name="state_id"/>
+                    <field name="province_id"/>
+                    <field name="district_id"/>
+                    <field name="referencia"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--detalle direcciones-->
+
+        <record id="hr_employee_view_form_contract_yo" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit.familyinfo</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+            <field name="arch" type="xml">
+                 <field name="children" position="replace">
+                     <field name="children" invisible="1"/>
+                 </field>
+            </field>
+        </record>
+
+        <record id="hr_employee_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit.familyinfo</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                 <!--<field name="address_home_id" position="replace">-->
+                      <!--<field name="address_home_id" invisible="1"/>-->
+                 <!--</field>-->
+                 <field name="address_home_id" position="after">
+                        <button name="button_vinculo" string="Reg. Direcciones" class="oe_inline" type="object" icon="gtk-edit"/>
+                 </field>
+                 <field name="country_id" position="replace">
+                     <field name="country_id" string="País" required="1"/>
+                 </field>
+                 <field name="coach_id" position="replace">
+                     <field name="coach_id" string="Jefe Inmediato"/>
+                 </field>
+
+                <field name="country_id" position="after">
+                      <field name="primera_nacionalidad" string="Nacionalidad" required="1"/>
+                     <field name="tipo_documento" required="1"/>
+                 </field>
+
+                <field name="identification_id" position="after">
+                        <field name="pais_de_emision" required="1"/>
+                 </field>
+                <!--<field name="marital" position="before">-->
+                        <!--<field name="gender"/>-->
+                 <!--</field>-->
+
+                <xpath expr='//page[@string="HR Settings"]' position="before">
+                    <page string="Familiares" groups="base.group_hr_user">
+                        <group>
+                            <group string="Spouse">
+                                <field name="fam_spouse"/>
+                                <!--<field name="fam_spouse_employer"/>-->
+                                <field name="apellido_paterno_conyuge"/>
+                                <field name="apellidos_materno_conyuge"/>
+                                <field name="otro_titulo" string="Otro Título"/>
+                                <field name="name_prefix"/>
+                                <field name="conyuge_birthday"/>
+                                <field name="country_id_esp"/>
+                                <field name="state_id_esp" class="oe_no_button" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state_esp(state_id_esp)" attrs="{'readonly': ['|',('country_id_esp','=',False)]}"  domain="[('country_id', '=', country_id_esp),('state_id', '=', False),('province_id', '=', False)]"/>
+                        <field name="province_id_esp" class="oe_no_button" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state_esp(state_id_esp)" attrs="{'readonly': ['|',('state_id_esp','=',False)]}" domain="[('country_id', '=', country_id_esp),('state_id', '=', state_id_esp),('province_id', '=', False)]"/>
+                        <field name="district_id_esp" class="oe_no_button" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_district_esp(district_id_esp)" attrs="{'readonly': ['|',('province_id_esp','=',False)]}" domain="[('country_id', '=', country_id_esp),('state_id', '=', state_id_esp),('province_id', '=', province_id_esp)]"/>
+                                <field name="lugar_nacimiento_esp" placeholder="ZIP" style="width: 48%"/>
+                                <field name="segunda_nacionalidad"/>
+                                <field name="tercera_nacionalidad"/>
+                                <field name="tipo_documento_esp"/>
+                                <field name="nro_documento"/>
+                                <field name="pais_de_emision_esp"/>
+                                <field name="sexo_esp"/>
+                                <!--<button name="button_vinculo" string="Reg. Vinc. y Direc." class="oe_highlight" type="object" icon="gtk-edit"/>-->
+
+                        </group>
+                             <group string="Vinculo Familiar">
+                                <field name="vinc_fam" domain="[('code', '=', (2,3,4))]" string="Vinculo Familiar"/>
+                                <field name="tipo_doc" string="Tipo Doc. que Acred. Vínculo"/>
+                                <field name="nro_doc"/>
+                                <field name="mes_concepcion" string="Mes Estim. de Concepción (Sólo Gestantes)"/>
+                                </group>
+                            <!--<group string="Parents">-->
+                                <!--<field name="fam_father"/>-->
+                                <!--<field name="fam_father_date_of_birth"/>-->
+                                <!--<field name="fam_mother"/>-->
+                                <!--<field name="fam_mother_date_of_birth"/>-->
+                            <!--</group>-->
+                        </group>
+                         <group string="Otros">
+                <table class="oe_form_analytic_account table-bordered">
+					<tr>
+						<th class="oe_timesheet_grey" width="40%" style="text-align:center" rowspan="2">
+                            <strong><label string="Indic. Centro Asist. EsSalud"/></strong><br/>
+                            <span>Direc. que se considerará para Adscripción (1 o 2)</span>
+                        </th>
+                        <th class="oe_timesheet_grey" width="30%" colspan="2" style="text-align:center">
+							<strong><label string="Teléfono"/></strong>
+						</th>
+
+						<th class="oe_timesheet_grey" width="30%" align="center" style="text-align:center" rowspan="2">
+							<strong><label string="Correo Electrónico"/></strong>
+						</th>
+					</tr>
+                    <tr>
+                        <td class="oe_timesheet_grey"><span><strong>COD LDN</strong></span></td>
+                        <td class="oe_timesheet_grey"><span><strong>Número</strong></span></td>
+                    </tr>
+					<tr>
+						<td class="oe_timesheet_grey" >
+							<field name="centro_salud" width="100%%"/>
+						</td>
+						<td class="oe_timesheet_grey">
+							<field name="cod_ldn" />
+						</td>
+						<td class="oe_timesheet_grey">
+							<field name="numero"/>
+						</td>
+						<td class="oe_timesheet_grey" colspan="2">
+							<field name="correo_electronico"/>
+						</td>
+					</tr>
+				</table>
+                        </group>
+                      <group>
+                        <field name="children"/>
+                      </group>
+                        <group string="Children">
+                            <field name="fam_children_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+                <field name="identification_id" position="replace">
+                    <field name="identification_id" string="N° de documento" required="1"/>
+                    <field name="ruc_employee" string="N° de RUC"/>
+                </field>
+                 <field name="bank_account_id" position="after">
+                    <field name="primera_lengua"/>
+                    <field name="segunda_lengua"/>
+                    <field name="otra_nacionalidad"/>
+                </field>
+
+                <field name="birthday" position="after">
+                        <field name="state_id" class="oe_no_button" placeholder="Departamento" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('country_id','=',False)]}"  domain="[('country_id', '=', country_id),('state_id', '=', False),('province_id', '=', False)]"/>
+                        <field name="province_id" class="oe_no_button" placeholder="Provincia" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_state(state_id)" attrs="{'readonly': ['|',('state_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', False)]"/>
+                        <field name="district_id" class="oe_no_button" placeholder="Distrito" style="width: 48%" options="{&quot;no_open&quot;: True}" on_change="onchange_district(district_id)" attrs="{'readonly': ['|',('province_id','=',False)]}" domain="[('country_id', '=', country_id),('state_id', '=', state_id),('province_id', '=', province_id)]"/>
+                        <field name="place_of_birth" string="Código de Ubigeo" attrs="{'readonly': ['|',('district_id','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--<record id="hr_employee_view_form" model="ir.ui.view">-->
+            <!--<field name="name">hr.employee.view.form.inherit.familyinfo</field>-->
+            <!--<field name="model">hr.employee</field>-->
+            <!--<field name="inherit_id" ref="hr.view_employee_form"/>-->
+            <!--<field name="arch" type="xml">-->
+
+            <!--</field>-->
+        <!--</record>-->
+
+    </data>
+</openerp>

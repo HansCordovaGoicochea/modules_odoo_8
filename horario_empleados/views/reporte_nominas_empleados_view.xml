@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--esto añade al imprimir deslizable-->
+          <report
+            id="report_nominas_empleados_2"
+            model="hr.payslip.run"
+            string="Nominas de Empleados"
+            report_type="qweb-pdf"
+            name="horario_empleados.report_nominas_empleados_pdf"
+            file="horario_empleados.report_nominas_empleados_pdf"
+            attachment_use="False"
+            menu="False"/>
+
+        <record id="report_nominas_empleados_lands" model="report.paperformat">
+            <field name="name">Reporte Nominas Empleados</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="report_nominas_empleados_2" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="horario_empleados.report_nominas_empleados_lands"/>
+        </record>
+
+
+        <!--esto añade al imprimir deslizable-->
+      <report
+            id="report_liquidacion_empleados"
+            model="hr.payslip"
+            string="Liquidación del Empleado"
+            report_type="qweb-pdf"
+            name="horario_empleados.report_liquidacion_empleado_pdf"
+            file="horario_empleados.report_liquidacion_empleado_pdf"
+            attachment_use="False"
+            menu="False"/>
+
+        <record id="report_liquidacion_empleados_lands" model="report.paperformat">
+            <field name="name">Reporte Liquidacion Empleados</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="report_liquidacion_empleados" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="horario_empleados.report_liquidacion_empleados_lands"/>
+        </record>
+
+
+    </data>
+</openerp>

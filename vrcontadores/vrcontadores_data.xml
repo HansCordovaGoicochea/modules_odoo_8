@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+      <record id="type_service_service_1" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_2" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-15</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_3" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-16</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_4" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-17</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_5" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-20</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_6" model="res.partner.cronograma_obligaciones">
+          <field name="mes">1</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-02-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_7" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_8" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-15</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_9" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-16</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_10" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-17</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_11" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-20</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_12" model="res.partner.cronograma_obligaciones">
+          <field name="mes">2</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-03-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_13" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-18</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_14" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-19</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_15" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-20</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_16" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-21</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_17" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-24</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_18" model="res.partner.cronograma_obligaciones">
+          <field name="mes">3</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-04-25</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_19" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-15</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_20" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-16</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_21" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-17</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_22" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-18</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_23" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-19</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_24" model="res.partner.cronograma_obligaciones">
+          <field name="mes">4</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-05-22</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_25" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_26" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-15</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_27" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-16</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_28" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-19</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_29" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-20</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_30" model="res.partner.cronograma_obligaciones">
+          <field name="mes">5</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-06-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_31" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_32" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-17</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_33" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-18</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_34" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-19</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_35" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-20</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_36" model="res.partner.cronograma_obligaciones">
+          <field name="mes">6</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-07-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_37" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_38" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-15</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_39" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-16</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_40" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-17</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_41" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-18</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_42" model="res.partner.cronograma_obligaciones">
+          <field name="mes">7</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-08-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_43" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-14</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_44" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-15</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_45" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-18</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_46" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-19</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_47" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-20</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_48" model="res.partner.cronograma_obligaciones">
+          <field name="mes">8</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-09-21</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_49" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-13</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_50" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-16</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_51" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-17</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_52" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-18</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_53" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-19</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_54" model="res.partner.cronograma_obligaciones">
+          <field name="mes">9</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-10-20</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_55" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-15</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_56" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-16</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_57" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-17</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_58" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-20</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_59" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-21</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_60" model="res.partner.cronograma_obligaciones">
+          <field name="mes">10</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-11-22</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_61" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-15</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_62" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-18</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_63" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-19</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_64" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-20</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_65" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-21</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_66" model="res.partner.cronograma_obligaciones">
+          <field name="mes">11</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2017-12-22</field>
+          <field name="digito">8,9</field>
+      </record>
+    <record id="type_service_service_67" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-15</field>
+          <field name="digito">0</field>
+      </record>
+      <record id="type_service_service_68" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-16</field>
+          <field name="digito">1</field>
+      </record>
+      <record id="type_service_service_69" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-17</field>
+          <field name="digito">2,3</field>
+      </record>
+      <record id="type_service_service_70" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-18</field>
+          <field name="digito">4,5</field>
+      </record>
+      <record id="type_service_service_71" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-19</field>
+          <field name="digito">6,7</field>
+      </record>
+      <record id="type_service_service_72" model="res.partner.cronograma_obligaciones">
+          <field name="mes">12</field>
+          <field name="anio">2017</field>
+          <field name="fecha_vencimiento">2018-01-22</field>
+          <field name="digito">8,9</field>
+      </record>
+     </data>
+</openerp>

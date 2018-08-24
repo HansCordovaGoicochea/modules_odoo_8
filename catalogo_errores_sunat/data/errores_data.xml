@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Catálogo No. 01 - Código Errores de Sunat CDR -->
+        <record id="e01_00" model="catalogo.errores.sunat"><field name="code">0100</field><field name="name">El sistema no puede responder su solicitud. Intente nuevamente o comuníquese con su Administrador</field></record>
+        <record id="e01_01" model="catalogo.errores.sunat"><field name="code">0101</field><field name="name">El encabezado de seguridad es incorrecto</field></record>
+        <record id="e01_02" model="catalogo.errores.sunat"><field name="code">0102</field><field name="name">Usuario o contraseña incorrectos</field></record>
+        <record id="e01_03" model="catalogo.errores.sunat"><field name="code">0103</field><field name="name">El Usuario ingresado no existe</field></record>
+        <record id="e01_04" model="catalogo.errores.sunat"><field name="code">0104</field><field name="name">La Clave ingresada es incorrecta</field></record>
+        <record id="e01_05" model="catalogo.errores.sunat"><field name="code">0105</field><field name="name">El Usuario no está activo</field></record>
+        <record id="e01_06" model="catalogo.errores.sunat"><field name="code">0106</field><field name="name">El Usuario no es válido</field></record>
+        <record id="e01_07" model="catalogo.errores.sunat"><field name="code">0109</field><field name="name">El sistema no puede responder su solicitud. (El servicio de autenticación no está disponible)</field></record>
+        <record id="e01_08" model="catalogo.errores.sunat"><field name="code">0110</field><field name="name">No se pudo obtener la informacion del tipo de usuario</field></record>
+        <record id="e01_09" model="catalogo.errores.sunat"><field name="code">0111</field><field name="name">No tiene el perfil para enviar comprobantes electronicos</field></record>
+        <record id="e01_10" model="catalogo.errores.sunat"><field name="code">0112</field><field name="name">El usuario debe ser secundario</field></record>
+        <record id="e01_11" model="catalogo.errores.sunat"><field name="code">0113</field><field name="name">El usuario no esta afiliado a Factura Electronica</field></record>
+        <record id="e01_12" model="catalogo.errores.sunat"><field name="code">0125</field><field name="name">No se pudo obtener la constancia</field></record>
+        <record id="e01_13" model="catalogo.errores.sunat"><field name="code">0126</field><field name="name">El ticket no le pertenece al usuario</field></record>
+        <record id="e01_14" model="catalogo.errores.sunat"><field name="code">0127</field><field name="name">El ticket no existe</field></record>
+        <record id="e01_15" model="catalogo.errores.sunat"><field name="code">0130</field><field name="name">El sistema no puede responder su solicitud. (No se pudo obtener el ticket de proceso)</field></record>
+        <record id="e01_16" model="catalogo.errores.sunat"><field name="code">0131</field><field name="name">El sistema no puede responder su solicitud. (No se pudo grabar el archivo en el directorio)</field></record>
+        <record id="e01_17" model="catalogo.errores.sunat"><field name="code">0132</field><field name="name">El sistema no puede responder su solicitud. (No se pudo grabar escribir en el archivo zip)</field></record>
+        <record id="e01_18" model="catalogo.errores.sunat"><field name="code">0133</field><field name="name">El sistema no puede responder su solicitud. (No se pudo grabar la entrada del log)</field></record>
+        <record id="e01_19" model="catalogo.errores.sunat"><field name="code">0134</field><field name="name">El sistema no puede responder su solicitud. (No se pudo grabar en el storage)</field></record>
+        <record id="e01_20" model="catalogo.errores.sunat"><field name="code">0135</field><field name="name">El sistema no puede responder su solicitud. (No se pudo encolar el pedido)</field></record>
+        <record id="e01_21" model="catalogo.errores.sunat"><field name="code">0136</field><field name="name">El sistema no puede responder su solicitud. (No se pudo recibir una respuesta del batch)</field></record>
+        <record id="e01_22" model="catalogo.errores.sunat"><field name="code">0137</field><field name="name">El sistema no puede responder su solicitud. (Se obtuvo una respuesta nula)</field></record>
+        <record id="e01_23" model="catalogo.errores.sunat"><field name="code">0138</field><field name="name">El sistema no puede responder su solicitud. (Error en Base de Datos)</field></record>
+        <record id="e01_24" model="catalogo.errores.sunat"><field name="code">0151</field><field name="name">El nombre del archivo ZIP es incorrecto</field></record>
+        <record id="e01_25" model="catalogo.errores.sunat"><field name="code">0152</field><field name="name">No se puede enviar por este método un archivo de resumen</field></record>
+        <record id="e01_26" model="catalogo.errores.sunat"><field name="code">0153</field><field name="name">No se puede enviar por este método un archivo por lotes</field></record>
+        <record id="e01_27" model="catalogo.errores.sunat"><field name="code">0154</field><field name="name">El RUC del archivo no corresponde al RUC del usuario</field></record>
+        <record id="e01_28" model="catalogo.errores.sunat"><field name="code">0155</field><field name="name">El archivo ZIP esta vacio</field></record>
+        <record id="e01_29" model="catalogo.errores.sunat"><field name="code">0156</field><field name="name">El archivo ZIP esta corrupto</field></record>
+        <record id="e01_30" model="catalogo.errores.sunat"><field name="code">0157</field><field name="name">El archivo ZIP no contiene comprobantes</field></record>
+        <record id="e01_31" model="catalogo.errores.sunat"><field name="code">0158</field><field name="name">El archivo ZIP contiene demasiados comprobantes para este tipo de envío</field></record>
+        <record id="e01_32" model="catalogo.errores.sunat"><field name="code">0159</field><field name="name">El nombre del archivo XML es incorrecto</field></record>
+        <record id="e01_34" model="catalogo.errores.sunat"><field name="code">0160</field><field name="name">El archivo XML esta vacio</field></record>
+        <record id="e01_35" model="catalogo.errores.sunat"><field name="code">0161</field><field name="name">El nombre del archivo XML no coincide con el nombre del archivo ZIP</field></record>
+        <record id="e01_36" model="catalogo.errores.sunat"><field name="code">0200</field><field name="name">No se pudo procesar su solicitud. (Ocurrio un error en el batch)</field></record>
+        <record id="e01_37" model="catalogo.errores.sunat"><field name="code">0201</field><field name="name">No se pudo procesar su solicitud. (Llego un requerimiento nulo al batch)</field></record>
+        <record id="e01_40" model="catalogo.errores.sunat"><field name="code">0202</field><field name="name">No se pudo procesar su solicitud. (No llego información del archivo ZIP)</field></record>
+        <record id="e01_50" model="catalogo.errores.sunat"><field name="code">0203</field><field name="name">No se pudo procesar su solicitud. (No se encontro archivos en la informacion del archivo ZIP)</field></record>
+        <record id="e01_52" model="catalogo.errores.sunat"><field name="code">0204</field><field name="name">No se pudo procesar su solicitud. (Este tipo de requerimiento solo acepta 1 archivo)</field></record>
+        <record id="e01_53" model="catalogo.errores.sunat"><field name="code">0250</field><field name="name">No se pudo procesar su solicitud. (Ocurrio un error desconocido al hacer unzip)</field></record>
+        <record id="e01_54" model="catalogo.errores.sunat"><field name="code">0251</field><field name="name">No se pudo procesar su solicitud. (No se pudo crear un directorio para el unzip)</field></record>
+        <record id="e01_87" model="catalogo.errores.sunat"><field name="code">0252</field><field name="name">No se pudo procesar su solicitud. (No se encontro archivos dentro del zip)</field></record>
+        <record id="e01_88" model="catalogo.errores.sunat"><field name="code">0253</field><field name="name">No se pudo procesar su solicitud. (No se pudo comprimir la constancia)</field></record>
+        <record id="e01_91" model="catalogo.errores.sunat"><field name="code">0300</field><field name="name">No se encontró la raíz documento xml</field></record>
+        <record id="e01_96" model="catalogo.errores.sunat"><field name="code">0301</field><field name="name">Elemento raiz del xml no esta definido</field></record>
+        <record id="e01_97" model="catalogo.errores.sunat"><field name="code">0302</field><field name="name">Codigo del tipo de comprobante no registrado</field></record>
+        <record id="e01_98" model="catalogo.errores.sunat"><field name="code">0303</field><field name="name">No existe el directorio de schemas</field></record>
+        <record id="e01_99" model="catalogo.errores.sunat"><field name="code">0304</field><field name="name">No existe el archivo de schema</field></record>
+        <record id="e01_100" model="catalogo.errores.sunat"><field name="code">0305</field><field name="name">El sistema no puede procesar el archivo xml</field></record>
+        <record id="e01_101" model="catalogo.errores.sunat"><field name="code">0306</field><field name="name">No se puede leer (parsear) el archivo XML</field></record>
+        <record id="e01_102" model="catalogo.errores.sunat"><field name="code">0307</field><field name="name">No se pudo recuperar la constancia</field></record>
+        <record id="e01_103" model="catalogo.errores.sunat"><field name="code">0400</field><field name="name">No tiene permiso para enviar casos de pruebas</field></record>
+        <record id="e01_104" model="catalogo.errores.sunat"><field name="code">0401</field><field name="name">El caso de prueba no existe</field></record>
+        <record id="e01_105" model="catalogo.errores.sunat"><field name="code">0402</field><field name="name">La numeracion o nombre del documento ya ha sido enviado anteriormente</field></record>
+        <record id="e01_106" model="catalogo.errores.sunat"><field name="code">0403</field><field name="name">El documento afectado por la nota no existe</field></record>
+        <record id="e01_107" model="catalogo.errores.sunat"><field name="code">0404</field><field name="name">El documento afectado por la nota se encuentra rechazado</field></record>
+        <record id="e01_108" model="catalogo.errores.sunat"><field name="code">1001</field><field name="name">ID - El dato SERIE-CORRELATIVO no cumple con el formato de acuerdo al tipo de comprobante</field></record>
+        <record id="e01_109" model="catalogo.errores.sunat"><field name="code">1002</field><field name="name">El XML no contiene informacion en el tag ID</field></record>
+        <record id="e01_110" model="catalogo.errores.sunat"><field name="code">1003</field><field name="name">InvoiceTypeCode - El valor del tipo de documento es invalido o no coincide con el nombre del archivo</field></record>
+        <record id="e01_111" model="catalogo.errores.sunat"><field name="code">1004</field><field name="name">El XML no contiene el tag o no existe informacion de InvoiceTypeCode</field></record>
+        <record id="e01_112" model="catalogo.errores.sunat"><field name="code">1005</field><field name="name">CustomerAssignedAccountID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_113" model="catalogo.errores.sunat"><field name="code">1006</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del emisor del documento</field></record>
+        <record id="e01_114" model="catalogo.errores.sunat"><field name="code">1007</field><field name="name">AdditionalAccountID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_115" model="catalogo.errores.sunat"><field name="code">1008</field><field name="name">El XML no contiene el tag o no existe informacion de AdditionalAccountID del emisor del documento</field></record>
+        <record id="e01_116" model="catalogo.errores.sunat"><field name="code">1009</field><field name="name">IssueDate - El dato ingresado  no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_117" model="catalogo.errores.sunat"><field name="code">1010</field><field name="name">El XML no contiene el tag IssueDate</field></record>
+        <record id="e01_118" model="catalogo.errores.sunat"><field name="code">1011</field><field name="name">IssueDate- El dato ingresado no es valido</field></record>
+        <record id="e01_119" model="catalogo.errores.sunat"><field name="code">1012</field><field name="name">ID - El dato ingresado no cumple con el patron SERIE-CORRELATIVO</field></record>
+        <record id="e01_120" model="catalogo.errores.sunat"><field name="code">1013</field><field name="name">El XML no contiene informacion en el tag ID</field></record>
+        <record id="e01_121" model="catalogo.errores.sunat"><field name="code">1014</field><field name="name">CustomerAssignedAccountID - El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_122" model="catalogo.errores.sunat"><field name="code">1015</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del emisor del documento</field></record>
+        <record id="e01_123" model="catalogo.errores.sunat"><field name="code">1016</field><field name="name">AdditionalAccountID - El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_124" model="catalogo.errores.sunat"><field name="code">1017</field><field name="name">El XML no contiene el tag AdditionalAccountID del emisor del documento</field></record>
+        <record id="e01_125" model="catalogo.errores.sunat"><field name="code">1018</field><field name="name">IssueDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_126" model="catalogo.errores.sunat"><field name="code">1019</field><field name="name">El XML no contiene el tag IssueDate</field></record>
+        <record id="e01_127" model="catalogo.errores.sunat"><field name="code">1020</field><field name="name">IssueDate- El dato ingresado no es valido</field></record>
+        <record id="e01_128" model="catalogo.errores.sunat"><field name="code">1021</field><field name="name">Error en la validacion de la nota de credito</field></record>
+        <record id="e01_128" model="catalogo.errores.sunat"><field name="code">1022</field><field name="name">La serie o numero del documento modificado por la Nota Electrónica no cumple con el formato establecido </field></record>
+        <record id="e01_129" model="catalogo.errores.sunat"><field name="code">1023</field><field name="name">No se ha especificado el tipo de documento modificado por la Nota electronica</field></record>
+        <record id="e01_130" model="catalogo.errores.sunat"><field name="code">1024</field><field name="name">CustomerAssignedAccountID - El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_131" model="catalogo.errores.sunat"><field name="code">1025</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del emisor del documento</field></record>
+        <record id="e01_132" model="catalogo.errores.sunat"><field name="code">1026</field><field name="name">AdditionalAccountID - El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_133" model="catalogo.errores.sunat"><field name="code">1027</field><field name="name">El XML no contiene el tag AdditionalAccountID del emisor del documento</field></record>
+        <record id="e01_134" model="catalogo.errores.sunat"><field name="code">1028</field><field name="name">IssueDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_135" model="catalogo.errores.sunat"><field name="code">1029</field><field name="name">El XML no contiene el tag IssueDate</field></record>
+        <record id="e01_136" model="catalogo.errores.sunat"><field name="code">1030</field><field name="name">IssueDate- El dato ingresado no es valido</field></record>
+        <record id="e01_137" model="catalogo.errores.sunat"><field name="code">1031</field><field name="name">1031</field></record>
+        <record id="e01_138" model="catalogo.errores.sunat"><field name="code">1032</field><field name="name">El comprobante fue informado previamente en una comunicacion de baja</field></record>
+        <record id="e01_139" model="catalogo.errores.sunat"><field name="code">1033</field><field name="name">El comprobante fue registrado previamente con otros datos </field></record>
+        <record id="e01_140" model="catalogo.errores.sunat"><field name="code">1034</field><field name="name">Número de RUC del nombre del archivo no coincide con el consignado en el contenido del archivo XML</field></record>
+        <record id="e01_141" model="catalogo.errores.sunat"><field name="code">1035</field><field name="name">Numero de Serie del nombre del archivo no coincide con el consignado en el contenido del archivo XML</field></record>
+        <record id="e01_142" model="catalogo.errores.sunat"><field name="code">1036</field><field name="name">Número de documento en el nombre del archivo no coincide con el consignado en el contenido del XML</field></record>
+        <record id="e01_143" model="catalogo.errores.sunat"><field name="code">1037</field><field name="name">El XML no contiene el tag o no existe informacion de RegistrationName del emisor del documento</field></record>
+        <record id="e01_144" model="catalogo.errores.sunat"><field name="code">1038</field><field name="name">RegistrationName - El nombre o razon social del emisor no cumple con el estandar</field></record>
+        <record id="e01_145" model="catalogo.errores.sunat"><field name="code">1039</field><field name="name">Solo se pueden recibir notas electronicas que modifican facturas</field></record>
+        <record id="e01_146" model="catalogo.errores.sunat"><field name="code">1040</field><field name="name">El tipo de documento modificado por la nota electronica no es valido</field></record>
+        <record id="e01_147" model="catalogo.errores.sunat"><field name="code">2010</field><field name="name">El contribuyente no esta activo</field></record>
+        <record id="e01_148" model="catalogo.errores.sunat"><field name="code">2011</field><field name="name">El contribuyente no esta habido</field></record>
+        <record id="e01_149" model="catalogo.errores.sunat"><field name="code">2012</field><field name="name">El contribuyente no está autorizado a emitir comprobantes electrónicos</field></record>
+        <record id="e01_150" model="catalogo.errores.sunat"><field name="code">2013</field><field name="name">El contribuyente no cumple con tipo de empresa o tributos requeridos</field></record>
+        <record id="e01_151" model="catalogo.errores.sunat"><field name="code">2014</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del receptor del documento</field></record>
+        <record id="e01_152" model="catalogo.errores.sunat"><field name="code">2015</field><field name="name">El XML no contiene el tag o no existe informacion de AdditionalAccountID del receptor del documento</field></record>
+        <record id="e01_153" model="catalogo.errores.sunat"><field name="code">2016</field><field name="name">AdditionalAccountID - El dato ingresado en el tipo de documento de identidad del receptor no cumple con el estandar</field></record>
+        <record id="e01_154" model="catalogo.errores.sunat"><field name="code">2017</field><field name="name">CustomerAssignedAccountID - El numero de documento de identidad del recepetor debe ser RUC</field></record>
+        <record id="e01_155" model="catalogo.errores.sunat"><field name="code">2018</field><field name="name">CustomerAssignedAccountID -  El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_156" model="catalogo.errores.sunat"><field name="code">2019</field><field name="name">El XML no contiene el tag o no existe informacion de RegistrationName del emisor del documento</field></record>
+        <record id="e01_157" model="catalogo.errores.sunat"><field name="code">2020</field><field name="name">RegistrationName - El nombre o razon social del emisor no cumple con el estándar</field></record>
+        <record id="e01_158" model="catalogo.errores.sunat"><field name="code">2021</field><field name="name">El XML no contiene el tag o no existe informacion de RegistrationName del receptor del documento</field></record>
+        <record id="e01_159" model="catalogo.errores.sunat"><field name="code">2022</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_160" model="catalogo.errores.sunat"><field name="code">2023</field><field name="name">El Numero de orden del item no cumple con el formato establecido</field></record>
+        <record id="e01_161" model="catalogo.errores.sunat"><field name="code">2024</field><field name="name">El XML no contiene el tag InvoicedQuantity en el detalle de los Items</field></record>
+        <record id="e01_162" model="catalogo.errores.sunat"><field name="code">2025</field><field name="name">InvoicedQuantity El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_163" model="catalogo.errores.sunat"><field name="code">2026</field><field name="name">El XML no contiene el tag cac:Item/cbc:Description en el detalle de los Items</field></record>
+        <record id="e01_164" model="catalogo.errores.sunat"><field name="code">2027</field><field name="name">El XML no contiene el tag o no existe informacion de cac:Item/cbc:Description del item</field></record>
+        <record id="e01_165" model="catalogo.errores.sunat"><field name="code">2028</field><field name="name">Debe existir el tag cac:AlternativeConditionPrice con un elemento cbc:PriceTypeCode con valor 01</field></record>
+        <record id="e01_166" model="catalogo.errores.sunat"><field name="code">2029</field><field name="name">PriceTypeCode El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_167" model="catalogo.errores.sunat"><field name="code">2030</field><field name="name">El XML no contiene el tag cbc:PriceTypeCode</field></record>
+        <record id="e01_168" model="catalogo.errores.sunat"><field name="code">2031</field><field name="name">LineExtensionAmount El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_169" model="catalogo.errores.sunat"><field name="code">2032</field><field name="name">El XML no contiene el tag LineExtensionAmount en el detalle de los Items</field></record>
+        <record id="e01_170" model="catalogo.errores.sunat"><field name="code">2033</field><field name="name">El dato ingresado en TaxAmount de la linea no cumple con el formato establecido</field></record>
+        <record id="e01_171" model="catalogo.errores.sunat"><field name="code">2034</field><field name="name">TaxAmount es obligatorio</field></record>
+        <record id="e01_172" model="catalogo.errores.sunat"><field name="code">2035</field><field name="name">cac:TaxCategory/cac:TaxScheme/cbc:ID El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_173" model="catalogo.errores.sunat"><field name="code">2036</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_174" model="catalogo.errores.sunat"><field name="code">2037</field><field name="name">El XML no contiene el tag cac:TaxCategory/cac:TaxScheme/cbc:ID del Item</field></record>
+        <record id="e01_175" model="catalogo.errores.sunat"><field name="code">2038</field><field name="name">cac:TaxScheme/cbc:Name del item - No existe el tag o el dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_176" model="catalogo.errores.sunat"><field name="code">2039</field><field name="name">El XML no contiene el tag cac:TaxCategory/cac:TaxScheme/cbc:Name del Item</field></record>
+        <record id="e01_177" model="catalogo.errores.sunat"><field name="code">2040</field><field name="name">El tipo de afectacion del IGV es incorrecto</field></record>
+        <record id="e01_178" model="catalogo.errores.sunat"><field name="code">2041</field><field name="name">El sistema de calculo del ISC es incorrecto</field></record>
+        <record id="e01_179" model="catalogo.errores.sunat"><field name="code">2042</field><field name="name">Debe indicar el IGV. Es un campo obligatorio</field></record>
+        <record id="e01_180" model="catalogo.errores.sunat"><field name="code">2043</field><field name="name">El dato ingresado en PayableAmount no cumple con el formato establecido</field></record>
+        <record id="e01_181" model="catalogo.errores.sunat"><field name="code">2044</field><field name="name">PayableAmount es obligatorio</field></record>
+        <record id="e01_182" model="catalogo.errores.sunat"><field name="code">2045</field><field name="name">El valor ingresado en AdditionalMonetaryTotal/cbc:ID es incorrecto</field></record>
+        <record id="e01_183" model="catalogo.errores.sunat"><field name="code">2046</field><field name="name">AdditionalMonetaryTotal/cbc:ID debe tener valor</field></record>
+        <record id="e01_184" model="catalogo.errores.sunat"><field name="code">2047</field><field name="name">Es obligatorio al menos un AdditionalMonetaryTotal con codigo 1001, 1002 o 1003</field></record>
+        <record id="e01_185" model="catalogo.errores.sunat"><field name="code">2048</field><field name="name">El dato ingresado en TaxAmount no cumple con el formato establecido</field></record>
+        <record id="e01_186" model="catalogo.errores.sunat"><field name="code">2049</field><field name="name">TaxAmount es obligatorio</field></record>
+        <record id="e01_187" model="catalogo.errores.sunat"><field name="code">2050</field><field name="name">TaxScheme ID - No existe el tag o el dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_188" model="catalogo.errores.sunat"><field name="code">2051</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_189" model="catalogo.errores.sunat"><field name="code">2052</field><field name="name">El XML no contiene el tag TaxScheme ID de impuestos globales</field></record>
+        <record id="e01_190" model="catalogo.errores.sunat"><field name="code">2053</field><field name="name">TaxScheme Name - No existe el tag o el dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_191" model="catalogo.errores.sunat"><field name="code">2054</field><field name="name">El XML no contiene el tag TaxScheme Name de impuestos globales</field></record>
+        <record id="e01_192" model="catalogo.errores.sunat"><field name="code">2055</field><field name="name">TaxScheme TaxTypeCode - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_193" model="catalogo.errores.sunat"><field name="code">2056</field><field name="name">El XML no contiene el tag TaxScheme TaxTypeCode de impuestos globales</field></record>
+        <record id="e01_194" model="catalogo.errores.sunat"><field name="code">2057</field><field name="name">El Name o TaxTypeCode debe corresponder con el Id para el IGV</field></record>
+        <record id="e01_195" model="catalogo.errores.sunat"><field name="code">2058</field><field name="name">El Name o TaxTypeCode debe corresponder con el Id para el ISC</field></record>
+        <record id="e01_196" model="catalogo.errores.sunat"><field name="code">2059</field><field name="name">El dato ingresado en TaxSubtotal/cbc:TaxAmount no cumple con el formato establecido</field></record>
+        <record id="e01_197" model="catalogo.errores.sunat"><field name="code">2060</field><field name="name">TaxSubtotal/cbc:TaxAmount es obligatorio</field></record>
+        <record id="e01_198" model="catalogo.errores.sunat"><field name="code">2061</field><field name="name">El tag global cac:TaxTotal/cbc:TaxAmount debe tener el mismo valor que cac:TaxTotal/cac:Subtotal/cbc:TaxAmount</field></record>
+        <record id="e01_199" model="catalogo.errores.sunat"><field name="code">2062</field><field name="name">El dato ingresado en PayableAmount no cumple con el formato establecido</field></record>
+        <record id="e01_200" model="catalogo.errores.sunat"><field name="code">2063</field><field name="name">El XML no contiene el tag PayableAmount</field></record>
+        <record id="e01_201" model="catalogo.errores.sunat"><field name="code">2064</field><field name="name">El dato ingresado en ChargeTotalAmount no cumple con el formato establecido</field></record>
+        <record id="e01_202" model="catalogo.errores.sunat"><field name="code">2065</field><field name="name">El dato ingresado en el campo Total Descuentos no cumple con el formato establecido</field></record>
+        <record id="e01_203" model="catalogo.errores.sunat"><field name="code">2066</field><field name="name">Debe indicar una descripcion para el tag sac:AdditionalProperty/cbc:Value</field></record>
+        <record id="e01_204" model="catalogo.errores.sunat"><field name="code">2067</field><field name="name">cac:Price/cbc:PriceAmount - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_205" model="catalogo.errores.sunat"><field name="code">2068</field><field name="name">El XML no contiene el tag cac:Price/cbc:PriceAmount en el detalle de los Items</field></record>
+        <record id="e01_206" model="catalogo.errores.sunat"><field name="code">2069</field><field name="name">DocumentCurrencyCode - El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_207" model="catalogo.errores.sunat"><field name="code">2070</field><field name="name">El XML no contiene el tag o no existe informacion de DocumentCurrencyCode</field></record>
+        <record id="e01_208" model="catalogo.errores.sunat"><field name="code">2071</field><field name="name">La moneda debe ser la misma en todo el documento</field></record>
+        <record id="e01_209" model="catalogo.errores.sunat"><field name="code">2072</field><field name="name">CustomizationID - La versión del documento no es la correcta</field></record>
+        <record id="e01_210" model="catalogo.errores.sunat"><field name="code">2073</field><field name="name">El XML no contiene el tag o no existe informacion de CustomizationID</field></record>
+        <record id="e01_211" model="catalogo.errores.sunat"><field name="code">2074</field><field name="name">UBLVersionID - La versión del UBL no es correcta</field></record>
+        <record id="e01_212" model="catalogo.errores.sunat"><field name="code">2075</field><field name="name">El XML no contiene el tag o no existe informacion de UBLVersionID</field></record>
+        <record id="e01_213" model="catalogo.errores.sunat"><field name="code">2076</field><field name="name">cac:Signature/cbc:ID - Falta el identificador de la firma</field></record>
+        <record id="e01_214" model="catalogo.errores.sunat"><field name="code">2077</field><field name="name">El tag cac:Signature/cbc:ID debe contener informacion</field></record>
+        <record id="e01_215" model="catalogo.errores.sunat"><field name="code">2078</field><field name="name">cac:Signature/cac:SignatoryParty/cac:PartyIdentification/cbc:ID - Debe ser igual al RUC del emisor</field></record>
+        <record id="e01_216" model="catalogo.errores.sunat"><field name="code">2079</field><field name="name">El XML no contiene el tag cac:Signature/cac:SignatoryParty/cac:PartyIdentification/cbc:ID</field></record>
+        <record id="e01_217" model="catalogo.errores.sunat"><field name="code">2080</field><field name="name">cac:Signature/cac:SignatoryParty/cac:PartyName/cbc:Name - No cumple con el estandar</field></record>
+        <record id="e01_218" model="catalogo.errores.sunat"><field name="code">2081</field><field name="name">El XML no contiene el tag cac:Signature/cac:SignatoryParty/cac:PartyName/cbc:Name</field></record>
+        <record id="e01_219" model="catalogo.errores.sunat"><field name="code">2082</field><field name="name">cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI - No cumple con el estandar</field></record>
+        <record id="e01_220" model="catalogo.errores.sunat"><field name="code">2083</field><field name="name">El XML no contiene el tag cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI</field></record>
+        <record id="e01_221" model="catalogo.errores.sunat"><field name="code">2084</field><field name="name">ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/ds:Signature/@Id - No cumple con el estandar</field></record>
+        <record id="e01_222" model="catalogo.errores.sunat"><field name="code">2085</field><field name="name">El XML no contiene el tag ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/ds:Signature/@Id</field></record>
+        <record id="e01_223" model="catalogo.errores.sunat"><field name="code">2086</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:CanonicalizationMethod/@Algorithm - No cumple con el estandar</field></record>
+        <record id="e01_224" model="catalogo.errores.sunat"><field name="code">2087</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:CanonicalizationMethod/@Algorithm</field></record>
+        <record id="e01_225" model="catalogo.errores.sunat"><field name="code">2088</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:SignatureMethod/@Algorithm - No cumple con el estandar</field></record>
+        <record id="e01_226" model="catalogo.errores.sunat"><field name="code">2089</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:SignatureMethod/@Algorithm</field></record>
+        <record id="e01_227" model="catalogo.errores.sunat"><field name="code">2090</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/@URI - Debe estar vacio para id</field></record>
+        <record id="e01_228" model="catalogo.errores.sunat"><field name="code">2091</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/@URI</field></record>
+        <record id="e01_229" model="catalogo.errores.sunat"><field name="code">2092</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/.../ds:Transform@Algorithm - No cumple con el estandar</field></record>
+        <record id="e01_230" model="catalogo.errores.sunat"><field name="code">2093</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/ds:Transform@Algorithm</field></record>
+        <record id="e01_231" model="catalogo.errores.sunat"><field name="code">2094</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/ds:DigestMethod/@Algorithm - No cumple con el estandar</field></record>
+        <record id="e01_232" model="catalogo.errores.sunat"><field name="code">2095</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/ds:DigestMethod/@Algorithm</field></record>
+        <record id="e01_233" model="catalogo.errores.sunat"><field name="code">2096</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/ds:DigestValue - No cumple con el estandar</field></record>
+        <record id="e01_234" model="catalogo.errores.sunat"><field name="code">2097</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignedInfo/ds:Reference/ds:DigestValue</field></record>
+        <record id="e01_235" model="catalogo.errores.sunat"><field name="code">2098</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:SignatureValue - No cumple con el estandar</field></record>
+        <record id="e01_236" model="catalogo.errores.sunat"><field name="code">2099</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:SignatureValue</field></record>
+        <record id="e01_237" model="catalogo.errores.sunat"><field name="code">2100</field><field name="name">ext:UBLExtensions/.../ds:Signature/ds:KeyInfo/ds:X509Data/ds:X509Certificate - No cumple con el estandar</field></record>
+        <record id="e01_238" model="catalogo.errores.sunat"><field name="code">2101</field><field name="name">El XML no contiene el tag ext:UBLExtensions/.../ds:Signature/ds:KeyInfo/ds:X509Data/ds:X509Certificate</field></record>
+        <record id="e01_239" model="catalogo.errores.sunat"><field name="code">2102</field><field name="name">Error al procesar la factura</field></record>
+        <record id="e01_240" model="catalogo.errores.sunat"><field name="code">2103</field><field name="name">La serie ingresada no es válida</field></record>
+        <record id="e01_241" model="catalogo.errores.sunat"><field name="code">2104</field><field name="name">Numero de RUC del emisor no existe</field></record>
+        <record id="e01_242" model="catalogo.errores.sunat"><field name="code">2105</field><field name="name">Factura a dar de baja no se encuentra registrada en SUNAT </field></record>
+        <record id="e01_243" model="catalogo.errores.sunat"><field name="code">2106</field><field name="name">Factura a dar de baja ya se encuentra en estado de baja </field></record>
+        <record id="e01_244" model="catalogo.errores.sunat"><field name="code">2107</field><field name="name">Numero de RUC SOL no coincide con RUC emisor</field></record>
+        <record id="e01_245" model="catalogo.errores.sunat"><field name="code">2108</field><field name="name">Presentacion fuera de fecha</field></record>
+        <record id="e01_246" model="catalogo.errores.sunat"><field name="code">2109</field><field name="name">El comprobante fue registrado previamente con otros datos</field></record>
+        <record id="e01_247" model="catalogo.errores.sunat"><field name="code">2110</field><field name="name">UBLVersionID - La versión del UBL no es correcta</field></record>
+        <record id="e01_248" model="catalogo.errores.sunat"><field name="code">2111</field><field name="name">El XML no contiene el tag o no existe informacion de UBLVersionID</field></record>
+        <record id="e01_249" model="catalogo.errores.sunat"><field name="code">2112</field><field name="name">CustomizationID - La version del documento no es correcta</field></record>
+        <record id="e01_250" model="catalogo.errores.sunat"><field name="code">2113</field><field name="name">El XML no contiene el tag o no existe informacion de CustomizationID</field></record>
+        <record id="e01_251" model="catalogo.errores.sunat"><field name="code">2114</field><field name="name">DocumentCurrencyCode -  El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_252" model="catalogo.errores.sunat"><field name="code">2115</field><field name="name">El XML no contiene el tag o no existe informacion de DocumentCurrencyCode</field></record>
+        <record id="e01_253" model="catalogo.errores.sunat"><field name="code">2116</field><field name="name">El tipo de documento modificado por la Nota de credito debe ser factura electronica o ticket</field></record>
+        <record id="e01_254" model="catalogo.errores.sunat"><field name="code">2117</field><field name="name">La serie o numero del documento modificado por la Nota de Credito no cumple con el formato establecido</field></record>
+        <record id="e01_255" model="catalogo.errores.sunat"><field name="code">2118</field><field name="name">Debe indicar las facturas relacionadas a la Nota de Credito</field></record>
+        <record id="e01_256" model="catalogo.errores.sunat"><field name="code">2119</field><field name="name">La factura relacionada en la Nota de credito no esta registrada.</field></record>
+        <record id="e01_257" model="catalogo.errores.sunat"><field name="code">2120</field><field name="name">La factura relacionada en la nota de credito se encuentra de baja</field></record>
+        <record id="e01_258" model="catalogo.errores.sunat"><field name="code">2121</field><field name="name">La factura relacionada en la nota de credito esta registrada como rechazada</field></record>
+        <record id="e01_259" model="catalogo.errores.sunat"><field name="code">2122</field><field name="name">El tag cac:LegalMonetaryTotal/cbc:PayableAmount debe tener informacion valida</field></record>
+        <record id="e01_260" model="catalogo.errores.sunat"><field name="code">2123</field><field name="name">RegistrationName -  El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_261" model="catalogo.errores.sunat"><field name="code">2124</field><field name="name">El XML no contiene el tag RegistrationName del emisor del documento</field></record>
+        <record id="e01_262" model="catalogo.errores.sunat"><field name="code">2125</field><field name="name">ReferenceID - El dato ingresado debe indicar SERIE-CORRELATIVO del documento al que se relaciona la Nota</field></record>
+        <record id="e01_263" model="catalogo.errores.sunat"><field name="code">2126</field><field name="name">El XML no contiene informacion en el tag ReferenceID del documento al que se relaciona la nota</field></record>
+        <record id="e01_264" model="catalogo.errores.sunat"><field name="code">2127</field><field name="name">ResponseCode - El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_265" model="catalogo.errores.sunat"><field name="code">2128</field><field name="name">El XML no contiene el tag o no existe informacion de ResponseCode</field></record>
+        <record id="e01_266" model="catalogo.errores.sunat"><field name="code">2129</field><field name="name">AdditionalAccountID - El dato ingresado en el tipo de documento de identidad del receptor no cumple con el estandar</field></record>
+        <record id="e01_267" model="catalogo.errores.sunat"><field name="code">2130</field><field name="name">El XML no contiene el tag o no existe informacion de AdditionalAccountID del receptor del documento</field></record>
+        <record id="e01_268" model="catalogo.errores.sunat"><field name="code">2131</field><field name="name">CustomerAssignedAccountID - El numero de documento de identidad del receptor debe ser RUC</field></record>
+        <record id="e01_269" model="catalogo.errores.sunat"><field name="code">2132</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del receptor del documento</field></record>
+        <record id="e01_270" model="catalogo.errores.sunat"><field name="code">2133</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_271" model="catalogo.errores.sunat"><field name="code">2134</field><field name="name">El XML no contiene el tag o no existe informacion de RegistrationName del receptor del documento</field></record>
+        <record id="e01_272" model="catalogo.errores.sunat"><field name="code">2135</field><field name="name">cac:DiscrepancyResponse/cbc:Description - El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_273" model="catalogo.errores.sunat"><field name="code">2136</field><field name="name">El XML no contiene el tag o no existe informacion de cac:DiscrepancyResponse/cbc:Description</field></record>
+        <record id="e01_274" model="catalogo.errores.sunat"><field name="code">2137</field><field name="name">El Número de orden del item no cumple con el formato establecido</field></record>
+        <record id="e01_275" model="catalogo.errores.sunat"><field name="code">2138</field><field name="name">CreditedQuantity/@unitCode - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_276" model="catalogo.errores.sunat"><field name="code">2139</field><field name="name">CreditedQuantity - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_277" model="catalogo.errores.sunat"><field name="code">2140</field><field name="name">El PriceTypeCode debe tener el valor 01</field></record>
+        <record id="e01_278" model="catalogo.errores.sunat"><field name="code">2141</field><field name="name">cac:TaxCategory/cac:TaxScheme/cbc:ID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_279" model="catalogo.errores.sunat"><field name="code">2142</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_280" model="catalogo.errores.sunat"><field name="code">2143</field><field name="name">cac:TaxScheme/cbc:Name del item - No existe el tag o el dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_281" model="catalogo.errores.sunat"><field name="code">2144</field><field name="name">cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_282" model="catalogo.errores.sunat"><field name="code">2145</field><field name="name">El tipo de afectacion del IGV es incorrecto</field></record>
+        <record id="e01_283" model="catalogo.errores.sunat"><field name="code">2146</field><field name="name">El Nombre Internacional debe ser VAT</field></record>
+        <record id="e01_284" model="catalogo.errores.sunat"><field name="code">2147</field><field name="name">El sistema de calculo del ISC es incorrecto</field></record>
+        <record id="e01_285" model="catalogo.errores.sunat"><field name="code">2148</field><field name="name">El Nombre Internacional debe ser EXC</field></record>
+        <record id="e01_286" model="catalogo.errores.sunat"><field name="code">2149</field><field name="name">El dato ingresado en PayableAmount no cumple con el formato establecido</field></record>
+        <record id="e01_287" model="catalogo.errores.sunat"><field name="code">2150</field><field name="name">El valor ingresado en AdditionalMonetaryTotal/cbc:ID es incorrecto</field></record>
+        <record id="e01_288" model="catalogo.errores.sunat"><field name="code">2151</field><field name="name">AdditionalMonetaryTotal/cbc:ID debe tener valor</field></record>
+        <record id="e01_289" model="catalogo.errores.sunat"><field name="code">2152</field><field name="name">Es obligatorio al menos un AdditionalInformation</field></record>
+        <record id="e01_290" model="catalogo.errores.sunat"><field name="code">2153</field><field name="name">Error al procesar la Nota de Credito</field></record>
+        <record id="e01_291" model="catalogo.errores.sunat"><field name="code">2154</field><field name="name">TaxAmount - El dato ingresado en impuestos globales no cumple con el estandar</field></record>
+        <record id="e01_292" model="catalogo.errores.sunat"><field name="code">2155</field><field name="name">El XML no contiene el tag TaxAmount de impuestos globales</field></record>
+        <record id="e01_293" model="catalogo.errores.sunat"><field name="code">2156</field><field name="name">TaxScheme ID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_294" model="catalogo.errores.sunat"><field name="code">2157</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_295" model="catalogo.errores.sunat"><field name="code">2158</field><field name="name">El XML no contiene el tag o no existe informacion de TaxScheme ID de impuestos globales</field></record>
+        <record id="e01_296" model="catalogo.errores.sunat"><field name="code">2159</field><field name="name">TaxScheme Name - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_297" model="catalogo.errores.sunat"><field name="code">2160</field><field name="name">El XML no contiene el tag o no existe informacion de TaxScheme Name de impuestos globales</field></record>
+        <record id="e01_298" model="catalogo.errores.sunat"><field name="code">2161</field><field name="name">CustomizationID - La version del documento no es correcta</field></record>
+        <record id="e01_299" model="catalogo.errores.sunat"><field name="code">2162</field><field name="name">El XML no contiene el tag o no existe informacion de CustomizationID</field></record>
+        <record id="e01_300" model="catalogo.errores.sunat"><field name="code">2163</field><field name="name">UBLVersionID - La versión del UBL no es correcta</field></record>
+        <record id="e01_301" model="catalogo.errores.sunat"><field name="code">2164</field><field name="name">El XML no contiene el tag o no existe informacion de UBLVersionID</field></record>
+        <record id="e01_302" model="catalogo.errores.sunat"><field name="code">2165</field><field name="name">Error al procesar la Nota de Debito</field></record>
+        <record id="e01_303" model="catalogo.errores.sunat"><field name="code">2166</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_304" model="catalogo.errores.sunat"><field name="code">2167</field><field name="name">El XML no contiene el tag RegistrationName del emisor del documento</field></record>
+        <record id="e01_305" model="catalogo.errores.sunat"><field name="code">2168</field><field name="name">DocumentCurrencyCode -  El dato ingresado no cumple con el formato establecido</field></record>
+        <record id="e01_306" model="catalogo.errores.sunat"><field name="code">2169</field><field name="name">El XML no contiene el tag o no existe informacion de DocumentCurrencyCode</field></record>
+        <record id="e01_307" model="catalogo.errores.sunat"><field name="code">2170</field><field name="name">ReferenceID - El dato ingresado debe indicar SERIE-CORRELATIVO del documento al que se relaciona la Nota</field></record>
+        <record id="e01_308" model="catalogo.errores.sunat"><field name="code">2171</field><field name="name">El XML no contiene informacion en el tag ReferenceID del documento al que se relaciona la nota</field></record>
+        <record id="e01_309" model="catalogo.errores.sunat"><field name="code">2172</field><field name="name">ResponseCode - El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_310" model="catalogo.errores.sunat"><field name="code">2173</field><field name="name">El XML no contiene el tag o no existe informacion de ResponseCode</field></record>
+        <record id="e01_311" model="catalogo.errores.sunat"><field name="code">2174</field><field name="name">cac:DiscrepancyResponse/cbc:Description - El dato ingresado no cumple con la estructura</field></record>
+        <record id="e01_312" model="catalogo.errores.sunat"><field name="code">2175</field><field name="name">El XML no contiene el tag o no existe informacion de cac:DiscrepancyResponse/cbc:Description</field></record>
+        <record id="e01_313" model="catalogo.errores.sunat"><field name="code">2176</field><field name="name">AdditionalAccountID - El dato ingresado en el tipo de documento de identidad del receptor no cumple con el estandar</field></record>
+        <record id="e01_314" model="catalogo.errores.sunat"><field name="code">2177</field><field name="name">El XML no contiene el tag o no existe informacion de AdditionalAccountID del receptor del documento</field></record>
+        <record id="e01_315" model="catalogo.errores.sunat"><field name="code">2178</field><field name="name">CustomerAssignedAccountID - El numero de documento de identidad del receptor debe ser RUC.</field></record>
+        <record id="e01_316" model="catalogo.errores.sunat"><field name="code">2179</field><field name="name">El XML no contiene el tag o no existe informacion de CustomerAssignedAccountID del receptor del documento</field></record>
+        <record id="e01_317" model="catalogo.errores.sunat"><field name="code">2180</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_318" model="catalogo.errores.sunat"><field name="code">2181</field><field name="name">El XML no contiene el tag o no existe informacion de RegistrationName del receptor del documento</field></record>
+        <record id="e01_319" model="catalogo.errores.sunat"><field name="code">2182</field><field name="name">TaxScheme ID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_320" model="catalogo.errores.sunat"><field name="code">2183</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_321" model="catalogo.errores.sunat"><field name="code">2184</field><field name="name">El XML no contiene el tag o no existe informacion de TaxScheme ID de impuestos globales</field></record>
+        <record id="e01_322" model="catalogo.errores.sunat"><field name="code">2185</field><field name="name">TaxScheme Name - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_323" model="catalogo.errores.sunat"><field name="code">2186</field><field name="name">El XML no contiene el tag o no existe informacion de TaxScheme Name de impuestos globales</field></record>
+        <record id="e01_324" model="catalogo.errores.sunat"><field name="code">2187</field><field name="name">El Numero de orden del item no cumple con el formato establecido</field></record>
+        <record id="e01_325" model="catalogo.errores.sunat"><field name="code">2188</field><field name="name">DebitedQuantity/@unitCode El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_326" model="catalogo.errores.sunat"><field name="code">2189</field><field name="name">DebitedQuantity El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_327" model="catalogo.errores.sunat"><field name="code">2190</field><field name="name">El XML no contiene el tag Price/cbc:PriceAmount en el detalle de los Items</field></record>
+        <record id="e01_328" model="catalogo.errores.sunat"><field name="code">2191</field><field name="name">El XML no contiene el tag Price/cbc:LineExtensionAmount en el detalle de los Items</field></record>
+        <record id="e01_329" model="catalogo.errores.sunat"><field name="code">2192</field><field name="name">EL PriceTypeCode debe tener el valor 01</field></record>
+        <record id="e01_330" model="catalogo.errores.sunat"><field name="code">2193</field><field name="name">cac:TaxCategory/cac:TaxScheme/cbc:ID El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_331" model="catalogo.errores.sunat"><field name="code">2194</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_332" model="catalogo.errores.sunat"><field name="code">2195</field><field name="name">cac:TaxScheme/cbc:Name del item - No existe el tag o el dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_333" model="catalogo.errores.sunat"><field name="code">2196</field><field name="name">cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_334" model="catalogo.errores.sunat"><field name="code">2197</field><field name="name">El tipo de afectacion del IGV es incorrecto</field></record>
+        <record id="e01_335" model="catalogo.errores.sunat"><field name="code">2198</field><field name="name">El Nombre Internacional debe ser VAT</field></record>
+        <record id="e01_336" model="catalogo.errores.sunat"><field name="code">2199</field><field name="name">El sistema de calculo del ISC es incorrecto</field></record>
+        <record id="e01_337" model="catalogo.errores.sunat"><field name="code">2200</field><field name="name">El Nombre Internacional debe ser EXC</field></record>
+        <record id="e01_338" model="catalogo.errores.sunat"><field name="code">2201</field><field name="name">El tag cac:RequestedMonetaryTotal/cbc:PayableAmount debe tener informacion valida</field></record>
+        <record id="e01_339" model="catalogo.errores.sunat"><field name="code">2202</field><field name="name">TaxAmount - El dato ingresado en impuestos globales no cumple con el estándar</field></record>
+        <record id="e01_340" model="catalogo.errores.sunat"><field name="code">2203</field><field name="name">El XML no contiene el tag TaxAmount de impuestos globales</field></record>
+        <record id="e01_341" model="catalogo.errores.sunat"><field name="code">2204</field><field name="name">El tipo de documento modificado por la Nota de Debito debe ser factura electronica o ticket</field></record>
+        <record id="e01_342" model="catalogo.errores.sunat"><field name="code">2205</field><field name="name">La serie o numero del documento modificado por la Nota de Debito no cumple con el formato establecido</field></record>
+        <record id="e01_343" model="catalogo.errores.sunat"><field name="code">2206</field><field name="name">Debe indicar los documentos afectados por la Nota de Debito</field></record>
+        <record id="e01_344" model="catalogo.errores.sunat"><field name="code">2207</field><field name="name">La factura relacionada en la nota de debito se encuentra de baja</field></record>
+        <record id="e01_345" model="catalogo.errores.sunat"><field name="code">2208</field><field name="name">La factura relacionada en la nota de debito esta registrada como rechazada</field></record>
+        <record id="e01_346" model="catalogo.errores.sunat"><field name="code">2209</field><field name="name">La factura relacionada en la Nota de debito no esta registrada</field></record>
+        <record id="e01_347" model="catalogo.errores.sunat"><field name="code">2210</field><field name="name">El dato ingresado no cumple con el formato RC-fecha-correlativo</field></record>
+        <record id="e01_348" model="catalogo.errores.sunat"><field name="code">2211</field><field name="name">El XML no contiene el tag ID</field></record>
+        <record id="e01_349" model="catalogo.errores.sunat"><field name="code">2212</field><field name="name">UBLVersionID - La versión del UBL del resumen de boletas no es correcta</field></record>
+        <record id="e01_350" model="catalogo.errores.sunat"><field name="code">2113</field><field name="name">El XML no contiene el tag UBLVersionID</field></record>
+        <record id="e01_351" model="catalogo.errores.sunat"><field name="code">2214</field><field name="name">CustomizationID - La versión del resumen de boletas no es correcta</field></record>
+        <record id="e01_352" model="catalogo.errores.sunat"><field name="code">2215</field><field name="name">El XML no contiene el tag CustomizationID</field></record>
+        <record id="e01_353" model="catalogo.errores.sunat"><field name="code">2216</field><field name="name">CustomerAssignedAccountID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_354" model="catalogo.errores.sunat"><field name="code">2217</field><field name="name">El XML no contiene el tag CustomerAssignedAccountID del emisor del documento</field></record>
+        <record id="e01_355" model="catalogo.errores.sunat"><field name="code">2218</field><field name="name">AdditionalAccountID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_356" model="catalogo.errores.sunat"><field name="code">2219</field><field name="name">El XML no contiene el tag AdditionalAccountID del emisor del documento</field></record>
+        <record id="e01_357" model="catalogo.errores.sunat"><field name="code">2220</field><field name="name">El ID debe coincidir con el nombre del archivo</field></record>
+        <record id="e01_358" model="catalogo.errores.sunat"><field name="code">2221</field><field name="name">El RUC debe coincidir con el RUC del nombre del archivo</field></record>
+        <record id="e01_359" model="catalogo.errores.sunat"><field name="code">2222</field><field name="name">El contribuyente no está autorizado a emitir comprobantes electronicos</field></record>
+        <record id="e01_360" model="catalogo.errores.sunat"><field name="code">2223</field><field name="name">El archivo ya fue presentado anteriormente</field></record>
+        <record id="e01_361" model="catalogo.errores.sunat"><field name="code">2224</field><field name="name">Numero de RUC SOL no coincide con RUC emisor</field></record>
+        <record id="e01_362" model="catalogo.errores.sunat"><field name="code">2225</field><field name="name">Numero de RUC del emisor no existe</field></record>
+        <record id="e01_363" model="catalogo.errores.sunat"><field name="code">2226</field><field name="name">El contribuyente no esta activo</field></record>
+        <record id="e01_364" model="catalogo.errores.sunat"><field name="code">2227</field><field name="name">El contribuyente no cumple con tipo de empresa o tributos requeridos</field></record>
+        <record id="e01_365" model="catalogo.errores.sunat"><field name="code">2228</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_366" model="catalogo.errores.sunat"><field name="code">2229</field><field name="name">El XML no contiene el tag RegistrationName del emisor del documento</field></record>
+        <record id="e01_367" model="catalogo.errores.sunat"><field name="code">2230</field><field name="name">IssueDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_368" model="catalogo.errores.sunat"><field name="code">2231</field><field name="name">El XML no contiene el tag IssueDate</field></record>
+        <record id="e01_369" model="catalogo.errores.sunat"><field name="code">2232</field><field name="name">IssueDate- El dato ingresado no es valido</field></record>
+        <record id="e01_370" model="catalogo.errores.sunat"><field name="code">2233</field><field name="name">ReferenceDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_371" model="catalogo.errores.sunat"><field name="code">2234</field><field name="name">El XML no contiene el tag ReferenceDate</field></record>
+        <record id="e01_372" model="catalogo.errores.sunat"><field name="code">2235</field><field name="name">ReferenceDate- El dato ingresado no es valido</field></record>
+        <record id="e01_373" model="catalogo.errores.sunat"><field name="code">2236</field><field name="name">La fecha del IssueDate no debe ser mayor al Today</field></record>
+        <record id="e01_374" model="catalogo.errores.sunat"><field name="code">2237</field><field name="name">La fecha del ReferenceDate no debe ser mayor al Today</field></record>
+        <record id="e01_375" model="catalogo.errores.sunat"><field name="code">2238</field><field name="name">LineID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_376" model="catalogo.errores.sunat"><field name="code">2239</field><field name="name">LineID - El dato ingresado debe ser correlativo mayor a cero</field></record>
+        <record id="e01_377" model="catalogo.errores.sunat"><field name="code">2240</field><field name="name">El XML no contiene el tag LineID de SummaryDocumentsLine</field></record>
+        <record id="e01_378" model="catalogo.errores.sunat"><field name="code">2241</field><field name="name">DocumentTypeCode - El valor del tipo de documento es invalido</field></record>
+        <record id="e01_379" model="catalogo.errores.sunat"><field name="code">2242</field><field name="name">El XML no contiene el tag DocumentTypeCode</field></record>
+        <record id="e01_380" model="catalogo.errores.sunat"><field name="code">2243</field><field name="name">El dato ingresado no cumple con el patron SERIE</field></record>
+        <record id="e01_381" model="catalogo.errores.sunat"><field name="code">2244</field><field name="name">El XML no contiene el tag DocumentSerialID</field></record>
+        <record id="e01_382" model="catalogo.errores.sunat"><field name="code">2245</field><field name="name">El dato ingresado en StartDocumentNumberID debe ser numerico</field></record>
+        <record id="e01_383" model="catalogo.errores.sunat"><field name="code">2246</field><field name="name">El XML no contiene el tag StartDocumentNumberID</field></record>
+        <record id="e01_384" model="catalogo.errores.sunat"><field name="code">2247</field><field name="name">El dato ingresado en sac:EndDocumentNumberID debe ser numerico</field></record>
+        <record id="e01_385" model="catalogo.errores.sunat"><field name="code">2248</field><field name="name">El XML no contiene el tag sac:EndDocumentNumberID</field></record>
+        <record id="e01_386" model="catalogo.errores.sunat"><field name="code">2249</field><field name="name">Los rangos deben ser mayores a cero</field></record>
+        <record id="e01_387" model="catalogo.errores.sunat"><field name="code">2250</field><field name="name">En el rango de comprobantes, el EndDocumentNumberID debe ser mayor o igual al StartInvoiceNumberID</field></record>
+        <record id="e01_388" model="catalogo.errores.sunat"><field name="code">2251</field><field name="name">El dato ingresado en TotalAmount debe ser numerico mayor o igual a cero</field></record>
+        <record id="e01_389" model="catalogo.errores.sunat"><field name="code">2252</field><field name="name">El XML no contiene el tag TotalAmount</field></record>
+        <record id="e01_390" model="catalogo.errores.sunat"><field name="code">2253</field><field name="name">El dato ingresado en TotalAmount debe ser numerico mayor a cero</field></record>
+        <record id="e01_391" model="catalogo.errores.sunat"><field name="code">2254</field><field name="name">PaidAmount - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_392" model="catalogo.errores.sunat"><field name="code">2255</field><field name="name">El XML no contiene el tag PaidAmount</field></record>
+        <record id="e01_393" model="catalogo.errores.sunat"><field name="code">2256</field><field name="name">InstructionID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_394" model="catalogo.errores.sunat"><field name="code">2257</field><field name="name">El XML no contiene el tag InstructionID</field></record>
+        <record id="e01_395" model="catalogo.errores.sunat"><field name="code">2258</field><field name="name">Debe indicar Referencia de Importes asociados a las boletas de venta</field></record>
+        <record id="e01_396" model="catalogo.errores.sunat"><field name="code">2259</field><field name="name">Debe indicar 3 Referencias de Importes asociados a las boletas de venta</field></record>
+        <record id="e01_397" model="catalogo.errores.sunat"><field name="code">2260</field><field name="name">PaidAmount - El dato ingresado debe ser mayor o igual a 0.00</field></record>
+        <record id="e01_398" model="catalogo.errores.sunat"><field name="code">2261</field><field name="name">cbc:Amount - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_399" model="catalogo.errores.sunat"><field name="code">2262</field><field name="name">El XML no contiene el tag cbc:Amount</field></record>
+        <record id="e01_400" model="catalogo.errores.sunat"><field name="code">2263</field><field name="name">ChargeIndicator - El dato ingresado no cumple con el estandar </field></record>
+        <record id="e01_401" model="catalogo.errores.sunat"><field name="code">2264</field><field name="name">El XML no contiene el tag ChargeIndicator</field></record>
+        <record id="e01_402" model="catalogo.errores.sunat"><field name="code">2265</field><field name="name">Debe indicar Información acerca del Importe Total de Otros Cargos</field></record>
+        <record id="e01_403" model="catalogo.errores.sunat"><field name="code">2266</field><field name="name">Debe indicar cargos mayores o iguales a cero</field></record>
+        <record id="e01_404" model="catalogo.errores.sunat"><field name="code">2267</field><field name="name">TaxScheme ID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_405" model="catalogo.errores.sunat"><field name="code">2268</field><field name="name">El codigo del tributo es invalido</field></record>
+        <record id="e01_406" model="catalogo.errores.sunat"><field name="code">2269</field><field name="name">El XML no contiene el tag TaxScheme ID de Información acerca del importe total de un tipo particular de impuesto</field></record>
+        <record id="e01_407" model="catalogo.errores.sunat"><field name="code">2270</field><field name="name">TaxScheme Name - El dato ingresado no cumple con el estandar </field></record>
+        <record id="e01_408" model="catalogo.errores.sunat"><field name="code">2271</field><field name="name">El XML no contiene el tag TaxScheme Name de impuesto</field></record>
+        <record id="e01_409" model="catalogo.errores.sunat"><field name="code">2272</field><field name="name">TaxScheme TaxTypeCode - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_410" model="catalogo.errores.sunat"><field name="code">2273</field><field name="name">TaxAmount - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_411" model="catalogo.errores.sunat"><field name="code">2274</field><field name="name">El XML no contiene el tag TaxAmount</field></record>
+        <record id="e01_412" model="catalogo.errores.sunat"><field name="code">2275</field><field name="name">Si el codigo de tributo es 2000, el nombre del tributo debe ser ISC</field></record>
+        <record id="e01_413" model="catalogo.errores.sunat"><field name="code">2276</field><field name="name">Si el codigo de tributo es 1000, el nombre del tributo debe ser IGV</field></record>
+        <record id="e01_414" model="catalogo.errores.sunat"><field name="code">2277</field><field name="name">No se ha consignado ninguna informacion del importe total de tributos</field></record>
+        <record id="e01_415" model="catalogo.errores.sunat"><field name="code">2278</field><field name="name">Debe indicar Información acerca del importe total de ISC e IGV</field></record>
+        <record id="e01_416" model="catalogo.errores.sunat"><field name="code">2279</field><field name="name">Debe indicar Items de consolidado de documentos</field></record>
+        <record id="e01_417" model="catalogo.errores.sunat"><field name="code">2280</field><field name="name">Existen problemas con la informacion del resumen de comprobantes</field></record>
+        <record id="e01_418" model="catalogo.errores.sunat"><field name="code">2281</field><field name="name">Error en la validacion de los rangos de los comprobantes</field></record>
+        <record id="e01_419" model="catalogo.errores.sunat"><field name="code">2282</field><field name="name">Existe documento ya informado anteriormente</field></record>
+        <record id="e01_420" model="catalogo.errores.sunat"><field name="code">2283</field><field name="name">Existe documento ya informado anteriormente</field></record>
+        <record id="e01_421" model="catalogo.errores.sunat"><field name="code">2284</field><field name="name">El XML no contiene el tag ID</field></record>
+        <record id="e01_422" model="catalogo.errores.sunat"><field name="code">2285</field><field name="name">El ID debe coincidir con el nombre del archivo</field></record>
+        <record id="e01_423" model="catalogo.errores.sunat"><field name="code">2286</field><field name="name">El RUC debe coincidir con el RUC del nombre del archivo</field></record>
+        <record id="e01_424" model="catalogo.errores.sunat"><field name="code">2287</field><field name="name">AdditionalAccountID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_425" model="catalogo.errores.sunat"><field name="code">2288</field><field name="name">El XML no contiene el tag AdditionalAccountID del emisor del documento</field></record>
+        <record id="e01_426" model="catalogo.errores.sunat"><field name="code">2289</field><field name="name">CustomerAssignedAccountID - El dato ingresado no cumple con el estándar</field></record>
+        <record id="e01_427" model="catalogo.errores.sunat"><field name="code">2290</field><field name="name">El XML no contiene el tag CustomerAssignedAccountID del emisor del documento</field></record>
+        <record id="e01_428" model="catalogo.errores.sunat"><field name="code">2291</field><field name="name">El contribuyente no esta autorizado a emitir comprobantes electrónicos</field></record>
+        <record id="e01_429" model="catalogo.errores.sunat"><field name="code">2292</field><field name="name">Numero de RUC SOL no coincide con RUC emisor</field></record>
+        <record id="e01_430" model="catalogo.errores.sunat"><field name="code">2293</field><field name="name">Numero de RUC del emisor no existe</field></record>
+        <record id="e01_431" model="catalogo.errores.sunat"><field name="code">2294</field><field name="name">El contribuyente no esta activo</field></record>
+        <record id="e01_432" model="catalogo.errores.sunat"><field name="code">2295</field><field name="name">El contribuyente no cumple con tipo de empresa o tributos requeridos</field></record>
+        <record id="e01_433" model="catalogo.errores.sunat"><field name="code">2296</field><field name="name">RegistrationName - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_434" model="catalogo.errores.sunat"><field name="code">2297</field><field name="name">El XML no contiene el tag RegistrationName del emisor del documento</field></record>
+        <record id="e01_435" model="catalogo.errores.sunat"><field name="code">2298</field><field name="name">IssueDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_436" model="catalogo.errores.sunat"><field name="code">2299</field><field name="name">El XML no contiene el tag IssueDate</field></record>
+        <record id="e01_437" model="catalogo.errores.sunat"><field name="code">2300</field><field name="name">IssueDate - El dato ingresado no es valido</field></record>
+        <record id="e01_438" model="catalogo.errores.sunat"><field name="code">2301</field><field name="name">La fecha del IssueDate no debe ser mayor al Today</field></record>
+        <record id="e01_439" model="catalogo.errores.sunat"><field name="code">2302</field><field name="name">ReferenceDate - El dato ingresado no cumple con el patron YYYY-MM-DD</field></record>
+        <record id="e01_440" model="catalogo.errores.sunat"><field name="code">2303</field><field name="name">El XML no contiene el tag ReferenceDate</field></record>
+        <record id="e01_441" model="catalogo.errores.sunat"><field name="code">2304</field><field name="name">ReferenceDate - El dato ingresado no es valido</field></record>
+        <record id="e01_442" model="catalogo.errores.sunat"><field name="code">2305</field><field name="name">LineID - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_443" model="catalogo.errores.sunat"><field name="code">2306</field><field name="name">LineID - El dato ingresado debe ser correlativo mayor a cero</field></record>
+        <record id="e01_444" model="catalogo.errores.sunat"><field name="code">2307</field><field name="name">El XML no contiene el tag LineID de VoidedDocumentsLine</field></record>
+        <record id="e01_445" model="catalogo.errores.sunat"><field name="code">2308</field><field name="name">DocumentTypeCode - El valor del tipo de documento es invalido</field></record>
+        <record id="e01_446" model="catalogo.errores.sunat"><field name="code">2309</field><field name="name">El XML no contiene el tag DocumentTypeCode</field></record>
+        <record id="e01_447" model="catalogo.errores.sunat"><field name="code">2310</field><field name="name">El dato ingresado no cumple con el patron SERIE</field></record>
+        <record id="e01_448" model="catalogo.errores.sunat"><field name="code">2311</field><field name="name">El XML no contiene el tag DocumentSerialID</field></record>
+        <record id="e01_449" model="catalogo.errores.sunat"><field name="code">2312</field><field name="name">El dato ingresado en DocumentNumberID debe ser numerico y como maximo de 8 digitos</field></record>
+        <record id="e01_450" model="catalogo.errores.sunat"><field name="code">2313</field><field name="name">El XML no contiene el tag DocumentNumberID</field></record>
+        <record id="e01_451" model="catalogo.errores.sunat"><field name="code">2314</field><field name="name">El dato ingresado en VoidReasonDescription debe contener información válida</field></record>
+        <record id="e01_452" model="catalogo.errores.sunat"><field name="code">2315</field><field name="name">El XML no contiene el tag VoidReasonDescription</field></record>
+        <record id="e01_453" model="catalogo.errores.sunat"><field name="code">2316</field><field name="name">Debe indicar Items en VoidedDocumentsLine</field></record>
+        <record id="e01_454" model="catalogo.errores.sunat"><field name="code">2317</field><field name="name">Error al procesar el resumen de anulados</field></record>
+        <record id="e01_455" model="catalogo.errores.sunat"><field name="code">2318</field><field name="name">CustomizationID - La version del documento no es correcta</field></record>
+        <record id="e01_456" model="catalogo.errores.sunat"><field name="code">2319</field><field name="name">El XML no contiene el tag CustomizationID</field></record>
+        <record id="e01_457" model="catalogo.errores.sunat"><field name="code">2320</field><field name="name">UBLVersionID - La version del UBL  no es la correcta</field></record>
+        <record id="e01_458" model="catalogo.errores.sunat"><field name="code">2321</field><field name="name">El XML no contiene el tag UBLVersionID</field></record>
+        <record id="e01_459" model="catalogo.errores.sunat"><field name="code">2322</field><field name="name">Error en la validacion de los rangos</field></record>
+        <record id="e01_460" model="catalogo.errores.sunat"><field name="code">2323</field><field name="name">Existe documento ya informado anteriormente en una comunicacion de baja</field></record>
+        <record id="e01_461" model="catalogo.errores.sunat"><field name="code">2324</field><field name="name">El archivo de comunicacion de baja ya fue presentado anteriormente</field></record>
+        <record id="e01_462" model="catalogo.errores.sunat"><field name="code">2325</field><field name="name">El certificado usado no es el comunicado a SUNAT</field></record>
+        <record id="e01_463" model="catalogo.errores.sunat"><field name="code">2326</field><field name="name">El certificado usado se encuentra de baja</field></record>
+        <record id="e01_464" model="catalogo.errores.sunat"><field name="code">2327</field><field name="name">El certificado usado no se encuentra vigente</field></record>
+        <record id="e01_465" model="catalogo.errores.sunat"><field name="code">2328</field><field name="name">El certificado usado se encuentra revocado</field></record>
+        <record id="e01_466" model="catalogo.errores.sunat"><field name="code">2329</field><field name="name">La fecha de emision se encuentra fuera del limite permitido</field></record>
+        <record id="e01_467" model="catalogo.errores.sunat"><field name="code">2330</field><field name="name">La fecha de generación de la comunicación debe ser igual a la fecha consignada en el nombre del archivo</field></record>
+        <record id="e01_468" model="catalogo.errores.sunat"><field name="code">2331</field><field name="name">Número de RUC del nombre del archivo no coincide con el consignado en el contenido del archivo XML</field></record>
+        <record id="e01_469" model="catalogo.errores.sunat"><field name="code">2332</field><field name="name">Número de Serie del nombre del archivo no coincide con el consignado en el contenido del archivo XML</field></record>
+        <record id="e01_470" model="catalogo.errores.sunat"><field name="code">2333</field><field name="name">Número de documento en el nombre del archivo no coincide con el consignado en el contenido del XML</field></record>
+        <record id="e01_471" model="catalogo.errores.sunat"><field name="code">2334</field><field name="name">El documento electrónico ingresado ha sido alterado</field></record>
+        <record id="e01_472" model="catalogo.errores.sunat"><field name="code">2335</field><field name="name">El documento electrónico ingresado ha sido alterado</field></record>
+        <record id="e01_473" model="catalogo.errores.sunat"><field name="code">2336</field><field name="name">Ocurrió un error en el proceso de validación de la firma digital</field></record>
+        <record id="e01_474" model="catalogo.errores.sunat"><field name="code">2337</field><field name="name">La moneda debe ser la misma en todo el documento</field></record>
+        <record id="e01_475" model="catalogo.errores.sunat"><field name="code">2338</field><field name="name">La moneda debe ser la misma en todo el documento</field></record>
+        <record id="e01_476" model="catalogo.errores.sunat"><field name="code">2339</field><field name="name">El dato ingresado en PayableAmount no cumple con el formato establecido</field></record>
+        <record id="e01_477" model="catalogo.errores.sunat"><field name="code">2340</field><field name="name">El valor ingresado en AdditionalMonetaryTotal/cbc:ID es incorrecto</field></record>
+        <record id="e01_478" model="catalogo.errores.sunat"><field name="code">2341</field><field name="name">AdditionalMonetaryTotal/cbc:ID debe tener valor</field></record>
+        <record id="e01_479" model="catalogo.errores.sunat"><field name="code">2342</field><field name="name">Fecha de emision de la factura no coincide con la informada en la comunicacion</field></record>
+        <record id="e01_480" model="catalogo.errores.sunat"><field name="code">2343</field><field name="name">cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount - El dato ingresado no cumple con el estandar</field></record>
+        <record id="e01_480" model="catalogo.errores.sunat"><field name="code">2344</field><field name="name">El XML no contiene el tag cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount</field></record>
+        <record id="e01_481" model="catalogo.errores.sunat"><field name="code">2345</field><field name="name">La serie no corresponde al tipo de comprobante</field></record>
+        <record id="e01_482" model="catalogo.errores.sunat"><field name="code">2346</field><field name="name">La fecha de generación del resumen debe ser igual a la fecha consignada en el nombre del archivo</field></record>
+        <record id="e01_483" model="catalogo.errores.sunat"><field name="code">2347</field><field name="name">Los rangos informados en el archivo XML se encuentran duplicados o superpuestos</field></record>
+        <record id="e01_484" model="catalogo.errores.sunat"><field name="code">2348</field><field name="name">Los documentos informados en el archivo XML se encuentran duplicados</field></record>
+        <record id="e01_485" model="catalogo.errores.sunat"><field name="code">2349</field><field name="name">Debe consignar solo un elemento sac:AdditionalMonetaryTotal con cbc:ID igual a 1001</field></record>
+        <record id="e01_486" model="catalogo.errores.sunat"><field name="code">2350</field><field name="name">Debe consignar solo un elemento sac:AdditionalMonetaryTotal con cbc:ID igual a 1002</field></record>
+        <record id="e01_487" model="catalogo.errores.sunat"><field name="code">2351</field><field name="name">Debe consignar solo un elemento sac:AdditionalMonetaryTotal con cbc:ID igual a 1003</field></record>
+        <record id="e01_488" model="catalogo.errores.sunat"><field name="code">2352</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel global para IGV (cbc:ID igual a 1000)</field></record>
+        <record id="e01_489" model="catalogo.errores.sunat"><field name="code">2353</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel global para ISC (cbc:ID igual a 2000)</field></record>
+        <record id="e01_490" model="catalogo.errores.sunat"><field name="code">2354</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel global para Otros (cbc:ID igual a 9999)</field></record>
+        <record id="e01_491" model="catalogo.errores.sunat"><field name="code">2355</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel de item para IGV (cbc:ID igual a 1000)</field></record>
+        <record id="e01_492" model="catalogo.errores.sunat"><field name="code">2356</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel de item para ISC (cbc:ID igual a 2000)</field></record>
+        <record id="e01_493" model="catalogo.errores.sunat"><field name="code">2357</field><field name="name">Debe consignar solo un elemento sac:BillingPayment a nivel de item con cbc:InstructionID igual a 01</field></record>
+        <record id="e01_494" model="catalogo.errores.sunat"><field name="code">2358</field><field name="name">Debe consignar solo un elemento sac:BillingPayment a nivel de item con cbc:InstructionID igual a 02</field></record>
+        <record id="e01_495" model="catalogo.errores.sunat"><field name="code">2359</field><field name="name">Debe consignar solo un elemento sac:BillingPayment a nivel de item con cbc:InstructionID igual a 03</field></record>
+        <record id="e01_496" model="catalogo.errores.sunat"><field name="code">2360</field><field name="name">Debe consignar solo un elemento sac:BillingPayment a nivel de item con cbc:InstructionID igual a 04</field></record>
+        <record id="e01_497" model="catalogo.errores.sunat"><field name="code">2361</field><field name="name">Debe consignar solo un elemento cac:TaxTotal a nivel de item para Otros (cbc:ID igual a 9999)</field></record>
+        <record id="e01_498" model="catalogo.errores.sunat"><field name="code">2362</field><field name="name">Debe consignar solo un tag cac:AccountingSupplierParty/cbc:AdditionalAccountID</field></record>
+        <record id="e01_499" model="catalogo.errores.sunat"><field name="code">2363</field><field name="name">Debe consignar solo un tag cac:AccountingCustomerParty/cbc:AdditionalAccountID</field></record>
+        <record id="e01_500" model="catalogo.errores.sunat"><field name="code">2364</field><field name="name">El comprobante contiene un tipo y número de Guía de Remisión repetido</field></record>
+        <record id="e01_501" model="catalogo.errores.sunat"><field name="code">2365</field><field name="name">El comprobante contiene un tipo y número de Documento Relacionado repetido</field></record>
+        <record id="e01_502" model="catalogo.errores.sunat"><field name="code">2366</field><field name="name">El codigo en el tag sac:AdditionalProperty/cbc:ID debe tener 4 posiciones</field></record>
+        <record id="e01_503" model="catalogo.errores.sunat"><field name="code">2367</field><field name="name">El dato ingresado en PriceAmount del Precio de venta unitario por item no cumple con el formato establecido</field></record>
+        <record id="e01_504" model="catalogo.errores.sunat"><field name="code">2368</field><field name="name">El dato ingresado en TaxSubtotal/cbc:TaxAmount del item no cumple con el formato establecido</field></record>
+        <record id="e01_505" model="catalogo.errores.sunat"><field name="code">2369</field><field name="name">El dato ingresado en PriceAmount del Valor de venta unitario por item no cumple con el formato establecido</field></record>
+        <record id="e01_506" model="catalogo.errores.sunat"><field name="code">2370</field><field name="name">El dato ingresado en LineExtensionAmount del item no cumple con el formato establecido</field></record>
+        <record id="e01_507" model="catalogo.errores.sunat"><field name="code">2371</field><field name="name">El XML no contiene el tag cbc:TaxExemptionReasonCode de Afectacion al IGV</field></record>
+        <record id="e01_508" model="catalogo.errores.sunat"><field name="code">2372</field><field name="name">El tag en el item cac:TaxTotal/cbc:TaxAmount debe tener el mismo valor que cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount</field></record>
+        <record id="e01_509" model="catalogo.errores.sunat"><field name="code">2373</field><field name="name">Si existe monto de ISC en el ITEM debe especificar el sistema de calculo</field></record>
+        <record id="e01_510" model="catalogo.errores.sunat"><field name="code">2374</field><field name="name">La factura a dar de baja tiene una fecha de recepcion fuera del plazo permitido</field></record>
+        <record id="e01_511" model="catalogo.errores.sunat"><field name="code">2375</field><field name="name">Fecha de emision de la boleta no coincide con la fecha de emision consignada en la comunicacion</field></record>
+        <record id="e01_512" model="catalogo.errores.sunat"><field name="code">2376</field><field name="name">La boleta de venta a dar de baja fue informada en un resumen con fecha de recepcion fuera del plazo permitido</field></record>
+        <record id="e01_513" model="catalogo.errores.sunat"><field name="code">2377</field><field name="name">El Name o TaxTypeCode debe corresponder con el Id para el IGV</field></record>
+        <record id="e01_514" model="catalogo.errores.sunat"><field name="code">2378</field><field name="name">El Name o TaxTypeCode debe corresponder con el Id para el ISC</field></record>
+        <record id="e01_515" model="catalogo.errores.sunat"><field name="code">2379</field><field name="name">La numeracion de boleta de venta a dar de baja fue generada en una fecha fuera del plazo permitido</field></record>
+        <record id="e01_516" model="catalogo.errores.sunat"><field name="code">2380</field><field name="name">El documento tiene observaciones</field></record>
+        <record id="e01_517" model="catalogo.errores.sunat"><field name="code">2381</field><field name="name">Comprobante no cumple con el Grupo 1: No todos los items corresponden a operaciones gravadas a IGV</field></record>
+        <record id="e01_518" model="catalogo.errores.sunat"><field name="code">2382</field><field name="name">Comprobante no cumple con el Grupo 2: No todos los items corresponden a operaciones inafectas o exoneradas al IGV</field></record>
+        <record id="e01_519" model="catalogo.errores.sunat"><field name="code">2383</field><field name="name">Comprobante no cumple con el Grupo 3: Falta leyenda con codigo 1002</field></record>
+        <record id="e01_520" model="catalogo.errores.sunat"><field name="code">2384</field><field name="name">Comprobante no cumple con el Grupo 3: Existe item con operación onerosa</field></record>
+        <record id="e01_521" model="catalogo.errores.sunat"><field name="code">2385</field><field name="name">Comprobante no cumple con el Grupo 4: Debe exitir Total descuentos mayor a cero</field></record>
+        <record id="e01_522" model="catalogo.errores.sunat"><field name="code">2386</field><field name="name">Comprobante no cumple con el Grupo 5: Todos los items deben tener operaciones afectas a ISC</field></record>
+        <record id="e01_523" model="catalogo.errores.sunat"><field name="code">2387</field><field name="name">Comprobante no cumple con el Grupo 6: El monto de percepcion no existe o es cero</field></record>
+        <record id="e01_524" model="catalogo.errores.sunat"><field name="code">2388</field><field name="name">Comprobante no cumple con el Grupo 6: Todos los items deben tener código de Afectación al IGV igual a 10</field></record>
+        <record id="e01_525" model="catalogo.errores.sunat"><field name="code">2389</field><field name="name">Comprobante no cumple con el Grupo 7: El codigo de moneda no es diferente a PEN</field></record>
+        <record id="e01_526" model="catalogo.errores.sunat"><field name="code">2390</field><field name="name">Comprobante no cumple con el Grupo 8: No todos los items corresponden a operaciones gravadas a IGV</field></record>
+        <record id="e01_527" model="catalogo.errores.sunat"><field name="code">2391</field><field name="name">Comprobante no cumple con el Grupo 9: No todos los items corresponden a operaciones inafectas o exoneradas al IGV</field></record>
+        <record id="e01_528" model="catalogo.errores.sunat"><field name="code">2392</field><field name="name">Comprobante no cumple con el Grupo 10: Falta leyenda con codigo 1002</field></record>
+        <record id="e01_529" model="catalogo.errores.sunat"><field name="code">2393</field><field name="name">Comprobante no cumple con el Grupo 10: Existe item con operación onerosa</field></record>
+        <record id="e01_530" model="catalogo.errores.sunat"><field name="code">2394</field><field name="name">Comprobante no cumple con el Grupo 11: Debe existir Total descuentos mayor a cero</field></record>
+        <record id="e01_531" model="catalogo.errores.sunat"><field name="code">2395</field><field name="name">Comprobante no cumple con el Grupo 12: El codigo de moneda no es diferente a PEN</field></record>
+        <record id="e01_532" model="catalogo.errores.sunat"><field name="code">2396</field><field name="name">Si el monto total es mayor a S/. 700.00 debe consignar tipo y numero de documento del adquiriente</field></record>
+        <record id="e01_533" model="catalogo.errores.sunat"><field name="code">2397</field><field name="name">El tipo de documento del adquiriente no puede ser Numero de RUC</field></record>
+        <record id="e01_534" model="catalogo.errores.sunat"><field name="code">2398</field><field name="name">El documento a dar de baja se encuentra rechazado</field></record>
+        <record id="e01_535" model="catalogo.errores.sunat"><field name="code">2399</field><field name="name">El tipo de documento modificado por la Nota de credito debe ser boleta electronica</field></record>
+        <record id="e01_536" model="catalogo.errores.sunat"><field name="code">2400</field><field name="name">El tipo de documento modificado por la Nota de debito debe ser boleta electronica</field></record>
+        <record id="e01_537" model="catalogo.errores.sunat"><field name="code">2401</field><field name="name">No se puede leer (parsear) el archivo XML</field></record>
+        <record id="e01_538" model="catalogo.errores.sunat"><field name="code">2402</field><field name="name">El caso de prueba no existe</field></record>
+        <record id="e01_539" model="catalogo.errores.sunat"><field name="code">2403</field><field name="name">La numeracion o nombre del documento ya ha sido enviado anteriormente</field></record>
+        <record id="e01_540" model="catalogo.errores.sunat"><field name="code">2404</field><field name="name">Documento afectado por la nota electronica no se encuentra autorizado</field></record>
+        <record id="e01_541" model="catalogo.errores.sunat"><field name="code">2405</field><field name="name">Contribuyente no se encuentra autorizado como emisor de boletas electronicas</field></record>
+        <record id="e01_542" model="catalogo.errores.sunat"><field name="code">2406</field><field name="name">Existe mas de un tag sac:AdditionalMonetaryTotal con el mismo ID</field></record>
+        <record id="e01_543" model="catalogo.errores.sunat"><field name="code">2407</field><field name="name">Existe mas de un tag sac:AdditionalProperty con el mismo ID</field></record>
+        <record id="e01_544" model="catalogo.errores.sunat"><field name="code">2408</field><field name="name">El dato ingresado en PriceAmount del Valor referencial unitario por item no cumple con el formato establecido</field></record>
+        <record id="e01_545" model="catalogo.errores.sunat"><field name="code">2409</field><field name="name">Existe mas de un tag cac:AlternativeConditionPrice con el mismo cbc:PriceTypeCode</field></record>
+        <record id="e01_546" model="catalogo.errores.sunat"><field name="code">2410</field><field name="name">Se ha consignado un valor invalido en el campo cbc:PriceTypeCode</field></record>
+        <record id="e01_547" model="catalogo.errores.sunat"><field name="code">2411</field><field name="name">Ha consignado mas de un elemento cac:AllowanceCharge con el mismo campo cbc:ChargeIndicator</field></record>
+        <record id="e01_548" model="catalogo.errores.sunat"><field name="code">2412</field><field name="name">Se ha consignado mas de un documento afectado por la nota (tag cac:BillingReference)</field></record>
+        <record id="e01_549" model="catalogo.errores.sunat"><field name="code">2413</field><field name="name">Se ha consignado mas de un motivo o sustento de la nota (tag cac:DiscrepancyResponse/cbc:Description)</field></record>
+        <record id="e01_550" model="catalogo.errores.sunat"><field name="code">2414</field><field name="name">No se ha consignado en la nota el tag cac:DiscrepancyResponse</field></record>
+        <record id="e01_551" model="catalogo.errores.sunat"><field name="code">2415</field><field name="name">Se ha consignado en la nota mas de un tag cac:DiscrepancyResponse</field></record>
+        <record id="e01_552" model="catalogo.errores.sunat"><field name="code">2416</field><field name="name">Si existe leyenda Transferida Gratuita debe consignar Total Valor de Venta de Operaciones Gratuita</field></record>
+        <record id="e01_553" model="catalogo.errores.sunat"><field name="code">2417</field><field name="name">Debe consignar Valor Referencial unitario por ítem en operaciones no onerosas</field></record>
+        <record id="e01_554" model="catalogo.errores.sunat"><field name="code">2418</field><field name="name">Si consigna Valor Referencial unitario por ítem en operaciones no onerosas, la operación debe ser no onerosa</field></record>
+        <record id="e01_555" model="catalogo.errores.sunat"><field name="code">2419</field><field name="name">El dato ingresado en AllowanceTotalAmount no cumple con el formato establecido</field></record>
+        <record id="e01_556" model="catalogo.errores.sunat"><field name="code">2420</field><field name="name">Ya transcurrieron mas de 25 dias calendarios para concluir con su proceso de homologacion</field></record>
+        <record id="e01_557" model="catalogo.errores.sunat"><field name="code">4000</field><field name="name">El documento ya fue presentado anteriormente.</field></record>
+        <record id="e01_558" model="catalogo.errores.sunat"><field name="code">4001</field><field name="name">El numero de RUC del receptor no existe.</field></record>
+        <record id="e01_559" model="catalogo.errores.sunat"><field name="code">4002</field><field name="name">Para el TaxTypeCode, esta usando un valor que no existe en el catalogo.</field></record>
+        <record id="e01_560" model="catalogo.errores.sunat"><field name="code">4003</field><field name="name">El comprobante fue registrado previamente como rechazado.</field></record>
+        <record id="e01_561" model="catalogo.errores.sunat"><field name="code">4004</field><field name="name">El DocumentTypeCode de las guias debe existir y tener 2 posiciones</field></record>
+        <record id="e01_562" model="catalogo.errores.sunat"><field name="code">4005</field><field name="name">El DocumentTypeCode de las guias debe ser 09 o 31</field></record>
+        <record id="e01_563" model="catalogo.errores.sunat"><field name="code">4006</field><field name="name">El ID de las guias debe tener informacion de la SERIE-NUMERO de guia.</field></record>
+        <record id="e01_564" model="catalogo.errores.sunat"><field name="code">4007</field><field name="name">El XML no contiene el ID de las guias.</field></record>
+        <record id="e01_565" model="catalogo.errores.sunat"><field name="code">4008</field><field name="name">El DocumentTypeCode de Otros documentos relacionados no cumple con el estandar.</field></record>
+        <record id="e01_566" model="catalogo.errores.sunat"><field name="code">4009</field><field name="name">El DocumentTypeCode de Otros documentos relacionados tiene valores incorrectos.</field></record>
+        <record id="e01_567" model="catalogo.errores.sunat"><field name="code">4010</field><field name="name">El ID de los documentos relacionados no cumplen con el estandar.</field></record>
+        <record id="e01_568" model="catalogo.errores.sunat"><field name="code">4011</field><field name="name">El XML no contiene el tag ID de documentos relacionados.</field></record>
+        <record id="e01_569" model="catalogo.errores.sunat"><field name="code">4012</field><field name="name">El ubigeo indicado en el comprobante no es el mismo que esta registrado para el contribuyente.</field></record>
+        <record id="e01_570" model="catalogo.errores.sunat"><field name="code">4013</field><field name="name">El RUC del receptor no esta activo</field></record>
+        <record id="e01_571" model="catalogo.errores.sunat"><field name="code">4014</field><field name="name">El RUC del receptor no esta habido</field></record>
+        <record id="e01_572" model="catalogo.errores.sunat"><field name="code">4015</field><field name="name">Si el tipo de documento del receptor no es RUC, debe tener operaciones de exportacion</field></record>
+        <record id="e01_573" model="catalogo.errores.sunat"><field name="code">4016</field><field name="name">El total valor venta neta de oper. gravadas IGV debe ser mayor a 0.00 o debe existir oper. gravadas onerosas</field></record>
+        <record id="e01_574" model="catalogo.errores.sunat"><field name="code">4017</field><field name="name">El total valor venta neta de oper. inafectas IGV debe ser mayor a 0.00 o debe existir oper. inafectas onerosas o de export.</field></record>
+        <record id="e01_575" model="catalogo.errores.sunat"><field name="code">4018</field><field name="name">El total valor venta neta de oper. exoneradas IGV debe ser mayor a 0.00 o debe existir oper. exoneradas</field></record>
+        <record id="e01_576" model="catalogo.errores.sunat"><field name="code">4019</field><field name="name">El calculo del IGV no es correcto</field></record>
+        <record id="e01_577" model="catalogo.errores.sunat"><field name="code">4020</field><field name="name">El ISC no esta informado correctamente</field></record>
+        <record id="e01_578" model="catalogo.errores.sunat"><field name="code">4021</field><field name="name">Si se utiliza la leyenda con codigo 2000, el importe de percepcion debe ser mayor a 0.00</field></record>
+        <record id="e01_579" model="catalogo.errores.sunat"><field name="code">4022</field><field name="name">Si se utiliza la leyenda con código 2001, el total de operaciones exoneradas debe ser mayor a 0.00</field></record>
+        <record id="e01_580" model="catalogo.errores.sunat"><field name="code">4023</field><field name="name">Si se utiliza la leyenda con código 2002, el total de operaciones exoneradas debe ser mayor a 0.00</field></record>
+        <record id="e01_581" model="catalogo.errores.sunat"><field name="code">4024</field><field name="name">Si se utiliza la leyenda con código 2003, el total de operaciones exoneradas debe ser mayor a 0.00</field></record>
+        <record id="e01_582" model="catalogo.errores.sunat"><field name="code">4025</field><field name="name">Si usa la leyenda de Transferencia o Servivicio gratuito, todos los items deben ser no onerosos</field></record>
+        <record id="e01_583" model="catalogo.errores.sunat"><field name="code">4026</field><field name="name">No se puede indicar Guia de remision de remitente y Guia de remision de transportista en el mismo documento</field></record>
+        <record id="e01_584" model="catalogo.errores.sunat"><field name="code">4027</field><field name="name">El importe total no coincide con la sumatoria de los valores de venta mas los tributos mas los cargos</field></record>
+        <record id="e01_585" model="catalogo.errores.sunat"><field name="code">4028</field><field name="name">El monto total de la nota de credito debe ser menor o igual al monto de la factura</field></record>
+        <record id="e01_586" model="catalogo.errores.sunat"><field name="code">4029</field><field name="name">El ubigeo indicado en el comprobante no es el mismo que esta registrado para el contribuyente</field></record>
+        <record id="e01_587" model="catalogo.errores.sunat"><field name="code">4030</field><field name="name">El ubigeo indicado en el comprobante no es el mismo que esta registrado para el contribuyente</field></record>
+        <record id="e01_588" model="catalogo.errores.sunat"><field name="code">4031</field><field name="name">Debe indicar el nombre comercial</field></record>
+        <record id="e01_589" model="catalogo.errores.sunat"><field name="code">4032</field><field name="name">Si el código del motivo de emisión de la Nota de Credito es 03, debe existir la descripción del item</field></record>
+        <record id="e01_590" model="catalogo.errores.sunat"><field name="code">4033</field><field name="name">La fecha de generación de la numeración debe ser menor o igual a la fecha de generación de la comunicación</field></record>
+        <record id="e01_591" model="catalogo.errores.sunat"><field name="code">4034</field><field name="name">El comprobante fue registrado previamente como baja</field></record>
+        <record id="e01_592" model="catalogo.errores.sunat"><field name="code">4035</field><field name="name">El comprobante fue registrado previamente como rechazado</field></record>
+        <record id="e01_593" model="catalogo.errores.sunat"><field name="code">4036</field><field name="name">La fecha de emisión de los rangos debe ser menor o igual a la fecha de generación del resumen</field></record>
+        <record id="e01_594" model="catalogo.errores.sunat"><field name="code">4037</field><field name="name">El calculo del Total de IGV del Item no es correcto</field></record>
+        <record id="e01_595" model="catalogo.errores.sunat"><field name="code">4038</field><field name="name">El resumen contiene menos series por tipo de documento que el envío anterior para la misma fecha de emisión</field></record>
+        <record id="e01_596" model="catalogo.errores.sunat"><field name="code">4039</field><field name="name">No ha consignado información del ubigeo del domicilio fiscal</field></record>
+        <record id="e01_597" model="catalogo.errores.sunat"><field name="code">4040</field><field name="name">Si el importe de percepcion es mayor a 0.00, debe utilizar una leyenda con codigo 2000</field></record>
+        <record id="e01_598" model="catalogo.errores.sunat"><field name="code">4041</field><field name="name">El codigo de pais debe ser PE</field></record>
+        <!--<record id="e01_599" model="catalogo.errores.sunat"><field name="code">0</field><field name="name">El documento a sido aceptado</field></record>-->
+    </data>
+</openerp>

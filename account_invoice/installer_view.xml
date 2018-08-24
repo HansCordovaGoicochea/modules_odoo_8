@@ -1,0 +1,134 @@
+<openerp>
+  <data>
+    <record id="account_invoice_ebInterface_installer_form" model="ir.ui.view">
+      <field name="name">account.invoice.ebInterface.installer.form</field>
+      <field name="model">account.invoice.ebinterface.installer</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+        <data>
+          <form position="attributes">
+            <attribute name="string">Add ebInterface to Invoice</attribute>
+          </form>
+          <separator string="title" position="attributes">
+            <attribute name="string">Create an ebInterface to all 'open'/'paid' invoices</attribute>
+          </separator>
+        </data>
+      </field>
+    </record>
+    <record id="action_account_invoice_ebInterface_installer" model="ir.actions.act_window">
+      <field name="name">Add ebInterface to Invoice</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">account.invoice.ebinterface.installer</field>
+      <field name="view_id" ref="account_invoice_ebInterface_installer_form"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+    <record id="account_invoice_ebInterface_installer_todo" model="ir.actions.todo">
+      <field name="action_id" ref="action_account_invoice_ebInterface_installer"/>
+      <field name="type">automatic</field>
+    </record>
+    <record id="invoice_form_my" model="ir.ui.view">
+      <field name="name">account.invoice.form.my</field>
+      <field name="model">account.invoice</field>
+        <field name="type">form</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+
+        <field name="partner_id" position="before">
+            <field name="ruc" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+          </field>
+
+
+          <field name="fiscal_position" position="replace">
+            <field name="fiscal_position" string="Rubro"/>
+          </field>
+
+          <field name="invoice_line_tax_id" position="before">
+            <field name="afectacion_igv"/>
+          </field>
+          <field name="sent" position="after">
+              <separator string=""/>
+                <strong attrs="{'invisible':[('state','=','draft')]}"><field name="mensaje_cdr" class="oe_inline"/>Por SUNAT</strong>
+          </field>
+    <field name="fiscal_position" position="after">
+        <notebook colspan="4">
+                 <page string="Conceptos">
+
+                    <field name="invoice_ids" nolabel="1" widget="one2many_list">
+                         <tree string="Otros Conceptos baja" editable="bottom">
+                            <field name="conceptos_tributarios"/>
+                            <field name="monto_total"/>
+                        </tree>
+                    </field>
+
+                </page>
+        </notebook>
+</field>
+          <!--<field name="fiscal_position" position="after">-->
+            <!--<field name="conceptos_tributarios" widget="many2many_tags"/>-->
+          <!--</field>-->
+
+      </field>
+     </record>
+
+      <record id="partner_form_my" model="ir.ui.view">
+      <field name="name">res.partner.my</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="title" position="after">
+            <field name="credito"/>
+        </field>
+        <field name="credito" position="after">
+            <field name="monto" attrs="{'invisible':[('credito','!=',True)]}"/>
+        </field>
+        <field name="monto" position="after">
+            <field name="combustible" string="Galón(es)" attrs="{'invisible':[('credito','!=',True)]}"/>
+        </field>
+
+        <field name="property_account_position" position="replace">
+            <field name="property_account_position" string="Rubro"/>
+        </field>
+
+
+      </field>
+     </record>
+
+    <record id="invoice_supplier_form_my" model="ir.ui.view">
+      <field name="name">account.invoice.supplier.form.my</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_supplier_form"/>
+      <field name="arch" type="xml">
+          <field name="journal_id" position="after">
+              <field name="entrega_factura_fisica"/>
+          </field>
+          <field name="entrega_factura_fisica" position="after">
+              <field name="tipo_factura" string="Tipo de Comprobante"/>
+          </field>
+          <field name="tipo_factura" position="after">
+
+                <!--<field name="datas" filename="datas_fname" attrs="{'invisible':[('entrega_factura_fisica','=',False)]}"/>-->
+                <!--<field name="datas_fname" invisible="1" attrs="{'invisible':[('entrega_factura_fisica','=',False)]}" class="oe_inline oe_right"/>-->
+                <field name="documentos" widget="many2many_binary" attrs="{'invisible':[('entrega_factura_fisica','=',False)]}"/>
+
+          </field>
+
+        <field name="fiscal_position" position="replace">
+            <field name="fiscal_position" string="Rubro"/>
+        </field>
+
+        <!--<field name="date_invoice" position="replace">-->
+            <!--<field name="date_invoice" on_change="onchange_payment_term_date_invoice(payment_term, date_invoice)"/>-->
+        <!--</field>-->
+
+
+
+      </field>
+     </record>
+
+  </data>
+</openerp>
+

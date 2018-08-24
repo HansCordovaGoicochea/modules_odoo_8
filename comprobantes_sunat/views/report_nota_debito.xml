@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<template id="report_nota_debito_document">
+        <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+             <div class="page">
+<div class="container" style="border: 1px solid #ddd;padding: 30px">
+    <div class="row">
+
+        <div class="row">
+            <div class="col-xs-7">
+                <div class="panel panel-default " style="border: 3px solid #ddd; ">
+                    <div class="panel-body">
+ <img t-if="res_company.logo_web" t-att-src="'data:image/png;base64,%s' % res_company.logo_web" style="max-height: 45px;"/>
+                       <div t-field="res_company.partner_id"
+                    t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                        <span>Fecha Emisión: <span t-field="o.fecha_emision"/></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5 text-center">
+                <div class="panel panel-default" style="border: 3px solid #ddd; ">
+                    <div class="panel-heading">
+                        <h4><a href="#">NOTA DE DEBITO ELECTRONICA</a></h4>
+                    </div>
+                    <div class="panel-body">
+                       <span>RUC:  <span t-field="res_company.x_ruc"/></span><br/>
+                        <span>N° <span t-field="o.numeracion"/></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid #ddd; margin-right: -5px; margin-left: -5px;">
+            <span style="padding: 5px;">Documento que modifica:</span>
+        </div>
+        <br/>
+        <table class="table">
+            <tr>
+                <td>Factura Electrónica</td>
+                <td>:</td>
+                <td><span t-field="o.referencia"/></td>
+                <td>ANULACION DE LA OPERACION</td>
+            </tr>
+            <tr>
+                <td>Señor(es)</td>
+                <td>:</td>
+                <td><span t-field="o.cliente"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>RUC</td>
+                <td>:</td>
+                <td><span t-field="o.ruc"/></td>
+<td></td>
+
+            </tr>
+            <tr>
+                <td>Tipo de Moneda</td>
+                <td>:</td>
+                <td>
+<span t-if="o.currency_id.name=='PEN'">SOLES</span>
+                        <span t-if="o.currency_id.name=='USD'">DOLARES</span>
+
+                </td>
+<td></td>
+
+            </tr>
+            <tr>
+                <td>Motivo o Sustento:</td>
+                <td>:</td>
+                <td><span t-field="o.descripcion"/></td>
+<td></td>
+
+            </tr>
+        </table>
+        <table class="table table-bordered" style="border: 3px solid #ddd; ">
+            <thead>
+            <tr>
+                <th>
+                    <h4>Cantidad</h4>
+                </th>
+                <th>
+                    <h4>Unidad Medida</h4>
+                </th>
+                <th>
+                    <h4>Descripción</h4>
+                </th>
+                <th>
+                    <h4>Valor Unitario</h4>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Unidad</td>
+                <td class=" text-right ">Servicio o bien</td>
+                <td class=" text-right "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span><span t-field="o.subtotal"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row text-right" style="margin-right: -5px; margin-left: -5px;">
+
+            <table align="right" style="border: 3px solid #ddd; ">
+                <tr>
+                    <td><strong>Sub Total</strong></td>
+                    <td>:</td>
+                    <td>
+<span style="border: 1px solid #ddd; ">
+<span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>
+<span t-field="o.subtotal"/>
+</span>
+</td>
+                </tr>
+                <tr>
+                    <td><strong>Anticipos</strong></td>
+                    <td>:</td>
+                    <td><span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>0</span></td>
+                </tr>
+                 <tr>
+                    <td><strong>IGV</strong> </td>
+                    <td>:</td>
+                    <td><span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>
+<span t-field="o.impuesto"/></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Valor Venta</strong></td>
+                    <td>:</td>
+                    <td><span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>
+<span t-field="o.importe_total"/></span></td>
+                </tr>
+                <tr>
+                    <td><strong>ISC</strong> </td>
+                    <td>:</td>
+                    <td style="border: 1px solid #ddd; "><span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>0</span></td>
+                </tr>
+
+                <tr>
+                    <td><strong>Otros Cargos</strong> </td>
+                    <td>:</td>
+                    <td> <span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>0</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Otros Tributos</strong> </td>
+                    <td>:</td>
+                    <td><span style="border: 1px solid #ddd; "><span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>0</span></td>
+                </tr>
+<tr>
+                    <td><strong>Descuentos</strong> </td>
+                    <td>:</td>
+                    <td style="border: 1px solid #ddd; "><span style="border: 1px solid #ddd; "> <span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span> <span t-field="o.referencia.amount_untaxed_global_discount"/></span></td>
+                </tr>
+                <tr>
+                    <td> <strong>IMPORTE TOTAL</strong></td>
+                    <td>:</td>
+                    <td>
+<span style="border: 1px solid #ddd; ">
+<span t-if="o.currency_id.name=='PEN'">S/.</span>
+<span t-if="o.currency_id.name=='USD'">$</span>
+
+ <span t-if="o.referencia.amount_untaxed_global_discount==0">
+                                     <span t-field="o.importe_total"/>
+                                </span>
+                                <span t-if="o.referencia.amount_untaxed_global_discount!=0">
+                                     <span t-field="o.referencia.monto_condescuento"/>
+                                </span>
+
+</span>
+
+
+</td>
+                </tr>
+            </table>
+            <div class="row text-center" style="margin: 5%">
+                <span>Son:
+<span t-if="o.referencia.amount_untaxed_global_discount==0">
+                                       <span t-esc="o.numero_to_letras(o.referencia.amount_total)"/>
+
+                                </span>
+                                <span t-if="o.referencia.amount_untaxed_global_discount!=0">
+                                    <span t-esc="o.numero_to_letras(o.referencia.monto_condescuento)"/>
+
+                                </span>
+
+
+
+<span t-if="o.currency_id.name=='PEN'"> SOLES</span>
+<span t-if="o.currency_id.name=='USD'"> DOLARES</span></span>
+            </div>
+            <div class="row text-center" style="border: 3px solid #ddd; margin-right: -5px; margin-left: -5px;">
+                    <span><strong><span t-field="o.digest_value"/></strong></span>
+                    <br/>
+                    <span>Representación impresa de la <span t-if="o.referencia.journal_id.code=='01'">Factura</span><span t-if="o.referencia.journal_id.code=='03'">Boleta</span> Electrónica</span> <br/>
+                    <span>Autorizado a ser emisor electrónico mediante R.I. SUNAT N° 1620050000065</span><br/>
+                    <!--<span>El comprobante puede ser descargado en</span>-->
+                    <br/>
+                    <span t-field="o.referencia.company_id.partner_id.website"/>
+                    <br/>
+
+                    <div class="pull-right">
+                        <img t-if="o.image_bar" t-att-src="'data:image/png;base64,%s' % o.image_bar" style="max-height: 500px;"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    </div>
+  </t>
+    </t>
+
+</template>
+<template id="trans_report_nota_debito">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'comprobantes_sunat.report_nota_debito_document')"/>
+        </t>
+    </t>
+</template>
+    </data>
+</openerp>

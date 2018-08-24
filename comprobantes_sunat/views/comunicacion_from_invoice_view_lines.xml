@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_comunicacion_from_invoice_lines" model="ir.ui.view">
+            <field name="name">comunicacion lines</field>
+            <field name="model">comunicacion.from.invoice.lines</field>
+            <field name="arch" type="xml">
+                <form string="Import Entries">
+                    <separator string="Facturas Para Comunicacion de Baja"/>
+
+                    <field height="300" width="700" name="comunicacion_ids" domain="[('state', '=', 'open'),('date_invoice','&gt;=',(context_today()-datetime.timedelta(days=7)).strftime('%Y-%m-%d')),('date_invoice','&lt;=',(context_today()-datetime.timedelta(days=0)).strftime('%Y-%m-%d'))]" context="{'currency':True}"/>
+<!--domain="[('account_id.type','in',['receivable','payable']), ('type','=','in_invoice'), ('state', '=', 'valid'),('sent','=',True),('date_invoice','=&gt;',((context_today()-datetime.timedelta(days=3)).strftime('%Y-%m-%d')))]" context="{'currency':True}"-->
+                    <footer>
+                        <button string="Ok" name="pasar_datos" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_view_comunicacion_from_invoice_lines" model="ir.actions.act_window">
+            <field name="name">Import Entries</field>
+            <field name="res_model">comunicacion.from.invoice.lines</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_comunicacion_from_invoice_lines"/>
+            <field name="target">new</field>
+            <field name="context">{'comunicacion_id': active_id}</field>
+        </record>
+    </data>
+</openerp>

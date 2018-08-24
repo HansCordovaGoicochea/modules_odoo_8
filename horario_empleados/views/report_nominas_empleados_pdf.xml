@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="horario_empleados.report_nominas_empleados_pdf">
+    <t t-call="report.html_container">
+        <!--<t t-foreach="docs" t-as="o">-->
+            <!--<t t-call="report.internal_layout">-->
+        <t t-foreach="get_payslip(data['slip'])" t-as="d">
+                <div class="page">
+                    <div class="row mt32">
+                        <div class="col-xs-5">
+                            <img t-if="res_company.logo_web" t-att-src="'data:image/png;base64,%s' % res_company.logo_web" style="max-height: 45px;"/>
+                            <span>
+                            <field t-field="res_company.partner_id" t-field-options='{"widget": "contact", "fields": ["name"], "no_marker": true, "no_tag_br": true}'/>
+                            <span>RUC: <field t-field="res_company.x_ruc"/></span>
+                                <br/>
+                            <span>R.M.: <field t-field="res_company.x_ruc"/></span>
+                                <br/>
+                            <field t-field="res_company.street"/>
+                            </span>
+                        </div>
+                        <div class="col-xs-4 text-left">
+                            <br/><br/><br/>
+                             <strong>BOLETA DE PAGO - SUELDO</strong>
+                        </div>
+                        <div class="col-xs-2 text-right">
+                            <br/><br/>
+                             <p t-raw="datetime.date.today().strftime('%d-%m-%Y')"/>
+                        </div>
+                    </div>
+                    <br/><br/>
+                      <style>
+                            table.tablita{
+                                  border-spacing: 0px;
+                                  table-layout: fixed;
+                                  width: 500px
+                                }
+                                tr.border_top td {
+
+                                  border-top:1pt solid black;
+                            }
+                                td.border_bottom  {
+
+                                  border-bottom:1pt solid black;
+                            }
+
+                               td.border_right {
+                                border-right: 1pt solid black;
+                                 text-align: right;
+                              }
+                          tr.spaceUnder>td {
+                          padding-bottom: 1em;
+                        }
+                          .tg{font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                      </style>
+                    <table style="undefined;table-layout: fixed; width: 992px">
+                        <colgroup>
+                        <col style="width: 160px"/>
+                        <col style="width: 183px"/>
+                        <col style="width: 193px"/>
+                        <col style="width: 139px"/>
+                        <col style="width: 317px"/>
+                        </colgroup>
+
+                          <tr>
+                            <td>Nombre del Empleado:</td>
+                            <td colspan="4"><span t-esc="d['nombre_empleado']"/></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Tipo o Categoría:</td>
+                            <td>---------</td>
+                          </tr>
+                          <tr>
+                            <td>Periodo de pago:</td>
+                            <td><span t-esc="d['date_from']"/></td>
+                            <td><span t-esc="d['date_to']"/></td>
+                            <td>Posición:</td>
+                            <td>------</td>
+                          </tr>
+                          <tr>
+                            <td>Tipo de Documento:</td>
+                            <td>DNI</td>
+                            <td></td>
+                            <td>Área:</td>
+                            <td>-----------</td>
+                          </tr>
+                          <tr>
+                            <td>Número de Documento:</td>
+                            <td colspan="4"><span t-esc="d['nrodoc']"/></td>
+                          </tr>
+                          <tr>
+                            <td>Código del Empleado:</td>
+                            <td colspan="4"><span t-esc="d['idotro']"/></td>
+                          </tr>
+                          <tr>
+                            <td>Fecha de Ingreso:</td>
+                            <td><span t-esc="d['date_start']"/></td>
+                            <td></td>
+                            <td>Calificación:</td>
+                            <td>-----------</td>
+                          </tr>
+                          <tr>
+                            <td>Régimen Pensionario:</td>
+                            <td>---------</td>
+                            <td></td>
+                            <td>Sueldo Basico (S/.):</td>
+                            <td><span t-esc="d['wage']"/></td>
+                          </tr>
+                          <tr>
+                            <td>Nombre AFP:</td>
+                            <td><span t-esc="d['afp']"/></td>
+                            <td></td>
+                            <td>Nro. ESSALUD:</td>
+                            <td><span t-esc="d['numero']"/></td>
+                          </tr>
+                          <tr>
+                            <td>Banco:</td>
+                            <td><span t-esc="d['bank_name']"/></td>
+                            <td></td>
+                            <td>CUSPP</td>
+                            <td><span t-esc="d['cupps']"/></td>
+                          </tr>
+                          <tr>
+                            <td>Número de Cuenta:</td>
+                            <td><span t-esc="d['acc_number']"/></td>
+                            <td></td>
+                            <td>Fecha de Cese:</td>
+                            <td><span t-esc="d['date_end']"/></td>
+                          </tr>
+                    </table>
+                    <br/><br/>
+                    <div class="row">
+                        <table style="width: 992px; border: 1px solid black">
+                            <tr>
+                                <td class="text-center tg" ><strong><![CDATA[&nbsp;&nbsp;]]> Ganancias</strong></td>
+                                <td class="text-center"><strong><![CDATA[&nbsp;&nbsp;]]> Descuentos</strong></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">
+                                    <!--<div class="col-xs-1"></div>-->
+                                    <div class="text-left col-xs-6">
+                                        <ul>
+                                            <t t-foreach="get_payslip_line_incremento(d['idslip'])" t-as="incremento">
+                                                 <span t-if="int(incremento['total']) > 0 ">
+                                                    <li><t t-esc="incremento['name']"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    <div class="text-right col-xs-5">
+                                        <ul style="list-style: none;">
+                                            <t t-foreach="get_payslip_line_incremento(d['idslip'])" t-as="incremento2">
+                                                <span t-if="int(incremento2['total']) > 0 ">
+                                                    <li><t t-esc="formatLang(incremento2['total'], currency_obj = res_company.currency_id)"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="tg">
+                                    <!--<div class="col-xs-1"></div>-->
+                                    <div class="text-left col-xs-6">
+                                        <ul>
+                                            <t t-foreach="get_payslip_line_deduccion(d['idslip'])" t-as="deduccion">
+                                                 <span t-if="abs(deduccion['total']) > 0 ">
+                                                    <li><t t-esc="deduccion['name']"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    <div class="text-right col-xs-5">
+                                        <ul style="list-style: none;">
+                                            <t t-foreach="get_payslip_line_deduccion(d['idslip'])" t-as="deduccion2">
+                                                <span t-if="abs(deduccion2['total']) > 0 ">
+                                                    <li><t t-esc="formatLang(deduccion2['total'], currency_obj = res_company.currency_id)"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="text-right tg">
+                                    <strong>Total descuentos</strong> <span t-esc="formatLang(sum_total(), currency_obj = res_company.currency_id)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><strong>Contribuciones de la Empresa</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family:Arial, sans-serif;font-size:14px;padding:5px 5px;overflow:hidden;word-break:normal;">
+                                     <div class="text-left col-xs-6">
+                                        <ul>
+                                            <t t-foreach="get_payslip_line_ce(d['idslip'])" t-as="ce">
+                                                 <span t-if="abs(ce['total']) > 0 ">
+                                                    <li><t t-esc="ce['name']"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    <div class="text-right col-xs-5">
+                                        <ul style="list-style: none;">
+                                            <t t-foreach="get_payslip_line_ce(d['idslip'])" t-as="ce2">
+                                                <span t-if="abs(ce2['total']) > 0 ">
+                                                    <li><t t-esc="formatLang(ce2['total'], currency_obj = res_company.currency_id)"/></li>
+                                                </span>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-right tg">
+                                    <strong>Total Contrib. de la Empresa</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="formatLang(sum_total_ce(), currency_obj = res_company.currency_id)"/>
+                                </td>
+                            </tr>
+                            <tr class="spaceUnder" style="border: 1px solid black">
+                                <td class="text-right border_right tg">
+                                    <strong>Total Ganancias</strong>
+                                    <![CDATA[&nbsp;&nbsp;]]><span t-esc="formatLang(sum_total_incremento(), currency_obj = res_company.currency_id)"/><![CDATA[&nbsp;&nbsp;]]>
+                                </td>
+                                <td class="text-right tg">
+                                    <strong>Pago Neto</strong>
+                                    <![CDATA[&nbsp;&nbsp;]]>
+                                        <span t-esc="formatLang(sum_total_total(), currency_obj = res_company.currency_id)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="table-layout: fixed; width: 495px">
+                                        <tr class="spaceUnder">
+                                            <td colspan="2" class="text-center"><strong>DIAS</strong></td>
+                                            <td colspan="2" class="text-center"><strong>Detallle de ausencias (Días)</strong></td>
+                                        </tr>
+                                        <tr class="spaceUnder">
+
+                                            <td >
+                                                 <span t-if="abs(sum_dias_trabajados(data['mes'],data['anio'])) > 0 ">
+                                                    Días Laborados
+                                                 </span>
+                                            </td>
+                                            <td class="text-right border_right">
+                                                <span t-if="abs(sum_dias_trabajados(data['mes'],data['anio'])) > 0 ">
+                                                    <span t-esc="formatLang(sum_dias_trabajados(data['mes'],data['anio']))"/>
+                                                    <![CDATA[&nbsp;&nbsp;]]>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span t-if="abs(sum_descansos_medicos()) > 0 ">
+                                                    Descansos Medicos
+                                                </span>
+                                            </td>
+                                            <td class="text-right border_right">
+                                                <span t-if="abs(sum_descansos_medicos()) > 0 ">
+                                                    <span t-esc="formatLang(sum_descansos_medicos())"/>
+                                                        <![CDATA[&nbsp;&nbsp;]]>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="spaceUnder">
+                                            <td >
+                                                <span t-if="abs(sum_dias_no_trabajados()) > 0 ">
+                                                    Días no laborados
+                                                </span>
+                                            </td>
+                                            <td class="text-right border_right">
+                                                 <span t-if="abs(sum_dias_no_trabajados()) > 0 ">
+                                                    <span t-esc="formatLang(sum_dias_no_trabajados())"/><![CDATA[&nbsp;&nbsp;]]>
+                                                 </span>
+                                            </td>
+                                            <td>
+                                                 <span t-if="abs(sum_permisos()) > 0 ">
+                                                    <![CDATA[&nbsp;&nbsp;]]>Permisos
+                                                 </span>
+                                            </td>
+                                            <td class="text-right border_right">
+                                                  <span t-if="abs(sum_permisos()) > 0 ">
+                                                    <span t-esc="formatLang(sum_permisos())"/><![CDATA[&nbsp;&nbsp;]]>
+                                                  </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="spaceUnder">
+                                            <td >Días Subsidiados</td>
+                                            <td class="text-right border_right">0.00<![CDATA[&nbsp;&nbsp;]]></td>
+                                            <td ><![CDATA[&nbsp;&nbsp;]]>Suspensión</td>
+                                             <td class="text-right border_right"> 0.00<![CDATA[&nbsp;&nbsp;]]></td>
+                                        </tr>
+                                        <tr class="spaceUnder">
+                                            <td colspan="2" class="text-center"><strong>HORAS</strong></td>
+                                        </tr>
+                                        <tr class="spaceUnder">
+                                             <td>Bono Nocturno</td>
+                                            <td class="text-right border_right">0.00<![CDATA[&nbsp;&nbsp;]]></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="tg">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <table>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td class="text-center" style="width:100%; border-top: 1px dashed black" colspan="2">
+                                                        <strong>Empresa</strong>
+                                                    </td>
+                                                    <td></td>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                         <div class="col-xs-2">
+                                         </div>
+                                        <div class="col-xs-5">
+                                            <table>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center" style="width:40%; border-top: 1px dashed black" colspan="2">
+                                                        <strong>Empleado</strong>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black">
+                                    <span t-if="sum_vacaciones() > 0">
+                                        <div class="text-left col-xs-6"><strong>Vacaciones</strong></div>
+                                        <div class="text-right col-xs-6"><span t-esc="formatLang(sum_vacaciones())"/><![CDATA[&nbsp;&nbsp;]]></div>
+                                    </span>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+    </t>
+</template>
+</data>
+</openerp>

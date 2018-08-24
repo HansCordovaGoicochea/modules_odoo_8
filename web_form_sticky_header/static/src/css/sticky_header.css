@@ -1,0 +1,14 @@
+.oe_form header {
+    position: sticky;
+    top: 0px;
+    left: 5px;
+    right: 5px;
+    z-index: 2;
+}
+
+.fixed-column{
+    position: absolute;
+    display: inline-block;
+    width: auto;
+    border-right: 1px solid #ddd;
+}

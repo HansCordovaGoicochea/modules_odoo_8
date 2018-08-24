@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Catálogo No. 03 -->
+<record id="e03_00" model="catalogo.tipo.documento.3"><field name="code">1</field><field name="name">DNI</field></record>
+        <record id="e03_01" model="catalogo.tipo.documento.3"><field name="code">4</field><field name="name">CARNÉ DE EXTRANJERÍA</field></record>
+        <record id="e03_02" model="catalogo.tipo.documento.3"><field name="code">7</field><field name="name">PASAPORTE</field></record>
+
+<!-- Catálogo No. 05 -->
+<record id="e05_00" model="catalogo.tipo.via.5"><field name="code">1</field><field name="name">AVENIDA</field></record>
+<record id="e05_01" model="catalogo.tipo.via.5"><field name="code">2</field><field name="name">JIRÓN</field></record>
+<record id="e05_02" model="catalogo.tipo.via.5"><field name="code">3</field><field name="name">CALLE</field></record>
+<record id="e05_03" model="catalogo.tipo.via.5"><field name="code">4</field><field name="name">PASAJE</field></record>
+<record id="e05_04" model="catalogo.tipo.via.5"><field name="code">5</field><field name="name">ALAMEDA</field></record>
+<record id="e05_05" model="catalogo.tipo.via.5"><field name="code">6</field><field name="name">MALECÓN</field></record>
+<record id="e05_06" model="catalogo.tipo.via.5"><field name="code">7</field><field name="name">OVALO</field></record>
+<record id="e05_07" model="catalogo.tipo.via.5"><field name="code">8</field><field name="name">PARQUE</field></record>
+<record id="e05_08" model="catalogo.tipo.via.5"><field name="code">9</field><field name="name">PLAZA</field></record>
+<record id="e05_09" model="catalogo.tipo.via.5"><field name="code">10</field><field name="name">CARRETERA</field></record>
+<record id="e05_10" model="catalogo.tipo.via.5"><field name="code">13</field><field name="name">TROCHA</field></record>
+<record id="e05_11" model="catalogo.tipo.via.5"><field name="code">14</field><field name="name">CAMINO RURAL</field></record>
+<record id="e05_12" model="catalogo.tipo.via.5"><field name="code">15</field><field name="name">BAJADA</field></record>
+<record id="e05_13" model="catalogo.tipo.via.5"><field name="code">16</field><field name="name">GALERIA</field></record>
+<record id="e05_14" model="catalogo.tipo.via.5"><field name="code">17</field><field name="name">PROLONGACIÓN</field></record>
+<record id="e05_15" model="catalogo.tipo.via.5"><field name="code">18</field><field name="name">PASEO</field></record>
+<record id="e05_16" model="catalogo.tipo.via.5"><field name="code">19</field><field name="name">PLAZUELA</field></record>
+<record id="e05_17" model="catalogo.tipo.via.5"><field name="code">20</field><field name="name">PORTAL</field></record>
+<record id="e05_18" model="catalogo.tipo.via.5"><field name="code">21</field><field name="name">CAMINO AFIRMADO</field></record>
+<record id="e05_19" model="catalogo.tipo.via.5"><field name="code">22</field><field name="name">TROCHA CARROZABLE</field></record>
+<record id="e05_20" model="catalogo.tipo.via.5"><field name="code">99</field><field name="name">OTROS</field></record>
+
+
+        <!-- Catálogo No. 06 -->
+<record id="e06_00" model="catalogo.tipo.zona.6"><field name="code">1</field><field name="name">URBANIZACIÓN</field></record>
+<record id="e06_01" model="catalogo.tipo.zona.6"><field name="code">2</field><field name="name"> PUEBLO JOVEN</field></record>
+<record id="e06_02" model="catalogo.tipo.zona.6"><field name="code">3</field><field name="name">UNIDAD VECINAL</field></record>
+<record id="e06_03" model="catalogo.tipo.zona.6"><field name="code">4</field><field name="name">CONJUNTO HABITACIONAL</field></record>
+<record id="e06_04" model="catalogo.tipo.zona.6"><field name="code">5</field><field name="name">ASENTAMIENTO HUMANO</field></record>
+<record id="e06_05" model="catalogo.tipo.zona.6"><field name="code">6</field><field name="name">COOPERATIVA</field></record>
+<record id="e06_06" model="catalogo.tipo.zona.6"><field name="code">7</field><field name="name">RESIDENCIAL</field></record>
+<record id="e06_07" model="catalogo.tipo.zona.6"><field name="code">8</field><field name="name">ZONA INDUSTRIAL</field></record>
+<record id="e06_08" model="catalogo.tipo.zona.6"><field name="code">9</field><field name="name">GRUPO</field></record>
+<record id="e06_09" model="catalogo.tipo.zona.6"><field name="code">10</field><field name="name">CASERÍO</field></record>
+<record id="e06_10" model="catalogo.tipo.zona.6"><field name="code">11</field><field name="name">FUNDO</field></record>
+<record id="e06_11" model="catalogo.tipo.zona.6"><field name="code">99</field><field name="name">OTROS</field></record>
+
+
+    <!-- Catálogo No. 19 -->
+<record id="e19_00" model="catalogo.vinculo.familiar.19"><field name="code">2</field><field name="name">CÓNYUGE</field></record>
+<record id="e19_01" model="catalogo.vinculo.familiar.19"><field name="code">3</field><field name="name"> CONCUBINA(O)</field></record>
+<record id="e19_02" model="catalogo.vinculo.familiar.19"><field name="code">4</field><field name="name">GESTANTE</field></record>
+<record id="e19_03" model="catalogo.vinculo.familiar.19"><field name="code">5</field><field name="name">HIJO MENOR DE EDAD</field></record>
+<record id="e19_04" model="catalogo.vinculo.familiar.19"><field name="code">6</field><field name="name">HIJO MAY EDAD INCAP PERM</field></record>
+
+        <!-- Catálogo No. 26 -->
+<record id="e26_00" model="catalogo.pais.emisor.documento.26"><field name="code">032</field><field name="name">ARGENTINA</field></record>
+<record id="e26_01" model="catalogo.pais.emisor.documento.26"><field name="code">276</field><field name="name">ALEMANIA</field></record>
+<record id="e26_02" model="catalogo.pais.emisor.documento.26"><field name="code">036</field><field name="name">AUSTRALIA</field></record>
+<record id="e26_03" model="catalogo.pais.emisor.documento.26"><field name="code">068</field><field name="name">BOLIVIA</field></record>
+<record id="e26_04" model="catalogo.pais.emisor.documento.26"><field name="code">076</field><field name="name">BRASIL</field></record>
+<record id="e26_05" model="catalogo.pais.emisor.documento.26"><field name="code">124</field><field name="name">CANADA</field></record>
+<record id="e26_06" model="catalogo.pais.emisor.documento.26"><field name="code">152</field><field name="name">CHILE</field></record>
+<record id="e26_07" model="catalogo.pais.emisor.documento.26"><field name="code">156</field><field name="name">CHINA</field></record>
+<record id="e26_08" model="catalogo.pais.emisor.documento.26"><field name="code">170</field><field name="name">COLOMBIA</field></record>
+<record id="e26_09" model="catalogo.pais.emisor.documento.26"><field name="code">192</field><field name="name">CUBA</field></record>
+<record id="e26_10" model="catalogo.pais.emisor.documento.26"><field name="code">218</field><field name="name">ECUADOR</field></record>
+<record id="e26_11" model="catalogo.pais.emisor.documento.26"><field name="code">724</field><field name="name">ESPAÑA</field></record>
+<record id="e26_12" model="catalogo.pais.emisor.documento.26"><field name="code">840</field><field name="name">ESTADOS UNIDOS</field></record>
+<record id="e26_13" model="catalogo.pais.emisor.documento.26"><field name="code">356</field><field name="name">INDIA</field></record>
+<record id="e26_14" model="catalogo.pais.emisor.documento.26"><field name="code">340</field><field name="name">HONDURAS</field></record>
+<record id="e26_15" model="catalogo.pais.emisor.documento.26"><field name="code">380</field><field name="name">ITALIA</field></record>
+<record id="e26_16" model="catalogo.pais.emisor.documento.26"><field name="code">392</field><field name="name">JAPÓN</field></record>
+<record id="e26_17" model="catalogo.pais.emisor.documento.26"><field name="code">558</field><field name="name">NICARAGUA</field></record>
+<record id="e26_18" model="catalogo.pais.emisor.documento.26"><field name="code">591</field><field name="name">PANAMA</field></record>
+<record id="e26_19" model="catalogo.pais.emisor.documento.26"><field name="code">600</field><field name="name">PARAGUAY</field></record>
+<record id="e26_20" model="catalogo.pais.emisor.documento.26"><field name="code">604</field><field name="name">PERÚ</field></record>
+<record id="e26_21" model="catalogo.pais.emisor.documento.26"><field name="code">710</field><field name="name">SUDAFRICA</field></record>
+<record id="e26_22" model="catalogo.pais.emisor.documento.26"><field name="code">858</field><field name="name">URUGUAY</field></record>
+<record id="e26_23" model="catalogo.pais.emisor.documento.26"><field name="code">862</field><field name="name">VENEZUELA</field></record>
+
+<!-- Catálogo No. 27-->
+<record id="e27_00" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">1</field><field name="name">ESCRITURA PÚBLICA</field></record>
+<record id="e27_01" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">2</field><field name="name">SENT DECLAR PATERNIDAD</field></record>
+<record id="e27_02" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">3</field><field name="name">TESTAMENTO</field></record>
+<record id="e27_03" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">4</field><field name="name">RESOLUCIÓN INCAPACIDAD</field></record>
+<record id="e27_04" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">5</field><field name="name">ACTA O PART MATRI CIVIL</field></record>
+<record id="e27_05" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">6</field><field name="name">ACTA O PART MATR INSCRITO EN REG CONS PER.</field></record>
+<record id="e27_06" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">7</field><field name="name">ACTA /PART MATR IREAL EXT INSCR EN RENIEC O MUNIC.</field></record>
+<record id="e27_07" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">8</field><field name="name">ESCRIIT PÚBL - RECON UNIÓN DE HECHO - LEY N.° 29560</field></record>
+<record id="e27_08" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">9</field><field name="name">RESOLUCIÓN JUDICIAL - RECONOC. DE UNIÓN DE HECHO</field></record>
+<record id="e27_09" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">10</field><field name="name">ACTA DE NACIM O DOC ANALOGO QUE SUSTENTA FILIAC.</field></record>
+<record id="e27_10" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">11</field><field name="name">DECLARACIÓN JURADA EXIST. UNIÓN DE HECHO (Vig 15.02.2012)</field></record>
+
+        <!-- Catálogo No. 29-->
+
+<record id="e29_00" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">1</field><field name="name">LIMA Y CALLAO</field></record>
+<record id="e29_01" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">41</field><field name="name">AMAZONAS</field></record>
+<record id="e29_02" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">42</field><field name="name">SAN MARTIN</field></record>
+<record id="e29_03" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">43</field><field name="name">ANCASH</field></record>
+<record id="e29_04" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">44</field><field name="name">LA LIBERTAD</field></record>
+<record id="e29_05" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">51</field><field name="name">PUNO</field></record>
+<record id="e29_06" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">52</field><field name="name">TACNA</field></record>
+<record id="e29_07" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">53</field><field name="name">MOQUEGUA</field></record>
+<record id="e29_08" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">54</field><field name="name">AREQUIPA</field></record>
+<record id="e29_09" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">56</field><field name="name">ICA</field></record>
+<record id="e29_10" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">61</field><field name="name">UCAYALI</field></record>
+<record id="e29_11" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">62</field><field name="name">HUANUCO</field></record>
+<record id="e29_12" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">63</field><field name="name">PASCO</field></record>
+<record id="e29_13" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">64</field><field name="name">JUNIN</field></record>
+<record id="e29_14" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">65</field><field name="name">LORETO</field></record>
+<record id="e29_15" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">66</field><field name="name">AYACUCHO</field></record>
+<record id="e29_16" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">67</field><field name="name">HUANCAVELICA</field></record>
+<record id="e29_17" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">72</field><field name="name">TUMBES</field></record>
+<record id="e29_18" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">73</field><field name="name">PIURA</field></record>
+<record id="e29_19" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">74</field><field name="name">LAMBAYEQUE</field></record>
+<record id="e29_20" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">76</field><field name="name">CAJAMARCA</field></record>
+<record id="e29_21" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">82</field><field name="name">MADRE DE DIOS</field></record>
+<record id="e29_22" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">83</field><field name="name">APURIMAC</field></record>
+<record id="e29_23" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">84</field><field name="name">CUSCO</field></record>
+<record id="e29_24" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">94</field><field name="name">LA LIBERTAD</field></record>
+<record id="e29_25" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">95</field><field name="name">AREQUIPA</field></record>
+<record id="e29_26" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">96</field><field name="name">PIURA</field></record>
+<record id="e29_27" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">97</field><field name="name">LAMBAYEQUE</field></record>
+
+
+
+
+
+    </data>
+</openerp>

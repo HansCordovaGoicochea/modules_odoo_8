@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_advance_holidays_form_yo" model="ir.ui.view">
+            <field name="name">advance.holidays.tree</field>
+            <field name="model">advance.holidays.tree</field>
+            <field name="arch" type="xml">
+                <form string="Vacaciones">
+                    <separator string="Vacaciones por Empleado"/>
+                    <field height="300" width="700" name="vacaciones_ids" domain="[('employee_id', '=', employee_id),('holiday_status_id.indicador_ausentismo', '=', 'VCS'),('paid','=', False), ('state','=', 'validate')]">
+                        <tree colors="red:state == 'refuse';blue:state == ' draft';black:state in ('confirm','validate','validate1')" string="Leaves Summary">
+                            <field name="employee_id"/>
+                            <field name="holiday_status_id"/>
+                            <field name="name"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="number_of_days" string="Number of Days" sum="Remaining Days"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                    <footer>
+                        <button string="Ok" name="pasar_datos" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <!--<record id="action_view_vacaciones_from_holidays" model="ir.actions.act_window">-->
+            <!--<field name="name">Vacaciones</field>-->
+            <!--<field name="res_model">advance.holidays.tree</field>-->
+            <!--<field name="view_type">form</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--<field name="view_id" ref="view_advance_holidays_form_yo"/>-->
+            <!--<field name="target">new</field>-->
+            <!--<field name="context">{'comunicacion_id': active_id}</field>-->
+        <!--</record>-->
+    </data>
+</openerp>

@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Catálogo No. 03 -->
+<record id="e03_00" model="catalogo.tipo.documento.3"><field name="code">1</field><field name="name">DNI</field></record>
+        <record id="e03_01" model="catalogo.tipo.documento.3"><field name="code">4</field><field name="name">CARNÉ DE EXTRANJERÍA</field></record>
+        <record id="e03_02" model="catalogo.tipo.documento.3"><field name="code">7</field><field name="name">PASAPORTE</field></record>
+        <record id="e03_03" model="catalogo.tipo.documento.3"><field name="code">9</field><field name="name">CARNÉ DE SOLICIT DE REFUGIO</field></record>
+
+<!-- Catálogo No. 05 -->
+<record id="e05_00" model="catalogo.tipo.via.5"><field name="code">1</field><field name="name">AVENIDA</field></record>
+<record id="e05_01" model="catalogo.tipo.via.5"><field name="code">2</field><field name="name">JIRÓN</field></record>
+<record id="e05_02" model="catalogo.tipo.via.5"><field name="code">3</field><field name="name">CALLE</field></record>
+<record id="e05_03" model="catalogo.tipo.via.5"><field name="code">4</field><field name="name">PASAJE</field></record>
+<record id="e05_04" model="catalogo.tipo.via.5"><field name="code">5</field><field name="name">ALAMEDA</field></record>
+<record id="e05_05" model="catalogo.tipo.via.5"><field name="code">6</field><field name="name">MALECÓN</field></record>
+<record id="e05_06" model="catalogo.tipo.via.5"><field name="code">7</field><field name="name">OVALO</field></record>
+<record id="e05_07" model="catalogo.tipo.via.5"><field name="code">8</field><field name="name">PARQUE</field></record>
+<record id="e05_08" model="catalogo.tipo.via.5"><field name="code">9</field><field name="name">PLAZA</field></record>
+<record id="e05_09" model="catalogo.tipo.via.5"><field name="code">10</field><field name="name">CARRETERA</field></record>
+<record id="e05_10" model="catalogo.tipo.via.5"><field name="code">13</field><field name="name">TROCHA</field></record>
+<record id="e05_11" model="catalogo.tipo.via.5"><field name="code">14</field><field name="name">CAMINO RURAL</field></record>
+<record id="e05_12" model="catalogo.tipo.via.5"><field name="code">15</field><field name="name">BAJADA</field></record>
+<record id="e05_13" model="catalogo.tipo.via.5"><field name="code">16</field><field name="name">GALERIA</field></record>
+<record id="e05_14" model="catalogo.tipo.via.5"><field name="code">17</field><field name="name">PROLONGACIÓN</field></record>
+<record id="e05_15" model="catalogo.tipo.via.5"><field name="code">18</field><field name="name">PASEO</field></record>
+<record id="e05_16" model="catalogo.tipo.via.5"><field name="code">19</field><field name="name">PLAZUELA</field></record>
+<record id="e05_17" model="catalogo.tipo.via.5"><field name="code">20</field><field name="name">PORTAL</field></record>
+<record id="e05_18" model="catalogo.tipo.via.5"><field name="code">21</field><field name="name">CAMINO AFIRMADO</field></record>
+<record id="e05_19" model="catalogo.tipo.via.5"><field name="code">22</field><field name="name">TROCHA CARROZABLE</field></record>
+<record id="e05_20" model="catalogo.tipo.via.5"><field name="code">99</field><field name="name">OTROS</field></record>
+
+
+        <!-- Catálogo No. 06 -->
+<record id="e06_00" model="catalogo.tipo.zona.6"><field name="code">1</field><field name="name">URBANIZACIÓN</field></record>
+<record id="e06_01" model="catalogo.tipo.zona.6"><field name="code">2</field><field name="name"> PUEBLO JOVEN</field></record>
+<record id="e06_02" model="catalogo.tipo.zona.6"><field name="code">3</field><field name="name">UNIDAD VECINAL</field></record>
+<record id="e06_03" model="catalogo.tipo.zona.6"><field name="code">4</field><field name="name">CONJUNTO HABITACIONAL</field></record>
+<record id="e06_04" model="catalogo.tipo.zona.6"><field name="code">5</field><field name="name">ASENTAMIENTO HUMANO</field></record>
+<record id="e06_05" model="catalogo.tipo.zona.6"><field name="code">6</field><field name="name">COOPERATIVA</field></record>
+<record id="e06_06" model="catalogo.tipo.zona.6"><field name="code">7</field><field name="name">RESIDENCIAL</field></record>
+<record id="e06_07" model="catalogo.tipo.zona.6"><field name="code">8</field><field name="name">ZONA INDUSTRIAL</field></record>
+<record id="e06_08" model="catalogo.tipo.zona.6"><field name="code">9</field><field name="name">GRUPO</field></record>
+<record id="e06_09" model="catalogo.tipo.zona.6"><field name="code">10</field><field name="name">CASERÍO</field></record>
+<record id="e06_10" model="catalogo.tipo.zona.6"><field name="code">11</field><field name="name">FUNDO</field></record>
+<record id="e06_11" model="catalogo.tipo.zona.6"><field name="code">99</field><field name="name">OTROS</field></record>
+
+
+    <!-- Catálogo No. 19 -->
+<record id="e19_00" model="catalogo.vinculo.familiar.19"><field name="code">2</field><field name="name">CÓNYUGE</field></record>
+<record id="e19_01" model="catalogo.vinculo.familiar.19"><field name="code">3</field><field name="name"> CONCUBINA(O)</field></record>
+<record id="e19_02" model="catalogo.vinculo.familiar.19"><field name="code">4</field><field name="name">GESTANTE</field></record>
+<record id="e19_03" model="catalogo.vinculo.familiar.19"><field name="code">5</field><field name="name">HIJO MENOR DE EDAD</field></record>
+<record id="e19_04" model="catalogo.vinculo.familiar.19"><field name="code">6</field><field name="name">HIJO MAY EDAD INCAP PERM</field></record>
+
+        <!-- Catálogo No. 26 -->
+<record id="e26_00" model="catalogo.pais.emisor.documento.26"><field name="code">032</field><field name="name">ARGENTINA</field></record>
+<record id="e26_01" model="catalogo.pais.emisor.documento.26"><field name="code">276</field><field name="name">ALEMANIA</field></record>
+<record id="e26_02" model="catalogo.pais.emisor.documento.26"><field name="code">036</field><field name="name">AUSTRALIA</field></record>
+<record id="e26_03" model="catalogo.pais.emisor.documento.26"><field name="code">068</field><field name="name">BOLIVIA</field></record>
+<record id="e26_04" model="catalogo.pais.emisor.documento.26"><field name="code">076</field><field name="name">BRASIL</field></record>
+<record id="e26_05" model="catalogo.pais.emisor.documento.26"><field name="code">124</field><field name="name">CANADA</field></record>
+<record id="e26_06" model="catalogo.pais.emisor.documento.26"><field name="code">152</field><field name="name">CHILE</field></record>
+<record id="e26_07" model="catalogo.pais.emisor.documento.26"><field name="code">156</field><field name="name">CHINA</field></record>
+<record id="e26_08" model="catalogo.pais.emisor.documento.26"><field name="code">170</field><field name="name">COLOMBIA</field></record>
+<record id="e26_09" model="catalogo.pais.emisor.documento.26"><field name="code">192</field><field name="name">CUBA</field></record>
+<record id="e26_10" model="catalogo.pais.emisor.documento.26"><field name="code">218</field><field name="name">ECUADOR</field></record>
+<record id="e26_11" model="catalogo.pais.emisor.documento.26"><field name="code">724</field><field name="name">ESPAÑA</field></record>
+<record id="e26_12" model="catalogo.pais.emisor.documento.26"><field name="code">840</field><field name="name">ESTADOS UNIDOS</field></record>
+<record id="e26_13" model="catalogo.pais.emisor.documento.26"><field name="code">356</field><field name="name">INDIA</field></record>
+<record id="e26_14" model="catalogo.pais.emisor.documento.26"><field name="code">340</field><field name="name">HONDURAS</field></record>
+<record id="e26_15" model="catalogo.pais.emisor.documento.26"><field name="code">380</field><field name="name">ITALIA</field></record>
+<record id="e26_16" model="catalogo.pais.emisor.documento.26"><field name="code">392</field><field name="name">JAPÓN</field></record>
+<record id="e26_17" model="catalogo.pais.emisor.documento.26"><field name="code">558</field><field name="name">NICARAGUA</field></record>
+<record id="e26_18" model="catalogo.pais.emisor.documento.26"><field name="code">591</field><field name="name">PANAMA</field></record>
+<record id="e26_19" model="catalogo.pais.emisor.documento.26"><field name="code">600</field><field name="name">PARAGUAY</field></record>
+<record id="e26_20" model="catalogo.pais.emisor.documento.26"><field name="code">604</field><field name="name">PERÚ</field></record>
+<record id="e26_21" model="catalogo.pais.emisor.documento.26"><field name="code">710</field><field name="name">SUDAFRICA</field></record>
+<record id="e26_22" model="catalogo.pais.emisor.documento.26"><field name="code">858</field><field name="name">URUGUAY</field></record>
+<record id="e26_23" model="catalogo.pais.emisor.documento.26"><field name="code">862</field><field name="name">VENEZUELA</field></record>
+
+<!-- Catálogo No. 27-->
+<record id="e27_00" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">1</field><field name="name">ESCRITURA PÚBLICA</field></record>
+<record id="e27_01" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">2</field><field name="name">SENT DECLAR PATERNIDAD</field></record>
+<record id="e27_02" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">3</field><field name="name">TESTAMENTO</field></record>
+<record id="e27_03" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">4</field><field name="name">RESOLUCIÓN INCAPACIDAD</field></record>
+<record id="e27_04" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">5</field><field name="name">ACTA O PART MATRI CIVIL</field></record>
+<record id="e27_05" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">6</field><field name="name">ACTA O PART MATR INSCRITO EN REG CONS PER.</field></record>
+<record id="e27_06" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">7</field><field name="name">ACTA /PART MATR IREAL EXT INSCR EN RENIEC O MUNIC.</field></record>
+<record id="e27_07" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">8</field><field name="name">ESCRIIT PÚBL - RECON UNIÓN DE HECHO - LEY N.° 29560</field></record>
+<record id="e27_08" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">9</field><field name="name">RESOLUCIÓN JUDICIAL - RECONOC. DE UNIÓN DE HECHO</field></record>
+<record id="e27_09" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">10</field><field name="name">ACTA DE NACIM O DOC ANALOGO QUE SUSTENTA FILIAC.</field></record>
+<record id="e27_10" model="catalogo.doc.acred.vinc.familiar.27"><field name="code">11</field><field name="name">DECLARACIÓN JURADA EXIST. UNIÓN DE HECHO (Vig 15.02.2012)</field></record>
+
+        <!-- Catálogo No. 29-->
+
+<record id="e29_00" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">1</field><field name="name">LIMA Y CALLAO</field></record>
+<record id="e29_01" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">41</field><field name="name">AMAZONAS</field></record>
+<record id="e29_02" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">42</field><field name="name">SAN MARTIN</field></record>
+<record id="e29_03" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">43</field><field name="name">ANCASH</field></record>
+<record id="e29_04" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">44</field><field name="name">LA LIBERTAD</field></record>
+<record id="e29_05" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">51</field><field name="name">PUNO</field></record>
+<record id="e29_06" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">52</field><field name="name">TACNA</field></record>
+<record id="e29_07" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">53</field><field name="name">MOQUEGUA</field></record>
+<record id="e29_08" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">54</field><field name="name">AREQUIPA</field></record>
+<record id="e29_09" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">56</field><field name="name">ICA</field></record>
+<record id="e29_10" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">61</field><field name="name">UCAYALI</field></record>
+<record id="e29_11" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">62</field><field name="name">HUANUCO</field></record>
+<record id="e29_12" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">63</field><field name="name">PASCO</field></record>
+<record id="e29_13" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">64</field><field name="name">JUNIN</field></record>
+<record id="e29_14" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">65</field><field name="name">LORETO</field></record>
+<record id="e29_15" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">66</field><field name="name">AYACUCHO</field></record>
+<record id="e29_16" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">67</field><field name="name">HUANCAVELICA</field></record>
+<record id="e29_17" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">72</field><field name="name">TUMBES</field></record>
+<record id="e29_18" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">73</field><field name="name">PIURA</field></record>
+<record id="e29_19" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">74</field><field name="name">LAMBAYEQUE</field></record>
+<record id="e29_20" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">76</field><field name="name">CAJAMARCA</field></record>
+<record id="e29_21" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">82</field><field name="name">MADRE DE DIOS</field></record>
+<record id="e29_22" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">83</field><field name="name">APURIMAC</field></record>
+<record id="e29_23" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">84</field><field name="name">CUSCO</field></record>
+<record id="e29_24" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">94</field><field name="name">LA LIBERTAD</field></record>
+<record id="e29_25" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">95</field><field name="name">AREQUIPA</field></record>
+<record id="e29_26" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">96</field><field name="name">PIURA</field></record>
+<record id="e29_27" model="catalogo.codigo.larga.distancia.nac.29"><field name="code">97</field><field name="name">LAMBAYEQUE</field></record>
+
+<!-- Catálogo No. 33-->
+
+<record id="e33_00" model="catalogo.regimen.laboral.33">
+    <field name="code">01</field>
+    <field name="name">PRIVADO GENERAL -DECRETO LEGISLATIVO N.° 728</field>
+    <field name="descripcion_abreviada">D LEG N.° 728</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_01" model="catalogo.regimen.laboral.33">
+    <field name="code">02</field>
+    <field name="name">PÚBLICO GENERAL - DECRETO LEGISLATIVO N.° 276</field>
+     <field name="descripcion_abreviada">D.LEG N.° 276</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_02" model="catalogo.regimen.laboral.33">
+    <field name="code">03</field>
+    <field name="name">PROFESORADO - LEY N.° 24029</field>
+     <field name="descripcion_abreviada">PROFESORADO LEY 24029</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_03" model="catalogo.regimen.laboral.33">
+    <field name="code">04</field>
+    <field name="name">MAGISTERIO - LEY N.° 29062</field>
+     <field name="descripcion_abreviada">MAGISTERIO  LEY 29062</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_04" model="catalogo.regimen.laboral.33">
+    <field name="code">05</field>
+    <field name="name">DOCENTES UNIVERSITARIOS - LEY N.° 23733</field>
+     <field name="descripcion_abreviada">DOC UNIVERS LEY 23733</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_05" model="catalogo.regimen.laboral.33">
+    <field name="code">06</field>
+    <field name="name">PROFESIONALES DE LA SALUD LEY N.° 23536</field>
+     <field name="descripcion_abreviada">PROFES SALUD LEY 23536</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_06" model="catalogo.regimen.laboral.33">
+    <field name="code">07</field>
+    <field name="name">TECNICOS Y AUXILIARES ASIST. DE LA SALUD - LEY N.° 28561</field>
+    <field name="descripcion_abreviada">TECN Y AUX ASIST SALUD LEY 28561</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_07" model="catalogo.regimen.laboral.33">
+    <field name="code">08</field>
+    <field name="name">SERUM - LEY N.° 23330</field>
+    <field name="descripcion_abreviada">SERUM LEY 23330</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_08" model="catalogo.regimen.laboral.33">
+    <field name="code">09</field>
+    <field name="name">JUECES - CARRERA JUDICIAL - LEY N.° 29277</field>
+     <field name="descripcion_abreviada">JUECES LEY 29277</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_09" model="catalogo.regimen.laboral.33">
+    <field name="code">10</field>
+    <field name="name">FISCALES - D. LEG.  N.° 052</field>
+    <field name="descripcion_abreviada">FISCALES D.LEG 052</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_10" model="catalogo.regimen.laboral.33">
+    <field name="code">11</field>
+    <field name="name">SERVICIO DIPLOMÁTICO DE LA REPÚBLICA - LEY N.° 28091</field>
+    <field name="descripcion_abreviada">SERVICIO DIPLOM. REPÚBLICA LEY 28091</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_11" model="catalogo.regimen.laboral.33">
+    <field name="code">12</field>
+    <field name="name">MILITARES</field>
+    <field name="descripcion_abreviada">MILITARES</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_12" model="catalogo.regimen.laboral.33">
+    <field name="code">13</field>
+    <field name="name">POLICIA NACIONAL DEL PERÚ - LEY N.° 27238</field>
+    <field name="descripcion_abreviada">POLICIAS LEY 27238</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_13" model="catalogo.regimen.laboral.33">
+    <field name="code">14</field>
+    <field name="name">ESPECIAL GER. PÚBLICOS DECRETO LEGISLATIVO N.° 1024</field>
+    <field name="descripcion_abreviada">ESPECIAL GER. PÚBL D LEG 1024</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_14" model="catalogo.regimen.laboral.33">
+    <field name="code">15</field>
+    <field name="name">CONTRATO ADMINISTRATIVO DE SERVICIOS - D.LEG. N.° 1057</field>
+      <field name="descripcion_abreviada">CAS D.LEG 1057</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_15" model="catalogo.regimen.laboral.33">
+    <field name="code">16</field>
+    <field name="name">MICROEMPRESA D. LEG. 1086</field>
+    <field name="descripcion_abreviada">MICROEMPRESA</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_16" model="catalogo.regimen.laboral.33">
+    <field name="code">17</field>
+    <field name="name">PEQUEÑA EMPRESA D. LEG. 1086</field>
+    <field name="descripcion_abreviada">PEQUEÑA EMPRESA</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e33_17" model="catalogo.regimen.laboral.33">
+    <field name="code">18</field>
+    <field name="name">AGRARIO LEY 27360</field>
+    <field name="descripcion_abreviada">AGRARIO</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_18" model="catalogo.regimen.laboral.33">
+    <field name="code">19</field>
+    <field name="name">EXPORTACION NO TRADICIONAL D. LEY 22342</field>
+     <field name="descripcion_abreviada">EXPORTACION NO TRADICIONAL (SE DESACTIVÓ EL 26.03.2014)</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_19" model="catalogo.regimen.laboral.33">
+    <field name="code">20</field>
+    <field name="name">MINEROS</field>
+         <field name="descripcion_abreviada">MINEROS</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_20" model="catalogo.regimen.laboral.33">
+    <field name="code">21</field>
+    <field name="name">CONSTRUCCION CIVIL</field>
+    <field name="descripcion_abreviada">CONSTRUCCION CIVIL</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e33_21" model="catalogo.regimen.laboral.33">
+    <field name="code">99</field>
+    <field name="name">OTROS NO PREVISTOS</field>
+    <field name="descripcion_abreviada">OTROS</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+
+<!-- Catálogo No. 9-->
+
+<record id="e9_00" model="catalogo.situacion.educativa.9">
+    <field name="code">01</field>
+    <field name="name">SIN EDUCACIÓN FORMAL</field>
+    <field name="descripcion_abreviada">SIN EDUCACIÓN FORMAL</field>
+</record>
+<record id="e9_01" model="catalogo.situacion.educativa.9">
+    <field name="code">02</field>
+    <field name="name">EDUCACIÓN ESPECIAL INCOMPLETA</field>
+     <field name="descripcion_abreviada">ESPECIAL INCOMPLETA</field>
+</record>
+<record id="e9_02" model="catalogo.situacion.educativa.9">
+    <field name="code">03</field>
+    <field name="name">EDUCACIÓN ESPECIAL COMPLETA</field>
+     <field name="descripcion_abreviada">ESPECIAL COMPLETA</field>
+</record>
+<record id="e9_03" model="catalogo.situacion.educativa.9">
+    <field name="code">04</field>
+    <field name="name">EDUCACIÓN PRIMARIA INCOMPLETA</field>
+     <field name="descripcion_abreviada">PRIMARIA INCOMPLETA</field>
+</record>
+<record id="e9_04" model="catalogo.situacion.educativa.9">
+    <field name="code">05</field>
+    <field name="name">EDUCACIÓN PRIMARIA COMPLETA</field>
+     <field name="descripcion_abreviada">PRIMARIA COMPLETA</field>
+</record>
+<record id="e9_05" model="catalogo.situacion.educativa.9">
+    <field name="code">06</field>
+    <field name="name">EDUCACIÓN SECUNDARIA INCOMPLETA</field>
+     <field name="descripcion_abreviada">SECUNDARIA INCOMPLETA</field>
+</record>
+<record id="e9_06" model="catalogo.situacion.educativa.9">
+    <field name="code">07</field>
+    <field name="name">EDUCACIÓN SECUNDARIA COMPLETA</field>
+    <field name="descripcion_abreviada">SECUNDARIA COMPLETA</field>
+</record>
+<record id="e9_07" model="catalogo.situacion.educativa.9">
+    <field name="code">08</field>
+    <field name="name">EDUCACIÓN TÉCNICA INCOMPLETA</field>
+    <field name="descripcion_abreviada">TÉCNICA INCOMPLETA</field>
+</record>
+<record id="e9_08" model="catalogo.situacion.educativa.9">
+    <field name="code">09</field>
+    <field name="name">EDUCACIÓN TÉCNICA COMPLETA</field>
+     <field name="descripcion_abreviada">TÉCNICA COMPLETA</field>
+</record>
+<record id="e9_09" model="catalogo.situacion.educativa.9">
+    <field name="code">10</field>
+    <field name="name">EDUCACIÓN SUPERIOR (INSTITUTO SUPERIOR, ETC) INCOMPLETA</field>
+    <field name="descripcion_abreviada">SUPERIOR INCOMPLETA (INSTIT. SUPER)</field>
+</record>
+<record id="e9_10" model="catalogo.situacion.educativa.9">
+    <field name="code">11</field>
+    <field name="name">EDUCACIÓN SUPERIOR (INSTITUTO SUPERIOR, ETC) COMPLETA</field>
+    <field name="descripcion_abreviada">SUPERIOR COMPLETA  (INSTIT SUPER)</field>
+</record>
+<record id="e9_11" model="catalogo.situacion.educativa.9">
+    <field name="code">12</field>
+    <field name="name">EDUCACIÓN UNIVERSITARIA INCOMPLETA</field>
+    <field name="descripcion_abreviada">UNIVERSITARIA INCOMPLETA</field>
+</record>
+<record id="e9_12" model="catalogo.situacion.educativa.9">
+    <field name="code">13</field>
+    <field name="name">EDUCACIÓN UNIVERSITARIA COMPLETA</field>
+    <field name="descripcion_abreviada">UNIVERSITARIA COMPLETA</field>
+</record>
+<record id="e9_13" model="catalogo.situacion.educativa.9">
+    <field name="code">14</field>
+    <field name="name">GRADO DE BACHILLER</field>
+    <field name="descripcion_abreviada">GRADO DE BACHILLER</field>
+</record>
+<record id="e9_14" model="catalogo.situacion.educativa.9">
+    <field name="code">15</field>
+    <field name="name">TITULADO</field>
+      <field name="descripcion_abreviada">TITULADO</field>
+</record>
+<record id="e9_15" model="catalogo.situacion.educativa.9">
+    <field name="code">16</field>
+    <field name="name">ESTUDIOS DE MAESTRÍA INCOMPLETA</field>
+    <field name="descripcion_abreviada">ESTUD. MAESTRÍA INCOMPLETA</field>
+</record>
+<record id="e9_16" model="catalogo.situacion.educativa.9">
+    <field name="code">17</field>
+    <field name="name">ESTUDIOS DE MAESTRÍA COMPLETA</field>
+    <field name="descripcion_abreviada">ESTUD. MAESTRÍA COMPLETA</field>
+</record>
+<record id="e9_17" model="catalogo.situacion.educativa.9">
+    <field name="code">18</field>
+    <field name="name">GRADO DE MAESTRÍA</field>
+    <field name="descripcion_abreviada">GRADO DE MAESTRÍA</field>
+</record>
+<record id="e9_18" model="catalogo.situacion.educativa.9">
+    <field name="code">19</field>
+    <field name="name">ESTUDIOS DE DOCTORADO INCOMPLETO</field>
+     <field name="descripcion_abreviada">ESTUD. DOCTORADO INCOMPLETO</field>
+</record>
+<record id="e9_19" model="catalogo.situacion.educativa.9">
+    <field name="code">20</field>
+    <field name="name">ESTUDIOS DE DOCTORADO COMPLETO</field>
+    <field name="descripcion_abreviada">ESTUD. DOCTORADO COMPLETO</field>
+</record>
+<record id="e9_20" model="catalogo.situacion.educativa.9">
+    <field name="code">21</field>
+    <field name="name">GRADO DE DOCTOR</field>
+    <field name="descripcion_abreviada">GRADO DE DOCTOR</field>
+
+</record>
+
+<!-- Catálogo No. 12-->
+
+<record id="e12_00" model="catalogo.tipo.contrato.12">
+    <field name="code">01</field>
+    <field name="name">A PLAZO INDETERMINADO - D.LEG. 728</field>
+    <field name="descripcion_abreviada">A PLAZO INDET - D.LEG. 728</field>
+</record>
+<record id="e12_01" model="catalogo.tipo.contrato.12">
+    <field name="code">02</field>
+    <field name="name">A TIEMPO PARCIAL</field>
+     <field name="descripcion_abreviada">A TIEMPO PARCIAL</field>
+</record>
+<record id="e12_02" model="catalogo.tipo.contrato.12">
+    <field name="code">03</field>
+    <field name="name">POR INICIO O INCREMENTO DE ACTIVIDAD</field>
+     <field name="descripcion_abreviada">POR INICIO O INCREM DE ACTIV</field>
+</record>
+<record id="e12_03" model="catalogo.tipo.contrato.12">
+    <field name="code">04</field>
+    <field name="name">POR NECESIDADES DEL MERCADO</field>
+     <field name="descripcion_abreviada">POR NECES DEL MERCADO</field>
+</record>
+<record id="e12_04" model="catalogo.tipo.contrato.12">
+    <field name="code">05</field>
+    <field name="name">POR RECONVERSIÓN EMPRESARIAL</field>
+     <field name="descripcion_abreviada">POR RECONV EMPRESARIAL</field>
+</record>
+<record id="e12_05" model="catalogo.tipo.contrato.12">
+    <field name="code">06</field>
+    <field name="name">OCASIONAL</field>
+     <field name="descripcion_abreviada">OCASIONAL</field>
+</record>
+<record id="e12_06" model="catalogo.tipo.contrato.12">
+    <field name="code">07</field>
+    <field name="name">DE SUPLENCIA</field>
+    <field name="descripcion_abreviada">DE SUPLENCIA</field>
+</record>
+<record id="e12_07" model="catalogo.tipo.contrato.12">
+    <field name="code">08</field>
+    <field name="name">DE EMERGENCIA</field>
+    <field name="descripcion_abreviada">DE EMERGENCIA</field>
+</record>
+<record id="e12_08" model="catalogo.tipo.contrato.12">
+    <field name="code">09</field>
+    <field name="name">PARA OBRA DETERMINADA O SERVICIO ESPECÍFICO</field>
+     <field name="descripcion_abreviada">OBRA DETERM O SERV ESPEC</field>
+</record>
+<record id="e12_09" model="catalogo.tipo.contrato.12">
+    <field name="code">10</field>
+    <field name="name">INTERMITENTE</field>
+    <field name="descripcion_abreviada">INTERMITENTE</field>
+</record>
+<record id="e12_10" model="catalogo.tipo.contrato.12">
+    <field name="code">11</field>
+    <field name="name">DE TEMPORADA</field>
+    <field name="descripcion_abreviada">DE TEMPORADA</field>
+</record>
+<record id="e12_11" model="catalogo.tipo.contrato.12">
+    <field name="code">12</field>
+    <field name="name">DE EXPORTACIÓN NO TRADICIONAL D.LEY 22342</field>
+    <field name="descripcion_abreviada">DE EXPORT. NO TRADIC.</field>
+</record>
+<record id="e12_12" model="catalogo.tipo.contrato.12">
+    <field name="code">13</field>
+    <field name="name">DE EXTRANJERO - D.LEG.689</field>
+    <field name="descripcion_abreviada">DE EXTRANJERO - D.LEG. 689</field>
+</record>
+<record id="e12_13" model="catalogo.tipo.contrato.12">
+    <field name="code">14</field>
+    <field name="name">ADMINISTRATIVO DE SERVICIOS - D.LEG 1057</field>
+    <field name="descripcion_abreviada">CAS  - D.LEG 1057</field>
+</record>
+<record id="e12_14" model="catalogo.tipo.contrato.12">
+    <field name="code">15</field>
+    <field name="name">NOMBRADO - D.LEG. N.° 276</field>
+      <field name="descripcion_abreviada">NOMBRADO - D.LEG. N.° 276</field>
+</record>
+<record id="e12_15" model="catalogo.tipo.contrato.12">
+    <field name="code">16</field>
+    <field name="name">SERVICIOS PERSONALES  - APLICABLES A LOS REGÍM. DE CARRERA</field>
+    <field name="descripcion_abreviada">SERV. PERS  - REGÍM. DE CARRERA</field>
+</record>
+<record id="e12_16" model="catalogo.tipo.contrato.12">
+    <field name="code">17</field>
+    <field name="name">GERENTE PÚBLICO - D.LEG. 1024</field>
+    <field name="descripcion_abreviada">GERENTE PÚBLICO - DL 1024</field>
+</record>
+<record id="e12_17" model="catalogo.tipo.contrato.12">
+    <field name="code">18</field>
+    <field name="name">A DOMICILIO</field>
+    <field name="descripcion_abreviada">A DOMICILIO</field>
+</record>
+<record id="e12_18" model="catalogo.tipo.contrato.12">
+    <field name="code">19</field>
+    <field name="name">FUTBOLISTAS PROFESIONALES</field>
+     <field name="descripcion_abreviada">FUTBOLISTAS PROFESIONALES</field>
+</record>
+<record id="e12_19" model="catalogo.tipo.contrato.12">
+    <field name="code">20</field>
+    <field name="name">AGRARIO - LEY 27360</field>
+    <field name="descripcion_abreviada">AGRARIO - LEY 27360 (SE DESACTIVÓ EL 26.03.2014)</field>
+</record>
+<record id="e12_20" model="catalogo.tipo.contrato.12">
+    <field name="code">21</field>
+    <field name="name">MIGRANTE ANDINO DECISIÓN 545</field>
+    <field name="descripcion_abreviada">MIGRANTE ANDINO</field>
+</record>
+<record id="e12_21" model="catalogo.tipo.contrato.12">
+    <field name="code">99</field>
+    <field name="name">OTROS NO PREVISTOS</field>
+    <field name="descripcion_abreviada">OTROS NO PREVISTOS</field>
+</record>
+
+<!-- Catálogo No. 24-->
+
+<record id="e24_00" model="catalogo.categoria.ocupacional.24">
+    <field name="code">01</field>
+    <field name="name">EJECUTIVO</field>
+     <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e24_01" model="catalogo.categoria.ocupacional.24">
+    <field name="code">02</field>
+    <field name="name">OBRERO</field>
+       <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e24_02" model="catalogo.categoria.ocupacional.24">
+    <field name="code">03</field>
+    <field name="name">EMPLEADO</field>
+       <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e24_03" model="catalogo.categoria.ocupacional.24">
+    <field name="code">11</field>
+    <field name="name">FUNCIONARIO</field>
+      <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e24_04" model="catalogo.categoria.ocupacional.24">
+    <field name="code">12</field>
+    <field name="name">PROFESIONAL</field>
+      <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e24_05" model="catalogo.categoria.ocupacional.24">
+    <field name="code">13</field>
+    <field name="name">TÉCNICO</field>
+     <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+        <record id="e24_06" model="catalogo.categoria.ocupacional.24">
+    <field name="code">14</field>
+    <field name="name">AUXILIAR</field>
+     <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<!-- Catálogo No. 17-->
+
+<record id="e17_00" model="catalogo.motivo.baja.registro.17">
+    <field name="code">01</field>
+    <field name="name">RENUNCIA</field>
+ <field name="descripcion_abreviada">RENUNCIA</field>
+</record>
+<record id="e17_01" model="catalogo.motivo.baja.registro.17">
+    <field name="code">02</field>
+    <field name="name">RENUNCIA CON INCENTIVOS</field>
+ <field name="descripcion_abreviada">RENUNCIA CON INCENTIVOS</field>
+</record>
+<record id="e17_02" model="catalogo.motivo.baja.registro.17">
+    <field name="code">03</field>
+    <field name="name">DESPIDO O DESTITUCIÓN</field>
+ <field name="descripcion_abreviada">DESPIDO O DESTITUCIÓN</field>
+</record>
+<record id="e17_03" model="catalogo.motivo.baja.registro.17">
+    <field name="code">04</field>
+    <field name="name">CESE COLECTIVO</field>
+ <field name="descripcion_abreviada">CESE COLECTIVO</field>
+</record>
+<record id="e17_04" model="catalogo.motivo.baja.registro.17">
+    <field name="code">05</field>
+    <field name="name">JUBILACIÓN</field>
+ <field name="descripcion_abreviada">JUBILACIÓN</field>
+</record>
+<record id="e17_05" model="catalogo.motivo.baja.registro.17">
+    <field name="code">06</field>
+    <field name="name">INVALIDEZ ABSOLUTA PERMANENTE</field>
+ <field name="descripcion_abreviada">INVALIDEZ ABSOLUTA PERM</field>
+</record>
+        <record id="e17_06" model="catalogo.motivo.baja.registro.17">
+    <field name="code">07</field>
+    <field name="name">TERMINACIÓN DE LA OBRA O SERVICIO, CUMPLIMIENTO CONDICIÓN RESOLUTORIA O VENCIMIENTO DEL PLAZO</field>
+ <field name="descripcion_abreviada">TERMIN OBRA/SERV, CUMPLIM CONDIC RESOL. O VENC PLAZO</field>
+</record>
+        <record id="e17_07" model="catalogo.motivo.baja.registro.17">
+    <field name="code">08</field>
+    <field name="name">MUTUO DISENSO</field>
+ <field name="descripcion_abreviada">MUTUO DISENSO</field>
+</record>
+        <record id="e17_08" model="catalogo.motivo.baja.registro.17">
+    <field name="code">09</field>
+    <field name="name">FALLECIMIENTO</field>
+ <field name="descripcion_abreviada">FALLECIMIENTO</field>
+</record>
+        <record id="e17_09" model="catalogo.motivo.baja.registro.17">
+    <field name="code">10</field>
+    <field name="name">SUSPENSIÓN DE LA PENSIÓN</field>
+ <field name="descripcion_abreviada">SUSPENSIÓN DE LA PENSIÓN</field>
+</record>
+        <record id="e17_10" model="catalogo.motivo.baja.registro.17">
+    <field name="code">11</field>
+    <field name="name">REASIGNACIÓN SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA</field>
+ <field name="descripcion_abreviada">REASIGNACIÓN</field>
+</record>
+        <record id="e17_11" model="catalogo.motivo.baja.registro.17">
+    <field name="code">12</field>
+    <field name="name">PERMUTA SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA</field>
+ <field name="descripcion_abreviada">PERMUTA</field>
+</record>
+        <record id="e17_12" model="catalogo.motivo.baja.registro.17">
+    <field name="code">13</field>
+    <field name="name">TRANSFERENCIA SERVIDOR DE LA ADMINISTRACIÓN PÚBLICA</field>
+  <field name="descripcion_abreviada">TRANSFERENCIA</field>
+</record>
+        <record id="e17_13" model="catalogo.motivo.baja.registro.17">
+    <field name="code">14</field>
+    <field name="name">BAJA POR SUCESIÓN EN POSICIÓN DEL EMPLEADOR</field>
+    <field name="descripcion_abreviada">BAJA POR SUC. EN POSIC DEL EMPLEADOR</field>
+</record>
+        <record id="e17_14" model="catalogo.motivo.baja.registro.17">
+    <field name="code">15</field>
+    <field name="name">EXTINCIÓN O LIQUIDACIÓN DEL EMPLEADOR</field>
+ <field name="descripcion_abreviada">EXTINCIÓN O LIQUID. DEL EMPLEADOR</field>
+</record>
+        <record id="e17_15" model="catalogo.motivo.baja.registro.17">
+    <field name="code">16</field>
+    <field name="name">OTROS MOTIVOS DE CADUCIDAD DE LA PENSIÓN</field>
+ <field name="descripcion_abreviada">OTR MOTIV CADUC PENSIÓN</field>
+</record>
+        <record id="e17_16" model="catalogo.motivo.baja.registro.17">
+    <field name="code">17</field>
+    <field name="name">NO SE INICIÓ LA RELACIÓN LABORAL O PRESTACIÓN EFECTIVA DE SERVICIOS</field>
+ <field name="descripcion_abreviada">NO SE INICIÓ LA REL.  LABORAL O PREST. DE SERVICIOS</field>
+</record>
+        <record id="e17_17" model="catalogo.motivo.baja.registro.17">
+    <field name="code">99</field>
+    <field name="name">SIN VÍNCULO LABORAL - HABILITADO PARA PDT PLAME</field>
+    <field name="descripcion_abreviada">SVL -HABILITADO PARA PDT PLAME</field>
+</record>
+
+        <!--catalogo 32-->
+
+        <record id="e32_00" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">00</field>
+    <field name="name">ESSALUD REGULAR (Exclusivamente)</field>
+ <field name="descripcion_abreviada">ESSALUD REGULAR</field>
+</record>
+<record id="e32_01" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">01</field>
+    <field name="name">ESSALUD REGULAR Y EPS/SERV. PROPIOS</field>
+ <field name="descripcion_abreviada">ESSALUD REGULAR Y EPS/SERV. PROP.</field>
+</record>
+<record id="e32_02" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">02</field>
+    <field name="name">ESSALUD TRABAJADORES PESQUEROS</field>
+ <field name="descripcion_abreviada">ESSALUD TRAB PESQUEROS</field>
+</record>
+<record id="e32_03" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">03</field>
+    <field name="name">ESSALUD TRABAJADORES PESQUEROS Y EPS(SERV.PROPIOS)</field>
+ <field name="descripcion_abreviada">ESSALUD TRAB PESQ Y EPS(SERV.PROP)</field>
+</record>
+<record id="e32_04" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">04</field>
+    <field name="name">ESSALUD AGRARIO/ACUÍCOLA</field>
+ <field name="descripcion_abreviada">ESSALUD AGRARIO/ACUÍCOLA</field>
+</record>
+<record id="e32_05" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">05</field>
+    <field name="name">ESSALUD PENSIONISTAS</field>
+ <field name="descripcion_abreviada">ESSALUD PENSIONISTAS</field>
+</record>
+        <record id="e32_06" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">20</field>
+    <field name="name">SANIDAD DE FFAA Y POLICIALES</field>
+ <field name="descripcion_abreviada">SANIDAD FFAA Y POLICIALES</field>
+</record>
+        <record id="e32_07" model="catalogo.regimen.aseguramiento.32">
+    <field name="code">21</field>
+    <field name="name">SIS – MICROEMPRESA</field>
+ <field name="descripcion_abreviada">SIS – MICROEMPRESA</field>
+</record>
+
+
+
+<!-- Catálogo No. 11-->
+
+<record id="e11_00" model="catalogo.regimen.pensionario.11">
+    <field name="code">02</field>
+    <field name="name">DECRETO LEY 19990 - SISTEMA NACIONAL DE PENSIONES - ONP</field>
+    <field name="descripcion_abreviada">DL 19990 - SIST NAC DE PENS - ONP</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_01" model="catalogo.regimen.pensionario.11">
+    <field name="code">03</field>
+    <field name="name">DECRETO LEY 20530</field>
+     <field name="descripcion_abreviada">DECRETO LEY 20530</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_02" model="catalogo.regimen.pensionario.11">
+    <field name="code">09</field>
+    <field name="name">CAJA DE BENEFICIOS DE SEGURIDAD SOCIAL DEL PESCADOR</field>
+     <field name="descripcion_abreviada">CBSSP</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_03" model="catalogo.regimen.pensionario.11">
+    <field name="code">10</field>
+    <field name="name">CAJA DE PENSIONES MILITAR</field>
+     <field name="descripcion_abreviada">CAJA DE PENSIONES MILITAR</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e11_04" model="catalogo.regimen.pensionario.11">
+    <field name="code">11</field>
+    <field name="name">CAJA DE PENSIONES POLICIAL</field>
+     <field name="descripcion_abreviada">CAJA DE PENSIONES POLICIAL</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e11_05" model="catalogo.regimen.pensionario.11">
+    <field name="code">12</field>
+    <field name="name">OTROS REGIMENES PENSIONARIOS</field>
+     <field name="descripcion_abreviada">OTROS REGIMENES PENSIONARIOS</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_06" model="catalogo.regimen.pensionario.11">
+    <field name="code">13</field>
+    <field name="name">RÉGIMEN DEL SERVICIO DIPLOMÁTICO DE LA REPÚBLICA</field>
+    <field name="descripcion_abreviada">REGIMEN DEL SDR</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_07" model="catalogo.regimen.pensionario.11">
+    <field name="code">14</field>
+    <field name="name">LEY 29903 - SISTEMA NACIONAL DE PENSIONES -INDEPENDIENTES</field>
+    <field name="descripcion_abreviada">LEY 29903 - SNP - INDEPENDIENTE</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_08" model="catalogo.regimen.pensionario.11">
+    <field name="code">15</field>
+    <field name="name">LEY 30003 - RÉGIMEN ESPECIAL DE PENSIONES -PESQUEROS</field>
+     <field name="descripcion_abreviada">REP - TRAB. PESQUEROS</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">N.A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_09" model="catalogo.regimen.pensionario.11">
+    <field name="code">16</field>
+    <field name="name">LEY 30003 TRANSFERENCIA DIRECTA EX PESC</field>
+    <field name="descripcion_abreviada">LEY 30003 TDEP</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">N.A</field>
+</record>
+<record id="e11_10" model="catalogo.regimen.pensionario.11">
+    <field name="code">21</field>
+    <field name="name">SPP INTEGRA</field>
+    <field name="descripcion_abreviada">SPP INTEGRA</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_11" model="catalogo.regimen.pensionario.11">
+    <field name="code">22</field>
+    <field name="name">SPP HORIZONTE</field>
+    <field name="descripcion_abreviada">SPP HORIZONTE</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_12" model="catalogo.regimen.pensionario.11">
+    <field name="code">23</field>
+    <field name="name">SPP PROFUTURO</field>
+    <field name="descripcion_abreviada">SPP PROFUTURO</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_13" model="catalogo.regimen.pensionario.11">
+    <field name="code">24</field>
+    <field name="name">SPP PRIMA</field>
+    <field name="descripcion_abreviada">SPP PRIMA</field>
+    <field name="sector_privado">N.A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_14" model="catalogo.regimen.pensionario.11">
+    <field name="code">25</field>
+    <field name="name">SPP HABITAT</field>
+      <field name="descripcion_abreviada">CSPP HABITAT</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+<record id="e11_15" model="catalogo.regimen.pensionario.11">
+    <field name="code">98</field>
+    <field name="name">PENDIENTE DE ELECCIÓN DE REGIMEN PENSIONARIO</field>
+    <field name="descripcion_abreviada">PEND ELEC REG PENSIONARIO</field>
+    <field name="sector_privado"></field>
+    <field name="sector_publico"></field>
+    <field name="otras_entidades"></field>
+</record>
+<record id="e11_16" model="catalogo.regimen.pensionario.11">
+    <field name="code">99</field>
+    <field name="name">SIN REGIMEN PENSIONARIO/NO APLICA</field>
+    <field name="descripcion_abreviada">SIN REG PENSIONARIO/NO APLICA</field>
+    <field name="sector_privado">A</field>
+    <field name="sector_publico">A</field>
+    <field name="otras_entidades">A</field>
+</record>
+
+          <!--catalogo 14-->
+
+        <record id="e14_00" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">1</field>
+    <field name="ruc_entidad">20514372251</field>
+    <field name="name">PERSALUD S.A. EPS</field>
+
+</record>
+<record id="e14_01" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">2</field>
+     <field name="ruc_entidad">20431115825</field>
+    <field name="name">PACÍFICO S.A. EPS</field>
+</record>
+<record id="e14_02" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">3</field>
+     <field name="ruc_entidad">20414955020</field>
+    <field name="name">RÍMAC INTERNACIONAL S.A. EPS</field>
+
+</record>
+<record id="e14_03" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">4</field>
+     <field name="ruc_entidad">0</field>
+    <field name="name">SERVICIOS PROPIOS</field>
+
+</record>
+<record id="e14_04" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">5</field>
+     <field name="ruc_entidad">20517182673</field>
+    <field name="name">MAPFRE PERU S.A. EPS</field>
+
+</record>
+<record id="e14_05" model="catalogo.entidades.prestadoras.salud.14">
+    <field name="code">6</field>
+     <field name="ruc_entidad">20523470761</field>
+    <field name="name">LA POSITIVA SANITAS S.A. EPS</field>
+
+</record>
+
+    </data>
+</openerp>

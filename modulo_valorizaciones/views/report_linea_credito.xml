@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Custom report-->
+<openerp>
+<data>
+<template id="report_linea_credito_document">
+    <div class="page">
+        <div class="row">
+            <div>
+                <h2 class="text-center">
+                    <span t-field="o.proveedor.name"/>
+                </h2>
+               <br></br>
+                <h4>
+                    <div class="col-xs-4" t-if="o.date">
+                        <strong>Fecha de Salida:</strong>
+                    </div>
+                    <div class="col-xs-8" t-if="o.date">
+                        <strong t-field="o.date"/>
+                    </div>
+                    <br></br>
+                 </h4>
+                 <h4>
+                    <div class="col-xs-4" t-if="o.liter">
+                        <strong>Litros o Galones de Salida:</strong>
+                    </div>
+                    <div class="col-xs-8" t-if="o.liter">
+                        <strong t-field="o.liter"/>
+                    </div>
+                </h4>
+            </div>
+        </div>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div class="row">
+            <div class="col-xs-5">
+                <table class="table table-condensed">
+                    <tr class="border-black">
+                        <td class="border-black text-center" style="width:40%;">
+                            <strong>Encargado Aprobar Salida</strong>
+                            <p t-if="o.encargado_aprobar">
+                                <span t-field="o.encargado_aprobar"/>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+             <div class="col-xs-2">
+             </div>
+            <div class="col-xs-5">
+                <table class="table table-condensed">
+                    <tr class="border-black">
+                        <td class="border-black text-center" style="width:40%;">
+                            <strong>Encargado Ejecutar Salida</strong>
+                            <p t-if="o.encargado_ejecutar">
+                                <span t-field="o.encargado_ejecutar"/>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="report_linea_credito">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'proveedor.lang', 'modulo_valorizaciones.report_linea_credito_document')"/>
+        </t>
+    </t>
+</template>
+</data>
+</openerp>

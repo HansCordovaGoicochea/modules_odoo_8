@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+      <data>
+            <record id="fleet_compra_vehiculos_form" model="ir.ui.view">
+                <field name="name">Compra de Vehículos</field>
+                <field name="model">fleet.compra.vehiculos</field>
+                <field name="arch" type="xml">
+                    <form string="Compra de Vehículos">
+                        <group string="Detalles de la Compra" colspan="4">
+                            <group>
+                                <field name="vehicle_id" />
+                                <field name="cost_subtype_id" domain="[('category', '=', 'compra')]" attrs="{'readonly':[('ver_boton','=',True)]}"/>
+                                <field name="contado_true" invisible="1"/>
+                                <field name="ver_boton" invisible="1"/>
+                                <field name="estado_pago" invisible="1"/>
+                                <field name="tax_id" invisible="1"/>
+                                <field name="currency_id" required="1"/>
+                                <div>
+                                    <label for="importe_costo"/>
+                                </div>
+                                <field name="importe_costo" nolabel="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="frecuencia_pagos" widget="selection" attrs="{'invisible':[('contado_true','=',True)]}"/>
+                            </group>
+                            <group>
+                                <field name="product_id" domain="[('type','=','service')]"/>
+                                <field name="partner_id" domain="[('supplier','=',True)]" required="1"/>
+                                <field name="bank" invisible="1"/>
+                                <field name="fecha_inicio" required="1"/>
+                                <field name="nro_meses" attrs="{'required':[('contado_true','=',False)]}"/>
+                                <field name="fecha_fin" attrs="{'required':[('contado_true','=',False)]}"/>
+                                <div>
+                                    <button name="llevar_datos_factura" type="object" string="Facturar Compra" attrs="{'invisible':['|',('contado_true','=',False),('estado_pago','=','factura')]}" icon="gtk-ok" class="oe_highlight"/>
+                                    <button name="generar_pagos" type="object" string="Generar Pagos" attrs="{'invisible':['|',('contado_true','=',True),('ver_boton','=',True)]}" icon="gtk-execute" class="oe_highlight" confirm="Estas Seguro que deseas generar los pagos?"/>
+                                </div>
+                            </group>
+                        </group>
+                          <notebook colspan="4" attrs="{'invisible':[('contado_true','=',True)]}">
+                              <page string="Fechas de Pago">
+                                <field name="compra_ids" nolabel="1" widget="one2many_list">
+                                    <tree string="Pagos" colors="red:estado_pago == 'pendiente'; black:estado_pago =='facturado';" editable="top">
+                                        <field name="fecha_pago" widget="date" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                         <field name="product_id" domain="[('type','=','service')]" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                        <field name="importe_costo" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                        <field name="estado_pago" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                        <field name="vehicle_id" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                        <button name="llevar_datos_factura2" type="object" icon="gtk-ok" class="oe_highlight" string="Facturar" confirm="Estas Seguro que deseas facturar para esta fecha?" attrs="{'readonly':[('estado_pago','=','factura')]}"/>
+                                    </tree>
+                                </field>
+                              </page>
+                            </notebook>
+                    </form>
+                </field>
+            </record>
+
+            <record id="fleet_compra_vehiculos_tree" model="ir.ui.view">
+                <field name="name">Compra de Vehículos</field>
+                <field name="model">fleet.compra.vehiculos</field>
+                <field name="arch" type="xml">
+                    <tree string="Compra de Vehículos">
+                        <field name="vehicle_id" />
+                        <field name="cost_subtype_id"/>
+                        <field name="importe_costo"/>
+                        <field name="frecuencia_pagos"/>
+                        <field name="partner_id"/>
+                        <field name="bank"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                    </tree>
+                </field>
+            </record>
+
+          <record model='ir.ui.view' id='fleet_compra_vehiculos_search'>
+            <field name="name">fleet.compra.vehiculos.search</field>
+            <field name="model">fleet.compra.vehiculos</field>
+            <field name="arch" type="xml">
+                <search string="Compra Vehículos" >
+                    <field name="cost_subtype_id" />
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_type" context="{'group_by' : 'cost_subtype_id'}" string="Tipo de Servicio"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+            <record model="ir.actions.act_window" id="fleet_compra_vehiculos_action">
+                <field name="name">Compra de Vehículos</field>
+                <field name="res_model">fleet.compra.vehiculos</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="context">{"search_default_groupby_type" : True,}</field>
+                <field name="help" type="html">
+                  <p class="oe_view_nocontent_create">
+                    Click to create a contrato compra de vehiculo.
+                  </p><p>
+                   Compra de vehiculo
+                  </p>
+                </field>
+            </record>
+
+            <menuitem id="fleet_compra_vehiculos_menu" parent="modulo_valorizaciones.valorizacion_mensual_left_menu" action="fleet_compra_vehiculos_action" sequence="2"/>
+
+            <record id="fleet_compra_vehiculos_report" model="ir.ui.view">
+                <field name="name">Report Compra de Vehículos</field>
+                <field name="model">fleet.compra.vehiculo.report</field>
+               <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Report Compra de Vehículos" create="false" delete="false">
+                        <field name="vehicle_id" />
+                        <field name="fecha_pago"/>
+                        <field name="importe_costo"/>
+                        <button name="pagar" type="object" icon="gtk-go-forward" class="oe_highlight" string="Pagar" confirm="Estas Seguro que deseas ir a pagar para esta fecha?"/>
+                    </tree>
+                </field>
+            </record>
+         <record model='ir.ui.view' id='fleet_compra_vehiculos_report_search'>
+            <field name="name">fleet.compra.vehiculos.report</field>
+            <field name="model">fleet.compra.vehiculo.report</field>
+            <field name="arch" type="xml">
+                <search string="Compra Vehículos" >
+                    <field name="vehicle_id" />
+                    <group expand="1" string="Group By">
+                        <filter name="groupby_vehiculo" context="{'group_by' : 'vehicle_id'}" string="Vehículo"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+          <record model="ir.actions.act_window" id="fleet_compra_vehiculos_report_action">
+                <field name="name">Pagos por Vehículos</field>
+                <field name="res_model">fleet.compra.vehiculo.report</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_vehiculo" : True,}</field>
+            </record>
+          <!--<menuitem id="fleet_compra_vehiculos_report_menu" parent="modulo_valorizaciones.valorizacion_mensual_left_menu" action="fleet_compra_vehiculos_report_action" sequence="2"/>-->
+
+      </data>
+</openerp>

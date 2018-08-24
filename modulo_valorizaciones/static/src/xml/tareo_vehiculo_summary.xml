@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+
+<templates id="vehiculo_template" xml:space="preserve">
+
+    <t t-name="summaryDetails">
+        <div style="overflow:auto;">
+            <table border="1" class="tablita_h">
+                <t t-foreach="widget.summary_header" t-as="header_detail">
+                    <tr>
+                        <t t-foreach="header_detail.header" t-as="date">
+                            <th class="table_header" style="text-align:center;"><t t-esc="date"/></th>
+                        </t>
+                          <th class="table_header" style="text-align:center;">Total Dias</th>
+                          <!--<th class="table_header" style="text-align:center;">Tarifa CF</th>-->
+                    </tr>
+                </t>
+                <t t-foreach="widget.room_summary" t-as="detail">
+                    <tr>
+                        <t t-if="detail.cliente">
+                            <td style="text-align:center;"><t t-esc="detail.cliente"/></td>
+                        </t>
+                        <td style="text-align:center;"><t t-esc="detail.name"/></td>
+
+                         <t t-set="day_count" t-value="0"/>
+                        <t t-foreach="detail.value" t-as="status">
+                            <t t-if="status.state == 'ConValor'">
+                                <td class="table_free"  t-att-data = "status.room_id" t-att-date = "status.fecha" style="text-align:center;"><t t-esc="status.valor"/></td>
+                            </t>
+                            <t t-if="status.state == 'Sinvalor'">
+                                <td class="table_reserved" t-att-data-model="status.data_model" t-att-data-id="status.data_id" style="text-align:center;" ><t t-esc="status.valor"/></td>
+                            </t>
+                            <t t-if="status.valor > 0">
+                                 <t t-set="day_count" t-value="day_count + 1"/>
+                            </t>
+
+                        </t>
+                        <td style="text-align:center;" class="td_libre"><t t-esc="day_count"/></td>
+                        <!--<td style="text-align:center;">-->
+                            <!--<input t-if="!widget.get('effective_readonly')" class="td_libre oe_timesheet_weekly_input" type="text"/>-->
+                        <!--</td>-->
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+
+     <t t-name="summaryDetails_var">
+        <div style="overflow:auto;">
+            <table border="1" class="tablita_h">
+                <t t-foreach="widget.summary_header_var" t-as="header_detail">
+                <tr>
+                    <t t-foreach="header_detail.header" t-as="date">
+                        <th class="table_header" style="text-align:center;"><t t-esc="date"/></th>
+                    </t>
+                    <th class="table_header" style="text-align:center;">Total KM</th>
+                </tr>
+                </t>
+                <t t-foreach="widget.room_summary_var" t-as="detail">
+                    <tr>
+                            <t t-if="detail.cliente">
+                            <td style="text-align:center;"><t t-esc="detail.cliente"/></td>
+                        </t>
+                        <td style="text-align:center;"><t t-esc="detail.name"/></td>
+                         <t t-set="km_count" t-value="0"/>
+                        <t t-foreach="detail.value" t-as="status">
+                            <t t-if="status.state == 'ConValor'">
+                                <td class="table_free"  t-att-data = "status.room_id" t-att-date = "status.fecha" style="text-align:center;"><t t-esc="status.valor"/></td>
+                            </t>
+                            <t t-if="status.state == 'Sinvalor'">
+                                <td class="table_reserved" t-att-data-model="status.data_model" t-att-data-id="status.data_id" style="text-align:center;" ><t t-esc="status.valor"/></td>
+                            </t>
+
+                             <t t-set="km_count" t-value="km_count + status.valor"/>
+                            <!--<t t-js="ctx">-->
+                                <!--console.log("Foo is", ctx.km_count);-->
+                            <!--</t>-->
+                        </t>
+
+                        <td style="text-align:center;"><t t-esc="km_count"/></td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+
+     <t t-name="summaryDetails_adi">
+        <div style="overflow:auto;">
+            <table border="1" class="tablita_h">
+                <t t-foreach="widget.summary_header_adi" t-as="header_detail">
+                <tr>
+                    <t t-foreach="header_detail.header" t-as="date">
+                        <th class="table_header" style="text-align:center;"><t t-esc="date"/></th>
+                    </t>
+                </tr>
+                </t>
+                <t t-foreach="widget.room_summary_adi" t-as="detail">
+                    <tr>
+                            <t t-if="detail.cliente">
+                            <td style="text-align:center;"><t t-esc="detail.cliente"/></td>
+                        </t>
+                        <td style="text-align:center;"><t t-esc="detail.name"/></td>
+
+
+                        <t t-foreach="detail.value" t-as="status">
+                            <t t-if="status.state == 'ConValor'">
+                                <td class="table_free"  t-att-data = "status.room_id" t-att-date = "status.fecha" style="text-align:center;"><t t-esc="status.valor"/></td>
+                            </t>
+                            <t t-if="status.state == 'Sinvalor'">
+                                <td class="table_reserved" t-att-data-model="status.data_model" t-att-data-id="status.data_id" style="text-align:center;" ><t t-esc="status.valor"/></td>
+                            </t>
+                        </t>
+                    </tr>
+                </t>
+            </table>
+        </div>
+    </t>
+</templates>
+
+
+
+

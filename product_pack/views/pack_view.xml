@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+	<!-- Product view modification -->
+	<record model="ir.ui.view" id="product_template_only_form_view">
+		<field name="name">product.template.pack.form</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_only_form_view" />
+		<field name="arch" type="xml">
+			<field name="type" position="after">
+				<field name="pack"  string="¿Es Paquete?"/>
+				<field name="pack_price_type" attrs="{'required':[('pack','=',True)]}" context="{'pack_price_type': pack_price_type}" invisible="1"/>
+			</field>
+			<notebook position="inside">
+				<page string="Paquete" attrs="{'invisible': ['|', ('product_variant_count', '>', 1), ('pack', '=', False)]}">
+					<field name="pack_line_ids"/>
+				</page>
+			</notebook>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="nan_product_pack_form">
+		<field name="name">product.product.pack.form</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_normal_form_view" />
+		<field name="arch" type="xml">
+			<field name="type" position="after">
+				<field name="pack" string="¿Es paquete?"/>
+				<field name="pack_price_type" attrs="{'required':[('pack','=',True)]}" context="{'pack_price_type': pack_price_type}" invisible="1"/>
+			</field>
+			<notebook position="inside">
+				<page string="Paquete" attrs="{'invisible':[('pack', '=', False)]}">
+					<field name="pack_line_ids"/>
+				</page>
+			</notebook>
+		</field>
+	</record>
+
+	<!-- product.pack.line -->
+	<record model="ir.ui.view" id="product_pack_line_form">
+		<field name="name">product.pack.line.form</field>
+		<field name="model">product.pack.line</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Pack Product Line">
+				<group>
+					<field name="product_id" domain ="[('qty_available', '>', 0)]"/>
+					<field name="quantity"/>
+					<field name="discount" groups="sale.group_discount_per_so_line" invisible="1"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="product_pack_line_tree">
+		<field name="name">product.pack.line.tree</field>
+		<field name="model">product.pack.line</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Pack Product Lines" editable="bottom">
+				<field name="product_id" domain ="[('qty_available', '>', 0),('pack', '=', False)]"/>
+				<field name="quantity"/>
+				<field name="discount" groups="sale.group_discount_per_so_line" invisible="1"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="group_hide_menu_pos"  model="res.groups">
+		<field name="name">Ocultar Menus POS</field>
+		<field name="category_id" ref="base.module_category_hidden"/>
+		<!--<field name="users" eval="[(4, ref('base.user_root'))]"/>-->
+	</record>
+
+	<!--peticion de asignacion -->
+	<record id="stock.menu_quants" model="ir.ui.menu">
+		<field name="groups_id" eval="[(6,0,[ref('group_hide_menu_pos')])]"/>
+	</record>
+
+</data>
+</openerp>
+

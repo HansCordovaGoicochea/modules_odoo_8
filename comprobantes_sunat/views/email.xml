@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="example_email_template" model="email.template">
+          <field name="name">Example e-mail template</field>
+          <field name="email_from">${(object.user_id.email or object.company_id.email or 't.sanfrancisco2016@gmail.com')|safe}</field>
+          <field name="subject">${object.partner_id.name} Enviar Factura</field>
+          <field name="email_to">${object.partner_id.email|safe}</field>
+          <field name="lang">${object.partner_id.lang}</field>
+          <field name="model_id" ref="account.model_account_invoice"/>
+          <!--<field name="model_id" ref="account.model_account_bank_statement_line"/>-->
+          <field name="auto_delete" eval="True"/>
+	        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Estimado, ${object.partner_id.name},</p>
+
+    <p>If you have any question, do not hesitate to contact us.</p>
+    <p>Thank you for choosing ${object.company_id.name or 'us'}!</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.company_id.street:
+            ${object.company_id.street}<br/>
+        % endif
+        % if object.company_id.street2:
+            ${object.company_id.street2}<br/>
+        % endif
+        % if object.company_id.city or object.company_id.zip:
+            ${object.company_id.zip} ${object.company_id.city}<br/>
+        % endif
+        % if object.company_id.country_id:
+            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Telefono:&nbsp; ${object.company_id.phone}
+            </div>
+        % endif
+        % if object.company_id.website:
+            <div>
+                Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+       </record>
+
+        <record id="correo_nota_de_credito" model="email.template">
+          <field name="name">Email nota de credito</field>
+          <field name="email_from">${(object.referencia.user_id.email or object.referencia.company_id.email or 't.sanfrancisco2016@gmail.com')|safe}</field>
+          <field name="subject">${object.referencia.company_id.name|safe} Nota de credito - de (Ref ${object.referencia.number or 'n/a'})</field>
+          <!--<field name="email_to">${object.partner_id.email|safe}</field>-->
+          <field name="partner_to">${object.referencia.partner_id.id}</field>
+          <field name="lang">${object.referencia.partner_id.lang}</field>
+          <field name="model_id" ref="comprobantes_sunat.model_einvoice_nota_credito"/>
+          <field name="report_template" ref="comprobantes_sunat.report_nota_credito"/>
+          <field name="report_name">Nota_Credito_${(object.numeracion or '').replace('/','_')}</field>
+          <!--<field name="model_id" ref="account.model_account_bank_statement_line"/>-->
+          <field name="auto_delete" eval="True"/>
+	        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Estimado, ${object.referencia.partner_id.name},</p>
+
+
+    <br/>
+    <p>Tiene una nueva nota de credito disponible:</p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+    &nbsp;&nbsp;<strong>REFERENCIAS</strong><br>
+    &nbsp;&nbsp;Nota de credito: <strong>${object.numeracion}</strong><br>
+    &nbsp;&nbsp;Fecha: ${object.fecha_emision.split('-')[2] + '/' + object.fecha_emision.split('-')[1] + '/' + object.fecha_emision.split('-')[0]}<br>
+    </p>
+
+    <p>Si tiene cualquier pregunta, no dude en contactarnos.<br>Gracias por elegir ${object.referencia.company_id.name or 'us'}!</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.referencia.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.referencia.company_id.street:
+            ${object.referencia.company_id.street}<br/>
+        % endif
+        % if object.referencia.company_id.street2:
+            ${object.referencia.company_id.street2}<br/>
+        % endif
+        % if object.referencia.company_id.city or object.referencia.company_id.zip:
+            ${object.referencia.company_id.zip} ${object.referencia.company_id.city}<br/>
+        % endif
+        % if object.referencia.company_id.country_id:
+            ${object.referencia.company_id.state_id and ('%s, ' % object.referencia.company_id.state_id.name) or ''} ${object.referencia.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.referencia.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Telefono(s):&nbsp; ${object.referencia.company_id.phone}
+            </div>
+        % endif
+        % if object.referencia.company_id.website:
+            <div>
+                Web :&nbsp;<a href="${object.referencia.company_id.website}">${object.referencia.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+       </record>
+
+        <record id="correo_nota_de_debito" model="email.template">
+          <field name="name">Email nota de debito</field>
+          <field name="email_from">${(object.referencia.user_id.email or object.referencia.company_id.email or 't.sanfrancisco2016@gmail.com')|safe}</field>
+          <field name="subject">${object.referencia.company_id.name|safe} Nota de debito - de (Ref ${object.referencia.number or 'n/a'})</field>
+          <!--<field name="email_to">${object.partner_id.email|safe}</field>-->
+          <field name="partner_to">${object.referencia.partner_id.id}</field>
+          <field name="lang">${object.referencia.partner_id.lang}</field>
+          <field name="model_id" ref="comprobantes_sunat.model_einvoice_nota_debito"/>
+          <field name="report_template" ref="comprobantes_sunat.report_nota_debito"/>
+          <field name="report_name">Nota_Debito_${(object.numeracion or '').replace('/','_')}</field>
+          <!--<field name="model_id" ref="account.model_account_bank_statement_line"/>-->
+          <field name="auto_delete" eval="True"/>
+	        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Estimado, ${object.referencia.partner_id.name},</p>
+
+
+    <br/>
+    <p>Tiene una nueva nota de debito disponible:</p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+    &nbsp;&nbsp;<strong>REFERENCIAS</strong><br>
+    &nbsp;&nbsp;Nota de debito: <strong>${object.numeracion}</strong><br>
+    &nbsp;&nbsp;Fecha: ${object.fecha_emision.split('-')[2] + '/' + object.fecha_emision.split('-')[1] + '/' + object.fecha_emision.split('-')[0]}<br>
+    </p>
+
+    <p>Si tiene cualquier pregunta, no dude en contactarnos.<br>Gracias por elegir ${object.referencia.company_id.name or 'us'}!</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.referencia.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.referencia.company_id.street:
+            ${object.referencia.company_id.street}<br/>
+        % endif
+        % if object.referencia.company_id.street2:
+            ${object.referencia.company_id.street2}<br/>
+        % endif
+        % if object.referencia.company_id.city or object.referencia.company_id.zip:
+            ${object.referencia.company_id.zip} ${object.referencia.company_id.city}<br/>
+        % endif
+        % if object.referencia.company_id.country_id:
+            ${object.referencia.company_id.state_id and ('%s, ' % object.referencia.company_id.state_id.name) or ''} ${object.referencia.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.referencia.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Telefono(s):&nbsp; ${object.referencia.company_id.phone}
+            </div>
+        % endif
+        % if object.referencia.company_id.website:
+            <div>
+                Web :&nbsp;<a href="${object.referencia.company_id.website}">${object.referencia.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+       </record>
+    </data>
+</openerp>

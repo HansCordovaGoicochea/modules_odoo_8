@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="credito_code_sequence_type_f" model="ir.sequence.type">
+            <field name="name">codigo para nota de credito factura</field>
+            <field name="code">nota.credito.secue.f</field>
+        </record>
+
+        <record model="ir.sequence" id="credito_code_sequence_f">
+            <field name="name">secuencia para nota de credito Factura</field>
+            <field name="code">nota.credito.secue.f</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">F001-</field>
+            <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+        <record id="credito_code_sequence_type_b" model="ir.sequence.type">
+            <field name="name">codigo para nota de credito boleta</field>
+            <field name="code">nota.credito.secue.b</field>
+        </record>
+
+        <record model="ir.sequence" id="credito_code_sequence_b">
+            <field name="name">secuencia para nota de credito Boleta</field>
+            <field name="code">nota.credito.secue.b</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">B001-</field>
+            <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+        <record id="debito_code_sequence_type_f" model="ir.sequence.type">
+            <field name="name">codigo para nota de debito factura</field>
+            <field name="code">nota.debito.secue.f</field>
+        </record>
+
+         <record model="ir.sequence" id="debito_code_sequence_f">
+            <field name="name">secuencia para nota de debito factura</field>
+            <field name="code">nota.debito.secue.f</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">F001-</field>
+             <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+  <record id="debito_code_sequence_type_b" model="ir.sequence.type">
+            <field name="name">codigo para nota de debito boleta</field>
+            <field name="code">nota.debito.secue.b</field>
+        </record>
+
+         <record model="ir.sequence" id="debito_code_sequence_b">
+            <field name="name">secuencia para nota de debito boleta</field>
+            <field name="code">nota.debito.secue.b</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">B001-</field>
+             <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+        <record id="comunicacion_code_sequence_type" model="ir.sequence.type">
+            <field name="name">codigo para comunicacion de baja</field>
+            <field name="code">einvoice.comunicacion.baja.secue</field>
+        </record>
+
+        <record model="ir.sequence" id="comunicacion_code_sequence">
+            <field name="name">secuencia para comunicacion de baja</field>
+            <field name="code">einvoice.comunicacion.baja.secue</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">RA-%(year)s%(month)s%(day)s-</field>
+            <field name="padding">3</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+          <record id="resumen_code_sequence_type" model="ir.sequence.type">
+            <field name="name">codigo para resumen diario</field>
+            <field name="code">einvoice.resumen.diario.secue</field>
+        </record>
+
+        <record model="ir.sequence" id="resumen_code_sequence">
+            <field name="name">secuencia para resumen diario</field>
+            <field name="code">einvoice.resumen.diario.secue</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">RC-%(year)s%(month)s%(day)s-</field>
+            <field name="padding">3</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+          <record id="factura_sequence_type" model="ir.sequence.type">
+            <field name="name">codigo para factura</field>
+            <field name="code">factura.secue</field>
+        </record>
+
+        <record model="ir.sequence" id="factura_sequence">
+            <field name="name">secuencia para factura</field>
+            <field name="code">factura.secue</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">F001-</field>
+            <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+         <record id="boleta_sequence_type" model="ir.sequence.type">
+            <field name="name">codigo para boleta</field>
+            <field name="code">boleta.secue</field>
+        </record>
+
+        <record model="ir.sequence" id="boleta_sequence">
+            <field name="name">secuencia para boleta</field>
+            <field name="code">boleta.secue</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">B001-</field>
+            <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+         <record id="nosunat_sequence_type" model="ir.sequence.type">
+            <field name="name">codigo para no sunat</field>
+            <field name="code">nosunat.secue</field>
+        </record>
+
+        <record model="ir.sequence" id="nosunat_sequence">
+            <field name="name">secuencia para no sunat</field>
+            <field name="code">nosunat.secue</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">C001-</field>
+            <field name="padding">8</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+        <report
+            id="report_nota_credito"
+            model="einvoice.nota.credito"
+            string="Nota de credito"
+            report_type="qweb-pdf"
+            name="comprobantes_sunat.report_nota_credito_document"
+            attachment_use="True"
+            file="comprobantes_sunat.report_nota_credito_document"
+        />
+
+          <report
+            id="report_nota_debito"
+            model="einvoice.nota.debito"
+            string="Nota de debito"
+            report_type="qweb-pdf"
+            name="comprobantes_sunat.report_nota_debito_document"
+            attachment_use="True"
+            file="comprobantes_sunat.report_nota_debito_document"
+        />
+
+    </data>
+</openerp>

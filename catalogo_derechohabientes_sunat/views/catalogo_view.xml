@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>	
+
+    <!-- CATALOGO N° 3 -->
+	    <record id="view_catalogo_tipo_documento_3_tree" model="ir.ui.view">
+            <field name="name">catalogo.tipo.documento.3.tree</field>
+            <field name="model">catalogo.tipo.documento.3</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Tipo de documento">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>        
+	    <record id="view_catalogo_tipo_documento_3_form" model="ir.ui.view">
+            <field name="name">catalogo.tipo.documento.3.form</field>
+            <field name="model">catalogo.tipo.documento.3</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Tipo de documento">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>                    
+                </form>	
+            </field>
+	    </record>        
+	    <record model="ir.actions.act_window" id="catalogo_tipo_documento_3_action">
+		    <field name="name">Tipo de Documento</field>
+		    <field name="res_model">catalogo.tipo.documento.3</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!-- CATALOGO N° 5 -->
+	    <record id="view_catalogo_tipo_via_5_tree" model="ir.ui.view">
+            <field name="name">catalogo.tipo.via.5.tree</field>
+            <field name="model">catalogo.tipo.via.5</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Tipo de Vía">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_tipo_via_5_form" model="ir.ui.view">
+            <field name="name">catalogo.tipo.via.5.form</field>
+            <field name="model">catalogo.tipo.via.5</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Tipo de Vía">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_tipo_via_5_action">
+		    <field name="name">Tipo de Vía</field>
+		    <field name="res_model">catalogo.tipo.via.5</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!-- CATALOGO N° 6 -->
+	    <record id="view_catalogo_tipo_zona_6_tree" model="ir.ui.view">
+            <field name="name">catalogo.tipo.zona.6.tree</field>
+            <field name="model">catalogo.tipo.zona.6</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Tipo de Zona">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_tipo_zona_6_form" model="ir.ui.view">
+            <field name="name">catalogo.tipo.zona.6.form</field>
+            <field name="model">catalogo.tipo.zona.6</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Tipo de Zona">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_tipo_zona_6_action">
+		    <field name="name">Tipo de Zona</field>
+		    <field name="res_model">catalogo.tipo.zona.6</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!-- CATALOGO N° 19 -->
+	    <record id="view_catalogo_vinculo_familiar_19_tree" model="ir.ui.view">
+            <field name="name">catalogo.vinculo.familiar.19.tree</field>
+            <field name="model">catalogo.vinculo.familiar.19</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Vinculo Familiar">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_vinculo_familiar_19_form" model="ir.ui.view">
+            <field name="name">catalogo.vinculo.familiar.19.form</field>
+            <field name="model">catalogo.vinculo.familiar.19</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Vinculo Familiar">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_vinculo_familiar_19_action">
+		    <field name="name">Vinculo Familiar</field>
+		    <field name="res_model">catalogo.vinculo.familiar.19</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- CATALOGO N° 26 -->
+	    <record id="view_catalogo_pais_emisor_documento_26_tree" model="ir.ui.view">
+            <field name="name">catalogo.pais.emisor.documento.26.tree</field>
+            <field name="model">catalogo.pais.emisor.documento.26</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Pais emisor de Documento">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_pais_emisor_documento_26_form" model="ir.ui.view">
+            <field name="name">catalogo.pais.emisor.documento.26.form</field>
+            <field name="model">catalogo.pais.emisor.documento.26</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Pais emisor de Documento">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_pais_emisor_documento_26_action">
+		    <field name="name">Pais emisor de Documento</field>
+		    <field name="res_model">catalogo.pais.emisor.documento.26</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+    <!-- CATALOGO N° 27 -->
+	    <record id="view_catalogo_doc_acred_vinc_familiar_27_tree" model="ir.ui.view">
+            <field name="name">catalogo.doc.acred.vinc.familiar.27.tree</field>
+            <field name="model">catalogo.doc.acred.vinc.familiar.27</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de DOC ACRED VINC FAMILIAR">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_doc_acred_vinc_familiar_27_form" model="ir.ui.view">
+            <field name="name">catalogo.doc.acred.vinc.familiar.27.form</field>
+            <field name="model">catalogo.doc.acred.vinc.familiar.27</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de DOC ACRED VINC FAMILIAR">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_doc_acred_vinc_familiar_27_action">
+		    <field name="name">DOC ACRED VINC FAMILIAR</field>
+		    <field name="res_model">catalogo.doc.acred.vinc.familiar.27</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- CATALOGO N° 29 -->
+	    <record id="view_catalogo_codigo_larga_distancia_nac_29_tree" model="ir.ui.view">
+            <field name="name">catalogo.codigo.larga.distancia.nac.29.tree</field>
+            <field name="model">catalogo.codigo.larga.distancia.nac.29</field>
+            <field name="arch" type="xml">
+                <tree string="Codigo de Vinculo Familiar">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_codigo_larga_distancia_nac_29_form" model="ir.ui.view">
+            <field name="name">catalogo.codigo.larga.distancia.nac.29.form</field>
+            <field name="model">catalogo.codigo.larga.distancia.nac.29</field>
+            <field name="arch" type="xml">
+                <form string="Codigo de Vinculo Familiar">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_codigo_larga_distancia_nac_29_action">
+		    <field name="name">Vinculo Familiar</field>
+		    <field name="res_model">catalogo.codigo.larga.distancia.nac.29</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- CATALOGO N° 33 -->
+	    <record id="view_catalogo_regimen_laboral_33_tree" model="ir.ui.view">
+            <field name="name">catalogo.regimen.laboral.33.tree</field>
+            <field name="model">catalogo.regimen.laboral.33</field>
+            <field name="arch" type="xml">
+                <tree string="Regimen Laboral">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="descripcion_abreviada"/>
+                    <field name="sector_privado"/>
+                    <field name="sector_publico"/>
+                    <field name="otras_entidades"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_regimen_laboral_33_form" model="ir.ui.view">
+            <field name="name">catalogo.regimen.laboral.33.form</field>
+            <field name="model">catalogo.regimen.laboral.33</field>
+            <field name="arch" type="xml">
+                <form string="Regimen Laboral">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                             <field name="descripcion_abreviada"/>
+                            <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_regimen_laboral_33_action">
+		    <field name="name">Regimen Laboral</field>
+		    <field name="res_model">catalogo.regimen.laboral.33</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+    <!-- CATALOGO N° 9 -->
+	    <record id="view_catalogo_situacion_educativa_9_tree" model="ir.ui.view">
+            <field name="name">catalogo.situacion.educativa.9.tree</field>
+            <field name="model">catalogo.situacion.educativa.9</field>
+            <field name="arch" type="xml">
+                <tree string="Situación Educativa">
+                    <field name="code"/>
+                    <field name="name"/>
+                  <field name="descripcion_abreviada"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_situacion_educativa_9_form" model="ir.ui.view">
+            <field name="name">catalogo.situacion.educativa.9.form</field>
+            <field name="model">catalogo.situacion.educativa.9</field>
+            <field name="arch" type="xml">
+                <form string="Situación Educativa">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                             <field name="descripcion_abreviada"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_situacion_educativa_9_action">
+		    <field name="name">Situación Educativa</field>
+		    <field name="res_model">catalogo.situacion.educativa.9</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+  <!-- CATALOGO N° 12 -->
+	    <record id="view_catalogo_tipo_contrato_12_tree" model="ir.ui.view">
+            <field name="name">catalogo.tipo.contrato.12.tree</field>
+            <field name="model">catalogo.tipo.contrato.12</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo de contrato">
+                    <field name="code"/>
+                    <field name="name"/>
+                  <field name="descripcion_abreviada"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_tipo_contrato_12_form" model="ir.ui.view">
+            <field name="name">catalogo.tipo.contrato.12.form</field>
+            <field name="model">catalogo.tipo.contrato.12</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de contrato">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                             <field name="descripcion_abreviada"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_tipo_contrato_12_action">
+		    <field name="name">Tipo de contrato</field>
+		    <field name="res_model">catalogo.tipo.contrato.12</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+  <!-- CATALOGO N° 24 -->
+	    <record id="view_catalogo_categoria_ocupacional_24_tree" model="ir.ui.view">
+            <field name="name">catalogo.categoria.ocupacional.24.tree</field>
+            <field name="model">catalogo.categoria.ocupacional.24</field>
+            <field name="arch" type="xml">
+                <tree string="CATEGORÍA OCUPACIONAL DEL TRABAJADOR">
+                    <field name="code"/>
+                    <field name="name"/>
+                     <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_categoria_ocupacional_24_form" model="ir.ui.view">
+            <field name="name">catalogo.categoria.ocupacional.24.form</field>
+            <field name="model">catalogo.categoria.ocupacional.24</field>
+            <field name="arch" type="xml">
+                <form string="CATEGORÍA OCUPACIONAL DEL TRABAJADOR">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                              <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="catalogo_categoria_ocupacional_24_action">
+		    <field name="name">CATEGORÍA OCUPACIONAL DEL TRABAJADOR</field>
+		    <field name="res_model">catalogo.categoria.ocupacional.24</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!--catalogo 10-->
+          <record id="view_catalogo_ocupaciones_10_tree" model="ir.ui.view">
+            <field name="name">catalogo.ocupacion.10.tree</field>
+            <field name="model">catalogo.ocupacion.10</field>
+            <field name="arch" type="xml">
+                <tree string="OCUPACION">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_ocupaciones_10_form" model="ir.ui.view">
+            <field name="name">catalogo.ocupacioN.10.form</field>
+            <field name="model">catalogo.ocupacion.10</field>
+            <field name="arch" type="xml">
+                <form string="OCUPACION">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_ocupaciones_10_action">
+		    <field name="name">OCUPACION</field>
+		    <field name="res_model">catalogo.ocupacion.10</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+        <!--catalogo 8-->
+          <record id="view_catalogo_tipo_trabajador_8_tree" model="ir.ui.view">
+            <field name="name">catalogo.tipo.trabajador.8.tree</field>
+            <field name="model">catalogo.tipo.trabajador.8</field>
+            <field name="arch" type="xml">
+                <tree string="TIPO DE TRABAJADOR">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="descripcion_abreviada"/>
+                            <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_tipo_trabajador_8_form" model="ir.ui.view">
+            <field name="name">catalogo.tipo.trabajador.8.form</field>
+            <field name="model">catalogo.tipo.trabajador.8</field>
+            <field name="arch" type="xml">
+                <form string="TIPO DE TRABAJADOR">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="descripcion_abreviada"/>
+                            <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_tipo_trabajador_8_action">
+		    <field name="name">TIPO DE TRABAJADOR</field>
+		    <field name="res_model">catalogo.tipo.trabajador.8</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+        <!--catalogo 17-->
+          <record id="view_catalogo_motivo_baja_registro_17_tree" model="ir.ui.view">
+            <field name="name">catalogo.motivo.baja.registro.17.tree</field>
+            <field name="model">catalogo.motivo.baja.registro.17</field>
+            <field name="arch" type="xml">
+                <tree string="MOTIVO DE LA BAJA DEL REGISTRO">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="descripcion_abreviada"/>
+
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_motivo_baja_registro_17_form" model="ir.ui.view">
+            <field name="name">catalogo.motivo.baja.registro.17.form</field>
+            <field name="model">catalogo.motivo.baja.registro.17</field>
+            <field name="arch" type="xml">
+                <form string="MOTIVO DE LA BAJA DEL REGISTRO">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="descripcion_abreviada"/>
+
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_motivo_baja_registro_17_action">
+		    <field name="name">MOTIVO DE LA BAJA DEL REGISTRO</field>
+		    <field name="res_model">catalogo.motivo.baja.registro.17</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+
+
+        <!--catalogo 34-->
+          <record id="view_catalogo_instituciones_educativas_34_tree" model="ir.ui.view">
+            <field name="name">catalogo.instituciones.educativas.34.tree</field>
+            <field name="model">catalogo.instituciones.educativas.34</field>
+            <field name="arch" type="xml">
+                <tree string="INSTITUCIONES EDUCATIVAS">
+                    <field name="code_regimen"/>
+                    <field name="desc_regimen"/>
+                    <field name="code_tipo_inst"/>
+                    <field name="desc_tipo_inst"/>
+                    <field name="cod_institucion"/>
+                    <field name="desc_institucion"/>
+                    <field name="cod_carrera"/>
+                    <field name="desc_carrera"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_instituciones_educativas_34_form" model="ir.ui.view">
+            <field name="name">catalogo.instituciones.educativas.34.form</field>
+            <field name="model">catalogo.instituciones.educativas.34</field>
+            <field name="arch" type="xml">
+                <form string="INSTITUCIONES EDUCATIVAS">
+                    <group>
+                        <group>
+                            <field name="code_regimen"/>
+                    <field name="desc_regimen"/>
+                    <field name="code_tipo_inst"/>
+                    <field name="desc_tipo_inst"/>
+                    <field name="cod_institucion"/>
+                    <field name="desc_institucion"/>
+                    <field name="cod_carrera"/>
+                    <field name="desc_carrera"/>
+
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+
+        <record id="view_filter_catalogo_instituciones_educativas_34" model="ir.ui.view">
+        <field name="name">catalogo.instituciones.educativas.34.Filter</field>
+        <field name="model">catalogo.instituciones.educativas.34</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="desc_institucion" string="Institucion" filter_domain="[('desc_institucion','ilike',self)]"/>
+            <field name="desc_carrera" string="Carrera" filter_domain="[('desc_carrera', 'ilike', self)]"/>
+        </search>
+        </field>
+      </record>
+
+
+   <record model="ir.actions.act_window" id="catalogo_instituciones_educativas_34_action">
+		    <field name="name">INSTITUCIONES EDUCATIVAS</field>
+		    <field name="res_model">catalogo.instituciones.educativas.34</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+       <field name="search_view_id" ref="view_filter_catalogo_instituciones_educativas_34"/>
+	    </record>
+
+
+
+        <!--catalogo 32-->
+          <record id="view_catalogo_regimen_aseguramiento_32_tree" model="ir.ui.view">
+            <field name="name">catalogo.regimen.aseguramiento.32.tree</field>
+            <field name="model">catalogo.regimen.aseguramiento.32</field>
+            <field name="arch" type="xml">
+                <tree string="REGIMEN DE ASEGURAMIENTO DE SALUD">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="descripcion_abreviada"/>
+
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_regimen_aseguramiento_32_form" model="ir.ui.view">
+            <field name="name">catalogo.regimen.aseguramiento.32.form</field>
+            <field name="model">catalogo.regimen.aseguramiento.32</field>
+            <field name="arch" type="xml">
+                <form string="REGIMEN DE ASEGURAMIENTO DE SALUD">
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="descripcion_abreviada"/>
+
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_regimen_aseguramiento_32_action">
+		    <field name="name">REGIMEN DE ASEGURAMIENTO DE SALUD</field>
+		    <field name="res_model">catalogo.regimen.aseguramiento.32</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+        <!--catalogo 11-->
+          <record id="view_catalogo_regimen_pensionario_11_tree" model="ir.ui.view">
+            <field name="name">catalogo.regimen.pensionario.11.tree</field>
+            <field name="model">catalogo.regimen.pensionario.11</field>
+            <field name="arch" type="xml">
+                <tree string="catalogo_regimen_pensionario_11">
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="descripcion_abreviada"/>
+                            <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_regimen_pensionario_11_form" model="ir.ui.view">
+            <field name="name">catalogo.regimen.pensionario.11.form</field>
+            <field name="model">catalogo.regimen.pensionario.11</field>
+            <field name="arch" type="xml">
+                <form string="catalogo_regimen_pensionario_11">
+                    <group>
+                        <group>
+                                      <field name="code"/>
+                            <field name="name"/>
+                            <field name="descripcion_abreviada"/>
+                            <field name="sector_privado"/>
+                            <field name="sector_publico"/>
+                            <field name="otras_entidades"/>
+
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_regimen_pensionario_11_action">
+		    <field name="name">catalogo_regimen_pensionario_11</field>
+		    <field name="res_model">catalogo.regimen.pensionario.11</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+
+        <!--catalogo 14-->
+          <record id="view_catalogo_entidades_prestadoras_salud_14_tree" model="ir.ui.view">
+            <field name="name">catalogo.entidades.prestadoras.salud.14.tree</field>
+            <field name="model">catalogo.entidades.prestadoras.salud.14</field>
+            <field name="arch" type="xml">
+                <tree string="ENTIDADES PRESTADORAS DE SALUD-EPS/SERVICIOS PROPIOS">
+                      <field name="code"/>
+                                      <field name="ruc_entidad"/>
+                            <field name="name"/>
+
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_catalogo_entidades_prestadoras_salud_14_form" model="ir.ui.view">
+            <field name="name">catalogo.entidades.prestadoras.salud.14.form</field>
+            <field name="model">catalogo.entidades.prestadoras.salud.14</field>
+            <field name="arch" type="xml">
+                <form string="ENTIDADES PRESTADORAS DE SALUD-EPS/SERVICIOS PROPIOS">
+                    <group>
+                        <group>
+                                 <field name="code"/>
+                                      <field name="ruc_entidad"/>
+                            <field name="name"/>
+
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+   <record model="ir.actions.act_window" id="catalogo_entidades_prestadoras_salud_14_action">
+		    <field name="name">ENTIDADES PRESTADORAS DE SALUD-EPS/SERVICIOS PROPIOS</field>
+		    <field name="res_model">catalogo.entidades.prestadoras.salud.14</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+
+
+    <!-- Menu -->
+
+   <menuitem name="CATALOGOS REGISTRO DE DERECHOHABIENTES SUNAT" id="catalogos_hr_configuration_menu" parent="hr.menu_hr_configuration" sequence="23" groups="base.group_no_one"/>
+    <menuitem name="Catalog 03" id="catalog_03_menu" parent="catalogos_hr_configuration_menu" action="catalogo_tipo_documento_3_action" sequence="1"/>
+    <menuitem name="Catalog 05" id="catalog_05_menu" parent="catalogos_hr_configuration_menu" action="catalogo_tipo_via_5_action" sequence="6"/>
+    <menuitem name="Catalog 06" id="catalog_06_menu" parent="catalogos_hr_configuration_menu" action="catalogo_tipo_zona_6_action" sequence="7"/>
+    <menuitem name="Catalog 19" id="catalog_19_menu" parent="catalogos_hr_configuration_menu" action="catalogo_vinculo_familiar_19_action" sequence="8"/>
+    <menuitem name="Catalog 26" id="catalog_26_menu" parent="catalogos_hr_configuration_menu" action="catalogo_pais_emisor_documento_26_action" sequence="9"/>
+    <menuitem name="Catalog 27 " id="catalog_27_menu" parent="catalogos_hr_configuration_menu" action="catalogo_doc_acred_vinc_familiar_27_action" sequence="10"/>
+    <menuitem name="Catalog 29" id="catalog_29_menu" parent="catalogos_hr_configuration_menu" action="catalogo_codigo_larga_distancia_nac_29_action" sequence="16"/>
+
+    <menuitem name="Catalog 33" id="catalog_33_menu" parent="catalogos_hr_configuration_menu" action="catalogo_regimen_laboral_33_action" sequence="16"/>
+    <menuitem name="Catalog 9" id="catalog_9_menu" parent="catalogos_hr_configuration_menu" action="catalogo_situacion_educativa_9_action" sequence="16"/>
+    <menuitem name="Catalog 24" id="catalog_24_menu" parent="catalogos_hr_configuration_menu" action="catalogo_categoria_ocupacional_24_action" sequence="16"/>
+    <menuitem name="Catalog 10" id="catalog_10_menu" parent="catalogos_hr_configuration_menu" action="catalogo_ocupaciones_10_action" sequence="16"/>
+    <menuitem name="Catalog 8" id="catalog_8_menu" parent="catalogos_hr_configuration_menu" action="catalogo_tipo_trabajador_8_action" sequence="16"/>
+    <menuitem name="Catalog 17" id="catalog_17_menu" parent="catalogos_hr_configuration_menu" action="catalogo_motivo_baja_registro_17_action" sequence="16"/>
+        <menuitem name="Catalog 34" id="catalog_34_menu" parent="catalogos_hr_configuration_menu" action="catalogo_instituciones_educativas_34_action" sequence="16"/>
+        <menuitem name="Catalog 32" id="catalog_32_menu" parent="catalogos_hr_configuration_menu" action="catalogo_regimen_aseguramiento_32_action" sequence="16"/>
+        <menuitem name="Catalog 11" id="catalog_11_menu" parent="catalogos_hr_configuration_menu" action="catalogo_regimen_pensionario_11_action" sequence="16"/>
+        <menuitem name="Catalog 14" id="catalog_14_menu" parent="catalogos_hr_configuration_menu" action="catalogo_entidades_prestadoras_salud_14_action" sequence="16"/>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="type_service_service_1" model="modulo_valorizaciones.feriados">
+              <field name="name">Año Nuevo</field>
+              <field name="fecha">2017-01-01</field>
+              <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+              <field name="descripcion">Año Nuevo</field>
+        </record>
+        <record id="type_service_service_2" model="modulo_valorizaciones.feriados">
+              <field name="name">Carnaval  (Cajamarca)</field>
+              <field name="fecha">2017-02-27</field>
+              <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Día del Corso</field>
+        </record>
+        <record id="type_service_service_3" model="modulo_valorizaciones.feriados">
+              <field name="name">Semana Santa</field>
+              <field name="fecha">2017-04-13</field>
+              <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Jueves Santo</field>
+        </record>
+        <record id="type_service_service_4" model="modulo_valorizaciones.feriados">
+            <field name="name">Semana Santa</field>
+            <field name="fecha">2017-04-14</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Viernes Santo</field>
+        </record>
+        <record id="type_service_service_5" model="modulo_valorizaciones.feriados">
+            <field name="name">Día del Trabajo</field>
+            <field name="fecha">2017-05-01</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Día del Trabajo</field>
+        </record>
+        <record id="type_service_service_6" model="modulo_valorizaciones.feriados">
+            <field name="name">San Pedro y San Pablo</field>
+            <field name="fecha">2017-06-29</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">San Pedro y San Pablo</field>
+        </record>
+        <record id="type_service_service_7" model="modulo_valorizaciones.feriados">
+            <field name="name">Fiestas Patrias</field>
+            <field name="fecha">2017-07-28</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Fiestas Patrias</field>
+        </record>
+        <record id="type_service_service_8" model="modulo_valorizaciones.feriados">
+            <field name="name">Fiestas Patrias</field>
+            <field name="fecha">2017-07-29</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Fiestas Patrias</field>
+        </record>
+        <record id="type_service_service_9" model="modulo_valorizaciones.feriados">
+            <field name="name">Santa Rosa de (solo Lima)</field>
+            <field name="fecha">2017-08-30</field>
+            <field name="country_id">175</field>
+            <field name="state_id">73</field>
+            <field name="province_id">211</field>
+            <field name="district_id">555</field>
+            <field name="descripcion">Santa Rosa de (solo Lima)</field>
+        </record>
+        <record id="type_service_service_10" model="modulo_valorizaciones.feriados">
+            <field name="name">Combate de Angamos</field>
+            <field name="fecha">2017-10-8</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Combate de Angamos</field>
+        </record>
+        <record id="type_service_service_11" model="modulo_valorizaciones.feriados">
+            <field name="name">Día de Todos los Santos</field>
+            <field name="fecha">2017-11-01</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Día de Todos los Santos</field>
+        </record>
+        <record id="type_service_service_12" model="modulo_valorizaciones.feriados">
+            <field name="name">Inmaculada Concepción</field>
+            <field name="fecha">2017-12-08</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Inmaculada Concepción</field>
+        </record>
+        <record id="type_service_service_13" model="modulo_valorizaciones.feriados">
+            <field name="name">Navidad</field>
+            <field name="fecha">2017-12-25</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Navidad</field>
+        </record>
+        <record id="type_service_service_14" model="modulo_valorizaciones.feriados">
+            <field name="name">Año Nuevo 2018</field>
+            <field name="fecha">2018-01-01</field>
+            <field name="country_id">175</field>
+              <field name="state_id">57</field>
+              <field name="province_id">130</field>
+              <field name="district_id">1615</field>
+            <field name="descripcion">Año Nuevo 2018</field>
+        </record>
+     </data>
+</openerp>

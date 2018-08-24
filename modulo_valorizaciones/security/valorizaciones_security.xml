@@ -1,0 +1,253 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+        <record model="ir.module.category" id="module_valorizaciones_category">
+            <field name="name">Transporte</field>
+            <field name="sequence">18</field>
+        </record>
+        <record id="group_valorizaciones_user" model="res.groups">
+            <field name="name">Usuario</field>
+            <field name="category_id" ref="module_valorizaciones_category"/>
+        </record>
+        <record id="group_valorizaciones_manager" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="implied_ids" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="category_id" ref="module_valorizaciones_category"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="valorizaciones_user_unidad_visibility" model="ir.rule">
+            <field name="name">User can only see his/her unidad</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_unidad"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_revision_unidad_visibility" model="ir.rule">
+            <field name="name">User can only see his/her costs</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_revision_vehiculo"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_revision_tecnica_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle's services</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_revision_tecnica"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_contrato_unidad_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle's odometer</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_contrato_vehiculo"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('vehicle_id.driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_tareo_mensual_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle's fuel log</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tareo_mensual"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('cost_id.vehicle_id.driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_sam_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_sam"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_linea_credito_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_linea_credito"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_lugar_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_lugar"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_ruta_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_ruta"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_tipo_revision_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tipo_revision"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_tipo_valorizacion_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tipo_valorizacion"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_area_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_area"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_horario_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_horario"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_pantalla_general_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_pantalla_general"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_pantalla_especifica_visibility" model="ir.rule">
+            <field name="name">User can only see his/her vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_pantalla_especifica"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <!--<field name="domain_force">[('driver_id','=',user.partner_id.id)]</field>-->
+        </record>
+        <record id="valorizaciones_user_unidad_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle's contracts</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_unidad"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_revision_unidad_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle's costs</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_revision_vehiculo"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_revision_tecnica_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle's services</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_revision_tecnica"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_contrato_unidad_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle's vehicle's odometer</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_contrato_vehiculo"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_tareo_mensual_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle's fuel log</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tareo_mensual"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_sam_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_sam"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_linea_credito_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_linea_credito"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_lugar_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_lugar"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_ruta_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_ruta"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_tipo_revision_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tipo_revision"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_tipo_revision_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_tipo_valorizacion"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_area_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_area"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_horario_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_horario"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_pantalla_general_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_pantalla_general"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+        <record id="valorizaciones_user_pantalla_especifica_visibility_manager" model="ir.rule">
+            <field name="name">Manager has all rights on vehicle</field>
+            <field name="model_id" ref="model_modulo_valorizaciones_pantalla_especifica"/>
+            <field name="groups" eval="[(4, ref('group_valorizaciones_manager'))]"/>
+        </record>
+
+        <record id="hide" model="res.groups">
+            <field name="name">Hide</field>
+            <field name="comment">Hide.</field>
+        </record>
+
+    </data>
+</openerp>

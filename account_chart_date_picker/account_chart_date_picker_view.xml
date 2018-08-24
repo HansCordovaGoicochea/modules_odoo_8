@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+       <record id="view_account_chart" model="ir.ui.view">
+            <field name="name">account.chart.date.picker.form</field>
+            <field name="model">account.chart</field>
+            <field name="inherit_id" ref="account.view_account_chart"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='period_from']" position="replace">
+                    <label for="period_from_dp" string="From" help="Please select date OR period name"/>
+                </xpath>
+                <xpath expr="//group/div[2]" position="replace">
+                    <div>
+                        <field name="period_from_dp" 
+                            class="oe_inline" /> - 
+                        <field name="period_from" 
+                            class="oe_inline"/>
+                    </div>
+                    <label for="period_to_dp" string="To" help="Please select date OR period name"/>
+                    <div>
+                        <field name="period_to_dp"  
+                            class="oe_inline" /> - 
+                        <field name="period_to" 
+                            class="oe_inline"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+  </data>
+</openerp>
+

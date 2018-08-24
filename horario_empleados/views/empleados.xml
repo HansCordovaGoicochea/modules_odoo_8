@@ -1,0 +1,1586 @@
+<?xml version="1.0"?>
+<openerp>
+      <data>
+        <!--dias de trabajo-->
+       <record model='ir.ui.view' id='horario_empleado_form'>
+            <field name="name">horario.dia.trabajo.form</field>
+            <field name="model">horario.dia.trabajo</field>
+            <field name="arch" type="xml">
+                <form string="Dias Trabajo">
+                    <sheet>
+                        <group>
+                            <field name="jornada" />
+                            <field name="codigo" />
+                            <field name="tolerancia_1turno" string="Tolerancia Turno Diurno"/>
+                            <field name="hora_inicio" string="Hora Inicio Turno Diurno (HH:MM 24 horas)" widget="float_time"/>
+                            <field name="descanso" string="Tiempo de Descanso Turno Diurno"/>
+                            <field name="hora_fin" string="Hora Fin Turno Diurno (HH:MM 24 horas)" widget="float_time"/>
+                            <field name="tolerancia_2turno" string="Tolerancia Turno Nocturno"/>
+                            <field name="segundo_hora_inicio" string="Hora Inicio Turno Nocturno (HH:MM 24 horas)" widget="float_time"/>
+                            <field name="segundo_descanso" string="Tiempo de Descanso Turno Nocturno"/>
+                            <field name="segundo_hora_fin" string="Hora Fin Turno Nocturno (HH:MM 24 horas)" widget="float_time"/>
+                            <field name="trabajo_x_dia" string="Trabajo por Día"/>
+                            <field name="trabajo_x_semana" string="Trabajo por Semana"/>
+                            <field name="trabajo_x_mes" />
+                            <field name="trabajo_x_anio" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+         <record model='ir.ui.view' id='horario_empleado_tree'>
+            <field name="name">horario.dia.trabajo.tree</field>
+            <field name="model">horario.dia.trabajo</field>
+            <field name="arch" type="xml">
+                <tree string="Días Trabajo" editable="top">
+                    <field name="jornada" />
+                    <field name="codigo" string="Código"/>
+                    <field name="tolerancia_1turno" string="Tolerancia Turno Diurno"/>
+                    <field name="hora_inicio" string="Hora Inicio Turno Diurno (HH:MM 24 horas)" widget="float_time"/>
+                    <field name="descanso" string="Tiempo de Descanso Turno Diurno"/>
+                    <field name="hora_fin" string="Hora Fin Turno Diurno (HH:MM 24 horas)" widget="float_time"/>
+                    <field name="tolerancia_2turno" string="Tolerancia Turno Nocturno"/>
+                    <field name="segundo_hora_inicio" string="Hora Inicio Turno Nocturno (HH:MM 24 horas)" widget="float_time"/>
+                    <field name="segundo_descanso" string="Tiempo de Descanso Turno Nocturno"/>
+                    <field name="segundo_hora_fin" string="Hora Fin Turno Nocturno (HH:MM 24 horas)" widget="float_time"/>
+                    <field name="trabajo_x_dia" string="Trabajo por Día"/>
+                    <field name="trabajo_x_semana" string="Trabajo por Semana"/>
+                    <field name="trabajo_x_mes" />
+                    <field name="trabajo_x_anio" />
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='horario_empleado_act'>
+            <field name="name">Jornadas</field>
+            <field name="res_model">horario.dia.trabajo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un nuevo día de trabajo.
+              </p>
+              <p>
+                Aqui puedes agregar varios días de trabajo
+              </p>
+            </field>
+        </record>
+          <menuitem name="Jornadas" action="horario_empleado_act" parent="hr.menu_hr_configuration" id="horario_empleado_menu" groups="base.group_hr_manager"/>
+        <!-- fin dias de trabajo-->
+
+          <!--esquema de trabajo-->
+          <record model='ir.ui.view' id='horario_esquema_trabajo_form'>
+            <field name="name">horario.esquema.trabajo.form</field>
+            <field name="model">horario.esquema.trabajo</field>
+            <field name="arch" type="xml">
+                <form string="Esquema de Trabajo">
+                    <sheet>
+                       <group>
+                           <field name="nombre"/>
+                        <group>
+                             <field name="array_dias" class="oe_inline" on_change="onchange_dias(array_dias)" string="# Días Trabajo"/>
+                        </group>
+                            <notebook colspan="4">
+                              <page string="Detalle Esquema de Trabajo">
+                                <field name="esquemadetalle_ids" nolabel="1" widget="one2many_list">
+                                    <tree string="Detalle Esquema de trabajo" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="codigo_dias" string="Día de Trabajo"/>
+                                        <field name="jornada_name"/>
+                                    </tree>
+                                </field>
+                              </page>
+                            </notebook>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+         <record model='ir.ui.view' id='horario_esquema_trabajo_tree'>
+            <field name="name">horario.esquema.trabajo.tree</field>
+            <field name="model">horario.esquema.trabajo</field>
+            <field name="arch" type="xml">
+                <tree string="Esquema de Trabajo">
+                    <field name="nombre" />
+                    <field name="array_dias" string="# Días Trabajo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='horario_esquema_trabajo_act'>
+            <field name="name">Esquema de Trabajo</field>
+            <field name="res_model">horario.esquema.trabajo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un nuevo esquema de trabajo.
+              </p>
+              <p>
+                Aqui puedes agregar varios esquemas de trabajo
+              </p>
+            </field>
+        </record>
+          <menuitem action="horario_esquema_trabajo_act" parent="hr.menu_hr_configuration" id="horario_esquema_trabajo_menu" groups="base.group_hr_manager"/>
+                  <!--fin esquema de trabajo-->
+          <!--accion para el boton asistencias-->
+<record id="act_hr_employee_marca_request" model="ir.actions.act_window">
+    <field name="name">Asistencias</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">horario.asistencias</field>
+    <field name="src_model">hr.employee</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form,calendar</field>
+    <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+    <!--<field name="domain">[]</field>-->
+    <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+</record>
+<!--accion para el boton cronograma-->
+          <record id="act_hr_employee_cronograma_request" model="ir.actions.act_window">
+    <field name="name">Cronograma</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">horario.cronograma</field>
+    <field name="src_model">hr.employee</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form,calendar</field>
+    <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+    <!--<field name="domain">[]</field>-->
+    <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+</record>
+          <!--accion para el boton vacaciones-->
+    <record id="act_hr_employee_vacaciones_request" model="ir.actions.act_window">
+        <field name="name">Vacaciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">horario.vacaciones.x.empleado</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+        <!--<field name="domain">[]</field>-->
+        <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+    </record>
+
+                    <!--accion para el boton judiciales-->
+    <record id="act_hr_employee_judiciales_request" model="ir.actions.act_window">
+        <field name="name">Judiciales</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.judiciales</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+        <!--<field name="domain">[]</field>-->
+        <!--<field name="view_id" eval="view_hr_judiciales_form"/>-->
+    </record>
+        <!--accion para el boton marcaciones-->
+    <record id="act_hr_employee_marcaciones_request" model="ir.actions.act_window">
+        <field name="name">Marcaciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">horario.marcaciones.empleado</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_horario_marcacion_id': [active_id], 'default_horario_marcacion_id': active_id}</field>
+        <!--<field name="domain">[]</field>-->
+        <!--<field name="view_id" eval="view_hr_judiciales_form"/>-->
+    </record>
+
+          <!--boton de empresas anteriores-->
+                 <!--accion para el boton vacaciones-->
+    <!--<record id="act_hr_employee_liquidacionant_request" model="ir.actions.act_window">-->
+        <!--<field name="name">Vacaciones</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">horario.vacaciones.x.empleado</field>-->
+        <!--<field name="src_model">hr.employee</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--<field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>-->
+        <!--&lt;!&ndash;<field name="domain">[]</field>&ndash;&gt;-->
+        <!--&lt;!&ndash;<field name="view_id" eval="horario_asistencias_tree"/>&ndash;&gt;-->
+    <!--</record>-->
+
+          <!--EMPLEADO-->
+
+          <record id="view_employee_form_leave_inherit_to_remove_leaves" model="ir.ui.view">
+            <field name="name">hr.employee.leave.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_holidays.view_employee_form_leave_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@string='Leaves']" position="replace">
+                    <group string="Leaves" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+<record id="hr_ir_contrato" model="ir.actions.act_window">
+    <field name="name">Contrato</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.contract</field>
+    <field name="src_model">hr.employee</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+    <!--<field name="domain">[]</field>-->
+    <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+</record>
+<record id="act_hr_asistencias" model="ir.actions.act_window">
+    <field name="name">Asistencias</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">horario.asistencias</field>
+    <field name="src_model">hr.employee</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+</record>
+          <record id="act_hr_vacaciones" model="ir.actions.act_window">
+        <field name="name">Vacaciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">horario.vacaciones.x.empleado</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+        <!--<field name="domain">[]</field>-->
+        <!--<field name="view_id" eval="horario_asistencias_tree"/>-->
+    </record>
+
+                    <!--accion para el boton judiciales-->
+    <record id="act_hr_judiciales" model="ir.actions.act_window">
+        <field name="name">Judiciales</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.judiciales</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+    </record>
+
+        <record id="view_horario_empleado" model="ir.ui.view">
+          <field name="name">horario.horario_empleado</field>
+          <field name="model">hr.employee</field>
+          <field name="inherit_id" ref="hr.view_employee_form"/>
+          <field name="arch" type="xml">
+
+                <xpath expr="/form/*" position="before">
+                    <header>
+
+                        <button name="%(hr_ir_contrato)d" type="action" string="Registrar Contrato" attrs="{'invisible': ['|','|','|','|',('stage', '==', '1'),('stage', '==', '3'),('stage', '==', '4'),('stage', '==', '5'),('stage', '==', '6')]}" class="oe_highlight"/>
+                        <button name="%(act_hr_asistencias)d" type="action" string="Rec. Asist." attrs="{'invisible': ['|','|','|','|',('stage', '==', '1'),('stage', '==', '3'),('stage', '==', '2'),('stage', '==', '5'),('stage', '==', '6')]}" class="oe_highlight"/>
+                        <button name="%(act_hr_vacaciones)d" type="action" string="Rec. Vaca." attrs="{'invisible': ['|','|','|','|',('stage', '==', '1'),('stage', '==', '3'),('stage', '==', '2'),('stage', '==', '4'),('stage', '==', '6')]}" class="oe_highlight"/>
+                        <button name="%(act_hr_judiciales)d" type="action" string="Registrar Judiciales" attrs="{'invisible': ['|','|','|','|',('stage', '==', '1'),('stage', '==', '3'),('stage', '==', '4'),('stage', '==', '5'),('stage', '==', '2')]}" class="oe_highlight"/>
+                        <button name="terminar_proceso_empleado" type="object" string="Terminar Proceso" attrs="{'invisible': ['|','|','|','|',('stage', '==', '1'),('stage', '==', '3'),('stage', '==', '4'),('stage', '==', '5'),('stage', '==', '2')]}" class="oe_highlight"/>
+                        <field name="stage" widget="statusbar"  statusbar_visible="1"/>
+                    </header>
+                </xpath>
+
+              <field name="user_id" position="replace">
+                  <field name="user_id" string="Usuario del Sistema"/>
+              </field>
+
+              <xpath expr="//group[@name='active_group']" position="before">
+                    <group string="Horas extra" invisible="1">
+                        <label for="horas_extra"/>
+                         <div>
+                            <field name="horas_extra" widget="float_time" class="oe_inline"/> horas
+                        </div>
+                    </group>
+              </xpath>
+
+               <xpath expr="//group[@name='active_group']" position="after">
+                    <group string="Tareo">
+                        <label for="seleccionar_tareo" string="Selección de Tareo"/>
+                         <div>
+                            <field name="seleccionar_tareo" widget="selection" class="oe_inline"/>
+                        </div>
+                    </group>
+              </xpath>
+
+
+              <field name="work_phone" position="after">
+                  <field name="id" invisible="1"/>
+              </field>
+              <field name="active" position="after">
+                  <field name="situacion"/>
+                  <field name="situacion_especial"/>
+                  <field name="doble_tributacion"/>
+              </field>
+
+              <field name="coach_id" position="after">
+                  <field name="situacion_educativa" string="Situación Educativa"/>
+                  <field name="es_sindicalizado"/>
+                  <field name="concluidos_ids"/>
+                  <!--<button name="button_popup" type="object" class="oe_inline oe_stat_button" icon="fa-book" string="Est. Concluidos"/>-->
+              </field>
+              <field name="marital" position="after">
+                  <field name="discapacidad"/>
+
+              </field>
+            <page string="HR Settings" position="after">
+                <page string="Horario">
+                    <field name="horario_empleado_ids" nolabel="1" widget="one2many_list">
+                    <!--<field name="horario_empleado_ids" nolabel="1" widget="one2many_list" context="{'default_horario_empleado_id' : id}">-->
+                        <tree string="Detalle Esquema de trabajo" editable="top">
+                            <field name="esquema"/>
+                            <field name="fecha_inicio"/>
+                            <field name="dia_trabajo" widget="selection" domain="[('esquema_id', '=',esquema)]" string="Día de Trabajo"/>
+                            <!--<field name="dia_trabajo" widget="selection" domain="[('dia_trabajo.esquema_id', '=',esquema)]"/>-->
+                            <!--<field name="horario_empleado_id" domain="[('id','=',parent.id)]"/>-->
+                        </tree>
+                    </field>
+                </page>
+            </page>
+              <!--<page string="Horario" position="after">-->
+                <!--<page string="Reg. Marca Manual">-->
+                    <!--<field name="horario_marcacion_ids" string="Reg. Marca Manual" context="{'default_horario_marcacion_id' : id}"/>-->
+                <!--</page>-->
+              <!--</page>-->
+              <page string="Horario" position="after">
+                <page string="THFP">
+                    <field name="horario_horas_extra_ids" nolabel="1" widget="one2many_list" context="{'default_employee_id' : id}">
+                        <tree string="Horas Extra" editable="bottom">
+                            <field name="departamento" />
+                            <field name="titulo_trabajo" />
+                            <field name="fecha"/>
+                            <field name="hora_inicio_diurno" widget="float_time"/>
+                            <field name="hora_fin_diurno" widget="float_time"/>
+                            <field name="hora_inicio_nocturno" widget="float_time"/>
+                            <field name="hora_fin_nocturno" widget="float_time"/>
+                            <field name="motivo" domain="[('filtro_he', '=', True)]"/>
+                            <field name="motivo_id_name" invisible="1"/>
+                            <field name="concepto" attrs="{'invisible': ['|',('motivo_id_name', '==', 'Falta Injustificada'),('motivo_id_name', '==', 'Permiso Compensatorio')]}"/>
+                            <field name="employee_id" domain="[('id','=',parent.id)]" invisible="1"/>
+                            <field name="hora_inicio" widget="float_time"/>
+                            <field name="hora_fin" widget="float_time" string="Hora de Término"/>
+                            <field name="horas" widget="float_time"/>
+                            <field name="estado_pag"/>
+                        </tree>
+                    </field>
+                </page>
+              </page>
+
+               <page string="THFP" position="after">
+                    <page string="Documentos">
+                         <field name="documento_empleado_ids"/>
+                    </page>
+               </page>
+               <!--<page string="Personal Information" position="replace">-->
+                    <!--<page string="Personal Information" position="before">-->
+                        <!--<page string="Public Information"/>-->
+                    <!--</page>-->
+               <!--</page>-->
+               <page string="Public Information" position="after">
+                    <page string="AFP" groups="base.group_hr_user">
+                        <group string="AFP">
+                           <field name="afp" class="oe_inline"/>
+                           <field name="cupps" class="oe_inline"/>
+                          <field name="sctr_pension" class="oe_inline"/>
+                        </group>
+                    </page>
+               </page>
+               <field name="job_id" position="after">
+                   <field name="categoria_trabajador"/>
+                   <field name="tipo_trabajador"/>
+                  <field name="ocupacion" string="Ocupación"/>
+                  <field name="categoria_ocupacional" string="Categoría Ocupacional"/>
+              </field>
+                <!--boton de asistencias-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_hr_employee_marca_request)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-edit"
+                        groups="base.group_hr_user"
+                        string="Asistencias"/>
+              </xpath>
+              <!--boton de judiciales-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_hr_employee_judiciales_request)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-legal"
+                        groups="base.group_hr_user"
+                        string="Judiciales"/>
+                        <!--<field name="judiciales_count" widget="statinfo" />-->
+                    <!--</button>-->
+              </xpath>
+<!--boton de cronograma-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_hr_employee_cronograma_request)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-calendar"
+                        groups="base.group_hr_user"
+                        string="Prog. Conduct." attrs="{'invisible':['|','|',('seleccionar_tareo','==','manual'),('seleccionar_tareo','==','ninguno'),('seleccionar_tareo','==','reloj')]}"/>
+              </xpath>
+              <!--boton de vacaciones-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_hr_employee_vacaciones_request)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-calendar"
+                        groups="base.group_hr_user"
+                        string="Record. Vac."/>
+              </xpath>
+              <!--boton de vacaciones-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_hr_employee_marcaciones_request)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-calendar"
+                        groups="base.group_hr_user"
+                        string="Reg. Marca Manual" sequence="0" attrs="{'invisible':['|','|',('seleccionar_tareo','==','conductor'),('seleccionar_tareo','==','ninguno'),('seleccionar_tareo','==','reloj')]}"/>
+              </xpath>
+
+ <!--boton de reloj-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-level-up"
+                        groups="base.group_hr_user"
+                        string="Importar Marcas" attrs="{'invisible':['|','|',('seleccionar_tareo','==','conductor'),('seleccionar_tareo','==','ninguno'),('seleccionar_tareo','==','manual')]}"/>
+              </xpath>
+
+ <!--boton de empresas anteriores-->
+              <xpath expr="//div[@name='button_box']" position="inside">
+                    <button
+                        name="load_pantalla_empresa_anterior"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-building-o"
+                        groups="base.group_hr_user"
+                        string="Empresa Anterior"/>
+              </xpath>
+
+              <label for="name" position="replace">
+                  <label for="name" class="oe_edit_only oe_read_only" string="Nombre Completo"/>
+              </label>
+              <field name="name" position="replace">
+                  <field name="name" string="Nombre Completo" style="width:85%%" placeholder="No escribir aqui"  required="False" class="oe_read_only"/>
+              </field>
+              <label for="category_ids" position="before">
+                  <div>
+                  <label for="primer_nombre" class="oe_edit_only" string="Nombres"/>
+                  <h3>
+                      <field name="primer_nombre" style="width:45%%" class="oe_inline oe_edit_only" placeholder="Primer Nombre"/>
+                      <field name="segundo_nombre" style="width:45%%" class="oe_inline oe_edit_only" placeholder="Segundo Nombre"/>
+                  </h3>
+                  </div>
+                          <label for="apellido_paterno" class="oe_edit_only" string="Apellidos"/>
+                  <div>
+                      <h3>
+                          <field name="apellido_paterno" style="width:45%%" class="oe_inline oe_edit_only" placeholder="Apellido Paterno"/><field name="apellido_materno" style="width:45%%" class="oe_inline oe_edit_only" placeholder="Apellido Materno"/>
+                     </h3>
+                  </div>
+              </label>
+          </field>
+        </record>
+
+        <record id="view_horario_empleado2" model="ir.ui.view">
+          <field name="name">horario.horario_empleado</field>
+          <field name="model">hr.employee</field>
+          <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+          <field name="arch" type="xml">
+              <field name="vehicle_distance" position="replace">
+                  <field name="vehicle_distance" string="Movilidad S/."/>
+              </field>
+          </field>
+        </record>
+
+      <!--<record model="ir.ui.view" id="view_vehicle_kanban2">-->
+        <!--<field name="name">hr.employee.kanban.inherit</field>-->
+        <!--<field name="model">hr.employee</field>-->
+        <!--<field name="inherit_id" ref="hr.hr_kanban_view_employees"/>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<field name="name" position="replace">-->
+                <!--<field name="nombre_completo"/>-->
+            <!--</field>-->
+        <!--</field>-->
+      <!--</record>-->
+          <!--FIN EMPLEADO-->
+
+            <record model="ir.ui.view" id="view_hr_documento_empleado_form">
+            <field name="name">hr.documentos.empleado.form</field>
+            <field name="model">hr.documentos.empleado</field>
+            <field name="arch" type="xml">
+                 <form string="Documentos Empleado">
+                     <sheet>
+                         <group>
+                            <field name="nombre_documento"/>
+                            <field name="descripcion" string="Descripción"/>
+                              <field name="quien_hizo" invisible="1" string="Última actualización"/>
+                        </group>
+                        <group>
+                            <field name="documentos" widget="many2many_binary"/>
+                        </group>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='val_hr_documento_empleado_tree'>
+            <field name="name">hr.documentos.empleado.tree</field>
+            <field name="model">hr.documentos.empleado</field>
+            <field name="arch" type="xml">
+                <tree string="Documentos">
+                    <field name="nombre_documento"/>
+                    <field name="descripcion"/>
+                    <field name="quien_hizo"/>
+                    <field name="write_date"/>
+                    <field name="documentos" widget="many2many_binary"/>
+                </tree>
+            </field>
+        </record>
+
+          <!-- asistencias-->
+          <record id="horario_asistencias_form" model="ir.ui.view">
+              <field name="name">horario.asistencias.form</field>
+              <field name="model">horario.asistencias</field>
+              <field name="arch" type="xml">
+                  <form string="Horario de asistencias">
+ <!--<xpath expr="/form/*" position="before">-->
+                    <header>
+                        <button name="ir_al_empleado_2" type="object" string="Regresar al Empleado" class="oe_highlight" icon="gtk-go-back"/>
+                    </header>
+                <!--</xpath>-->
+                      <sheet>
+                          <group>
+                              <group>
+                                  <field name="fecha_inicio" widget="date"/>
+                                  <field name="fecha_fin" widget="date"/>
+                              </group>
+                              <group>
+                                 <field name="employee_id" string="Empleado"/>
+                              </group>
+                          </group>
+                          <field name="horario_asistencias_ids" nolabel="1" string="Detalle de asistencias"/>
+                      </sheet>
+                  </form>
+              </field>
+          </record>
+
+             <record model="ir.ui.view" id="shared_calendar_calendar_view">
+            <field name="name">horario.asistencias.calendar</field>
+            <field name="model">horario.asistencias</field>
+            <field name="type">calendar</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="fecha_inicio" color="employee_id" date_stop="fecha_fin"  day_length="8">
+                        <field name="fecha_inicio" widget="date"/>
+                        <field name="fecha_fin" widget="date"/>
+                        <field name="employee_id" string="Empleado"/>
+                </calendar>
+            </field>
+        </record>
+
+
+         <record model='ir.ui.view' id='horario_asistencias_tree'>
+            <field name="name">horario.asistencias.tree</field>
+            <field name="model">horario.asistencias</field>
+            <field name="arch" type="xml">
+                <tree string="Marcaciones">
+                    <field name="fecha_inicio" />
+                    <field name="fecha_fin"/>
+                    <field name="employee_id" string="Empleado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='horario_asistencias_act'>
+            <field name="name">Registro de Marcaciones</field>
+            <field name="res_model">horario.asistencias</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro de marcaciones.
+              </p>
+              <p>
+                Aqui puedes agregar varios registros de marcaciones
+              </p>
+            </field>
+        </record>
+          <menuitem action="horario_asistencias_act" parent="hr_attendance.menu_hr_time_tracking" id="horario_asistencias_menu" groups="base.group_hr_manager"/>
+          <!--fin asistencias-->
+
+          <!--detalle asistencias-->
+          <record id="horario_detalle_asistencias_empleado_form" model="ir.ui.view">
+              <field name="name">horario.detalle.asistencias.form</field>
+              <field name="model">horario.detalle.asistencias</field>
+              <field name="arch" type="xml">
+
+                  <form string="Horario de asistencias">
+                      <group colspan="12" col="6">
+                          <field name="fecha" widget="date"/>
+                          <h3><field name="jornada_name"/></h3>
+                      </group>
+
+                           <group colspan="2">
+                                <group string="Turno Diurno">
+                                    <field name="hora_entrada" widget="float_time"/>
+                                    <field name="hora_salida" widget="float_time"/>
+                                    <!--<field name="horario_asistencias_id"/>-->
+
+                                </group>
+                                <group string="Turno Norturno">
+                                     <field name="segunda_hora_entrada" widget="float_time"/>
+                                    <field name="segunda_hora_salida" widget="float_time"/>
+
+                                </group>
+				            </group>
+                       <header>
+                        <button name="button_verificar" string="Procesar Asistencia" class="oe_highlight" type="object" icon="gtk-execute"/>
+                    </header>
+                        <field name="horario_asis_tipo_ids" nolabel="1" widget="one2many_list" >
+                            <tree string="Asistencias Detalle" create="false" edit="false" delete="false" colors="red:tipo_primera_entrada == 'falta';blue:tipo_primera_entrada =='presencia';green:tipo_primera_entrada=='espera';gray:tipo_primera_entrada=='almuerzo'">
+                                <field name="primera_hora_entrada" widget="float_time"/>
+                                <field name="primera_marca_entrada" widget="float_time"/>
+                                <field name="tipo_primera_entrada" widget="selection"/>
+                                <field name="diferencia_horas" widget="float_time"/>
+                                <!--<field name="primera_hora_salida" widget="float_time"/>-->
+                                <!--<field name="primera_marca_salida" widget="float_time"/>-->
+                                <!--<field name="tipo_primera_salida" widget="selection"/>-->
+                            </tree>
+                        </field>
+                  </form>
+              </field>
+          </record>
+
+          <record id="horario_detalle_asistencias_empleado_tree_view" model="ir.ui.view">
+            <field name="name">horario.detalle.asistencias.tree.view</field>
+            <field name="model">horario.detalle.asistencias</field>
+            <field name="arch" type="xml">
+                <tree string="Marcaciones" delete="false" edit="false" create="false" colors="blue: fecha == current_date; pink:codigo_dias == 'OO'; red:codigo_dias == 'OF'">
+
+                    <field name="fecha" widget="date"/>
+                    <field name="hora_entrada" widget="float_time"/>
+                    <field name="hora_salida" widget="float_time"/>
+                    <field name="segunda_hora_entrada" widget="float_time"/>
+                    <field name="segunda_hora_salida" widget="float_time"/>
+
+                    <field name="codigo_dias" invisible="1"/>
+
+                </tree>
+            </field>
+        </record>
+
+          <!--detalle asistencias-->
+
+          <!--form marcaciones-->
+           <record id="horario_marcaciones_empleado_form" model="ir.ui.view">
+              <field name="name">horario.marcaciones.empleado.form</field>
+              <field name="model">horario.marcaciones.empleado</field>
+              <field name="arch" type="xml">
+                  <form string="Horario de asistencias">
+
+                         <group colspan="12" col="6">
+                            <field name="fecha" widget="date"/>
+                            <h3><field name="jornada_name"/></h3>
+                             <field name="horario_marcacion_id" domain="[('id','=',parent.id)]" invisible="1"/>
+                         </group>
+                           <group colspan="2">
+                                <group string="Turno Diurno">
+                                    <field name="hora_entrada" widget="float_time"/>
+                                    <field name="hora_salida" widget="float_time"/>
+                                </group>
+                                <group string="Turno Nocturno">
+                                    <field name="segunda_hora_entrada" widget="float_time"/>
+                                    <field name="segunda_hora_salida" widget="float_time"/>
+                                </group>
+				            </group>
+
+                  </form>
+              </field>
+          </record>
+
+          <record id="horario_marcaciones_empleado_tree_view" model="ir.ui.view">
+            <field name="name">horario.marcaciones.empleado.tree.view</field>
+            <field name="model">horario.marcaciones.empleado</field>
+            <field name="arch" type="xml">
+                <tree string="Marcaciones" delete="true" >
+                    <field name="fecha" widget="date"/>
+                    <field name="hora_entrada" widget="float_time"/>
+                    <field name="hora_salida" widget="float_time"/>
+                    <field name="segunda_hora_entrada" widget="float_time"/>
+                    <field name="segunda_hora_salida" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+          <!--fin form marcaciones-->
+
+
+          <!--estado para lista de horas extra-->
+          <record model="ir.ui.view" id="view_filtro_he_form">
+        <field name="name">hr.holidays.status.inherit</field>
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <field name="limit" position="after">
+                <field name="afecta_quinta" />
+                <field name="filtro_he" />
+            </field>
+
+
+            <field name="name" position="before">
+                <field name="agrupador" />
+            </field>
+            <field name="name" position="after">
+                <field name="descripcion_ingles" />
+                <field name="indicador_ausentismo" />
+            </field>
+            <field name="filtro_he" position="after">
+                <field name="unidad"/>
+                <field name="min_tiempo_horas" widget="float_time" attrs="{'invisible': ['|',('unidad', '==', 'dias')]}"/>
+                <field name="max_tiempo_horas" widget="float_time" attrs="{'invisible': ['|',('unidad', '==', 'dias')]}"/>
+                <field name="min_tiempo" digits="(12,0)" attrs="{'invisible': ['|',('unidad', '==', 'horas')]}"/>
+                <field name="max_tiempo" digits="(12,0)" attrs="{'invisible': ['|',('unidad', '==', 'horas')]}"/>
+                <field name="reg_fecha_inicio"/>
+                <field name="reg_fecha_fin"/>
+                <field name="pagada"/>
+                <field name="trabajo_efectivo"/>
+                <field name="regla_computo"/>
+                <field name="dia_semana_inicio"/>
+                <field name="dia_semana_fin"/>
+            </field>
+            <field name="active" position="after">
+                <field name="festivos_ids" widget="many2many_tags"/>
+                <field name="tipo_dia_ids" widget="many2many_tags"/>
+                <field name="observaciones"/>
+                <field name="error"/>
+            </field>
+        </field>
+      </record>
+
+            <record id="view_hr_holidays_st_festivos_form" model="ir.ui.view">
+            <field name="name">hr.holidays.st.festivos.form</field>
+            <field name="model">hr.holidays.st.festivos</field>
+            <field name="arch" type="xml">
+                <form string="Festivos Group">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+           <record id="view_hr_holidays_st_tipo_dia_form" model="ir.ui.view">
+            <field name="name">hr.holidays.st.tipo.dia.form</field>
+            <field name="model">hr.holidays.st.tipo.dia</field>
+            <field name="arch" type="xml">
+                <form string="Tipo Dia Group">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+          <!--fin estado para lista de horas extra-->
+
+          <!--cronograma-->
+          <record id="horario_cronograma_form" model="ir.ui.view">
+              <field name="name">horario.cronograma.form</field>
+              <field name="model">horario.cronograma</field>
+              <field name="arch" type="xml">
+                  <form string="Cronograma">
+                        <header>
+                                <button string="Aprobar" type="object" name="concept_progressbar" attrs="{'invisible': [('state', '=', 'aprobado')]}"/>
+                                <!--The oe_highlight class gives the button a red color when it is saved.
+                                It is usually used to indicate the expected behaviour. -->
+                                <button string="Rechazar" type="object" name="started_progressbar" class="oe_highlight" attrs="{'invisible': [('state','!=','aprobado')]}"/>
+                                <!--<button string="In progress" type="object" name="progress_progressbar" attrs="{'invisible': [('state','=','progress')]}"/>-->
+                                <!--<button string="Done" type="object" name="done_progressbar" attrs="{'invisible': [('state','=','finished')]}"/>-->
+                                <!--This will create the statusbar, thanks to the widget. -->
+                                <field name="state" widget="statusbar"/>
+                            </header>
+
+                          <group>
+                              <group>
+                                  <field name="fecha_inicio" widget="date" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                                  <field name="fecha_fin" widget="date" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                              </group>
+                              <group>
+                                 <field name="employee_id" string="Empleado" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                              </group>
+                          </group>
+                          <field name="horario_cronograma_ids" nolabel="1" string="Programacion de Conductores"/>
+                  </form>
+              </field>
+          </record>
+
+         <record model='ir.ui.view' id='horario_cronograma_tree'>
+            <field name="name">horario.cronograma.tree</field>
+            <field name="model">horario.cronograma</field>
+            <field name="arch" type="xml">
+                <tree string="Cronograma">
+                    <field name="fecha_inicio" />
+                    <field name="fecha_fin"/>
+                    <field name="employee_id" string="Empleado"/>
+
+                </tree>
+            </field>
+        </record>
+
+               <record model="ir.ui.view" id="horario_cronograma_calendar_view">
+            <field name="name">horario.cronograma.calendar</field>
+            <field name="model">horario.cronograma</field>
+            <field name="type">calendar</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="fecha_inicio" color="employee_id" date_stop="fecha_fin"  day_length="8">
+                         <field name="fecha_inicio" widget="date"/>
+                        <field name="fecha_fin" widget="date"/>
+                        <field name="employee_id" string="Empleado"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <record model='ir.actions.act_window' id='horario_cronograma_act'>
+            <field name="name">Registro de Cronogramas</field>
+            <field name="res_model">horario.cronograma</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro de cronogramas.
+              </p>
+              <p>
+                Aqui puedes agregar varios registros de cronogramas
+              </p>
+            </field>
+        </record>
+          <menuitem action="horario_cronograma_act" parent="hr_attendance.menu_hr_time_tracking" id="horario_cronograma_menu" groups="base.group_hr_manager"/>
+          <!--fin cronograma-->
+
+          <!--detalle programacion de coductores-->
+
+           <record id="horario_det_empleado_form" model="ir.ui.view">
+              <field name="name">horario.detalle.cronograma.form</field>
+              <field name="model">horario.detalle.cronograma</field>
+              <field name="arch" type="xml">
+                  <form string="Detalle Cronograma Vehiculos">
+                      <group colspan="12" col="6">
+                            <field name="fecha" widget="date" readonly="1"/>
+                         </group>
+                           <group colspan="2">
+                                <group string="Turno Diurno">
+
+                                    <field name="hora_entrada" widget="float_time" readonly="1"/>
+                                    <field name="hora_salida" widget="float_time" readonly="1"/>
+                                </group>
+                                <group string="Turno Norturno">
+
+                                        <field name="segunda_hora_entrada" widget="float_time" readonly="1"/>
+                                        <field name="segunda_hora_salida" widget="float_time" readonly="1"/>
+                                </group>
+				            </group>
+                         <field name="horario_det_vehi_ids" string="Programa detallado de Vehiculos y Rutas"/>
+                  </form>
+              </field>
+          </record>
+
+          <record id="horario_det_tree_view" model="ir.ui.view">
+            <field name="name">horario.detalle.cronograma.tree.view</field>
+            <field name="model">horario.detalle.cronograma</field>
+            <field name="arch" type="xml">
+                 <tree string="Cronograma Detalle" class="detalle_vehiculos" colors="pink:codigo == 'OO'; red:codigo == 'OF'">
+                        <field name="fecha" widget="date" />
+                        <field name="hora_entrada" widget="float_time"/>
+                        <field name="hora_salida" widget="float_time"/>
+                        <field name="segunda_hora_entrada" widget="float_time"/>
+                        <field name="segunda_hora_salida" widget="float_time"/>
+                        <field name="codigo" invisible="1"/>
+                        <field name="horario_det_vehi_ids" />
+                  </tree>
+            </field>
+          </record>
+          <!--detalle programacion de coductores-->
+
+          <!--detalle cronograma-->
+           <record id="horario_det_vehi_empleado_form" model="ir.ui.view">
+              <field name="name">horario.detalle.cronograma.vehi.form</field>
+              <field name="model">horario.detalle.cronograma.vehi</field>
+              <field name="arch" type="xml">
+                  <form string="Detalle Cronograma Vehiculos">
+                         <group colspan="12" col="6">
+                            <field name="fecha" widget="date"/>
+                           <h3><field name="jornada_name"/></h3>
+
+                         </group>
+                           <group colspan="2">
+                                <group string="Horas">
+                                    <field name="hora_entrada" widget="float_time"/>
+                                    <field name="hora_salida" widget="float_time"/>
+                                </group>
+                                <group string="Vehiculos y Rutas">
+                                        <field name="vehiculo"/>
+                                        <field name="ruta"/>
+                                </group>
+				            </group>
+
+                  </form>
+              </field>
+          </record>
+
+          <record id="horario_det_vehi_tree_view" model="ir.ui.view">
+            <field name="name">horario.detalle.cronograma.vehi.tree.view</field>
+            <field name="model">horario.detalle.cronograma.vehi</field>
+            <field name="arch" type="xml">
+                <tree string="Detalle Cronograma Vehiculos" delete="true">
+
+                    <field name="fecha" widget="date"/>
+                    <field name="hora_entrada" widget="float_time"/>
+                    <field name="hora_salida" widget="float_time"/>
+                    <field name="vehiculo"/>
+                    <field name="ruta"/>
+                </tree>
+            </field>
+          </record>
+          <!--detalle cronograma-->
+
+          <!--vacaciones-->
+           <record id="horario_vacaciones_form" model="ir.ui.view">
+              <field name="name">horario.vacaciones.x.empleado.form</field>
+              <field name="model">horario.vacaciones.x.empleado</field>
+              <field name="arch" type="xml">
+                  <form string="Vacaciones">
+                      <header>
+
+                        <button name="ir_al_empleado_3" type="object" string="Regresar al Empleado" class="oe_highlight" icon="gtk-go-back"/>
+
+                                <button string="Aprobar" type="object" name="concept_progressbar" attrs="{'invisible': [('state', '=', 'aprobado')]}"/>
+                                <!--The oe_highlight class gives the button a red color when it is saved.
+                                It is usually used to indicate the expected behaviour. -->
+                                <button string="Rechazar" type="object" name="started_progressbar" class="oe_highlight" attrs="{'invisible': [('state','!=','aprobado')]}"/>
+                                <!--<button string="In progress" type="object" name="progress_progressbar" attrs="{'invisible': [('state','=','progress')]}"/>-->
+                                <!--<button string="Done" type="object" name="done_progressbar" attrs="{'invisible': [('state','=','finished')]}"/>-->
+                                <!--This will create the statusbar, thanks to the widget. -->
+                                <field name="state" widget="statusbar"/>
+                            </header>
+                          <group>
+                              <group>
+                                  <field name="fecha_inicio" widget="date" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                                  <field name="fecha_fin" widget="date" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                              </group>
+                              <group>
+                                 <field name="employee_id" string="Empleado" attrs="{'readonly': [('state','=','aprobado')]}"/>
+                              </group>
+                          </group>
+                          <field name="detalle_vacaciones_ids" nolabel="1" widget="one2many_list" attrs="{'readonly': [('state','=','aprobado')]}">
+                              <tree string="Vacaciones Detalle">
+                                    <field name="fecha_inicio" widget="date"/>
+                                    <field name="fecha_fin" widget="date"/>
+                                    <field name="dias_ganados" sum="Días ganados" />
+                                    <field name="dias_indemnizados" string="Días de Balance"/>
+                                    <field name="dias_gozados" string="Días Gozados"/>
+                                    <field name="dias_adelantados" string='Días Adelantados'/>
+                                    <field name="dias_no_efectivos" string='Días No Efectivos por DM'/>
+                                    <field name="dias_comprados" string='Días Convenio'/>
+                                    <field name="dias_vencidos" digits="(14, 0)" sum="Días Vencidos"  string="Días Vencidos"/>
+                                    <field name="dias_pendientes" digits="(14, 0)" sum="Días pendientes" string="Días Pendientes"/>
+
+                                    <field name="dias_truncos" sum="Total Truncos" string="Días Truncos"/>
+                                    <field name="saldo" sum="Saldo" />
+                              </tree>
+                          </field>
+                  </form>
+              </field>
+          </record>
+
+
+         <record model='ir.ui.view' id='horario_vacaciones_tree'>
+            <field name="name">horario.vacaciones.x.empleado.tree</field>
+            <field name="model">horario.vacaciones.x.empleado</field>
+            <field name="arch" type="xml">
+                <tree string="Vacaciones">
+                    <field name="fecha_inicio" />
+                    <field name="fecha_fin"/>
+                    <field name="employee_id" string="Empleado"/>
+                </tree>
+            </field>
+        </record>
+
+               <!--<record model="ir.ui.view" id="horario_vacaciones_calendar_view">-->
+            <!--<field name="name">horario.vacaciones.x.empleado.calendar</field>-->
+            <!--<field name="model">horario.vacaciones.x.empleado</field>-->
+            <!--<field name="type">calendar</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<calendar string="Calendar" date_start="fecha_inicio" color="employee_id" date_stop="fecha_fin"  day_length="8">-->
+                         <!--<field name="fecha_inicio" widget="date"/>-->
+                        <!--<field name="fecha_fin" widget="date"/>-->
+                        <!--<field name="employee_id" string="Empleado"/>-->
+                <!--</calendar>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+        <record model='ir.actions.act_window' id='horario_vacaciones_act'>
+            <field name="name">Record de vacaciones</field>
+            <field name="res_model">horario.vacaciones.x.empleado</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro de vacaciones.
+              </p>
+              <p>
+                Aqui puedes agregar varios registros de vacaciones
+              </p>
+            </field>
+        </record>
+          <menuitem action="horario_vacaciones_act" parent="hr.menu_hr_main" id="horario_vacaciones_menu" groups="base.group_hr_manager"/>
+          <!--vacaciones-->
+
+          <!--balance saldos-->
+            <record id="horario_balance_saldos_form" model="ir.ui.view">
+              <field name="name">horario.balance.saldos.form</field>
+              <field name="model">horario.balance.saldos</field>
+              <field name="arch" type="xml">
+                  <form string="Balance de Saldos">
+                          <group>
+                              <group>
+                                 <field name="employee_id" string="Empleado" required="1"/>
+                              </group>
+                          </group>
+                          <field name="balance_saldos_ids" nolabel="1" widget="one2many_list">
+                              <tree string="Detalle Balance de Saldos" editable="bottom">
+                                    <field name="fecha" widget="date"/>
+                                    <field name="nro_dias" sum="Total Días" string="Días"/>
+                                    <field name="employee_id" invisible="1" required="1"/>
+                              </tree>
+                          </field>
+                  </form>
+              </field>
+          </record>
+
+
+
+         <record model='ir.ui.view' id='horario_balance_saldos_tree'>
+            <field name="name">horario.balance.saldos.tree</field>
+            <field name="model">horario.balance.saldos</field>
+            <field name="arch" type="xml">
+                <tree string="Vacaciones">
+                    <field name="employee_id" string="Empleado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='horario_balance_saldos_act'>
+            <field name="name">Balance de saldos de vacaciones</field>
+            <field name="res_model">horario.balance.saldos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro de balance de saldos de vacaciones.
+              </p>
+              <p>
+                Aqui puedes agregar varios registros de balance de saldos de vacaciones
+              </p>
+            </field>
+        </record>
+          <menuitem action="horario_balance_saldos_act" parent="hr.menu_hr_main" id="horario_balance_saldos_menu" groups="base.group_hr_manager"/>
+
+          <!--balance saldos-->
+
+          <!--inherit holiday-->
+           <record model="ir.ui.view" id="view_ausencias_form">
+                <field name="name">hr.ausencias.inherit</field>
+                <field name="model">hr.holidays</field>
+                <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+                <field name="arch" type="xml">
+                    <field name="name" position="replace"/>
+                    <!--<field name="employee_id" position="replace">-->
+                        <!--<field name="employee_id"/>-->
+                    <!--</field>-->
+                    <field name="holiday_status_id" position="after">
+                        <field name="name" type="text"/>
+                    </field>
+                    <xpath expr="//div[2]" position="after">
+                        <div>
+                            <field name="dias_trabajados_caja" class="oe_inline" attrs="{'readonly':[('state','=','validate')]}"/> Días Trabajados
+                        </div>
+                        <div>
+                            <field name="dias_notrabajados_caja" class="oe_inline" attrs="{'readonly':[('state','=','validate')]}"/> Días No Trabajados
+                        </div>
+                    </xpath>
+                </field>
+           </record>
+          <!--inherit holiday-->
+
+          <!--tree view holidays-->
+
+          <record id="view_hr_holidays_inherits_tree" model="ir.ui.view">
+          <field name="name">hr.holidays_tree</field>
+          <field name="model">hr.holidays</field>
+          <field name="inherit_id" ref="hr_holidays.view_holiday"/>
+          <field name="arch" type="xml">
+                <field name="number_of_days" position="replace">
+                 <field name="number_of_days_temp" sum="Días restantes"/>
+                </field>
+
+          </field>
+      </record>
+          <!--tree view holidays-->
+
+          <record id="view_hr_holidays_inherits_tree_yoo" model="ir.ui.view">
+          <field name="name">hr.holidays_tree</field>
+          <field name="model">hr.holidays</field>
+          <field name="inherit_id" ref="hr_holidays.view_holiday_simple"/>
+          <field name="arch" type="xml">
+                <field name="number_of_days" position="replace">
+                 <field name="number_of_days_temp" sum="Días restantes"/>
+                </field>
+
+          </field>
+      </record>
+
+          <!--tree view holidays-->
+
+          <!--detalle asistencias tipo-->
+
+          <record model="ir.ui.view" id="view_deta_tipos_form">
+                <field name="name">horario.det.asistencias.tipo.form</field>
+                <field name="model">horario.det.asistencias.tipo</field>
+                <field name="arch" type="xml">
+                 <form string="Tipo Asistencia">
+                    <group>
+                        <group string="Horas">
+                            <field name="primera_hora_entrada" widget="float_time" string="1° Hora"/>
+                            <field name="primera_marca_entrada" widget="float_time" string="2° Hora"/>
+                        </group>
+                        <group string="Diferencia entre Horas">
+                             <field name="diferencia_horas" widget="float_time"/>
+                        </group>
+                        <group string="Tipo de Asistencia">
+                            <field name="tipo_primera_entrada"/>
+                        </group>
+                    </group>
+                 </form>
+                </field>
+           </record>
+          <record model='ir.actions.act_window' id='horario_tipo_asis_act'>
+            <field name="name">Tipo</field>
+            <field name="res_model">horario.det.asistencias.tipo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                  <p class="oe_view_nocontent_create">
+                Click para crear un registro
+              </p>
+            </field>
+        </record>
+          <!--detalle asistencias tipo-->
+
+<!--saldos de vacaciones-->
+
+           <record model='ir.ui.view' id='horario_saldo_vac_tree'>
+            <field name="name">hr.saldo.vacaciones.tree</field>
+            <field name="model">hr.saldo.vacaciones</field>
+            <field name="arch" type="xml">
+                <tree string="Vacaciones" edit="false" create="false" delete="false">
+                    <field name="codigo_employee"/>
+                    <field name="id_employee"/>
+                    <field name="fecha_contrato"/>
+                    <field name="vencidas" digits="(14, 0)"/>
+                    <field name="pendientes" digits="(14, 0)"/>
+                    <field name="truncos" />
+                    <field name="total" />
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='horario_saldo_vac_act'>
+            <field name="name">Saldo de Vacaciones</field>
+            <field name="res_model">hr.saldo.vacaciones</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                  <p class="oe_view_nocontent_create">
+                Click para crear un registro
+              </p>
+            </field>
+        </record>
+           <menuitem action="horario_saldo_vac_act" id="menu_saldos_vac_tree" parent="hr_payroll.menu_hr_root_payroll" groups="base.group_hr_user"/>
+<!--saldos de vacaciones-->
+
+<!--contratos inherit-->
+           <record model="ir.ui.view" id="view_contracto_hr_form">
+                <field name="name">hr.contract.inherit</field>
+                <field name="model">hr.contract</field>
+                <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+                <field name="arch" type="xml">
+
+                <xpath expr="/form/*" position="before">
+                    <header>
+                        <button name="ir_al_empleado" type="object" string="Regresar al Empleado" class="oe_highlight" icon="gtk-go-back"/>
+                    </header>
+                </xpath>
+
+
+                    <field name="type_id" position="after">
+                        <field name="regimen_laboral" string="Régimen Laboral"/>
+                        <field name="regimen_acumulativo" string="Régimen Acumulativo"/>
+                        <field name="jornada_maxima"/>
+                        <field name="horario_nocturno"/>
+                    </field>
+
+                    <field name="job_id" position="after">
+                        <field name="contrato_activo"/>
+                    </field>
+
+                    <field name="wage" position="after">
+                        <field name="tipo_pago"/>
+                         <field name="renta_5_exonerada" invisible="1"/>
+                        <field name="calculo_gratificacion"/>
+                        <label for="grati_julio"/>
+                        <div>
+                            <field name="grati_julio"/>
+                            <field name="grati_julio_caja"  attrs="{'invisible': [('grati_julio', '==', False)], 'required':[('grati_julio','==', True)]}"/>
+                        </div>
+                        <label for="grati_dici"/>
+                        <div>
+                            <field name="grati_dici"/>
+                            <field name="grati_dici_caja"  attrs="{'invisible': [('grati_dici', '==', False)], 'required':[('grati_dici','==', True)]}"/>
+                       </div>
+
+                    </field>
+                       <field name="working_hours" position="replace">
+                       <field name="working_hours" invisible="1"/>
+                       </field>
+
+                    <field name="working_hours" position="after">
+                        <field name="periodicidad_remu" string="Periodo Remuneración"/>
+                    </field>
+
+                    <page string="Work Permit" position="before">
+                        <page string="Variación de Salarios">
+                            <field name="salarios_ids" nolabel="1" widget="one2many_list">
+                                <tree string="Salarios" editable="top">
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                    <field name="tipo_pago"/>
+                                    <field name="salario_basico"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </page>
+
+                    <page string="Work Permit" position="after">
+                        <page string="Periodos">
+                            <field name="periodo_ids" nolabel="1" widget="one2many_list">
+                                <tree string="Peridodos" editable="bottom">
+
+                                    <field name="categoria"/>
+                                    <field name="tipo_registro"/>
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                    <field name="indicador_motivo_fin" attrs="{'invisible': ['|','|','|',('tipo_registro', '==', '2'),('tipo_registro', '==', '3'),('tipo_registro', '==', '4'),('tipo_registro', '==', '5')]}"/>
+                                    <field name="indicador_tipo_trabajador" attrs="{'invisible': ['|','|','|',('tipo_registro', '==', '1'),('tipo_registro', '==', '3'),('tipo_registro', '==', '4'),('tipo_registro', '==', '5')]}"/>
+                                    <field name="indicador_regimen_aseguramiento"  attrs="{'invisible': ['|','|','|',('tipo_registro', '==', '1'),('tipo_registro', '==', '2'),('tipo_registro', '==', '4'),('tipo_registro', '==', '5')]}"/>
+                                    <field name="indicador_regimen_pensionario"  attrs="{'invisible': ['|','|','|',('tipo_registro', '==', '1'),('tipo_registro', '==', '2'),('tipo_registro', '==', '3'),('tipo_registro', '==', '5')]}"/>
+                                    <field name="indicador_sctr_salud"  attrs="{'invisible': ['|','|','|',('tipo_registro', '==', '1'),('tipo_registro', '==', '2'),('tipo_registro', '==', '3'),('tipo_registro', '==', '4')]}"/>
+                                    <field name="eps_servicio_propio" attrs="{'invisible': [('indicador_regimen_aseguramiento', 'not in', (2,4))]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </page>
+                </field>
+           </record>
+<!--contratos inherit-->
+
+           <!-- Contract View -->
+        <record id="hr_contract_form_inherit_yo_invisible" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_payroll.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+                         <field name="schedule_pay" position="replace">
+                            <field name="schedule_pay" invisible="1"/>
+                        </field>
+                </data>
+            </field>
+        </record>
+
+
+          <!--estudio concluidos-->
+
+               <record model="ir.ui.view" id="view_estudios_hr_form">
+                <field name="name">hr.estudios.concluidos.form</field>
+                <field name="model">hr.estudios.concluidos</field>
+                <field name="arch" type="xml">
+                     <form string="Tipo Asistencia">
+                         <group>
+                            <field name="superior_completa" string="Form. Sup. Completa" domain="[('code', 'in', (11,13))]"/>
+                            <field name="ind_superior_completa" string="Ind. Educ. Sup. Completa"/>
+                            <field name="codigo_inst_educativa" string="Cod. Institucion Educativa" attrs="{'required':[('ind_superior_completa','==','1')], 'invisible':[('ind_superior_completa','==','0')]}"/>
+                            <field name="anio_egreso" string="Año de Egreso" attrs="{'required':[('ind_superior_completa','==','1')], 'invisible':[('ind_superior_completa','==','0')]}"/>
+                         </group>
+                     </form>
+                </field>
+           </record>
+
+          <record id="view_estudios_hr_tree" model="ir.ui.view">
+            <field name="name">hr.estudios.concluidos.tree</field>
+            <field name="model">hr.estudios.concluidos</field>
+            <field name="arch" type="xml">
+                <tree string="Estudios Concluidos">
+                    <field name="superior_completa"/>
+                    <field name="ind_superior_completa"/>
+                    <!--<field name="codigo_inst_educativa"/>-->
+                    <field name="anio_egreso"/>
+                </tree>
+            </field>
+	    </record>
+
+
+           <record model='ir.actions.act_window' id='estudios_hr_act'>
+            <field name="name">Estudios Concluidos</field>
+            <field name="res_model">hr.estudios.concluidos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+          <!--estudio concluidos-->
+
+          <!--ingreso de judiciales-->
+
+               <record model="ir.ui.view" id="view_hr_judiciales_form">
+                <field name="name">hr.judiciales.form</field>
+                <field name="model">hr.judiciales</field>
+                <field name="arch" type="xml">
+                     <form string="Judiciales">
+                    <header>
+                        <button name="ir_al_empleado_4" type="object" string="Regresar al Empleado" class="oe_highlight" icon="gtk-go-back"/>
+                    </header>
+                         <sheet>
+                             <group string="Trabajador">
+
+                                  <field name="employee_id"/>
+                                 <field name="tipo_demanda" widget="radio"/>
+                            </group>
+                            <group string="Documento">
+                                 <field name="memo"/>
+                                 <field name="tipo_documento"/>
+                                 <field name="nro_documento"/>
+                                 <field name="tipo_demanda_documento" widget="radio"/>
+                                 <field name="demandante"/>
+                                 <field name="documento_identidad"/>
+                                 <field name="materia"/>
+                                 <field name="tipo_descuento"/>
+                                 <field name="concepto"/>
+                                 <field name="desc_concepto"/>
+                                 <field name="forma_pago"/>
+                                 <field name="cuenta"/>
+                                 <field name="importe_descontar"/>
+                                 <field name="tipo_importe_descuento" attrs="{'required':[('importe_descontar','>',0)], 'invisible':[('importe_descontar','==',0)]}" />
+                                 <field name="tipo_moneda" widget="radio"/>
+                                 <field name="nro_proceso"/>
+                                 <field name="juzgado"/>
+                                 <field name="provincia"/>
+                                 <field name="inicio_vigencia"/>
+                                 <field name="fin_vigencia"/>
+                                 <field name="fecha_creacion"/>
+                            </group>
+                        </sheet>
+                     </form>
+                </field>
+           </record>
+
+          <record id="view_hr_judiciales_tree" model="ir.ui.view">
+            <field name="name">hr.judiciales.tree</field>
+            <field name="model">hr.judiciales</field>
+            <field name="arch" type="xml">
+                <tree string="Judiciales">
+                      <field name="employee_id"/>
+                     <field name="tipo_demanda" widget="radio"/>
+                     <field name="memo"/>
+                     <field name="tipo_demanda_documento" widget="radio"/>
+                     <field name="demandante"/>
+                     <field name="materia"/>
+                     <field name="tipo_descuento"/>
+                     <field name="concepto"/>
+                     <field name="forma_pago"/>
+                     <field name="tipo_moneda" widget="radio"/>
+                     <field name="nro_proceso"/>
+                     <field name="juzgado"/>
+                     <field name="provincia"/>
+                </tree>
+            </field>
+	    </record>
+
+
+           <record model='ir.actions.act_window' id='hr_judiciales_act'>
+                <field name="name">Judiciales</field>
+                <field name="res_model">hr.judiciales</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+           <menuitem action="hr_judiciales_act" id="menu_hr_judiciales" parent="hr_payroll.menu_hr_root_payroll" groups="base.group_hr_user" sequence="0"/>
+
+          <!--ingreso de judiciales-->
+
+          <!--salary rule-->
+           <record id="hr_salary_rule_inherit_view" model="ir.ui.view">
+            <field name="name">hr.salary.rule.inherit</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+            	<field name="code" position="after">
+            		<field name="afectacion_quinta"/>
+            	</field>
+            	<field name="appears_on_payslip" position="after">
+            		<field name="afectacion_afp"/>
+            	</field>
+		    </field>
+		</record>
+          <!--salary rule-->
+
+          <record id="hr_payslip_form_yo" model="ir.ui.view">
+          <field name="name">hr.payslip_form</field>
+          <field name="model">hr.payslip</field>
+          <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+          <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="generar_pdfs_empelado_solo" type="object" string="Imprimir Nómina" class="oe_highlight" attrs="{'invisible':[('generar_liquidacion','==',True)]}"/>
+
+                    <button name="generar_pdfs_liquidacion" type="object" string="Imprimir PDF Liquidación" class="oe_highlight" attrs="{'invisible':[('generar_liquidacion','==',False)]}"/>
+                </field>
+               <field name="credit_note" position="after">
+                    <field name="generar_liquidacion"/>
+                </field>
+          </field>
+      </record>
+
+          <!--salary rule-->
+
+          <record id="hr_payslip_run_form_yo" model="ir.ui.view">
+          <field name="name">hr.payslip.run_form</field>
+          <field name="model">hr.payslip.run</field>
+          <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+          <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="generar_pdfs_empelados" type="object" string="Generar Pdfs" states="draft" class="oe_highlight"/>
+                </field>
+
+          </field>
+      </record>
+
+      <!--<record id="hr_payslip_run_tree_yo" model="ir.ui.view">-->
+          <!--<field name="name">hr.payslip.run.tree.yo</field>-->
+          <!--<field name="model">hr.payslip.run</field>-->
+          <!--<field name="inherit_id" ref="hr_payroll.hr_payslip_run_tree"/>-->
+          <!--<field name="arch" type="xml">-->
+                <!--<field name="state" position="before">-->
+                    <!--<button name="generar_pdfs_empelados" type="object" string="Generar Pdfs" states="draft" class="oe_highlight"/>-->
+                <!--</field>-->
+          <!--</field>-->
+      <!--</record>-->
+
+
+          <!--anterioirrrrrrrrrr empresa-->
+                    <!--vacaciones-->
+           <record id="hr_liquidacion_anterior_form" model="ir.ui.view">
+              <field name="name">hr.liquidacion.empresa.anterior.form</field>
+              <field name="model">hr.liquidacion.empresa.anterior</field>
+              <field name="arch" type="xml">
+                  <form string="Anterior Empresa">
+                          <group>
+                               <group>
+                                 <field name="employee_id" attrs="{'readonly':[('liquidacion_anterior','=',True)]}"/>
+                                 <field name="empresa_anterior" attrs="{'readonly':[('liquidacion_anterior','=',True)]}"/>
+                                 <field name="code" attrs="{'readonly':[('liquidacion_anterior','=',True)]}" string="Año Actual"/>
+                              </group>
+                              <group>
+                                  <field name="monto_total_liquidacion" attrs="{'readonly':[('liquidacion_anterior','=',True)]}" string="Total de Ingresos"/>
+                                  <field name="monto_descuento_quinta" attrs="{'readonly':[('liquidacion_anterior','=',True)]}" string="Total Retención Quinta"/>
+                                  <field name="liquidacion_anterior" invisible="1"/>
+                              </group>
+                          </group>
+                  </form>
+              </field>
+          </record>
+
+
+         <record model='ir.ui.view' id='hr_liquidacion_anterior_tree'>
+            <field name="name">hr.liquidacion.empresa.anterior.tree</field>
+            <field name="model">hr.liquidacion.empresa.anterior</field>
+            <field name="arch" type="xml">
+                <tree string="Anterior Empresa">
+                    <field name="employee_id"/>
+                    <field name="empresa_anterior"/>
+                    <field name="monto_total_liquidacion"/>
+                    <field name="monto_descuento_quinta"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='hr_liquidacion_anterior_act'>
+            <field name="name">Anterior Empresa</field>
+            <field name="res_model">hr.liquidacion.empresa.anterior</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear un registro de liquidacion anterior.
+              </p>
+              <p>
+                Aqui puedes agregar varios registros de liquidacion anterior
+              </p>
+            </field>
+        </record>
+          <menuitem action="hr_liquidacion_anterior_act" parent="hr.menu_hr_main" id="hr_empresas_anteriores_menu" groups="base.group_hr_manager"/>
+          <!--fin anterior empresa-->
+
+
+          <!--hiden-->
+        <record id="group_hide_menu"  model="res.groups">
+            <field name="name">Hide Menus</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <!--<field name="users" eval="[(4, ref('base.user_root'))]"/>-->
+        </record>
+
+          <!--peticion de asignacion -->
+        <record id="hr_holidays.menu_open_allocation_holidays" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu')])]"/>
+        </record>
+
+          <!--validdar peticion de asignacion-->
+        <record id="hr_holidays.menu_request_approve_allocation" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu')])]"/>
+        </record>
+
+        <!--mis partes de hora-->
+        <record id="hr_timesheet_sheet.menu_act_hr_timesheet_sheet_form_my_current" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu')])]"/>
+        </record>
+          <!--activitis-->
+        <record id="hr_timesheet.menu_hr_working_hours" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu')])]"/>
+        </record>
+        <!--partes a validar-->
+        <record id="hr_timesheet_sheet.menu_act_hr_timesheet_sheet_form" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('group_hide_menu')])]"/>
+        </record>
+
+        <!--<delete model="ir.actions.report.xml" id="hr_payroll.action_report_payslip" />-->
+
+       <record id="res_partner_bank_yo" model="ir.ui.view">
+          <field name="name">res.partner.bank_form</field>
+          <field name="model">res.partner.bank</field>
+          <field name="inherit_id" ref="base.view_partner_bank_form"/>
+          <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="propietario_el_mismo"/>
+                </field>
+              <field name="partner_id" position="replace">
+                    <field name="partner_id" attrs="{'invisible':[('propietario_el_mismo','=',True)]}"/>
+                </field>
+
+          </field>
+      </record>
+
+
+
+      </data>
+</openerp>

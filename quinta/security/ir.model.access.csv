@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_hr_uit_sunat,hr.uit.sunat,model_hr_uit_sunat,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_deducciones_x_ejercicio,hr.deducciones.x.ejercicio,model_hr_deducciones_x_ejercicio,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_factor_x_ejercicio,hr.factor.x.ejercicio,model_hr_factor_x_ejercicio,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_factor_x_ejercicio_detalle,hr.factor.x.ejercicio.detalle,model_hr_factor_x_ejercicio_detalle,base.group_hr_manager,base
+access_hr_tasas_x_ejercicio,hr.tasas.x.ejercicio,model_hr_tasas_x_ejercicio,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_tasas_x_ejercicio_detalle,hr.tasas.x.ejercicio.detalle,model_hr_tasas_x_ejercicio_detalle,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_mes_x_ejercicio,hr.mes.x.ejercicio,model_hr_mes_x_ejercicio,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_mes_x_ejercicio_detalle,hr.mes.x.ejercicio.detalle,model_hr_mes_x_ejercicio_detalle,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_afps,hr.afps,model_hr_afps,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_remuneracion_cts,hr.remuneracion.cts,model_hr_remuneracion_cts,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1
+access_hr_suma_cts,hr.suma.cts,model_hr_suma_cts,base.group_hr_manager,base.group_hr_user,base.group_user,1,1,1,1

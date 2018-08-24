@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<openerp>
+      <data>
+      <record id="view_account_global_discount" model="ir.ui.view">
+          <field name="name">account.global_discount</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_form"/>
+          <field name="priority">1000</field>
+          <field name="arch" type="xml">
+            <field name="payment_term" position="after">
+              <field name="global_discount" />
+              <field name="global_discount_type" attrs="{'required':[('global_discount','>',0)], 'invisible':[('global_discount','==',0)]}" />
+              <field name="global_discount_detail" attrs="{'required':[('global_discount','>',0)], 'invisible':[('global_discount','==',0)]}" />
+            </field>
+
+
+            <field name="amount_total" position="after">
+
+                    <field name="amount_untaxed_global_discount" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('amount_untaxed_global_discount','=',0)]}"/>
+                    <field name="monto_condescuento" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('amount_untaxed_global_discount','=',0)]}"/>
+
+                <field name="descuento_porlinea_general" invisible="1"/>
+
+            </field>
+
+               <field name="invoice_line_tax_id" position="after">
+
+                <field name="price_desc" invisible="1"/>
+
+            </field>
+
+
+               <field name="date_invoice" position="replace">
+
+                <field name="date_invoice" required="1"/>
+
+                </field>
+
+               <field name="date_invoice" position="after">
+
+                    <field name="es_boleta" invisible="1"/>
+
+                </field>
+
+              <field name="account_id" position="after">
+                  <field name="existe_percepcion" attrs="{'readonly': [('state','not in','draft')]}" invisible="1"/>
+
+                  <field name="existe_detraccion_cliente" attrs="{'readonly': [('state','not in','draft')],'invisible':[('es_boleta','=',True)]}"/>
+                  <field name="id_detracciones" attrs="{'invisible':[('existe_detraccion_cliente','==',False)], 'required':[('existe_detraccion_cliente','==',True)], 'readonly': [('state','not in','draft')]}" domain="[('lista_detracciones', '=', True)]"/>
+                  <field name="monto_detraccion_porcentaje" attrs="{'invisible':[('existe_detraccion_cliente','==',False)], 'readonly': [('state','not in','draft')]}" invisible="1"/>
+
+                  <!--<field name="existe_detraccion_cliente" attrs="{'invisible':[('es_boleta','=',True)]}"/>-->
+                  <!--<field name="id_detracciones" attrs="{'invisible':[('existe_detraccion_cliente','==',False)], 'required':[('existe_detraccion_cliente','==',True)]}" domain="[('lista_detracciones', '=', True)]"/>-->
+                  <!--<field name="monto_detraccion_porcentaje" attrs="{'invisible':[('existe_detraccion_cliente','==',False)], }" />-->
+
+              </field>
+            <field name="amount_total" position="before">
+                <field name="monto_sin_percepcion" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_percepcion','==',False)]}"/>
+                <field name="percepcion" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_percepcion','==',False)]}"/>
+
+            </field>
+              <field name="amount_total" position="after">
+                   <field name="detraccion_cliente" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_detraccion_cliente','==',False)]}"/>
+                  <field name="monto_sin_detraccion" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_detraccion_cliente','==',False)]}"/>
+
+            </field>
+
+              <field name="comment" position="after">
+                <div>
+                    <label string="Factura creada por:"/><field name="creado_por"/>
+                </div>
+              <div>
+                 <label string="Ultimo usuario que modifico:"/> <field name="ultima_upd"/>
+                   <field name="enviado_sunat" invisible="1"/>
+              </div>
+              </field>
+
+              <field name="state" position="replace">
+                  <field name="state" widget="statusbar" nolabel="1" statusbar_visible="draft,enviar_sunat, open,paid" statusbar_colors='{"proforma":"blue","enviar_sunat":"red","proforma2":"blue"}'/>
+              </field>
+
+          <button name="invoice_print" position="after">
+              <button name="action_enviar_sunat" type="object" string="Enviar a Sunat" class="oe_highlight" groups="base.group_user" attrs="{'invisible':['|',('enviado_sunat','=',True), ('state', '!=', 'enviar_sunat')]}"/>
+              <button name="custom_validate_tasks" type="object" states="draft" string="Validar" class="oe_highlight" groups="base.group_user"/>
+          </button>
+
+          <button name="action_invoice_sent" position="replace">
+              <button name="action_invoice_sent" type="object" string="Send by Email" attrs="{'invisible':['|','|',('enviado_sunat','=',False),('sent','=',True), ('state', '!=', 'open')]}" class="oe_highlight" groups="base.group_user"/>
+
+          </button>
+
+          <button name="invoice_print" position="replace">
+              <button name="invoice_print" type="object" string="Print" attrs="{'invisible':['|','|',('enviado_sunat','=',False),('sent','=',True), ('state', '!=', 'open')]}" class="oe_highlight" groups="base.group_user"/>
+
+          </button>
+
+          <button name="invoice_open" states="draft" string="Validate" class="oe_highlight" groups="base.group_user" position="replace">
+            <button name="invoice_open" states="draft" invisible="1" string="Validate" class="oe_highlight" groups="base.group_user"/>
+          </button>
+
+              <xpath expr="//h1[1]" position="replace">
+                <h1>
+                        <label string="Draft Invoice" attrs="{'invisible': ['|','|',('state','not in',('draft',)), ('type','&lt;&gt;','out_invoice'), ('es_boleta','=',True)]}"/>
+                        <label string="Boleta borrador" attrs="{'invisible': ['|','|',('state','not in',('draft',)), ('type','&lt;&gt;','out_invoice'), ('es_boleta','=',False)]}"/>
+                        <label string="Draft Refund" attrs="{'invisible': ['|',('state','not in',('draft',)), ('type','&lt;&gt;','out_refund')]}"/>
+                        <label string="Pro Forma Invoice" attrs="{'invisible': [('state','not in',('proforma','proforma2'))]}"/>
+                        <label string="Invoice" attrs="{'invisible': ['|','|',('state','in',('draft','proforma','proforma2')), ('type','&lt;&gt;','out_invoice'), ('es_boleta','=',True)]}"/>
+                        <label string="Boleta" attrs="{'invisible': ['|','|',('state','in',('draft','proforma','proforma2')), ('type','&lt;&gt;','out_invoice'), ('es_boleta','=',False)]}"/>
+                        <label string="Refund" attrs="{'invisible': ['|',('state','in',('draft','proforma','proforma2')), ('type','&lt;&gt;','out_refund')]}"/>
+                        <field name="number" readonly="1" class="oe_inline"/>
+                    </h1>
+              </xpath>
+
+          </field>
+      </record>
+
+          <record id="view_account_sup" model="ir.ui.view">
+          <field name="name">account.sup</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_supplier_form"/>
+          <field name="arch" type="xml">
+              <field name="date_invoice" position="replace">
+<!---->
+                <field name="date_invoice" required="1" widget="mask" placeholder="dd/mm/yyyy" mask="dd/mm/yyyy"/>
+<!---->
+            </field>
+              <field name="date_due" position="replace">
+<!---->
+                <field name="date_due" widget="mask" placeholder="dd/mm/yyyy" mask="dd/mm/yyyy"/>
+<!---->
+            </field>
+
+              <field name="currency_id" position="after">
+                  <field name="existe_percepcion" attrs="{'readonly': [('state','not in','draft')]}"/>
+                    <!--options="{'horizontal': true}"-->
+              </field>
+            <field name="amount_total" position="before">
+                  <field name="monto_sin_percepcion" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_percepcion','==',False)]}"/>
+                    <field name="percepcion" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'invisible':[('existe_percepcion','==',False)]}"/>
+              </field>
+               <field name="supplier_invoice_number" position="replace">
+                  <field name="serie_factura_proveedor" attrs="{'readonly':[('number','!=',False)]}"/>
+                  <field name="correlativo_factura_proveedor" attrs="{'readonly':[('number','!=',False)]}"/>
+              </field>
+
+               <field name="reference" position="replace">
+              </field>
+              <!--<xpath expr="//label[@for='reference_type']" position="after">-->
+                <!--<label for="reference"/>-->
+                    <!--<field  name="reference"/>-->
+              <!--</xpath> -->
+              <xpath expr="//div[2]" position="after">
+                <label for="reference" string="Cod. Ref. Factura"/>
+                  <div>
+                      <field  name="reference" attrs="{'readonly':[('number','!=',False)]}"/>
+                  </div>
+
+                <label for="tipo_documento_ref"/>
+                  <div>
+                      <field  name="tipo_documento_ref" attrs="{'readonly':[('number','!=',False)]}"/>
+                  </div>
+
+                <label for="fecha_documento_ref"/>
+                  <div>
+                      <field  name="fecha_documento_ref" widget="mask" placeholder="dd/mm/yyyy" mask="dd/mm/yyyy" attrs="{'readonly':[('number','!=',False)]}"/>
+                  </div>
+
+
+              </xpath>
+               <!--<xpath expr="//group/group[2]" position="after">-->
+                   <!--<group>-->
+                       <!--<group>-->
+                           <!--<field name="exportacion_nograbadas"/>-->
+                           <!--<field name="igv_exportacion_nograbadas"/>-->
+                       <!--</group>-->
+                       <!--<group>-->
+                           <!--<field name="adquisicion_sinderecho"/>-->
+                           <!--<field name="igv_adquisicion_sinderecho"/>-->
+                       <!--</group>-->
+                   <!--</group>-->
+                   <!--<group>-->
+                    <!--<field name="estado_credito_fiscal" widget="radio" nolabel="1" style="margin-bottom: 8px" invisible="1"/>-->
+                   <!--</group>-->
+               <!--</xpath>-->
+               <!--<xpath expr="//group/group[3]" position="after">-->
+                   <!--<group>-->
+                       <!--<group>-->
+                           <!--<field name="adquisicion_nograbada"/>-->
+                           <!--<field name="otros_tributos"/>-->
+                       <!--</group>-->
+                       <!--<group>-->
+                           <!--<field name="impuesto_selectivo_consumo"/>-->
+                       <!--</group>-->
+                   <!--</group>-->
+                 <!--<group>-->
+                    <!--<field name="estado_expostacion_gravada_adqui" widget="radio" nolabel="1" invisible="1"/>-->
+                 <!--</group>-->
+               <!--</xpath>-->
+<!--attrs="{'readonly':[('internal_number','!=',False)]}"-->
+              <field name="price_subtotal" position="replace">
+<!---->
+                <field name="price_subtotal" readonly="0"/>
+<!---->
+            </field>
+                <field name="comment"  position="replace">
+                </field>
+               <xpath expr="//label[@for='comment']" position="replace">
+                </xpath>
+
+                  <xpath expr="//group" position="after">
+<!---->
+                    <div class="oe_clear">
+                        <label for="comment" string="Glosa"/>
+                    </div>
+                    <field name="comment"/>
+<!---->
+              </xpath>
+
+                <xpath expr="//page[@string='Invoice']" position="inside">
+                     <group>
+                        <group>
+                           <group>
+                               <field name="exportacion_nograbadas" attrs="{'readonly':[('number','!=',False)]}"/>
+                               <field name="igv_exportacion_nograbadas" attrs="{'readonly':[('number','!=',False)]}"/>
+                           </group>
+                           <group>
+                               <field name="adquisicion_sinderecho" attrs="{'readonly':[('number','!=',False)]}"/>
+                               <field name="igv_adquisicion_sinderecho" attrs="{'readonly':[('number','!=',False)]}"/>
+                           </group>
+                            <group>
+                                <field name="estado_credito_fiscal" widget="radio" nolabel="1" style="margin-bottom: 8px" invisible="1"/>
+                            </group>
+                        </group>
+
+                        <group>
+                           <group>
+                               <field name="adquisicion_nograbada" attrs="{'readonly':[('number','!=',False)]}"/>
+                               <field name="otros_tributos" attrs="{'readonly':[('number','!=',False)]}"/>
+                           </group>
+                            <group>
+                                <field name="estado_expostacion_gravada_adqui" widget="radio" nolabel="1" invisible="1" attrs="{'readonly':[('number','!=',False)]}"/>
+                            </group>
+                        </group>
+                         <group>
+                            <group>
+                               <field name="impuesto_selectivo_consumo" attrs="{'readonly':[('number','!=',False)]}"/>
+                           </group>
+                            <group>
+                                <button name="precio_con_igv" type="object" string="Precio con IGV"  icon="gtk-execute" attrs="{'invisible':[('number','!=',False)]}"/>
+                            </group>
+                        </group>
+
+                    </group>
+                </xpath>
+
+                <field name="tipo_factura" position="replace">
+                     <field name="tipo_factura" string="Tipo de Comprobante" attrs="{'readonly':[('number','!=',False)]}"/>
+                </field>
+
+                <field name="entrega_factura_fisica" position="replace">
+                     <field name="entrega_factura_fisica" string="¿Entrega Factura Física?" attrs="{'readonly':[('number','!=',False)]}"/>
+                </field>
+
+                <field name="payment_term" position="after">
+                    <group string="Otras Referencias">
+                          <field name="otro_correlativo_documento_ref"/>
+                        <field name="otra_fecha_documento_ref"/>
+                    </group>
+                </field>
+
+
+          </field>
+      </record>
+
+      <!--<record model="ir.ui.view" id="invoice_tree_h">-->
+            <!--<field name="name">account.invoice.tree.inherit.yo</field>         -->
+            <!--<field name="model">account.invoice</field>-->
+            <!--<field name="inherit_id" ref="account.invoice_tree"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<xpath expr="/tree/field[@name='journal_id']" position="after">-->
+                     <!--<field name="period_id" invisible="1" groups="account.group_account_user" />-->
+                <!--</xpath>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+    <!--Inherit quotations search view-->
+    <record id="view_account_invoice_inherit_search_h" model="ir.ui.view">
+      <field name="name">sale.account.invoice.expand.filter.h</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+      <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+            <field name="period_id" context="{'period_id':self}" widget="selection"/> <!-- it's important to keep widget='selection' in this filter view because without that the value passed in the context is not the ID but the textual value (name) of the selected journal -->
+            <group expand="0" string="Group By">
+                <filter string="Period" icon="terp-go-month" domain="[]" context="{'group_by':'period_id'}"/>
+            </group>
+        </xpath>
+      </field>
+    </record>
+
+      <record id="account.action_invoice_tree2" model="ir.actions.act_window">
+          <field name="view_type">form</field>
+            <field name="view_mode">tree_cabecera_meses_fc_quickadd,form,calendar,graph</field>
+    </record>
+
+           <record id="view_product_uom_form_inherit2" model="ir.ui.view">
+          <field name="name">product.uom</field>
+          <field name="model">product.uom</field>
+          <field name="inherit_id" ref="product.product_uom_form_view"/>
+          <field name="arch" type="xml">
+              <field name="name" position="after">
+                  <field name="code"/>
+              </field>
+          </field>
+      </record>
+
+
+      <record id="view_account_invoice_inhe_tree" model="ir.ui.view">
+          <field name="name">account.invoice.colors</field>
+          <field name="model">account.invoice</field>
+          <field name="inherit_id" ref="account.invoice_tree"/>
+          <field name="arch" type="xml">
+                <tree position="attributes">
+                   <attribute name="colors">red: state == 'enviar_sunat';green: state == 'error_rechazo';blue:state == 'draft';black:state in ('proforma','proforma2','open');gray:state in ('cancel','anulado')</attribute>
+                </tree>
+                <field name="number" position="replace">
+                         <field name="number"/>
+                </field>
+                <!--<field name="partner_id" position="before">-->
+                         <!--<field name="id" string="ID"/>-->
+                <!--</field>-->
+          </field>
+      </record>
+
+           <record id="view_scraping_currency_inh" model="ir.ui.view">
+            <field name="name">currency inhe</field>
+            <field name="model">res.currency</field>
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                 <group string="Miscellaneous" position="after">
+                    <group string="Compra y Venta en Soles">
+                             <field name="tc_compra"/>
+                             <field name="tc_venta"/>
+                     </group>
+                 </group>
+            </field>
+        </record>
+
+
+           <record id="view_tax_form_inh" model="ir.ui.view">
+            <field name="name">account tax inhe</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                 <field name="child_depend" position="after">
+                    <field name="lista_detracciones"/>
+                 </field>
+            </field>
+        </record>
+
+      <record id="view_detraccion_receipt_dialog_form" model="ir.ui.view">
+            <field name="name">account.detraccion.receipt.dialog.receipt.inherit.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_vendor_receipt_dialog_form"/>
+            <field name="arch" type="xml">
+                <field name="amount" position="replace">
+                    <label string="Paid Amount"/>
+                    <div>
+                        <field name="amount" class="oe_inline"
+                                string="Paid Amount"
+                                widget='monetary' options='{"currency_field": "currency_id"}'
+                                invisible="context.get('line_type', False)"
+                                on_change="onchange_amount(amount, payment_rate, partner_id, journal_id, currency_id, type, date, payment_rate_currency_id, company_id, context)"/>
+                        S/.<field name="monto_soles" class="oe_inline" widget="monetary"/>
+                    </div>
+                </field>
+            </field>
+       </record>
+
+      <record id="view_purchase_receipt_form_yo" model="ir.ui.view">
+            <field name="name">account.view_purchase_receipt_form_yo.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_purchase_receipt_form"/>
+            <field name="arch" type="xml">
+
+                   <xpath expr="//button[@name='action_cancel_draft']" position="after">
+                    <button string="Eliminar Comprobante" name="eliminar_comprobante" states="posted" type="object"/>
+                    <button string="Reclasificar Cuentas" name="reclasificar_comprobante" states="posted" type="object"/>
+                    <!--<button string="Cancelar 2" name="cancelar_comprobante" states="posted" type="object"/>-->
+                   </xpath>
+
+            </field>
+        </record>
+
+            <!--<record id="action_quotations_yo_eli" model="ir.actions.act_window">-->
+                <!--<field name="name">Eliminando estados</field>-->
+                <!--<field name="res_model">account.voucher</field>-->
+                <!--<field name="view_type">form</field>-->
+                <!--<field name="act_window_id" ref="account_voucher.action_purchase_receipt"/>-->
+                <!--<field name="domain">[('journal_id.type','in',['purchase','purchase_refund']), ('type','=','purchase'), ('state','!=','eliminado')]</field>-->
+            <!--</record>-->
+
+      <!--<record id="view_solo_tipo_factura_form" model="ir.ui.view">-->
+            <!--<field name="name">account.d.form</field>-->
+            <!--<field name="model">account.invoice</field>-->
+            <!--<field name="inherit_id" ref="account_invoice.invoice_supplier_form_my"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="tipo_factura" position="replace">-->
+                     <!--<field name="tipo_factura" string="Tipo de Comprobante"/>-->
+                <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+
+      </data>
+</openerp>

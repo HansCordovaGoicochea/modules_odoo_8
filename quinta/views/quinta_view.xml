@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>	
+
+    <!-- UIT -->
+	    <record id="view_hr_uit_sunat_tree" model="ir.ui.view">
+            <field name="name">hr.uit.sunat.tree</field>
+            <field name="model">hr.uit.sunat</field>
+            <field name="arch" type="xml">
+                <tree string="UIT" editable="top">
+                    <field name="ejercicio_fiscal_id"/>
+                    <field name="valor_uit"/>
+                </tree>
+            </field>
+	    </record>        
+	    <!--<record id="view_hr_uit_sunat_form" model="ir.ui.view">-->
+            <!--<field name="name">hr.uit.sunat.form</field>-->
+            <!--<field name="model">hr.uit.sunat</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Codigo de Tipo de documento">-->
+                    <!--<group>-->
+                        <!--<group>-->
+                            <!--<field name="ejercicio_fiscal_id"/>-->
+                            <!--<field name="valor_uit"/>-->
+                        <!--</group>-->
+                    <!--</group>                    -->
+                <!--</form>	-->
+            <!--</field>-->
+	    <!--</record>        -->
+	    <record model="ir.actions.act_window" id="hr_uit_sunat_action">
+		    <field name="name">UIT</field>
+		    <field name="res_model">hr.uit.sunat</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+         <!-- Deducciones X Ejercicio -->
+	    <record id="view_hr_deducciones_x_ejercicio_tree" model="ir.ui.view">
+            <field name="name">hr.deducciones.x.ejercicio.tree</field>
+            <field name="model">hr.deducciones.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <tree string="Deducciones X Ejercicio" editable="top">
+                    <field name="ejercicio_fiscal_id"/>
+                    <field name="deducir"/>
+                    <field name="deduccion"/>
+                </tree>
+            </field>
+	    </record>
+	    <!--<record id="view_hr_uit_sunat_form" model="ir.ui.view">-->
+            <!--<field name="name">hr.uit.sunat.form</field>-->
+            <!--<field name="model">hr.uit.sunat</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Codigo de Tipo de documento">-->
+                    <!--<group>-->
+                        <!--<group>-->
+                            <!--<field name="ejercicio_fiscal_id"/>-->
+                            <!--<field name="valor_uit"/>-->
+                        <!--</group>-->
+                    <!--</group>                    -->
+                <!--</form>	-->
+            <!--</field>-->
+	    <!--</record>        -->
+	    <record model="ir.actions.act_window" id="hr_deducciones_x_ejercicio_action">
+		    <field name="name">Deducciones X Ejercicio</field>
+		    <field name="res_model">hr.deducciones.x.ejercicio</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+          <!-- Tasas aplicables por ejercicio -->
+	    <record id="view_hr_tasas_x_ejercicio_tree" model="ir.ui.view">
+            <field name="name">hr.tasas.x.ejercicio.tree</field>
+            <field name="model">hr.tasas.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <tree string="Tasas aplicables por ejercicio">
+                    <field name="ejercicio_fiscal_id"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_hr_tasas_x_ejercicio_form" model="ir.ui.view">
+            <field name="name">hr.tasas.x.ejercicio.form</field>
+            <field name="model">hr.tasas.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <form string="Tasas aplicables por ejercicio">
+                    <sheet>
+                            <group>
+                                <field name="ejercicio_fiscal_id"/>
+                            </group>
+                            <field name="tasas_ids" nolabel="1" widget="one2many_list">
+                                <tree string="Tasas aplicables por ejercicio" editable="bottom">
+                                    <field name="desde"/>
+                                    <field name="hasta"/>
+                                    <field name="valor_minimo"/>
+                                    <field name="valor_maximo"/>
+                                    <field name="porcentaje"/>
+                                    <field name="impuesto"/>
+                                </tree>
+                            </field>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_tasas_x_ejercicio_action">
+		    <field name="name">Tasas aplicables por ejercicio</field>
+		    <field name="res_model">hr.tasas.x.ejercicio</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+         <!-- Factor divisor del impuesto anual por ejercicio -->
+	    <record id="view_hr_factor_x_ejercicio_tree" model="ir.ui.view">
+            <field name="name">hr.factor.x.ejercicio.tree</field>
+            <field name="model">hr.factor.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <tree string="Factor divisor del impuesto anual por ejercicio">
+                    <field name="ejercicio_fiscal_id"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_hr_factor_x_ejercicio_form" model="ir.ui.view">
+            <field name="name">hr.factor.x.ejercicio.form</field>
+            <field name="model">hr.factor.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <form string="Factor divisor del impuesto anual por ejercicio">
+                    <sheet>
+                            <group>
+                                <field name="ejercicio_fiscal_id"/>
+                            </group>
+                            <field name="factor_ids" nolabel="1" widget="one2many_list">
+                                <tree string="Factor divisor del impuesto anual por ejercicio" editable="bottom">
+                                    <field name="mes_inicio"/>
+                                    <field name="mes_fin"/>
+                                    <field name="factor"/>
+                                    <field name="deduccion"/>
+                                    <field name="mes_inicio_deduce"/>
+                                    <field name="mes_fin_deduce"/>
+                                </tree>
+                            </field>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_factor_x_ejercicio_action">
+		    <field name="name">Factor divisor del impuesto anual por ejercicio</field>
+		    <field name="res_model">hr.factor.x.ejercicio</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+        <!-- Multiplicacion mes X Ejercicio -->
+	    <record id="view_hr_mes_x_ejercicio_tree" model="ir.ui.view">
+            <field name="name">hr.mes.x.ejercicio.tree</field>
+            <field name="model">hr.mes.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <tree string="Multiplicacion mes X Ejercicio ">
+                    <field name="ejercicio_fiscal_id"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_hr_mes_x_ejercicio_form" model="ir.ui.view">
+            <field name="name">hr.mes.x.ejercicio.form</field>
+            <field name="model">hr.mes.x.ejercicio</field>
+            <field name="arch" type="xml">
+                <form string="Multiplicacion mes X Ejercicio">
+                    <sheet>
+                            <group>
+                                <field name="ejercicio_fiscal_id"/>
+                            </group>
+                            <field name="mes_ids" nolabel="1" widget="one2many_list">
+                                <tree string="Multiplicacion mes X Ejercicio" editable="bottom">
+                                    <field name="mes"/>
+                                    <field name="valor"/>
+                                </tree>
+                            </field>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_mes_x_ejercicio_action">
+		    <field name="name">Multiplicacion mes X Ejercicio</field>
+		    <field name="res_model">hr.mes.x.ejercicio</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!-- hr_afps -->
+	    <record id="view_hr_afps_tree" model="ir.ui.view">
+            <field name="name">hr.afps.tree</field>
+            <field name="model">hr.afps</field>
+            <field name="arch" type="xml">
+                <tree string="AFPS">
+                    <field name="afp"/>
+                    <field name="porcentaje"/>
+                    <field name="prima"/>
+                    <field name="comision_variable"/>
+                    <field name="comision_fija"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_hr_afps_form" model="ir.ui.view">
+            <field name="name">hr.afps.form</field>
+            <field name="model">hr.afps</field>
+            <field name="arch" type="xml">
+                <form string="AFPS">
+                    <sheet>
+                            <group>
+                                <group>
+                                     <field name="afp" string="AFP"/>
+                                    <label for="porcentaje" string="Porcentaje"/>
+                                     <div>
+                                        <field name="porcentaje" class="oe_inline"/> %
+                                     </div>
+                                    <label for="prima" string="Prima"/>
+                                     <div>
+                                       <field name="prima" class="oe_inline"/> %
+                                     </div>
+                                    <label for="comision_variable" class="oe_inline" string="Comisión Variable"/>
+                                     <div>
+                                         <field name="comision_variable" class="oe_inline"/> %
+                                     </div>
+                                    <label for="comision_fija" class="oe_inline" string="Comisión Fija"/>
+                                     <div>
+                                        <field name="comision_fija" class="oe_inline"/> %
+                                     </div>
+                                    <field name="monto_maximo"/>
+                                </group>
+                            </group>
+
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_afps_action">
+		    <field name="name">AFPS</field>
+		    <field name="res_model">hr.afps</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+        <!-- remuneracion CTS -->
+	    <record id="view_hr_remuneracion_cts_tree" model="ir.ui.view">
+            <field name="name">hr.remuneracion.cts.tree</field>
+            <field name="model">hr.remuneracion.cts</field>
+            <field name="arch" type="xml">
+                <tree string="Remuneracion CTS">
+                    <field name="ejercicio_fiscal_id"/>
+                    <field name="fecha_pago"/>
+                    <field name="mes_pago"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+	    </record>
+	    <record id="view_hr_remuneracion_cts_form" model="ir.ui.view">
+            <field name="name">hr.remuneracion.cts.form</field>
+            <field name="model">hr.remuneracion.cts</field>
+            <field name="arch" type="xml">
+                <form string="Remuneracion CTS">
+                    <sheet>
+                            <group>
+                                <field name="ejercicio_fiscal_id" class="oe_inline"/>
+
+                               <field name="fecha_pago" class="oe_inline"/>
+                                <field name="mes_pago" class="oe_inline"/>
+
+                                <field name="estado" class="oe_inline"/>
+
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_remuneracion_cts_action">
+		    <field name="name">Remuneracion CTS</field>
+		    <field name="res_model">hr.remuneracion.cts</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+         <!-- suma CTS -->
+	    <record id="view_hr_suma_cts_tree" model="ir.ui.view">
+            <field name="name">hr.suma.cts.tree</field>
+            <field name="model">hr.suma.cts</field>
+            <field name="arch" type="xml">
+                <tree string="Suma CTS">
+                    <field name="ejercicio_fiscal_id"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="aplica_suma"/>
+                    <field name="concepto"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+	    </record>
+
+	    <record id="view_hr_suma_cts_form" model="ir.ui.view">
+            <field name="name">hr.suma.cts.form</field>
+            <field name="model">hr.suma.cts</field>
+            <field name="arch" type="xml">
+                <form string="Suma CTS">
+                    <sheet>
+                            <group>
+                                <field name="ejercicio_fiscal_id" class="oe_inline"/>
+
+                               <field name="fecha_inicio" class="oe_inline"/>
+                                <field name="fecha_fin" class="oe_inline"/>
+                                <field name="aplica_suma" class="oe_inline"/>
+                                <field name="concepto"/>
+
+                                <field name="estado" class="oe_inline"/>
+
+                            </group>
+                        <group>
+                               <!--<button class="oe_button  oe_highlight" name="generate_file" type="object" string="Generar TXT"/>-->
+
+    <!--<field name="txt_filename" invisible="1"/>-->
+    <!--<field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="hr_suma_cts_action">
+		    <field name="name">Suma CTS</field>
+		    <field name="res_model">hr.suma.cts</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+    <!-- Menu -->
+
+   <menuitem name="Tablas Configuracion Quinta" id="conf_quinta_hr_configuration_menu" parent="hr.menu_hr_configuration" sequence="23" groups="base.group_no_one"/>
+    <menuitem name="UIT" id="hr_uit_menu" parent="conf_quinta_hr_configuration_menu" action="hr_uit_sunat_action" sequence="1"/>
+    <menuitem name="Deducciones Por Ejercicio" id="hr_deducciones_x_ejercicio_menu" parent="conf_quinta_hr_configuration_menu" action="hr_deducciones_x_ejercicio_action" sequence="6"/>
+    <menuitem name="Tasas aplicables por ejercicio" id="hr_tasas_x_ejercicio_menu" parent="conf_quinta_hr_configuration_menu" action="hr_tasas_x_ejercicio_action" sequence="7"/>
+    <menuitem name="Factor divisor del impuesto anual por ejercicio" id="hr_factor_x_ejercicio_menu" parent="conf_quinta_hr_configuration_menu" action="hr_factor_x_ejercicio_action" sequence="8"/>
+    <menuitem name="Multiplicacion mes X Ejercicio" id="hr_mes_x_ejercicio_menu" parent="conf_quinta_hr_configuration_menu" action="hr_mes_x_ejercicio_action" sequence="9"/>
+    <menuitem name="AFPS" id="hr_afps_menu" parent="conf_quinta_hr_configuration_menu" action="hr_afps_action" sequence="10"/>
+    <menuitem name="Remuneracion CTS" id="hr_remuneracion_cts_menu" parent="conf_quinta_hr_configuration_menu" action="hr_remuneracion_cts_action" sequence="16"/>
+    <menuitem name="Suma CTS" id="hr_suma_cts_menu" parent="conf_quinta_hr_configuration_menu" action="hr_suma_cts_action" sequence="17"/>
+
+
+	</data>
+</openerp>

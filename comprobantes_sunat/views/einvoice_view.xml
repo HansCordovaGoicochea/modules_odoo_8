@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <!--<template id="assets_backend" name="emp" inherit_id="web.assets_backend">-->
+            <!--<xpath expr="." position="inside">-->
+                <!--&lt;!&ndash;<link rel="stylesheet" href="/comprobantes_sunat/static/src/css/csunat.css"/>&ndash;&gt;-->
+                <!--<script type="text/javascript" src="/comprobantes_sunat/static/src/js/csunat.js"></script>-->
+            <!--</xpath>-->
+        <!--</template>-->
+
+    <!-- Nota de credito -->
+	    <record id="view_nota_credito_tree" model="ir.ui.view">
+            <field name="name">Notas de Credito Electronica</field>
+            <field name="model">einvoice.nota.credito</field>
+            <field name="arch" type="xml">
+                <tree string="Notas de Credito">
+
+                    <field name="cliente"/>
+                    <field name="tipo"/>
+                    <field name="referencia"/>
+                    <field name="fecha_emision"/>
+                    <field name="ruc"/>
+                    <field name="subtotal" sum="SubTotal"/>
+                    <field name="impuesto" sum="Impuesto"/>
+                    <field name="importe_total" sum="Importe Total"/>
+
+                </tree>
+            </field>
+	    </record>
+
+      <record id="view_filter_nota_credito" model="ir.ui.view">
+        <field name="name">einvoice.nota.credito.Filter</field>
+        <field name="model">einvoice.nota.credito</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="referencia" string="Serie de Comprobante" filter_domain="[('referencia.number','ilike',self)]"/>
+            <field name="fecha_emision" string="Fecha Emision" filter_domain="[('fecha_emision', '=', self)]"/>
+        </search>
+        </field>
+      </record>
+
+        <record id="action_invoice_credito_tree" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">einvoice.nota.credito</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nota_credito_tree"/>
+            <field name="search_view_id" ref="view_filter_nota_credito"/>
+        </record>
+
+	    <record id="view_nota_credito_form" model="ir.ui.view">
+            <field name="name">Nota de Credito Electronica</field>
+            <field name="model">einvoice.nota.credito</field>
+            <field name="arch" type="xml">
+                <form string="Codigos de Tipo de Nota de Credito Electronica">
+                     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+                    <!--<script>-->
+                       <!--$(document).ready(function(){-->
+
+                        <!--$("#next").click(function(){-->
+                             <!--alert('dgfdfd');-->
+                        <!--});-->
+                    <!--});-->
+                    <!--</script>-->
+
+                    <header>
+                        <button name="do_nota_credito_tasks" type="object" states="borrador" string="Validar" class="oe_highlight" />
+                        <button name="action_credito_sent" type="object" string="Enviar E-mail" class="oe_highlight" groups="base.group_user" attrs="{'invisible':[('state', 'in', ('borrador','enviar_sunat'))]}"/>
+                        <button name="action_enviar_sunat" type="object" string="Enviar a Sunat" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'enviar_sunat')]}"/>
+                         <button name="invoice_print" string="Imprimir" type="object" class="oe_highlight" attrs="{'invisible':[('state', 'in', ('borrador','enviar_sunat'))]}"/>
+                         <button name="error_plush" string="Cancelar Nota" type="object" class="oe_highlight" attrs="{'invisible':[('state', '!=', ('enviado'))]}"/>
+                         <field name="state" widget="statusbar" nolabel="1" statusbar_visible="borrador,enviar_sunat,enviado" statusbar_colors='{"borrador":"blue","enviar_sunat":"red","enviado":"black"}'/>
+
+                    </header>
+                    <h1>
+                          <label string="Nota de credito borrador" attrs="{'invisible':[('state', 'in', ('enviado','enviar_sunat'))]}"/>
+                        <label string="Nota de credito N°" attrs="{'invisible':[('state', '=', 'borrador')]}"/>
+                        <field name="numeracion" readonly="1" class="oe_inline" attrs="{'invisible':[('state', '=', 'borrador')]}"/>
+                    </h1>
+                        <group>
+                            <group col="2">
+                                <field name="referencia" on_change="get_emp_det(referencia)" domain="[('state','in',['open', 'paid']),('type','=','out_invoice'),('date_invoice','&lt;=',(context_today()-datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                                <field name="tipo"/>
+                                <field name="fecha_emision"/>
+                                <field name="descripcion" class="oe_inline" placeholder="Descripción de la Nota de Credito Maximo 250 Caracteres"/>
+                                 <label for="count_letras" string=" "/>
+                                <field name="count_letras" nolabel="1"/>
+                            </group>
+                            <group col="2">
+                                <field name="cliente"/>
+                                <field name="ruc"/>
+                                <field name="currency_id"/>
+                                <field name="descripcion_servicio" placeholder="Descripción de servicio o Producto"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="move_id"/>
+                            </group>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="subtotal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div>
+                                    <label for="impuesto"/>
+                                </div>
+                                <field name="impuesto" nolabel="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="importe_total" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+
+                            </group>
+                        </group>
+
+                         <group>
+                            <strong><field name="mensaje_cdr" class="oe_inline"/></strong>
+                        </group>
+
+                        <div class="oe_chatter">
+                          <field name="message_follower_ids" widget="mail_followers"/>
+                          <field name="message_ids" widget="mail_thread"/>
+                        </div>
+
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="nota_credito_action">
+		    <field name="name">Nota de Credito Electronica</field>
+		    <field name="res_model">einvoice.nota.credito</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- Nota de débito -->
+
+      <record id="view_nota_debito_tree" model="ir.ui.view">
+            <field name="name">Notas de debito Electronica</field>
+            <field name="model">einvoice.nota.debito</field>
+            <field name="arch" type="xml">
+                <tree string="Notas de debito">
+
+                     <field name="cliente"/>
+                    <field name="tipo"/>
+                     <field name="referencia"/>
+                    <field name="fecha_emision"/>
+                    <field name="ruc"/>
+                    <field name="subtotal" sum="SubTotal"/>
+                    <field name="impuesto" sum="Impuesto"/>
+                    <field name="importe_total" sum="Importe Total"/>
+
+                </tree>
+            </field>
+	    </record>
+
+           <record id="view_filter_nota_debito" model="ir.ui.view">
+        <field name="name">einvoice.nota.debito.Filter</field>
+        <field name="model">einvoice.nota.debito</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="referencia" string="Boletas" filter_domain="[('referencia.number','ilike',self)]"/>
+            <field name="fecha_emision" string="Fecha Emision" filter_domain="[('fecha_emision', '=', self)]"/>
+        </search>
+        </field>
+      </record>
+
+        <record id="action_invoice_debito_tree" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">einvoice.nota.debito</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_nota_debito_tree"/>
+            <field name="search_view_id" ref="view_filter_nota_debito"/>
+        </record>
+
+
+	    <record id="view_nota_debito_form" model="ir.ui.view">
+            <field name="name">Nota de debito Electronica</field>
+            <field name="model">einvoice.nota.debito</field>
+            <field name="arch" type="xml">
+                <form string="Codigos de Tipo de Nota de debito Electronica">
+                    <header>
+                        <button name="do_nota_debito_tasks" type="object" states="borrador" string="Validar" class="oe_highlight" />
+                        <button name="action_debito_sent" type="object" string="Enviar E-mail" class="oe_highlight" groups="base.group_user" attrs="{'invisible':[('state', 'in', ('borrador','enviar_sunat'))]}"/>
+                        <button name="action_enviar_sunat" type="object" string="Enviar a Sunat" class="oe_highlight" attrs="{'invisible':[('state', '!=', 'enviar_sunat')]}"/>
+                         <button name="invoice_print" string="Imprimir" type="object" class="oe_highlight" attrs="{'invisible':[('state', 'in', ('borrador','enviar_sunat'))]}"/>
+                         <field name="state" widget="statusbar" nolabel="1" statusbar_visible="borrador,enviar_sunat,enviado" statusbar_colors='{"borrador":"blue","enviar_sunat":"red","enviado":"black"}'/>
+                    </header>
+                    <h1>
+                        <label string="Nota de debito borrador" attrs="{'invisible':[('state', 'in', ('enviado','enviar_sunat'))]}"/>
+                        <label string="Nota de debito N°" attrs="{'invisible':[('state', '=', 'borrador')]}"/>
+                        <field name="numeracion" readonly="1" class="oe_inline" attrs="{'invisible':[('state', '=', 'borrador')]}"/>
+                    </h1>
+                        <group>
+                            <group>
+                                <field name="referencia" on_change="get_emp_det(referencia)"/>
+                                <field name="tipo"/>
+                                <field name="fecha_emision"/>
+                            </group>
+                            <group>
+                                 <field name="cliente"/>
+                                <field name="ruc"/>
+                                <field name="currency_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                               <field name="descripcion" class="oe_inline" placeholder="Descripción de la Nota de Debito Maximo 250 Caracteres"/>
+                                <label for="count_letras" string=" "/>
+                                <field name="count_letras" class="oe_inline" nolabel="1"/>
+                            </group>
+                             <group class="oe_subtotal_footer oe_right">
+                                <field name="subtotal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div>
+                                    <label for="impuesto"/>
+                                </div>
+                                <field name="impuesto" nolabel="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="importe_total" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+
+                        </group>
+                        </group>
+                        <group>
+                            <strong><field name="mensaje_cdr" class="oe_inline"/></strong>
+                        </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="nota_debito_action">
+		    <field name="name">Nota de Debito Electronica</field>
+		    <field name="res_model">einvoice.nota.debito</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+    <!-- Comunicacion de baja -->
+           <record model="ir.actions.act_window" id="comunicacion_baja_action">
+		    <field name="name">Comunicacion de baja Electronica</field>
+		    <field name="res_model">einvoice.comunicacion.baja</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+
+	    <record id="view_comunicacion_baja_tree" model="ir.ui.view">
+            <field name="name">Comunicacion de baja Electronica</field>
+            <field name="model">einvoice.comunicacion.baja</field>
+            <field name="arch" type="xml">
+                <tree string="Comunicacion de baja Electronica">
+                    <field name="identificador"/>
+                </tree>
+            </field>
+	    </record>
+
+	    <record id="view_comunicacion_baja_form" model="ir.ui.view">
+            <field name="name">Comunicacion de baja Electronica</field>
+            <field name="model">einvoice.comunicacion.baja</field>
+            <field name="arch" type="xml">
+                <form string="Comunicacion de baja Electronica">
+                    <header>
+                          <button name="do_comunicacion_baja_tasks" type="object"  string="Validar" class="oe_highlight" groups="base.group_user"/>
+                          <button name="verificar_sunat_tasks" type="object"  string="CDR de SUNAT" class="oe_highlight" groups="base.group_user"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="identificador" readonly="1" class="oe_inline"/>
+                             <field name="fecha_baja"/>
+                            <field name="fecha_doc"/>
+                        </group>
+                        <group>
+                            <div class="oe_right oe_button_box" name="import_buttons">
+                                <button class="oe_inline oe_stat_button" name="%(action_view_comunicacion_from_invoice_lines)d" string="Importar Facturas" type="action" widget="statinfo" icon="fa-pencil-square-o"/>
+                            </div>
+                        </group>
+                            <notebook colspan="4">
+                              <page string="Detalle Comunicacion">
+                                <field name="comunicacion_ids" nolabel="1" widget="one2many_list">
+                                    <tree string="Detalle Comunicacion baja" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="fecha_doc"/>
+                                        <field name="comprobante"/>
+                                        <field name="tipo_documento"/>
+                                        <field name="serie"/>
+                                        <field name="correlativo"/>
+                                        <field name="motivo_opcion"/>
+                                        <field name="motivo"/>
+                                        <field name="count_letras" invisible="1"/>
+                                    </tree>
+                                </field>
+                              </page>
+                            </notebook>
+                         <group>
+                            <strong><field name="mensaje_cdr" class="oe_inline"/></strong>
+                        </group>
+                    </group>
+                </form>
+            </field>
+	    </record>
+
+
+    <!-- Resumen Diario -->
+	    <record id="view_resumen_diario_tree" model="ir.ui.view">
+            <field name="name">Resumen diario Electronico</field>
+            <field name="model">einvoice.resumen.diario</field>
+            <field name="arch" type="xml">
+                <tree string="Resumen diario electronico">
+                    <field name="identificador"/>
+                </tree>
+            </field>
+	    </record>
+
+	    <record id="view_resumen_diario_form" model="ir.ui.view">
+            <field name="name">Resumen diario Electronico</field>
+            <field name="model">einvoice.resumen.diario</field>
+            <field name="arch" type="xml">
+                <form string="Resumen diario electronico">
+                     <header>
+                          <button name="do_resumen_diario_tasks" type="object"  string="Validar" class="oe_highlight" groups="base.group_user"/>
+                    </header>
+                     <group>
+                        <group>
+                            <field name="identificador" readonly="1" class="oe_inline"/>
+                             <field name="fecha_resumen"/>
+                            <field name="fecha_doc"/>
+                        </group>
+                            <notebook colspan="4">
+                              <page string="Detalle Resumen">
+                                <field name="resumendetalle_ids" nolabel="1" widget="one2many_list">
+                                    <tree string="Detalle Resumen Diario" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="tipo_documento" width="10%"/>
+                                        <field name="serie" width="10%"/>
+                                        <field name="correlativo_inicio"/>
+                                        <field name="correlativo_fin"/>
+                                        <field name="ventas_gravadas" sum="Ventas Gravadas"/>
+                                        <field name="ventas_exoneradas" sum="Ventas Exoneradas"/>
+                                        <field name="ventas_inafectas" sum="Ventas Inafectas" />
+                                        <field name="importe_otros_items" sum="Importe Otros ITEMS"/>
+                                        <field name="total_isc" sum="Total ISC"/>
+                                        <field name="total_igv" sum="Total IGV"/>
+                                        <field name="total_otros_tributos" sum="Total Otros Tributos"/>
+                                        <field name="importe_total_venta" sum="Importe Total de Ventas o Servicios"/>
+                                    </tree>
+                                </field>
+                              </page>
+                            </notebook>
+                    </group>
+                </form>
+            </field>
+	    </record>
+	    <record model="ir.actions.act_window" id="resumen_diario_action">
+		    <field name="name">Resumen diario Electronico</field>
+		    <field name="res_model">einvoice.resumen.diario</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <!--Extractos bancarios-->
+
+
+         <record id="view_extracto_bancario" model="ir.ui.view">
+          <field name="name">einvoice.extractos_bancarios</field>
+          <field name="model">account.bank.statement</field>
+          <field name="inherit_id" ref="account.view_bank_statement_form"/>
+          <field name="arch" type="xml">
+                <field name="balance_start" position="after">
+                    <field name="debitos" widget="monetary" options='{"currency_field" : "currency"}' attrs="{'readonly' : [('state', '=', 'confirm')]}"/>
+                    <field name="creditos_depositos" widget="monetary" options='{"currency_field" : "currency"}' attrs="{'readonly' : [('state', '=', 'confirm')]}"/>
+                </field>
+                <field name="journal_id" position="before">
+                    <field name="descripcion" string="Descripcion / Codigo" class="oe_inline"/>
+                    <field name="codigo_transaccion" class="oe_inline"/>
+                </field>
+                <field name="line_ids" position="replace">
+                    <field name="line_ids" nolabel="1" context="{'date':date, 'id_extracto':active_id, 'currency': currency}"/>
+                </field>
+                <field name="balance_end" position="after">
+                    <div class="oe_subtotal_footer_separator oe_inline">
+                        <label for="balance_end_dolares" />
+                    </div>
+                    <field name="balance_end_dolares" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 3}"/>
+                </field>
+          </field>
+      </record>
+
+        <record id="view_extracto_bancario_tree" model="ir.ui.view">
+          <field name="name">einvoice.extractos_bancarios</field>
+          <field name="model">account.bank.statement</field>
+          <field name="inherit_id" ref="account.view_bank_statement_tree"/>
+          <field name="arch" type="xml">
+                <field name="balance_start" position="after">
+                <field name="debitos" sum="Suma de todos los debitos"/>
+                <field name="creditos_depositos" sum="Suma de todos lo Creditos / Depositos"/>
+                </field>
+                <field name="balance_start" position="replace">
+                 <field name="balance_start" sum="Saldo Inicial"/>
+                </field>
+                <field name="balance_end_real" position="replace">
+                  <field name="balance_end_real" sum="Balance Final"/>
+                </field>
+               <field name="date" position="after">
+                  <field name="descripcion"/>
+                   <field name="codigo_transaccion" class="oe_inline"/>
+                </field>
+          </field>
+      </record>
+        <!--Extractos bancarios-->
+
+        <!--lineas de extractos bancarios-->
+          <record id="account_bank_statement_form_yo" model="ir.ui.view">
+            <field name="name">account.bank.statement.form.yo</field>
+            <field name="model">account.bank.statement.line</field>
+            <field name="arch" type="xml">
+                 <form string="Detalle de Extractos">
+                    <field name="sequence" readonly="1" invisible="1"/>
+                    <field name="journal_entry_id" invisible="1"/>
+                     <group>
+                            <div class="oe_right oe_button_box">
+                                <button class="oe_inline oe_stat_button" name="%(action_view_account_statement_from_invoice_lines2)d" string="Importar Facturas" type="action" widget="statinfo" icon="fa-pencil-square-o"/>
+                            </div>
+                        </group>
+                     <group>
+                          <group>
+                            <field name="date" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                            <field name="name" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" string="Movimiento"/>
+                            <field name="ref" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" string="Detalle"/>
+                        </group>
+                        <group>
+                              <field name="partner_id" domain="['|',('parent_id','=',False),('is_company','=',True)]"
+                             context="{'default_supplier': 1}"
+                             attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                             <field name="currency_id" groups="base.group_multi_currency" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                        </group>
+                     </group>
+                     <group>
+                         <field name="line_detail_ids" nolabel="1" context="{'date':date, 'id_extracto_line': active_id}">
+                                <tree editable="bottom" string="Detalle">
+                                    <field name="date"/>
+                                    <field name="name" string="Movimiento"/>
+                                    <field name="ref" string="Detalle"/>
+                                    <field name="partner_id" domain="['|',('parent_id','=',False),('is_company','=',True)]" context="{'default_supplier': 1}"/>
+                                    <field name="amount" string="Monto"/>
+                                    <field name="tipo_cambio_actual"/>
+                                    <field name="importe_nacional" string="Monto M.N"/>
+                                    <field name="importe_extranjera"/>
+                                    <field name="amount_currency" groups="base.group_multi_currency" invisible="1"/>
+                                    <field name="currency_id" groups="base.group_multi_currency" invisible="1"/>
+                                </tree>
+                            </field>
+                     </group>
+                        <group>
+                            <group  class="oe_subtotal_footer oe_right">
+                                 <button name="calcular_montos_totales" type="object" class="oe_highlight" string="Calcular Montos" attrs="{'invisible': [('line_detail_ids', '=', [])]}" context="{'id_extracto_line': active_id}"/>
+                                    <!--<button name="calcular_montos_totales" string="(update)" type="object" class="oe_highlight oe_link" context="{'id_extracto_line': active_id}" attrs="{'invisible': [('line_detail_ids', '=', [])]}"/>-->
+                            </group>
+                            <newline/>
+                             <group class="oe_subtotal_footer oe_right">
+                                <!--<field name="subtotal" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="impuesto" nolabel="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+                                <!--<field name="importe_total" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+                                <field name="amount" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" string="Saldo a Depositar"/>
+                                <field name="importe_nacional"/>
+                                <field name="importe_extranjera" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_currency" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" groups="base.group_multi_currency" string="Importe Divisa" widget="monetary" options="{'currency_field': 'currency_id'}" invisible="1"/>
+                            </group>
+                        </group>
+
+                    <field name="bank_account_id" groups="base.group_no_one" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"
+                        domain="['|', ('partner_id', '=', partner_id), ('partner_id', '=', False)]" invisible="1"/>
+                    <field name="adjunto" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" invisible="1"/>
+                    <field name="entrega_factura" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" invisible="1"/>
+                 </form>
+            </field>
+          </record>
+
+
+        <record id="account_bank_statement_tree_yo" model="ir.ui.view">
+            <field name="name">account.bank.statement.line.yo</field>
+            <field name="model">account.bank.statement.line</field>
+            <field name="arch" type="xml">
+                <tree string="Statement lines" colors="grey:journal_entry_id!=False">
+                    <field name="sequence" readonly="1" invisible="1"/>
+                    <field name="journal_entry_id" invisible="1"/>
+                    <field name="date" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                    <field name="name" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" string="Movimiento"/>
+                    <field name="ref" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" string="Detalle"/>
+                    <field name="partner_id" domain="['|',('parent_id','=',False),('is_company','=',True)]"
+                         context="{'default_supplier': 1}"
+                         attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                    <field name="amount" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"  string="Saldo a Depositar" sum="Saldo a Depositar"/>
+                    <field name="importe_nacional" sum="Importe en soles"/>
+                    <field name="importe_extranjera" sum="Importe Moneda Extranjera Dolares"/>
+
+                    <field name="amount_currency" groups="base.group_multi_currency" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }" sum="Importe Moneda Extranjera Dolares"/>
+                    <field name="currency_id" groups="base.group_multi_currency" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                    <field name="bank_account_id" groups="base.group_no_one" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"
+                        domain="['|', ('partner_id', '=', partner_id), ('partner_id', '=', False)]"/>
+
+
+                    <field name="adjunto" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                    <field name="entrega_factura" attrs="{'readonly' : [('journal_entry_id', '!=', False)] }"/>
+                    <field name="line_detail_ids" string="Detalle"/>
+                    <button name="send_mail_template" type="object" attrs="{'invisible':['|',('entrega_factura', '!=', False),('amount', '&lt;', 0)]}" string="Enviar Correo" class="oe_highlight" groups="base.group_user"/>
+                </tree>
+            </field>
+          </record>
+        <!--lineas de extractos bancarios-->
+
+    <!-- Menu -->
+        <menuitem name="Notas Cliente" id="einvoice_notas_cliente_menu" parent="account.menu_finance_receivables" sequence="23"/>
+        <menuitem name="Resumen Diario" id="einvoice_resumen_diario_menu" parent="account.menu_finance_receivables" action="resumen_diario_action" sequence="23"/>
+        <menuitem name="Comunicación de baja" id="einvoice_comunicacion_baja_menu" parent="account.menu_finance_receivables" action="comunicacion_baja_action" sequence="23"/>
+        <menuitem name="Notas de Crédito" id="einvoice_nota_credito_menu" parent="einvoice_notas_cliente_menu" action="nota_credito_action" sequence="1"/>
+        <menuitem name="Notas de Débito" id="einvoice_nota_debito_menu" parent="einvoice_notas_cliente_menu" action="nota_debito_action" sequence=""/>
+
+        <act_window
+           id="act_account_journal_2_account_invoice_opened"
+           name="Unpaid Invoices"
+           context="{'search_default_journal_id': [active_id], 'search_default_unpaid':1, 'default_journal_id': active_id}"
+           domain="[('journal_id','=', active_id)]"
+           res_model="account.invoice"
+           src_model="account.journal"/>
+
+    </data>
+</openerp>

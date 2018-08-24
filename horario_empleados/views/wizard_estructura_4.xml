@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <menuitem name="T - Registro" id="alta_trabajador_menu" parent="hr_payroll.menu_hr_root_payroll" groups="base.group_hr_user"/>
+
+        <record id="action_estructura_4_view" model="ir.ui.view">
+            <field name="name">Estructura 4</field>
+            <field name="model">hr.employee.estructura.4</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Bank Statements">
+                    <group>
+                        <field name="txt_filename" invisible="1"/>
+                        <field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1" class="oe_inline"/>
+                    </group>
+                    <!--<footer>-->
+                      <!--<button class="oe_button  oe_highlight" name="generate_file" type="object" string="Generar TXT"/>-->
+                    <!--</footer>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="action_estructura_4" model="ir.actions.act_window">
+            <field name="name">Estructura 4</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.estructura.4</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="action_estructura_4_view"/>
+        </record>
+
+ <menuitem action="action_estructura_4" id="menu_hr_t_registro4" parent="alta_trabajador_menu" groups="base.group_hr_user"/>
+
+        <!--5-->
+
+        <record id="action_estructura_5_view" model="ir.ui.view">
+            <field name="name">Estructura 5</field>
+            <field name="model">hr.employee.estructura.5</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Bank Statements">
+                    <group>
+                        <field name="txt_filename" invisible="1"/>
+                        <field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1" class="oe_inline"/>
+                    </group>
+                    <!--<footer>-->
+                      <!--<button class="oe_button  oe_highlight" name="generate_file" type="object" string="Generar TXT"/>-->
+                    <!--</footer>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="action_estructura_5" model="ir.actions.act_window">
+            <field name="name">Estructura 5</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.estructura.5</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="action_estructura_5_view"/>
+        </record>
+
+ <menuitem action="action_estructura_5" id="menu_hr_t_registro5" parent="alta_trabajador_menu" groups="base.group_hr_user"/>
+
+
+        <!--11-->
+
+        <record id="action_estructura_11_view" model="ir.ui.view">
+            <field name="name">Estructura 11</field>
+            <field name="model">hr.employee.estructura.11</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Bank Statements">
+                    <group>
+                        <field name="txt_filename" invisible="1"/>
+                        <field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1" class="oe_inline"/>
+                    </group>
+                    <!--<footer>-->
+                      <!--<button class="oe_button  oe_highlight" name="generate_file" type="object" string="Generar TXT"/>-->
+                    <!--</footer>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="action_estructura_11" model="ir.actions.act_window">
+            <field name="name">Estructura 11</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.estructura.11</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="action_estructura_11_view"/>
+        </record>
+
+ <menuitem action="action_estructura_11" id="menu_hr_t_registro11" parent="alta_trabajador_menu" groups="base.group_hr_user"/>
+
+
+        <!--17-->
+
+        <record id="action_estructura_17_view" model="ir.ui.view">
+            <field name="name">Estructura 17</field>
+            <field name="model">hr.employee.estructura.17</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Bank Statements">
+                    <group>
+                        <field name="txt_filename" invisible="1"/>
+                        <field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1" class="oe_inline"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_estructura_17" model="ir.actions.act_window">
+            <field name="name">Estructura 17</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.estructura.17</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="action_estructura_17_view"/>
+        </record>
+
+ <menuitem action="action_estructura_17" id="menu_hr_t_registro17" parent="alta_trabajador_menu" groups="base.group_hr_user"/>
+
+ <!--29-->
+
+        <record id="action_estructura_29_view" model="ir.ui.view">
+            <field name="name">Estructura 29</field>
+            <field name="model">hr.employee.estructura.29</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Bank Statements">
+                    <group>
+                        <field name="txt_filename" invisible="1"/>
+                        <field name="txt_binary" string="Archivo TXT" filename="txt_filename" readonly="1" class="oe_inline"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_estructura_29" model="ir.actions.act_window">
+            <field name="name">Estructura 29</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.estructura.29</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="action_estructura_29_view"/>
+        </record>
+
+ <menuitem action="action_estructura_29" id="menu_hr_t_registro29" parent="alta_trabajador_menu" groups="base.group_hr_user"/>
+
+
+
+    </data>
+</openerp>

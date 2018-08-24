@@ -1,0 +1,41 @@
+.school_principals th[data-id='control']{
+    width: 45%;
+}
+.detalle_vehiculos th[data-id='horario_det_vehi_ids']{
+    width: 45%;
+}
+.detalle_asis th[data-id='horario_asis_tipo_ids']{
+    width: 45%;
+}
+.hola progress[value]{
+  -webkit-appearance: none;
+}
+progress::-webkit-progress-value {
+  background: #0066ff;
+  /*border-radius: 33px;*/
+  /*-webkit-border-radius: 33px;*/
+}
+progress::-webkit-progress-bar {
+    background: white;
+    border: solid 1px black;
+    -webkit-animation: animate 5s alternate ease-in-out infinite;
+}
+
+
+
+/*.o_progressbar .o_progress .o_progressbar_complete.o_progress_gt_fty {*/
+  /*background-color: #456325;*/
+  /*height: 100%;*/
+/*}*/
+/*.o_progressbar .o_progress .o_progressbar_complete.o_progress_lt_fty {*/
+  /*background-color: #000000;*/
+  /*height: 100%;*/
+/*}*/
+
+/*.openerp .oe_tree_table > tbody > tr:nth-child(odd) {*/
+   /*background-image: linear-gradient(to bottom, #abdafa, #eeeef6);*/
+/*}*/
+
+/*.openerp .oe_list_content td.oe_number { !*FOR NUMBER FIELDS*!*/
+    /*background-color: #99ccff;*/
+/*}*/

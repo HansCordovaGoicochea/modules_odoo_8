@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+        <record id="e01_00" model="horario.tipo.marca"><field name="code">presencia</field><field name="name">Presencia</field></record>
+        <record id="e01_01" model="horario.tipo.marca"><field name="code">falta</field><field name="name">Falta Injustificada</field></record>
+        <record id="e01_02" model="horario.tipo.marca"><field name="code">espera</field><field name="name">Tiempo en Espera</field></record>
+        <record id="e01_03" model="horario.tipo.marca"><field name="code">almuerzo</field><field name="name">Almuerzo</field></record>
+
+    </data>
+</openerp>

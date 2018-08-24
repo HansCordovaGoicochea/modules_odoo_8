@@ -1,0 +1,1189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+         <template id="assets_backend" name="vrcontadores assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/vrcontadores/static/src/js/gidwet.js"></script>
+                <link rel="stylesheet" href="/vrcontadores/static/src/css/emp.css"/>
+            </xpath>
+        </template>
+
+		<!--OCULTAR LOS MENUS-->
+		<menuitem id="account.menu_finance_payables" name="Suppliers" parent="account.menu_finance" sequence="3" groups="hide"/>
+		<menuitem id="menu_reportes" name="Reportes" parent="account.menu_finance" sequence="3"/>
+		<menuitem id="account.menu_finance_bank_and_cash" name="Bank and Cash" parent="account.menu_finance" sequence="4"
+            groups="hide" />
+		<menuitem id="account.menu_finance_periodical_processing" name="Periodic Processing" parent="account.menu_finance" sequence="13" groups="hide"/>
+		<menuitem id="account.menu_finance_entries" name="Journal Entries" parent="account.menu_finance" sequence="5" groups="hide"/>
+		<menuitem id="account.periodical_processing_journal_entries_validation" name="Draft Entries" parent="account.menu_finance_periodical_processing" groups="hide"/>
+		<menuitem id="account.periodical_processing_reconciliation" name="Reconciliation" parent="account.menu_finance_periodical_processing" groups="hide"/>
+		<menuitem id="account.menu_finance_recurrent_entries" name="Recurring Entries"
+            parent="account.menu_finance_periodical_processing" sequence="15" groups="hide"/>
+		<menuitem id="account.menu_account_end_year_treatments"
+            name="End of Period" parent="account.menu_finance_periodical_processing"
+            sequence="25" groups="hide"/>
+		<menuitem string="Bank Statements" action="account.action_bank_statement_tree" id="account.menu_bank_statement_tree" parent="account.menu_finance_bank_and_cash" sequence="7" groups="hide"/>
+		<menuitem action="account.action_view_bank_statement_tree" id="account.journal_cash_move_lines"
+            parent="account.menu_finance_bank_and_cash" groups="hide"/>
+		<menuitem id="account.menu_finance_entries" name="Journal Entries" parent="account.menu_finance" sequence="5" groups="hide"/>
+		 <!--<menuitem action="account_voucher.action_voucher_list" id="account.menu_encode_entries_by_voucher" parent="account.menu_finance_entries" sequence="6" groups="hide"/>-->
+		<menuitem id="account.menu_configuration_misc" name="Miscellaneous" parent="account.menu_finance_configuration" sequence="55" groups="hide"/>
+		<menuitem id="account.menu_account_reports" name="Financial Reports" parent="account.menu_finance_configuration" sequence="30" groups="hide"/>
+		<menuitem id="account.next_id_23" name="Periods" parent="account.menu_finance_configuration" sequence="5" groups="hide"/>
+		<menuitem id="account.account_account_menu" name="Accounts" parent="account.menu_finance_configuration" sequence="15" groups="hide"/>
+		<menuitem id="account.next_id_27" name="Taxes" parent="account.menu_finance_configuration" sequence="20" groups="hide"/>
+		<menuitem id="account.menu_journals" sequence="15" name="Journals" parent="account.menu_finance_configuration" groups="hide"/>
+		<menuitem
+            parent="account.menu_finance_legal_statement"
+            id="account.menu_journals_report"
+            groups="account.group_account_user,account.group_account_manager,hide"
+            name="Journals"/>
+        <menuitem action="account.action_invoice_tree1" id="account.menu_action_invoice_tree1" parent="account.menu_finance_receivables" groups="hide"/>
+        <menuitem action="account.action_invoice_tree3" id="account.menu_action_invoice_tree3" parent="account.menu_finance_receivables" groups="hide"/>
+        <menuitem action="account_voucher.action_vendor_receipt" icon="STOCK_JUSTIFY_FILL" sequence="12"
+            id="account_voucher.menu_action_vendor_receipt"  parent="account.menu_finance_receivables" groups="hide"/>
+        <menuitem id="account_voucher.menu_action_sale_receipt" icon="STOCK_JUSTIFY_FILL"
+            action="account_voucher.action_sale_receipt"
+            parent="account.menu_finance_receivables"
+            sequence="10" groups="hide"/>
+        <menuitem action="account_voucher.action_voucher_list" id="account_voucher.menu_encode_entries_by_voucher" parent="account.menu_finance_payables" sequence="6" groups="base.group_no_one"/>
+        <menuitem
+            icon="STOCK_JUSTIFY_FILL"
+            action="account.action_move_journal_line"
+            id="account.menu_action_move_journal_line_form"
+            parent="account.menu_finance_payables"
+            groups="account.group_account_user"
+            sequence="5"/>
+        <menuitem
+            action="account.action_account_moves_all_a"
+            icon="STOCK_JUSTIFY_FILL"
+            id="account.menu_action_account_moves_all"
+            parent="account.group_account_user"
+            sequence="1"
+            groups="account.group_account_user"
+        />
+        <menuitem
+            icon="STOCK_INDENT"
+            action="account.action_account_tax_chart"
+            id="account.menu_action_tax_code_tree"
+            parent="account.menu_finance_payables"
+            groups="account.group_account_user,account.group_account_manager"
+            sequence="12"/>
+        <menuitem icon="STOCK_INDENT" action="account.action_account_chart"
+            id="account.menu_action_account_tree2"
+            parent="account.menu_finance_charts" groups="hide"/>
+        <menuitem id="account.menu_journals" sequence="15" name="Journals" parent="account.menu_finance_payables" groups="account.group_account_manager"/>
+        <menuitem id="account.menu_finance_legal_statement" name="Legal Reports" parent="account.menu_finance_reports" groups="hide"/>
+        <menuitem id="account.menu_finance_generic_reporting" name="Generic Reporting" parent="account.menu_finance_reports" sequence="100" groups="hide"/>
+
+        <!-- REPORTES -->
+        <record id="view_honorarios_report_graph" model="ir.ui.view">
+             <field name="name">res.partner.honorarios.graph</field>
+             <field name="model">res.partner.honorarios</field>
+             <field name="arch" type="xml">
+                 <graph string="Entries Analysis" type="pivot">
+                    <field name="parent_id" type="row"/>
+                    <field name="mes" type="col"/>
+                    <field name="importe_pagado" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="action_honorarios_reporte_act" model="ir.actions.act_window">
+            <field name="name">Reporte de Honorarios</field>
+            <field name="res_model">res.partner.reporte_honorarios</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help">Aquí Tiene una lista de los reportes de Honorarios filtradas por año. Usted puede dar click en un año para obtener el reporte de dicho año.</field>
+        </record>
+
+        <!--<menuitem action="action_honorarios_reporte_act" id="menu_action_honorarios_reporte"-->
+        <!--parent="menu_reportes"-->
+        <!--sequence="1" name="Reporte de Honorarios"/>-->
+
+        <record id="view_partner_report_graph" model="ir.ui.view">
+             <field name="name">res.partner.graph</field>
+             <field name="model">res.partner</field>
+             <field name="arch" type="xml">
+                 <graph string="Entries Analysis" type="pivot">
+                    <field name="parent_id" group="True"/>
+                    <field name="doc_number" type="col"/>
+                    <field name="estado_contribuyente" type="measure"/>
+                    <field name="condicion_contribuyente" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="action_estado_cliente_report_act" model="ir.actions.act_window">
+            <field name="name">Reporte de Estado del cliente</field>
+            <field name="res_model">res.partner.reporte_estado</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help">Aquí Tiene una lista de los reportes de los estados del cliente filtradas por año. Usted puede dar click en un año para obtener el reporte de dicho año.</field>
+        </record>
+
+        <menuitem action="action_estado_cliente_report_act" id="menu_action_estado_cliente_report_all"
+        parent="menu_reportes"
+        sequence="2" name="Reporte Estado Cliente"/>
+
+        <record id="view_account_declaraciones_report_graph" model="ir.ui.view">
+             <field name="name">res.partner.declaraciones.graph</field>
+             <field name="model">res.partner.declaraciones</field>
+             <field name="arch" type="xml">
+                 <graph string="Entries Analysis" type="pivot">
+                    <field name="parent_id" type="row"/>
+                    <field name="mes" type="col"/>
+                    <field name="fecha_pdt" type="measure" string="PDT"/>
+                    <field name="fecha_declarada" type="measure" string="PLAME"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="action_declaracion_report_act" model="ir.actions.act_window">
+            <field name="name">Reporte Declaración</field>
+            <field name="res_model">res.partner.reporte_declaracion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <!--<field name="search_view_id" ref="account.view_account_entries_report_search"/>
+            <field name="view_id" ref="account.view_account_entries_report_graph"/>
+            <field name="context">{'group_by':[], 'search_default_usertype':1, 'search_default_thisyear':1, 'group_by_no_leaf':1}</field>-->
+            <field name="help">Aquí Tiene una lista de los reportes de las declaraciones realizados por el cliente filtradas por año. Usted puede dar click en un año para obtener el reporte de dicho año.</field>
+        </record>
+
+        <!--<menuitem action="action_declaracion_report_act" id="menu_action_declaracion_report_all"-->
+        <!--parent="menu_reportes"-->
+        <!--sequence="2" name="Reporte Declaración"/>-->
+
+        <record id="view_account_documentos_report_graph" model="ir.ui.view">
+             <field name="name">res.partner.documentos.graph</field>
+             <field name="model">res.partner.documentos</field>
+             <field name="arch" type="xml">
+                 <graph string="Entries Analysis" type="pivot">
+                    <field name="parent_id" type="row"/>
+                    <field name="mes" type="col"/>
+                    <field name="documentos" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="action_documentos_report_act" model="ir.actions.act_window">
+            <field name="name">Reporte Recepción de Documentos</field>
+            <!--<field name="type">ir.actions.act_window</field>-->
+            <field name="res_model">res.partner.reporte_documentos</field>
+            <field name="domain">[('parent_id','ilike','')]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <!--<field name="view_id" ref="view_partner_reporte_documentos"/>-->
+            <field name="help">
+                    Aquí Tiene una lista de los reportes de documetos por año. Usted puede dar click en un año para obtener el reporte de dicho año
+           </field>
+        </record>
+
+        <!--<menuitem action="action_documentos_report_act" id="menu_action_documentos_report_all"-->
+        <!--parent="menu_reportes"-->
+        <!--sequence="2" name="Reporte Recepción de Documentos"/>-->
+
+        <record id="view_account_impuestos_report_graph" model="ir.ui.view">
+             <field name="name">res.partner.impuestos_pendientes.graph</field>
+             <field name="model">res.partner.impuestos_pendientes</field>
+             <field name="arch" type="xml">
+                 <graph string="Entries Analysis" type="pivot">
+                    <field name="parent_id" type="row"/>
+                    <field name="mes" type="col"/>
+                    <field name="anio" type="measure"/>
+                 </graph>
+             </field>
+        </record>
+
+        <record id="action_pagos_reporte_act" model="ir.actions.act_window">
+            <field name="name">Reporte de Impuestos Pendientes</field>
+            <field name="res_model">res.partner.reporte_pagos</field>
+            <field name="domain">[('parent_id','ilike','')]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="help">Aquí Tiene una lista de los reportes de los pagos realizados por el cliente filtradas por año. Usted puede dar click en un año para obtener el reporte de dicho año</field>
+        </record>
+
+        <!--<menuitem action="action_pagos_reporte_act"-->
+                  <!--id="menu_action_pagos_report_all"-->
+        <!--parent="menu_reportes"-->
+        <!--sequence="2" name="Reporte Impuestos Pendientes"/>-->
+
+
+        <!-- FIN DE REPORTES -->
+
+
+
+
+        <!--<record model="ir.ui.view" id="view_partner_form_equant">
+			<field name="name">res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="account.partner_view_buttons" />
+			<field name="arch" type="xml">
+				<button type="action" class="oe_stat_button" name="252" position="replace">
+                    <button string="Imp. Pendientes" type="object" class="oe_stat_button" name="load_pantalla_impuestos_pendientes" icon="fa-pencil-square-o" />
+                    <button string="Declaraciones" type="object" class="oe_stat_button" name="load_pantalla_declaraciones" icon="fa-list" />
+                    <button string="Honorarios" type="object" class="oe_stat_button" name="load_pantalla_honorarios" icon="fa-list" />
+                    <button string="Histórico" type="object" class="oe_stat_button" name="load_pantalla_historico" icon="fa-pencil-square-o" />
+					<button string="Recep. Doc." type="object" class="oe_stat_button" name="load_pantalla_documentos" icon="fa-book" />
+                </button>
+			</field>
+		</record>-->
+
+		<record model="ir.ui.view" id="view_partner_form_equant">
+			<field name="name">res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="account.partner_view_button_journal_item_count" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@name='buttons']" position="replace">
+					<button string="Imp. Pendientes" type="object" class="oe_stat_button" name="load_pantalla_impuestos_pendientes" icon="fa-pencil-square-o" />
+                    <button string="Declareaciones" type="object" class="oe_stat_button" name="load_pantalla_declaraciones" icon="fa-list" />
+                    <button string="Honorarios" type="object" class="oe_stat_button" name="load_pantalla_honorarios" icon="fa-list" />
+                    <button string="Histórico" type="object" class="oe_stat_button" name="load_pantalla_historico" icon="fa-pencil-square-o" />
+					<button string="Recep. Doc." type="object" class="oe_stat_button" name="load_pantalla_documentos" icon="fa-book" />
+                </xpath>
+			</field>
+		</record>
+
+
+		<!-- Vista Partner Form   -->
+		<record model="ir.ui.view" id="view_partner_form_equant">
+			<field name="name">res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<!-- odoo8 is_company -->
+				<!-- odoo9 company_type -->
+				<xpath expr="//sheet" position="before">
+
+					<button string="Actualizar Dni"
+							name="button_update_document"
+							help="Actualiza los datos del dni"
+							type="object"
+							attrs="{'invisible': [('is_company','=', True)]}"
+					/>
+
+					<button string="Actualizar Ruc"
+							name="button_update_document"
+							help="Actualiza los datos ficha ruc de sunat"
+							type="object"
+							attrs="{'invisible': [('is_company','=', False)]}"
+					/>
+
+				</xpath>
+
+				<xpath expr="//field[@name='street']" position="before">
+					<field name="doc_type"/>
+					<field name="doc_number" placeholder="#Dni/#Ruc/#Pasaporte"/>
+				</xpath>
+
+				<xpath expr="//field[@name='website']" position="after">
+					<field name="regimen"/>
+					<field name="partida_registral"/>
+					<field name="nce"/>
+				</xpath>
+
+				<xpath expr="//field[@name='title']" position="after">
+					<field name="usuario"/>
+
+					<field name="clave" groups="vrcontadores.field_invisible_from_others"/>
+
+					<!--<field name="clave"/>-->
+                    <!--<field name="fecha_incio" context="{'partner_id': id}" attrs="{'required': [('tipo_pago', '!=', 'trabajo')]}"/>-->
+					<!--<field name="monto_pagar" context="{'partner_id': id}"/>-->
+					<!--<field name="tipo_pago" context="{'partner_id': id}"/>-->
+					<!--<field name="fecha_pago" attrs="{'invisible': [('tipo_pago','!=', 'trabajo')]}"/>-->
+
+                    <button name="sunat_2" id="sunat_2" string="S/ Declar. y Pago" class="oe_highlight" onclick = "click()" target="_blank" type="object"/>
+                    <button name="sunat_1" string="Tram. y Consultas" class="oe_highlight" target="_blank" type="object"/>
+
+                    <!--<button name="sunat_3" string="uno mas" class="oe_highlight" target="_blank" type="object"/>-->
+                    <!--<script>-->
+                        <!--jQuery('footer button:first').click(function() { alert('hello'); });-->
+                    <!--</script>-->
+				</xpath>
+
+				<xpath expr="//page[@name='sales_purchases']" position="after">
+						<page name="sunat_info" string="Sunat" attrs="{'invisible': [('is_company','=', False)]}">
+							<group name="container_row_2">
+								<group string="Contribuyente" name="sale">
+									<field name="tipo_contribuyente"/>
+									<field name="nombre_comercial"/>
+									<field name="fecha_inscripcion"/>
+									<field name="estado_contribuyente"/>
+									<field name="condicion_contribuyente"/>
+									<field name="ultima_actualizacion_sunat"/>
+								</group>
+								<group string="Agente de Retención">
+									<field name="agente_retension"/>
+									<field name="agente_retension_apartir_del"/>
+									<field name="agente_retension_resolucion"/>
+								</group>
+								<group string="Contabilidad">
+									<field name="sistema_emision_comprobante"/>
+									<field name="sistema_contabilidad"/>
+								</group>
+							</group>
+							<group string="Representantes"/>
+							<field name="representante_legal_ids">
+								 <tree string="Contact Tags">
+									<field name="documento"/>
+									<field name="nro_documento"/>
+									<field name="nombre"/>
+									<field name="cargo"/>
+									<field name="fecha_desde"/>
+								</tree>
+							</field>
+						</page>
+                        <page name="ctas_corrientes" string="Cuentas" attrs="{'invisible': [('is_company','=', False)]}">
+                            <group>
+                                <field name="cuentas_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="cuenta"/>
+                                        <field name="banco"/>
+                                        <field name="designado"/>
+                                        <field name="usuario"/>
+                                        <field name="contrasenia"/>
+                                        <field name="cci"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+				</xpath>
+
+                <!--<xpath expr="//page[@name='ctas_corrientes']" position="after">
+
+                    <page name="pagina_suna_declaraciones" string="S/ Declar. y Pago">
+							  <iframe marginheight="0" id="frameSunat1" marginwidth="0" frameborder = "0" src="https://www.sunat.gob.pe/xssecurity/SignOnVerification.htm?signonForwardAction=https%3A%2F%2Fwww.sunat.gob.pe%2Fol-at-itcanal%2Fcanal.do" width="100%" height="1000"/>
+                        </page>
+
+				</xpath>
+                <xpath expr="//page[@name='pagina_suna_declaraciones']" position="after">
+						<page name="pagina_sunat" string="Tram. y Consultas">
+							  <iframe marginheight="0" id="frameSunat2" marginwidth="0" frameborder = "0" src="https://e-menu.sunat.gob.pe/cl-ti-itmenu/MenuInternet.htm" width="100%" height="1000"/>
+
+                        </page>
+
+				</xpath>-->
+
+
+
+                <xpath expr="//div[@name='buttons']" position="inside">
+					<button string="Imp. Pendientes" type="object" class="oe_stat_button" name="load_pantalla_impuestos_pendientes" icon="fa-pencil-square-o" />
+                    <button string="Declaraciones" type="object" class="oe_stat_button" name="load_pantalla_declaraciones" icon="fa-list" />
+                    <button string="Honorarios" type="object" class="oe_stat_button" name="load_pantalla_honorarios" icon="fa-list" />
+                    <button string="Historial" type="object" class="oe_stat_button" name="load_pantalla_historico" icon="fa-pencil-square-o" />
+					<button string="Recep. Doc." type="object" class="oe_stat_button" name="load_pantalla_documentos" icon="fa-book" />
+
+                </xpath>
+
+                <page name="sales_purchases" position="replace">
+                    <page name="sales_purchases" string="Sales &amp; Purchases" invisible="1">
+                        <group>
+                            <group>
+                                <field name="user_id" context="{'default_groups_ref': ['base.group_partner_manager']}"/>
+                                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="customer"/>
+                                <field name="supplier"/>
+                            </group>
+                            <group>
+                                <field name="ref"/>
+                                <field name="lang"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </page>
+                </page>
+
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_historia_clinica_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.historia_clinica</field>
+            <field name="arch" type="xml">
+                <form string="historia clinica form" version="7.0">
+                    <sheet>
+                         <group colspan="2" col="2">
+                            <group>
+                                <field name="parent_id" attrs="{'invisible':[('parent_id','!=','')]}"/>
+                                <field name="mes" string="Mes de Suceso"/>
+                                <field name="anio" string="Año de Suceso"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="historia_clinica_detalle_ids" nolabel="1" context="{'cliente': parent_id, 'mes': mes, 'anio': anio}">
+                                        <tree editable="bottom">
+                                            <field name="mes"  invisible="1"/>
+                                            <field name="anio" invisible="1"/>
+                                            <field name="fecha"/>
+                                            <field name="historico"/>
+                                            <field name="estado"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="parent_catalogo_ids" nolabel="1" context="{'cliente': parent_id, 'mes': mes, 'anio': anio}">
+                                        <tree editable="bottom" create="false" >
+                                            <field name="mes" invisible="1"/>
+                                            <field name="anio" invisible="1"/>
+                                            <field name="fecha"/>
+                                            <field name="historico"/>
+                                            <field name="estado"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_impuestos_pendientes_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.impuestos_pendientes</field>
+            <field name="arch" type="xml">
+                <form string="impuestos pendientes form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="parent_id" attrs="{'invisible':[('parent_id','!=','')]}"/>
+                                <field name="fecha" invisible="1"/>
+                                <field name="mes"/>
+                                <field name="anio"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="impuesto_pendiente_detalle_ids" nolabel="1" context="{'mes': mes, 'anio':anio}" >
+                                        <tree editable="bottom" create="false">
+                                            <field name="fecha"/>
+                                            <field name="mes"/>
+                                            <field name="anio"/>
+                                            <field name="impuesto"/>
+                                            <field name="deuda" sum="Importe Deuda"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_declaraciones_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.declaraciones</field>
+            <field name="arch" type="xml">
+                <form string="declaraciones form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="parent_id" attrs="{'invisible':[('parent_id','!=','')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string=" ">
+                                <group>
+                                   <field name="declaraciones_ids" nolabel="1" context="{'cliente': parent_id}">
+                                        <tree editable="bottom">
+                                            <field name="mes"/>
+                                            <field name="anio"/>
+                                            <field name="fecha_pdt"/>
+                                            <field name="fecha_declarada"/>
+                                            <field name="fecha_limite"/>
+                                            <field name="observaciones"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_honorarios_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.honorarios</field>
+            <field name="arch" type="xml">
+                <form string="honorarios form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="parent_id" attrs="{'invisible':[('parent_id','!=','')]}"/>
+                                <field name="mes"/>
+                                <field name="anio"/>
+                                <field name="importe_tot_pagado" string="Importe total a pagar"/>
+                                <field name="importe_pagado"/>
+                                <field name="importe_deuda"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Pagos">
+                                <group>
+                                   <field name="honorarios_detalle_ids" nolabel="1" context="{'cliente': parent_id, 'mes': mes, 'anio': anio}">
+                                        <tree editable="bottom">
+                                            <field name="fecha_pago"/>
+                                            <field name="mes"/>
+                                            <field name="anio"/>
+                                            <field name="importe_pagado"/>
+                                            <!--<field name="importe_deuda"/>-->
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string="Cronograma Pagos">
+                                <group>
+                                   <field name="pago_ids" nolabel="1" context="{'cliente': parent_id}">
+                                        <tree editable="bottom" create="false" edit="false" delete="false">
+                                            <field name="fecha" string="Fecha Límite"/>
+                                            <field name="importe"/>
+                                            <field name="estado"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_documentacion_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.documentos</field>
+            <field name="arch" type="xml">
+                <form string="documentacion form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="parent_id" attrs="{'invisible':[('parent_id','!=','')]}"/>
+                                <field name="anio"/>
+                                <field name="mes"/>
+                                <field name="documentos" widget="many2many_binary"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Documentos Quincena">
+                                <group>
+                                   <field name="documento_quincena_ids" nolabel="1" context="{'cliente': parent_id, 'mes': mes, 'anio': anio}">
+                                        <tree editable="bottom">
+                                            <field name="fecha" />
+                                             <field name="mes"/>
+                                            <field name="anio"/>
+                                            <field name="fecha_limite"/>
+                                            <field name="estado"/>
+                                            <field name="observaciones"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <notebook>
+                            <page string="Documentos Fin de Mes">
+                                <group>
+                                   <field name="documento_fin_mes_ids" nolabel="1" context="{'cliente': parent_id, 'mes': mes, 'anio': anio}">
+                                        <tree editable="bottom">
+                                            <field name="fecha"/>
+                                             <field name="mes"/>
+                                            <field name="anio"/>
+                                            <field name="fecha_limite"/>
+                                            <field name="estado"/>
+                                            <field name="observaciones"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--VISTA DE ARBOL HEREDADA-->
+        <record id="view_partner_tree_my" model="ir.ui.view">
+            <field name="name">res.partner.tree.my</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Contacts" position="replace">
+                    <tree string="Contacts" colors="green:partner_contrato_ids.tipo_pago == 'convenio'; red:estado == 'deudor'; green:estado == 'pagado'">
+                        <field name="display_name"/>
+                        <field name="function" invisible="1"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="display_name"/>
+                        <field name="estado"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="is_company" invisible="1"/>
+                        <field name="country_id" invisible="1"/>
+                        <field name="parent_id" invisible="1"/>
+                    </tree>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_reporte_honorario">
+            <field name="name">res.partner.reporte_honorarios.tree</field>
+            <field name="model">res.partner.reporte_honorarios</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte Honorarios" edit="false" create="false">
+                    <field name="parent_id"/>
+                    <field name="enero" widget="my_widget"/>
+                    <field name="febrero" widget="my_widget"/>
+                    <field name="marzo" widget="my_widget"/>
+                    <field name="abril" widget="my_widget"/>
+                    <field name="mayo" widget="my_widget"/>
+                    <field name="junio" widget="my_widget"/>
+                    <field name="julio" widget="my_widget"/>
+                    <field name="agosto" widget="my_widget"/>
+                    <field name="setiembre" widget="my_widget"/>
+                    <field name="octubre" widget="my_widget"/>
+                    <field name="noviembre" widget="my_widget"/>
+                    <field name="diciembre" widget="my_widget"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_reporte_estado">
+            <field name="name">res.partner.reporte_estado.tree</field>
+            <field name="model">res.partner.reporte_estado</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte de Estado del cliente" edit="false" create="false">
+                    <field name="parent_id"/>
+                    <field name="enero_e" widget="estado"/>
+                    <field name="enero_c" widget="condicion"/>
+                    <field name="febrero_e" widget="estado"/>
+                    <field name="febrero_c" widget="condicion"/>
+                    <field name="marzo_e" widget="estado"/>
+                    <field name="marzo_c" widget="condicion"/>
+                    <field name="abril_e" widget="estado"/>
+                    <field name="abril_c" widget="condicion"/>
+                    <field name="mayo_e" widget="estado"/>
+                    <field name="mayo_c" widget="condicion"/>
+                    <field name="junio_e" widget="estado"/>
+                    <field name="junio_c" widget="condicion"/>
+                    <field name="julio_e" widget="estado"/>
+                    <field name="julio_c" widget="condicion"/>
+                    <field name="agosto_e" widget="estado"/>
+                    <field name="agosto_c" widget="condicion"/>
+                    <field name="setiembre_e" widget="estado"/>
+                    <field name="setiembre_c" widget="condicion"/>
+                    <field name="octubre_e" widget="estado"/>
+                    <field name="octubre_c" widget="condicion"/>
+                    <field name="noviembre_e" widget="estado"/>
+                    <field name="noviembre_c" widget="condicion"/>
+                    <field name="diciembre_e" widget="estado"/>
+                    <field name="diciembre_c" widget="condicion"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_reporte_declaracion">
+            <field name="name">res.partner.reporte_declaracion.tree</field>
+            <field name="model">res.partner.reporte_declaracion</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte Declaración" edit="false" create="false" class="detalle_vehiculos">
+                    <field name="parent_id"/>
+                    <field name="enero_pdt" widget="declaracion"/>
+                    <field name="enero_plame" widget="declaracion"/>
+                    <field name="febrero_pdt" widget="declaracion"/>
+                    <field name="febrero_plame" widget="declaracion"/>
+                    <field name="marzo_pdt" widget="declaracion"/>
+                    <field name="marzo_plame" widget="declaracion"/>
+                    <field name="abril_pdt" widget="declaracion"/>
+                    <field name="abril_plame" widget="declaracion"/>
+                    <field name="mayo_pdt" widget="declaracion"/>
+                    <field name="mayo_plame" widget="declaracion"/>
+                    <field name="junio_pdt" widget="declaracion"/>
+                    <field name="junio_plame" widget="declaracion"/>
+                    <field name="julio_pdt" widget="declaracion"/>
+                    <field name="julio_plame" widget="declaracion"/>
+                    <field name="agosto_pdt" widget="declaracion"/>
+                    <field name="agosto_plame" widget="declaracion"/>
+                    <field name="setiembre_pdt" widget="declaracion"/>
+                    <field name="setiembre_plame" widget="declaracion"/>
+                    <field name="octubre_pdt" widget="declaracion"/>
+                    <field name="octubre_plame" widget="declaracion"/>
+                    <field name="noviembre_pdt" widget="declaracion"/>
+                    <field name="noviembre_plame" widget="declaracion"/>
+                    <field name="diciembre_pdt" widget="declaracion"/>
+                    <field name="diciembre_plame" widget="declaracion"/>
+                </tree>
+            </field>
+        </record>
+
+          <record id="view_filter_partner_reporte_declaracion" model="ir.ui.view">
+        <field name="name">res.partner.reporte_declaracion.Filter</field>
+        <field name="model">res.partner.reporte_declaracion</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="anio" string="Año" filter_domain="[('anio','=',self)]"/>
+        </search>
+        </field>
+      </record>
+
+        <record model="ir.ui.view" id="view_partner_reporte_impuestos">
+            <field name="name">res.partner.reporte_pagos.tree</field>
+            <field name="model">res.partner.reporte_pagos</field>
+            <field name="field_parent">child_id</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Reporte Declaración" edit="false" create="false">
+                    <field name="cliente"/>
+                    <field name="name" invisible="1"/>
+                    <field name="enero_igv" widget="impuestos"/>
+                    <field name="enero_renta" widget="impuestos"/>
+                    <field name="enero_essalud" widget="impuestos"/>
+                    <field name="enero_afp" widget="impuestos"/>
+                    <field name="enero_onp" widget="impuestos"/>
+                    <field name="enero_sys" widget="impuestos"/>
+                    <field name="febrero_igv" widget="impuestos"/>
+                    <field name="febrero_renta" widget="impuestos"/>
+                    <field name="febrero_essalud" widget="impuestos"/>
+                    <field name="febrero_afp" widget="impuestos"/>
+                    <field name="febrero_onp" widget="impuestos"/>
+                    <field name="febrero_sys" widget="impuestos"/>
+                    <field name="marzo_igv" widget="impuestos"/>
+                    <field name="marzo_renta" widget="impuestos"/>
+                    <field name="marzo_essalud" widget="impuestos"/>
+                    <field name="marzo_afp" widget="impuestos"/>
+                    <field name="marzo_onp" widget="impuestos"/>
+                    <field name="marzo_sys" widget="impuestos"/>
+                    <field name="abril_igv" widget="impuestos"/>
+                    <field name="abril_renta" widget="impuestos"/>
+                    <field name="abril_essalud" widget="impuestos"/>
+                    <field name="abril_afp" widget="impuestos"/>
+                    <field name="abril_onp" widget="impuestos"/>
+                    <field name="abril_sys" widget="impuestos"/>
+                    <field name="mayo_igv" widget="impuestos"/>
+                    <field name="mayo_renta" widget="impuestos"/>
+                    <field name="mayo_essalud" widget="impuestos"/>
+                    <field name="mayo_afp" widget="impuestos"/>
+                    <field name="mayo_onp" widget="impuestos"/>
+                    <field name="mayo_sys" widget="impuestos"/>
+                    <field name="junio_igv" widget="impuestos"/>
+                    <field name="junio_renta" widget="impuestos"/>
+                    <field name="junio_essalud" widget="impuestos"/>
+                    <field name="junio_afp" widget="impuestos"/>
+                    <field name="junio_onp" widget="impuestos"/>
+                    <field name="junio_sys" widget="impuestos"/>
+                    <field name="julio_igv" widget="impuestos"/>
+                    <field name="julio_renta" widget="impuestos"/>
+                    <field name="julio_essalud" widget="impuestos"/>
+                    <field name="julio_afp" widget="impuestos"/>
+                    <field name="julio_onp" widget="impuestos"/>
+                    <field name="julio_sys" widget="impuestos"/>
+                    <field name="agosto_igv" widget="impuestos"/>
+                    <field name="agosto_renta" widget="impuestos"/>
+                    <field name="agosto_essalud" widget="impuestos"/>
+                    <field name="agosto_afp" widget="impuestos"/>
+                    <field name="agosto_onp" widget="impuestos"/>
+                    <field name="agosto_sys" widget="impuestos"/>
+                    <field name="setiembre_igv" widget="impuestos"/>
+                    <field name="setiembre_renta" widget="impuestos"/>
+                    <field name="setiembre_essalud" widget="impuestos"/>
+                    <field name="setiembre_afp" widget="impuestos"/>
+                    <field name="setiembre_onp" widget="impuestos"/>
+                    <field name="setiembre_sys" widget="impuestos"/>
+                    <field name="octubre_igv" widget="impuestos"/>
+                    <field name="octubre_renta" widget="impuestos"/>
+                    <field name="octubre_essalud" widget="impuestos"/>
+                    <field name="octubre_afp" widget="impuestos"/>
+                    <field name="octubre_onp" widget="impuestos"/>
+                    <field name="octubre_sys" widget="impuestos"/>
+                    <field name="noviembre_igv" widget="impuestos"/>
+                    <field name="noviembre_renta" widget="impuestos"/>
+                    <field name="noviembre_essalud" widget="impuestos"/>
+                    <field name="noviembre_afp" widget="impuestos"/>
+                    <field name="noviembre_onp" widget="impuestos"/>
+                    <field name="noviembre_sys" widget="impuestos"/>
+                    <field name="diciembre_igv" widget="impuestos"/>
+                    <field name="diciembre_renta" widget="impuestos"/>
+                    <field name="diciembre_essalud" widget="impuestos"/>
+                    <field name="diciembre_afp" widget="impuestos"/>
+                    <field name="diciembre_onp" widget="impuestos"/>
+                    <field name="diciembre_sys" widget="impuestos"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_reporte_documentos">
+            <field name="name">res.partner.reporte_documentos.tree</field>
+            <field name="model">res.partner.reporte_documentos</field>
+            <field name="field_parent">child_id</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Reporte Declaración" edit="false" create="false">
+                    <field name="cliente"/>
+                    <field name="name" invisible="1"/>
+                    <field name="enero_quincena" widget="documentos"/>
+                    <field name="enero_fin" widget="documentos"/>
+                    <field name="febrero_quincena" widget="documentos"/>
+                    <field name="febrero_fin" widget="documentos"/>
+                    <field name="marzo_quincena" widget="documentos"/>
+                    <field name="marzo_fin" widget="documentos"/>
+                    <field name="abril_quincena" widget="documentos"/>
+                    <field name="abril_fin" widget="documentos"/>
+                    <field name="mayo_quincena" widget="documentos"/>
+                    <field name="mayo_fin" widget="documentos"/>
+                    <field name="junio_quincena" widget="documentos"/>
+                    <field name="junio_fin" widget="documentos"/>
+                    <field name="julio_quincena" widget="documentos"/>
+                    <field name="julio_fin" widget="documentos"/>
+                    <field name="agosto_quincena" widget="documentos"/>
+                    <field name="agosto_fin" widget="documentos"/>
+                    <field name="setiembre_quincena" widget="documentos"/>
+                    <field name="setiembre_fin" widget="documentos"/>
+                    <field name="octubre_quincena" widget="documentos"/>
+                    <field name="octubre_fin" widget="documentos"/>
+                    <field name="noviembre_quincena" widget="documentos"/>
+                    <field name="noviembre_fin" widget="documentos"/>
+                    <field name="diciembre_quincena" widget="documentos"/>
+                    <field name="diciembre_fin" widget="documentos"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_calendar_cat_hora_form">
+            <field name='name'>Formulario</field>
+            <field name="model">res.partner.historia_clinica_catalogo_meses</field>
+            <field name="arch" type="xml">
+                <form string="form">
+                    <field name="historico"/>
+                    <field name="estado"/>
+                </form>
+            </field>
+        </record>
+<!--quick_add="false"-->
+             <record model="ir.ui.view" id="shared_calendar_cat_hora_view">
+            <field name="name">res.partner.historia_clinica_catalogo_meses</field>
+            <field name="model">res.partner.historia_clinica_catalogo_meses</field>
+            <field name="type">calendar</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendar" date_start="fecha" date_stop="fecha" color="cliente" day_length="8" quick_add="False" event_open_popup="%(view_calendar_cat_hora_form)s" avatar_model="res.partner" >
+                        <field name="cliente"/>
+                        <field name="estado"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='h_c_act'>
+            <field name="name">Reporte de Historial</field>
+            <field name="res_model">res.partner.historia_clinica_catalogo_meses</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                  Click para crear .
+              </p>
+              <p>
+                Aqui puedes agregar
+              </p>
+            </field>
+        </record>
+        <menuitem action="h_c_act" parent="menu_reportes" id="h_c_menu"/>
+
+
+        <!--//////////////-->
+        <record id="reporte_honorarios_anio_yo" model="ir.ui.view">
+            <field name="name">res.partner.reporte_honorarios_anio.tree</field>
+            <field name="model">res.partner.reporte.honorarios.anio</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Order" create="false" delete="false">
+                    <field name="cliente" string="Cliente"/>
+                    <field name="anio" invisible="1"/>
+                     <field name="enero" widget="my_widget"/>
+                    <field name="febrero" widget="my_widget"/>
+                    <field name="marzo" widget="my_widget"/>
+                    <field name="abril" widget="my_widget"/>
+                    <field name="mayo" widget="my_widget"/>
+                    <field name="junio" widget="my_widget"/>
+                    <field name="julio" widget="my_widget"/>
+                    <field name="agosto" widget="my_widget"/>
+                    <field name="setiembre" widget="my_widget"/>
+                    <field name="octubre" widget="my_widget"/>
+                    <field name="noviembre" widget="my_widget"/>
+                    <field name="diciembre" widget="my_widget"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='reporte_honorarios_anio_yo_search'>
+            <field name="name">res.partner.reporte.honorarios.anioyo_se</field>
+            <field name="model">res.partner.reporte.honorarios.anio</field>
+            <field name="arch" type="xml">
+                <search string="Cate" >
+                    <field name="anio"/>
+                    <filter name="groupby_anio" icon="terp-go-year" string="Año Actual"
+                        domain="[('anio','=', time.strftime('%%Y'))]"
+                        help="Año Actual"/>
+                </search>
+            </field>
+        </record>
+
+          <record model="ir.actions.act_window" id="reporte_honorarios_anio_yo_yo_se_action">
+                <field name="name">Reporte Honorarios por año</field>
+                <field name="res_model">res.partner.reporte.honorarios.anio</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_anio" : True,}</field>
+            </record>
+
+           <menuitem action="reporte_honorarios_anio_yo_yo_se_action" parent="menu_reportes" id="honorario_anio_menu"/>
+
+
+        <!---->
+
+         <record model="ir.ui.view" id="view_partner_reporte_declaracion_anio">
+            <field name="name">res.partner.reporte_declaracion_anio.tree</field>
+            <field name="model">res.partner.reporte.declaracion.anio</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte Declaración" edit="false" create="false" class="detalle_vehiculos">
+                    <field name="parent_id"/>
+                    <field name="anio" invisible="1"/>
+                    <field name="enero_pdt" widget="declaracion"/>
+                    <field name="enero_plame" widget="declaracion"/>
+                    <field name="febrero_pdt" widget="declaracion"/>
+                    <field name="febrero_plame" widget="declaracion"/>
+                    <field name="marzo_pdt" widget="declaracion"/>
+                    <field name="marzo_plame" widget="declaracion"/>
+                    <field name="abril_pdt" widget="declaracion"/>
+                    <field name="abril_plame" widget="declaracion"/>
+                    <field name="mayo_pdt" widget="declaracion"/>
+                    <field name="mayo_plame" widget="declaracion"/>
+                    <field name="junio_pdt" widget="declaracion"/>
+                    <field name="junio_plame" widget="declaracion"/>
+                    <field name="julio_pdt" widget="declaracion"/>
+                    <field name="julio_plame" widget="declaracion"/>
+                    <field name="agosto_pdt" widget="declaracion"/>
+                    <field name="agosto_plame" widget="declaracion"/>
+                    <field name="setiembre_pdt" widget="declaracion"/>
+                    <field name="setiembre_plame" widget="declaracion"/>
+                    <field name="octubre_pdt" widget="declaracion"/>
+                    <field name="octubre_plame" widget="declaracion"/>
+                    <field name="noviembre_pdt" widget="declaracion"/>
+                    <field name="noviembre_plame" widget="declaracion"/>
+                    <field name="diciembre_pdt" widget="declaracion"/>
+                    <field name="diciembre_plame" widget="declaracion"/>
+                </tree>
+            </field>
+        </record>
+
+          <record id="view_filter_partner_reporte_declaracion_anio" model="ir.ui.view">
+        <field name="name">res.partner.reporte_declaracion_anio.Filter</field>
+        <field name="model">res.partner.reporte.declaracion.anio</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="anio" string="Año" filter_domain="[('anio','=',self)]"/>
+            <filter name="groupby_anio" icon="terp-go-year" string="Año Actual"
+                domain="[('anio','=', time.strftime('%%Y'))]"
+                help="Año Actual"/>
+        </search>
+        </field>
+      </record>
+
+         <record model="ir.actions.act_window" id="reporte_declaracion_anio_yo_se_action">
+                <field name="name">Reporte Declaración por año</field>
+                <field name="res_model">res.partner.reporte.declaracion.anio</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_anio" : True,}</field>
+            </record>
+
+           <menuitem action="reporte_declaracion_anio_yo_se_action" parent="menu_reportes" id="declaracion_anio_menu"/>
+
+
+        <!--documentos-->
+
+        <record model="ir.ui.view" id="view_partner_reporte_documentos_anio">
+            <field name="name">res.partner.reporte_documentos_anio.tree</field>
+            <field name="model">res.partner.reporte.documentos.anio</field>
+            <field name="field_parent">child_id</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Reporte Declaración" edit="false" create="false">
+                    <field name="parent_id"/>
+                    <field name="anio" invisible="1"/>
+                    <field name="enero_quincena" widget="documentos"/>
+                    <field name="enero_fin" widget="documentos"/>
+                    <field name="febrero_quincena" widget="documentos"/>
+                    <field name="febrero_fin" widget="documentos"/>
+                    <field name="marzo_quincena" widget="documentos"/>
+                    <field name="marzo_fin" widget="documentos"/>
+                    <field name="abril_quincena" widget="documentos"/>
+                    <field name="abril_fin" widget="documentos"/>
+                    <field name="mayo_quincena" widget="documentos"/>
+                    <field name="mayo_fin" widget="documentos"/>
+                    <field name="junio_quincena" widget="documentos"/>
+                    <field name="junio_fin" widget="documentos"/>
+                    <field name="julio_quincena" widget="documentos"/>
+                    <field name="julio_fin" widget="documentos"/>
+                    <field name="agosto_quincena" widget="documentos"/>
+                    <field name="agosto_fin" widget="documentos"/>
+                    <field name="setiembre_quincena" widget="documentos"/>
+                    <field name="setiembre_fin" widget="documentos"/>
+                    <field name="octubre_quincena" widget="documentos"/>
+                    <field name="octubre_fin" widget="documentos"/>
+                    <field name="noviembre_quincena" widget="documentos"/>
+                    <field name="noviembre_fin" widget="documentos"/>
+                    <field name="diciembre_quincena" widget="documentos"/>
+                    <field name="diciembre_fin" widget="documentos"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="view_filter_partner_reporte_documentos_anio" model="ir.ui.view">
+        <field name="name">res.partner.reporte_documentos_anio.Filter</field>
+        <field name="model">res.partner.reporte.documentos.anio</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="anio" string="Año" filter_domain="[('anio','=',self)]"/>
+            <filter name="groupby_anio" icon="terp-go-year" string="Año Actual"
+                domain="[('anio','=', time.strftime('%%Y'))]"
+                help="Año Actual"/>
+        </search>
+        </field>
+      </record>
+
+         <record model="ir.actions.act_window" id="reporte_documentos_anio_yo_se_action">
+                <field name="name">Reporte Documentos por año</field>
+                <field name="res_model">res.partner.reporte.documentos.anio</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_anio" : True,}</field>
+            </record>
+
+           <menuitem action="reporte_documentos_anio_yo_se_action" parent="menu_reportes" id="documentos_anio_menu"/>
+<!--impuestossss-->
+
+        <record model="ir.ui.view" id="view_partner_reporte_impuestos_anio">
+            <field name="name">res.partner.reporte_pagos_anio.tree</field>
+            <field name="model">res.partner.reporte.pagos.anio</field>
+            <!--<field name="field_parent">child_id</field>-->
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Reporte Declaración" edit="false" create="false">
+                    <field name="parent_id"/>
+                    <field name="anio" invisible="1"/>
+                    <field name="enero_igv" widget="impuestos"/>
+                    <field name="enero_renta" widget="impuestos"/>
+                    <field name="enero_essalud" widget="impuestos"/>
+                    <field name="enero_afp" widget="impuestos"/>
+                    <field name="enero_onp" widget="impuestos"/>
+                    <field name="enero_sys" widget="impuestos"/>
+                    <field name="febrero_igv" widget="impuestos"/>
+                    <field name="febrero_renta" widget="impuestos"/>
+                    <field name="febrero_essalud" widget="impuestos"/>
+                    <field name="febrero_afp" widget="impuestos"/>
+                    <field name="febrero_onp" widget="impuestos"/>
+                    <field name="febrero_sys" widget="impuestos"/>
+                    <field name="marzo_igv" widget="impuestos"/>
+                    <field name="marzo_renta" widget="impuestos"/>
+                    <field name="marzo_essalud" widget="impuestos"/>
+                    <field name="marzo_afp" widget="impuestos"/>
+                    <field name="marzo_onp" widget="impuestos"/>
+                    <field name="marzo_sys" widget="impuestos"/>
+                    <field name="abril_igv" widget="impuestos"/>
+                    <field name="abril_renta" widget="impuestos"/>
+                    <field name="abril_essalud" widget="impuestos"/>
+                    <field name="abril_afp" widget="impuestos"/>
+                    <field name="abril_onp" widget="impuestos"/>
+                    <field name="abril_sys" widget="impuestos"/>
+                    <field name="mayo_igv" widget="impuestos"/>
+                    <field name="mayo_renta" widget="impuestos"/>
+                    <field name="mayo_essalud" widget="impuestos"/>
+                    <field name="mayo_afp" widget="impuestos"/>
+                    <field name="mayo_onp" widget="impuestos"/>
+                    <field name="mayo_sys" widget="impuestos"/>
+                    <field name="junio_igv" widget="impuestos"/>
+                    <field name="junio_renta" widget="impuestos"/>
+                    <field name="junio_essalud" widget="impuestos"/>
+                    <field name="junio_afp" widget="impuestos"/>
+                    <field name="junio_onp" widget="impuestos"/>
+                    <field name="junio_sys" widget="impuestos"/>
+                    <field name="julio_igv" widget="impuestos"/>
+                    <field name="julio_renta" widget="impuestos"/>
+                    <field name="julio_essalud" widget="impuestos"/>
+                    <field name="julio_afp" widget="impuestos"/>
+                    <field name="julio_onp" widget="impuestos"/>
+                    <field name="julio_sys" widget="impuestos"/>
+                    <field name="agosto_igv" widget="impuestos"/>
+                    <field name="agosto_renta" widget="impuestos"/>
+                    <field name="agosto_essalud" widget="impuestos"/>
+                    <field name="agosto_afp" widget="impuestos"/>
+                    <field name="agosto_onp" widget="impuestos"/>
+                    <field name="agosto_sys" widget="impuestos"/>
+                    <field name="setiembre_igv" widget="impuestos"/>
+                    <field name="setiembre_renta" widget="impuestos"/>
+                    <field name="setiembre_essalud" widget="impuestos"/>
+                    <field name="setiembre_afp" widget="impuestos"/>
+                    <field name="setiembre_onp" widget="impuestos"/>
+                    <field name="setiembre_sys" widget="impuestos"/>
+                    <field name="octubre_igv" widget="impuestos"/>
+                    <field name="octubre_renta" widget="impuestos"/>
+                    <field name="octubre_essalud" widget="impuestos"/>
+                    <field name="octubre_afp" widget="impuestos"/>
+                    <field name="octubre_onp" widget="impuestos"/>
+                    <field name="octubre_sys" widget="impuestos"/>
+                    <field name="noviembre_igv" widget="impuestos"/>
+                    <field name="noviembre_renta" widget="impuestos"/>
+                    <field name="noviembre_essalud" widget="impuestos"/>
+                    <field name="noviembre_afp" widget="impuestos"/>
+                    <field name="noviembre_onp" widget="impuestos"/>
+                    <field name="noviembre_sys" widget="impuestos"/>
+                    <field name="diciembre_igv" widget="impuestos"/>
+                    <field name="diciembre_renta" widget="impuestos"/>
+                    <field name="diciembre_essalud" widget="impuestos"/>
+                    <field name="diciembre_afp" widget="impuestos"/>
+                    <field name="diciembre_onp" widget="impuestos"/>
+                    <field name="diciembre_sys" widget="impuestos"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_filter_partner_reporte_impuestos_anio" model="ir.ui.view">
+        <field name="name">res.partner.reporte_pagos_anio.Filter</field>
+        <field name="model">res.partner.reporte.pagos.anio</field>
+        <field name="arch" type="xml">
+        <search>
+            <field name="anio" string="Año" filter_domain="[('anio','=',self)]"/>
+            <filter name="groupby_anio" icon="terp-go-year" string="Año Actual"
+                domain="[('anio','=', time.strftime('%%Y'))]"
+                help="Año Actual"/>
+        </search>
+        </field>
+      </record>
+
+         <record model="ir.actions.act_window" id="reporte_pagos_anio_yo_se_action">
+                <field name="name">Reporte Impuestos pendientes por año</field>
+                <field name="res_model">res.partner.reporte.pagos.anio</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+                <field name="context">{"search_default_groupby_anio" : True,}</field>
+            </record>
+
+           <menuitem action="reporte_pagos_anio_yo_se_action" parent="menu_reportes" id="impuestos_anio_menu"/>
+
+	</data>
+</openerp>
+
+
+
+

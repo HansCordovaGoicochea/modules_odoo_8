@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="product_template_ref_interna_type" model="ir.sequence.type">
+            <field name="name">codigo para referencia interna</field>
+            <field name="code">product.template.ref.interna</field>
+        </record>
+
+        <record model="ir.sequence" id="product_template_ref_interna">
+            <field name="name">codigo para referencia interna de producto </field>
+            <field name="code">product.template.ref.interna</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">ASF</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+    </data>
+</openerp>

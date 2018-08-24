@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="descuento_global assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/descuento_global/static/src/css/cabecera_periodo.css"/>
+                 <script type="text/javascript" src="/descuento_global/static/src/js/cabecera_periodo.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
